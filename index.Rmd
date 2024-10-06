@@ -1,0 +1,65 @@
+---
+title: "Math 114 Notes"
+author: "Nicholas Lyu"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [refs.bib]
+biblio-style: "numeric"
+split_bib: yes
+link-citations: true
+---
+
+\usepackage{cancel}
+\usepackage{amsmath}
+\usepackage{bm}
+\newcommand{\pd}[1]{\partial_{#1}}
+
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mb}{\boldsymbol}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\mca}{\mathcal}
+\newcommand{\mfk}{\mathfrak}
+\newcommand{\tr}{\mrm{tr}} 
+\newcommand{\df}{\dfrac}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\dag}{\dagger}
+
+\newcommand{\Cl}{\mca C}
+\newcommand{\Gr}{\mca G}
+\newcommand{\Pf}{\mrm{Pf}}
+\newcommand{\Pa}{\mca P}
+\newcommand{\R}{\mbb R}
+\newcommand{\supp}{\mrm{supp}}
+
+\newcommand{\poly}{\mrm{poly}}
+
+
+
+# Preface {-}
+These notes accompany the 
+Fall 2024 iteration of Math 114. 
+
+## Motivation {-} 
+Consider the space $\mca C([a, b])$ of functions on $[a, b]$ 
+where $a, b$ are bounded. 
+
+**Fact**: If $\{f_k\}$ is a sequence of functions in 
+$\mca C([a, b])$ and $f_k\to f$ _uniformly_ on $[a, b]$, 
+then 
+\[ 
+    \int_a^b |f_k(x)-f(x)|\, dx \to 0 
+\] 
+In other words, uniform convergence of functions imply 
+convergence of integrals. 
+However, the converse is not true. 
+
+Topics in this course: 
+
+1. Basic elements of measure theory: Lebesgue integration. 
+2. $L^p$-spaces (gadget which captures Lebesgue integration)
+3. Fourier analysis, Hilbert spaces. 
+4. Radon-Nikadym theorem and Hölder spaces 
+(gadget which captures RN-theorem and differentiation). 

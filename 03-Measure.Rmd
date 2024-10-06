@@ -1,0 +1,424 @@
+# Measure 
+
+Key takeaways: 
+
+1. A measure on a space is a specification of the well-behaved, measurable 
+    set ($\sigma$-algebra), together with a function which assigns a measure value 
+    to each measurable set. 
+2. The preimage-operation commutes with all closure operations
+    of the $\sigma$-algebra. 
+2. The Lebesgue measure is simply the exterior measure 
+    on Borel sets of $\R^n$. 
+3. The key desired property of a measure is 
+    countable additivity under disjoint unions. 
+
+## Measurable functions {-}
+:::{.proposition name="measurable function"}
+Given a measurable space $(X, \mca S)$. A function 
+$X\to \R^n$ is $\mca S$-measurable if 
+$f^{-1}(B) \in \mca S$ 
+for every Borel set $B\subset \R^n$. 
+:::
+
+:::{.proposition name="algebra of inverse images"}
+The inverse image operation commutes with elementary algebraic operations: 
+given $f:X\to Y$, then 
+
+1. $f^{-1}(Y-A) = X - f^{-1}(A)$. 
+2. $f^{-1}(\bigcup_{A\in \mca A} A) = \bigcup_{A\in \mca A} f^{-1}(A)$. 
+3. $f^{-1}(\bigcap_{A\in \mca A} A) = \bigcap_{A\in \mca A} f^{-1}(A)$. 
+:::
+
+:::{.example}
+If $\mca S=\{\emptyset, X\}$, then the only $\mca S$-measurable 
+functions from $X\to \R^n$ are constant functions. On the 
+other extreme, if $\mca S=2^X$, then every function is measurable. 
+For a nontrivial example, if $\mca S=\{\emptyset, (-\infty, 0), [0, \infty), \R\}$ 
+then $f:\R\to \R$ is measurable iff it is 
+constant on $(-\infty, 0), [0, \infty)$. 
+:::
+
+:::{.definition name="characteristic function"}
+Given $E\subset X$, the characteristic function $\chi_E:X\to \R$ is 
+\[ 
+    \chi_E(x) = \begin{cases}
+        1 & x\in E \\ 
+        0 & x\notin E
+    \end{cases}
+\] 
+:::
+
+:::{.proposition name="property of characteristic function"}
+Given $(X, \mca S), E\subset X$, then $\chi_E$ is $\mca S$-measurable 
+iff $E\in \mca S$. 
+:::
+_Proof:_ 
+$\chi_E^{-1}(B) = \{E, X-E, X, \emptyset\}$ 
+depending on how $B\subset \R$ intersects with $\{0, 1\}$. 
+
+
+:::{.proposition name="condition for measurable function"}
+For every set of subset $\mca A\subset 2^{\R^n}$ that generates 
+the Borel sets 
+\[ 
+    \sigma_{\mrm{Alg}}(\mca A) = \mrm{Borel}
+\] 
+given a measurable space $(X, \mca S)$ and function $f:X\to \R^n$, 
+\[ 
+    f^{-1}(A) \in \mca S, \quad \forall A\in\mca A \implies 
+    f \quad \mca S\text{-measurable}. 
+\] 
+:::
+_Proof:_ Given $\mca A, f$, consider the subsets 
+whose preimage are measurable 
+\[  
+    \mca T = \{B\subset \R^n| f^{-1}(B)\in \mca S\} \supset \mca T
+\] 
+It suffices to show that $\mrm{Borel}\subset \mca T$. 
+To do so, note that $\mca T$ is a $\sigma$-algebra 
+by the well-behavior of set operations under preimage: 
+$\emptyset = f^{-1}(\emptyset) = \emptyset \in \mca S$. 
+For complement, given $B\in \mca T: f^{-1}(\R^n-B) = X-f^{-1}(B) \in \mca S$; 
+similarly for countable union. 
+In other words, the preimage of measurable sets form a $\sigma$-algebra. 
+
+:::{.proposition name="continuity implies Borel measurability"}
+Every continuous function $f:X\to \R^n$ defined on 
+a Borel subset $X\subset \R^m$ is a Borel-measurable function. 
+:::
+_Proof:_ Consider the preimage of $x>a$ ($x, a\in \R^n$ and inequality 
+holds elementwise). For any such $a$, consider 
+\[ 
+    f^{-1}(x>a) 
+    = \left[\bigcup_{x\in f^{-1}(x>a)} (x-\delta_x, x+\delta_x) \right]\cap X
+\] 
+Given every $x\in \R^m: f(x)>a$, by continuity $\exists \delta_x\in \R$ 
+such that $f((x-\delta_x, x+\delta_x))>a$. The term in the paranthesis 
+is an open set, hence its intersection with the Borel set $X$ is Borel. 
+
+:::{.proposition name="composition preserves measurability"}
+Given measurable $f:(X, \mca S)\to \R^n$ and $g:\R^n\to \R^m$ 
+measurable, then $g\circ f$ is $\mca S$-measurable. 
+:::
+_Proof:_ Evident from the definition of measurability. 
+
+$f:(X\subset \R)\to \R$ is increasing if $x < y\implies f(x)\leq f(y)$; 
+it is monotonic if $f$ or $-f$ is increasing. 
+
+:::{.proposition}
+if $f:X\to \R$ is monotonic and $X$ is Borel, then $f$ is measurable. 
+:::
+_Proof:_ Fix $a\in \R$, then for $b=\inf f^{-1}((a, \infty))$, 
+monotonicity implies 
+\[ 
+    f^{-1}((a, \infty)) = (b, \infty)\cap X 
+    \text{ or }
+    [b, \infty)\cap X
+\] 
+
+:::{.proposition name="preservation of measurability under limits"}
+Suppose $\{f_j\}\to f:(X, \mca S)\to \R^n$ point-wise each $f_j$ 
+is $\mca S$-measurable, then $f$ is $\mca S$-measurable. 
+:::
+_Proof:_ Unrolling the definition of the limit: for any 
+$x\in X, a\in \R^n$, $f(x)>a$ iff 
+\begin{align}
+    & \lim_{k\to \infty} f_k(x) > a \\ 
+    \iff & \exists j>0, \exists N: f_{\forall k>N}(x)>a+1/j \\ 
+    \iff & x\in \bigcup_{j=1}^\infty 
+        \bigcup_{N=1}^\infty 
+        \bigcap_{k=1}^\infty f_k^{-1}(y>a+1/j)
+\end{align}
+Note that we only need some $j$ to exist. Each $\exists$ translates 
+to $\bigcup$, and each $\forall$ translates to $\bigcap$. Then 
+the preimage of $y>a$ the measurable set above. 
+
+:::{.definition name="extended Borel"}
+$A\subset [-\infty \infty]$ is a Borel set if $A\cap \R$ is Borel. 
+Extended measurability is defined similarly. 
+:::
+
+:::{.theorem name="variational limits are measurable"}
+Given measurable $\{f_k: (X, \mca S)\to \R\}$, the following functions 
+are also measurable: 
+\[ 
+    g(x) = \inf_k f_k(x), \quad h(x) = \sup_k f_k(x)
+\] 
+:::
+_Proof:_ It suffices to verify for the $\sup$ case that 
+\begin{align}
+    h(x) > a &\implies \exists k: f_k(x) > a \\ 
+    h^{-1}((a, \infty]) &= \bigcup_{k=1}^\infty f_k^{-1}((a, \infty])
+\end{align} 
+
+:::{.proposition name="a.e. measurability"}
+Given $f$ measurable and $f=g$ a.e. (they differ on a set of 
+measure $0$ on the domain), then $g$ is measurable. 
+:::
+_Proof:_ Let $\{\mca A\}$ be a subbasis generating the measurable  
+sets, then $\forall A\in \mca A$, the symmetric difference of 
+pre-images $f^{-1}(A), g^{-1}(A)$ is dominated by a set of 
+measure $0$; by measurability $g^{-1}(A)$ is measurable, 
+so $f^{-1}(S)$ is also measurable. 
+
+Some notations are convenient: 
+
+:::{.definition #setSequenceNotation name="sequence of sets"}
+An increasing sequence of sets $\{A_n\}$ is a sequence 
+\[ 
+    A_1\subset A_2\subset \cdots \to A = \bigcup_{n=1}^\infty A_n
+\] 
+also written $A_j\nearrow A$. Similarly, a decreasing 
+sequence of sets is written $A_j\searrow A$. 
+\[ 
+    A_1\supset A_2\supset \cdots \to A = \bigcap_{n=1}^\infty A_n 
+\] 
+:::
+
+
+## Measures and uniqueness {-}
+
+:::{.definition name="measure, measure space"}
+Given a measurable space $(X, \mca S)$, a 
+measure on $(X, \mca S)$ is a function 
+$\mu:\mca S\to [0, \infty]$ with 
+\[ 
+    \mu \left(\bigsqcup_{k=1}^\infty E_k\right) 
+    = \sum_{k=1}^\infty \mu(E_k), \quad \mu(\emptyset) = 0 
+\] 
+for every disjoint sequence $\{E_j\} \in \mca S$. 
+A measure space is an ordered triple $(X, \mca S, \mu)$. 
+:::
+
+:::{.proposition name="elementary properties of measures"}
+Given a measure space $(X, \mca S, \mu)$ and $D\subset E\in \mca S$: 
+
+1. $\mu(D) \leq \mu(E)$.
+2. $\mu(E - D) = \mu(E) - \mu(D)$. 
+:::
+
+:::{.proposition name="measure of nested union"}
+Under a measure space $(X, \mca S, \mu)$ with a nested 
+chain $E_1\subset E_2\subset \cdots$, we have 
+$\mu \bigcup_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)$.  
+:::
+_Proof:_ Only consider the case $\mu(E_k) < \infty$ 
+and define $E_0=\emptyset$, then 
+$\bigcup_{j=1}^\infty E_j = \bigsqcup_{j=1}^\infty E_j - E_{j-1}$. 
+Using the disjoint union additivity 
+\begin{align}
+    \bigcup_{j=1}^\infty E_j 
+    &= \sum_{j=1}^\infty \mu(E_j - E_{j-1}) 
+    = \lim_{k\to \infty} \sum_{j=1}^k \mu(E_j) - \mu(E_{j-1}) 
+    = \lim_{k\to \infty} \mu(E_k)
+\end{align}
+Considering the dual, we have 
+
+:::{.corollary name="measure of nested intersection"}
+Under a measure space $(X, \mca S, \mu)$ with a nested 
+chain $E_1\supset E_2\supset \cdots$, we have 
+$\mu \bigcap_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)$. 
+:::
+
+:::{.definition name="σ-finiteness"}
+A measure space $(X, \Sigma, \mu)$ is $\sigma$-finite 
+if there are countably many sets $A_1, \cdots$ such that 
+\[ 
+    \mu(A_{\forall j}) < \infty, \quad X = \bigcup_j A_j
+\] 
+with $\sigma$-finiteness, w.l.o.g. we can prove $A_j$ to be disjoint. 
+:::
+
+
+:::{.definition name="product measures"}
+The product of two measure spaces is 
+\[ 
+    (\Omega_1\times \Omega_2, \Sigma_1\times \Sigma_2, \mu_1\times \mu_2) 
+    = (\Omega_1, \Sigma_1, \mu_1)\times (\Omega_2, \Sigma_2, \mu_2)
+\] 
+where $\Omega_1\times \Omega_2$ is the Cartesian product of sets, 
+$\Sigma_1\times \Sigma_2$ is the $\sigma$-algebra product 
+\@ref(def:productSigmaAlg), 
+and $\mu_1\times \mu_2$ is uniquely 
+defined by the requirement 
+\[ 
+    \mu(A_1\times A_2) = \mu_1(A_1) \mu_2(A_2)
+\] 
+:::
+
+
+## Lebesgue Measure {-}
+
+:::{.definition name="Lebesgue measurable sets"}
+The set $\mca L$ of sets which are $\epsilon$-approximable from below by closed 
+sets are called Lebesgue measurable sets. 
+:::
+
+:::{.proposition name="properties of Lebesgue measurable sets"}
+$\mca B\subset \mca L$, and $\mca L$ is a $\sigma$-algebra. 
+:::
+_Proof:_ Note that $\mca L$ contains all closed sets, 
+we just need to show that $\mca L$ is a $\sigma$-algebra: 
+by taking complements we will show that it contains all open sets. 
+Proof is by standard argument, omitted. 
+
+<span style="color:green">
+In particular, this shows that every Lebesgue-measurable set is almost 
+Borel: i.e. there exists a Borel set which differs from it by a 
+set of measure $0$. 
+</span>
+
+:::{.definition name="Lebesgue measurable set"}
+$A\subset \R^n$ is Lebesgue measurable if it is almost a 
+Borel set, i.e. $\exists B\in \mca B$ such that $B\subset A, \mu_*(A-B)=0$. 
+:::
+
+
+:::{.remark name="distinction between subset and unions"}
+Let $\mca C$ denote the Cantor set, then $\mca C/2 + \mca C/2=[0, 1]$. 
+This does not contradict subadditivity 
+because sumsets are in general much larger than unions. 
+:::
+
+:::{.theorem #measurableCharacterization 
+    name="characterization of Lebesgue measurable sets"}
+The following conditions are equivalent: 
+
+1. 
+:::
+
+
+### Non-measurable set {-}
+
+Write $x\sim y$ if $x-y$ is rational and let $\mca E_\alpha$ 
+be the equivalence class of $\alpha$. Then 
+$[0, 1]=\bigcup \mca E_\alpha$ and construct 
+$\mca N$ by choosing one element $x_\alpha$ from 
+each $\mca E_\alpha$. 
+
+:::{.proposition} 
+$\mca N$ is not measurable.
+:::
+_Proof:_ Assume $\mca N$ measurable and let 
+$\{r_k\}_{k=1}^\infty$ be an enumeration of all rationals 
+in $[-1, 1]$ and consider $\mca N_k = \mca N + r_k$. Then 
+all $\{\mca N_k\}$ are disjoint. Note that 
+\[ 
+    [0, 1] \subset \bigsqcup_{k=1}^\infty \mca N_k \subset [-1, 2]
+\] 
+Assuming measurability (contradiction!), we have 
+\[ 
+    1\leq \sum_{k=1}^\infty \mu(\mca N_k) \leq 3 
+\] 
+Every term in the sum is equal, but there is no real number 
+which satisfies the construction above; contradiction: 
+there cannot be a disjoint-additive function on the disjoint 
+countable collection $\{\mca N_k\}$. 
+
+## Simple functions {-}
+
+:::{.definition name="simple function"}
+A simple function is a finite sum 
+\[ 
+    f = \sum_{k=1}^N a_k \chi_{E_k} 
+\] 
+where each $E_k$ is a finite-measurable set. 
+:::
+
+The following proof is from Ch. 11 of [@rudin1964principles]. 
+
+:::{.theorem #simpleFunctionApproximation name="simple-function approximation"}
+Given a real function $f:X\to \R$, there exists a sequence 
+$\{s_n\}$ of simple functions such that $s_n(x)\to f(x)$ 
+point-wise. If $f$ is measurable, then $\{s_n\}$ 
+may be chosen to be a sequence of measurable functions. 
+If $f\geq 0$, then $\{s_n\}$ may be chosen to be a monotonically 
+increasing sequence. 
+:::
+_Proof:_ Given $f\geq 0$, define $F_n = f^{-1}([n, \infty))$ and 
+\[ 
+    E_{n, i} = f^{-1} \left(\left[2^{-n}(i-1), 2^{-n}i \right]\right)
+\] 
+For $n=1, 2, \cdots$ and $i=1, 2, \cdots, n2^n$, choose 
+\[ 
+    s_n = n\chi_{F_n} + \sum_{i=1}^{n2^n} \df{i-1}{2^n} \chi_{E_{n, i}}
+\] 
+Note that $E_{n, i}$ is the pre-image of the $i$-th slice of 
+nonnegative real blocks of size $2^{-n}$, and the first term assigns 
+$\inf f=2^{-n}(i-1)$ on the corresponding intervals. The second 
+term just assigns approximates with $n$ all places where $f(x)\geq n$. 
+The second term is reserved for cases where $f(x)=\infty$. In short: 
+
+1. In the $n$-th approximation, approximate $f$ up to value $n$. 
+2. Divide $f^{-1}([0, n])$ into $2^{-n}$ pieces and assign a dominated 
+    simple function. Approximate the rest simply with $n$. 
+
+If $f$ is measurable, the domains of the characteristic decomposition 
+are measurable so $s_n$ is measurable. The general case follows by 
+$f=f^+-f^-$. 
+
+## Littlewood's three principles {-}
+
+Littlewood's three principles are: 
+
+1. Every finite-measurable set is almost a finite union of intervals. 
+2. Every measurable function is almost continuous. 
+3. Every pointwise convergent sequence of measurable functions 
+    is almost uniformly convergent. 
+
+To be precise, the third principle is formulated as follows: 
+
+:::{.theorem name="Egorov's theorem"}
+Given a a measurable sequence $(f_k)$ on a finite-measurable set 
+$E$ with $\mu(E)<\infty$ such that $f_k\to f$ a.e. on $E$. 
+For every $\epsilon>0$, there exists a closed set $A_\epsilon \subset E$ 
+such that $\mu(E-A_\epsilon)<\epsilon$ and $f_k\to f$ uniformly 
+on $A_\epsilon$ 
+:::
+_Proof:_ without loss of generality assume $f_k\to f$ pointwise (not just 
+pointwise a.e.) since we only require $\mu(E-A_\epsilon)<\epsilon$; 
+for each $n, k$, define 
+\[ 
+    E_k^n = \{x\in E: |f_{\forall j>k}(x) - f(x)|<1/n\}
+\] 
+In other words, this is the set on which $f_{j>k}$ is 
+$1/n$-close to $f$ on $E$. Fix $n$. Note that 
+$E^n_k\nearrow E$ by $f_k\to f$ (recall definition 
+\@ref(def:setSequenceNotation)); then there exists $k_n$ 
+such that 
+\[ 
+    \mu(E - E^n_{k_n}) < 2^{-n}, \quad 
+    \sup_{x\in E^n_{k_n}} |f_j(x) - f(x)| < 1/n 
+\] 
+Choose $N$ so that $\sum_{n=N}^\infty 2^{-n}<\epsilon/2$ and let 
+\[ 
+    \tilde A_\epsilon = \bigcap_{n\geq N} E^n_{k_n}
+\] 
+This is domain subset on which, for each $n\geq N$, 
+$|f_{j\geq k_n}(x) - f(x)| \leq 1/N$; also note that 
+\[ 
+    \mu(E - \tilde A_\epsilon) \leq \sum_{n=N}^\infty \mu(E - E^n_{k_n}) 
+    < \epsilon/2 
+\] 
+Also note that $\tilde A_\epsilon$ is measurable since it is the 
+intersection of $E^n_k$ which are pre-images; then by measurability 
+characterization \@ref(thm:measurableCharacterization) there exists a 
+closed $\epsilon/4$-coveree $A_\epsilon$ of $\tilde A_\epsilon$. 
+Moreover, $f_k\to f$ uniformly on $A_\epsilon$ since for every 
+$0<\epsilon'<1/n$, $|f_j(x)-f(x)|<\epsilon'$ when $j>k_n$ and 
+$x\in E^n_{k_n} \supset A_\epsilon$. 
+
+Similarly, the precise statement of the second principle is: 
+
+:::{.theorem name="Lusin's theorem"}
+Given measurable $f$ finite-valued on $E$ and $\mu(E)<\infty$, then 
+for every $\epsilon>0$ there exists a closed $\epsilon$-coveree 
+$F_\epsilon \subset E$ with $\mu(E-F_\epsilon)<\epsilon$ such that 
+$f_{|F_\epsilon}$ is continuous in the subspace topology. 
+:::
+_Proof:_ <span style="color:red"> TODO </span>
+
+<span style="color:green">
+Lusin's theorem _does not claim_ that $f$ is continuous on $F_\epsilon$, 
+only that $f_{|F_\epsilon}$ is continuous in the subspace topology. 
+</span>
