@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-05" />
+<meta name="date" content="2024-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -110,6 +110,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#riemann-integral"><i class="fa fa-check"></i>Riemann integral</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html"><i class="fa fa-check"></i><b>2</b> Exterior measure, σ-algebra</a>
@@ -137,6 +138,15 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>5</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -272,6 +282,51 @@ The upper and lower integrals are defined as
     \underline{\int}^b_a f\, d\alpha = \sup L(P, f, \alpha)
 \end{align}\]</span></p>
 </div>
+</div>
+<div id="semi-continuity" class="section level3 unnumbered hasAnchor">
+<h3>Semi-continuity<a href="prelimaries.html#semi-continuity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-6" class="definition"><strong>Definition 1.4  (semi-continuity) </strong></span>A real-valued function <span class="math inline">\(f\)</span> is <strong>lower-semicontinuous</strong>
+if
+<span class="math display">\[
+    f^{-1}((t, \infty)) \text{ is open }\forall t
+\]</span>
+It is <strong>upper-semicontinuous</strong> when
+<span class="math inline">\(f^{-1}((-\infty, t))\)</span> is open for all <span class="math inline">\(t\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-7" class="proposition"><strong>Proposition 1.5  (equivalent characterization) </strong></span><span class="math inline">\(f:X\to \mathbb R\)</span> is lower semi-continuous
+iff any of the following holds for all <span class="math inline">\(x\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li>Sequential characterization:
+<span class="math inline">\(x_n\to x \implies f(x)\leq \liminf f(x_n)\)</span>.</li>
+<li>Epsilon-delta characterization:
+<span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:
+f(B_\delta(x))&gt;f(x)-\epsilon\)</span>.</li>
+</ol>
+<p>The corresponding characterizations of lower-continuity are:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x_n\to x \implies f(x)\)</span></li>
+<li><span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:
+f(B_\delta(x)) &lt; f(x)+\epsilon\)</span>.</li>
+</ol>
+</div>
+<p>Focus on the second characterization:</p>
+<ul>
+<li>For <span class="math inline">\(\liminf\)</span>, <span class="math inline">\(f(x) \leq \lim_{n\to \infty} \inf_{k\geq n} f(x_n)\)</span>
+unrolls to: <span class="math inline">\(\forall \epsilon&gt;0, \exists n\)</span> such that
+<span class="math inline">\(\inf_k f(x_{k&gt;n}) \geq f(x)\)</span>.</li>
+</ul>
+<details>
+<summary>
+Proof
+</summary>
+Fixing <span class="math inline">\(x\)</span> and <span class="math inline">\(\epsilon&gt;0\)</span>, rewrite the convex condition to obtain
+<span class="math display">\[
+    f(\lambda x + \bar \lambda y) \leq f(x) +
+    \bar \lambda [f(y) - f(x)]
+\]</span>
+</details>
 
 </div>
 </div>

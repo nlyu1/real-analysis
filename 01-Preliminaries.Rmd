@@ -119,3 +119,47 @@ The upper and lower integrals are defined as
     \underline{\int}^b_a f\, d\alpha = \sup L(P, f, \alpha)
 \end{align}
 :::
+
+### Semi-continuity {-}
+
+:::{.definition name="semi-continuity"}
+A real-valued function $f$ is **lower-semicontinuous** 
+if 
+\[ 
+    f^{-1}((t, \infty)) \text{ is open }\forall t
+\] 
+It is **upper-semicontinuous** when 
+$f^{-1}((-\infty, t))$ is open for all $t$. 
+:::
+
+:::{.proposition name="equivalent characterization"}
+$f:X\to \R$ is lower semi-continuous 
+iff any of the following holds for all $x$: 
+
+1. Sequential characterization: 
+    $x_n\to x \implies f(x)\leq \liminf f(x_n)$. 
+2. Epsilon-delta characterization: 
+$\forall \epsilon>0, \exists \delta>0: 
+    f(B_\delta(x))>f(x)-\epsilon$. 
+
+The corresponding characterizations of lower-continuity are: 
+
+1. $x_n\to x \implies f(x)$ 
+2. $\forall \epsilon>0, \exists \delta>0: 
+    f(B_\delta(x)) < f(x)+\epsilon$. 
+:::
+
+Focus on the second characterization: 
+
+- For $\liminf$, $f(x) \leq \lim_{n\to \infty} \inf_{k\geq n} f(x_n)$ 
+unrolls to: $\forall \epsilon>0, \exists n$ such that 
+$\inf_k f(x_{k>n}) \geq f(x)$. 
+
+<details>
+<summary>Proof</summary>
+Fixing $x$ and $\epsilon>0$, rewrite the convex condition to obtain 
+\[ 
+    f(\lambda x + \bar \lambda y) \leq f(x) + 
+    \bar \lambda [f(y) - f(x)]
+\] 
+</details>

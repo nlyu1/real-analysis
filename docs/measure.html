@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-05" />
+<meta name="date" content="2024-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -110,6 +110,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#riemann-integral"><i class="fa fa-check"></i>Riemann integral</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html"><i class="fa fa-check"></i><b>2</b> Exterior measure, σ-algebra</a>
@@ -137,6 +138,15 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>5</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -173,13 +183,13 @@ countable additivity under disjoint unions.</li>
 <div id="measurable-functions" class="section level2 unnumbered hasAnchor">
 <h2>Measurable functions<a href="measure.html#measurable-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-27" class="proposition"><strong>Proposition 3.1  (measurable function) </strong></span>Given a measurable space <span class="math inline">\((X, \mathcal S)\)</span>. A function
+<p><span id="prp:unlabeled-div-29" class="proposition"><strong>Proposition 3.1  (measurable function) </strong></span>Given a measurable space <span class="math inline">\((X, \mathcal S)\)</span>. A function
 <span class="math inline">\(X\to \mathbb R^n\)</span> is <span class="math inline">\(\mathcal S\)</span>-measurable if
 <span class="math inline">\(f^{-1}(B) \in \mathcal S\)</span>
 for every Borel set <span class="math inline">\(B\subset \mathbb R^n\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-28" class="proposition"><strong>Proposition 3.2  (algebra of inverse images) </strong></span>The inverse image operation commutes with elementary algebraic operations:
+<p><span id="prp:unlabeled-div-30" class="proposition"><strong>Proposition 3.2  (algebra of inverse images) </strong></span>The inverse image operation commutes with elementary algebraic operations:
 given <span class="math inline">\(f:X\to Y\)</span>, then</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(f^{-1}(Y-A) = X - f^{-1}(A)\)</span>.</li>
@@ -188,7 +198,7 @@ given <span class="math inline">\(f:X\to Y\)</span>, then</p>
 </ol>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-29" class="example"><strong>Example 3.1  </strong></span>If <span class="math inline">\(\mathcal S=\{\emptyset, X\}\)</span>, then the only <span class="math inline">\(\mathcal S\)</span>-measurable
+<p><span id="exm:unlabeled-div-31" class="example"><strong>Example 3.1  </strong></span>If <span class="math inline">\(\mathcal S=\{\emptyset, X\}\)</span>, then the only <span class="math inline">\(\mathcal S\)</span>-measurable
 functions from <span class="math inline">\(X\to \mathbb R^n\)</span> are constant functions. On the
 other extreme, if <span class="math inline">\(\mathcal S=2^X\)</span>, then every function is measurable.
 For a nontrivial example, if <span class="math inline">\(\mathcal S=\{\emptyset, (-\infty, 0), [0, \infty), \mathbb R\}\)</span>
@@ -196,7 +206,7 @@ then <span class="math inline">\(f:\mathbb R\to \mathbb R\)</span> is measurable
 constant on <span class="math inline">\((-\infty, 0), [0, \infty)\)</span>.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-30" class="definition"><strong>Definition 3.1  (characteristic function) </strong></span>Given <span class="math inline">\(E\subset X\)</span>, the characteristic function <span class="math inline">\(\chi_E:X\to \mathbb R\)</span> is
+<p><span id="def:unlabeled-div-32" class="definition"><strong>Definition 3.1  (characteristic function) </strong></span>Given <span class="math inline">\(E\subset X\)</span>, the characteristic function <span class="math inline">\(\chi_E:X\to \mathbb R\)</span> is
 <span class="math display">\[
     \chi_E(x) = \begin{cases}
         1 &amp; x\in E \\
@@ -205,14 +215,14 @@ constant on <span class="math inline">\((-\infty, 0), [0, \infty)\)</span>.</p>
 \]</span></p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-31" class="proposition"><strong>Proposition 3.3  (property of characteristic function) </strong></span>Given <span class="math inline">\((X, \mathcal S), E\subset X\)</span>, then <span class="math inline">\(\chi_E\)</span> is <span class="math inline">\(\mathcal S\)</span>-measurable
+<p><span id="prp:unlabeled-div-33" class="proposition"><strong>Proposition 3.3  (property of characteristic function) </strong></span>Given <span class="math inline">\((X, \mathcal S), E\subset X\)</span>, then <span class="math inline">\(\chi_E\)</span> is <span class="math inline">\(\mathcal S\)</span>-measurable
 iff <span class="math inline">\(E\in \mathcal S\)</span>.</p>
 </div>
 <p><em>Proof:</em>
 <span class="math inline">\(\chi_E^{-1}(B) = \{E, X-E, X, \emptyset\}\)</span>
 depending on how <span class="math inline">\(B\subset \mathbb R\)</span> intersects with <span class="math inline">\(\{0, 1\}\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-32" class="proposition"><strong>Proposition 3.4  (condition for measurable function) </strong></span>For every set of subset <span class="math inline">\(\mathcal A\subset 2^{\mathbb R^n}\)</span> that generates
+<p><span id="prp:unlabeled-div-34" class="proposition"><strong>Proposition 3.4  (condition for measurable function) </strong></span>For every set of subset <span class="math inline">\(\mathcal A\subset 2^{\mathbb R^n}\)</span> that generates
 the Borel sets
 <span class="math display">\[
     \sigma_{\mathrm{Alg}}(\mathcal A) = \mathrm{Borel}
@@ -236,7 +246,7 @@ For complement, given <span class="math inline">\(B\in \mathcal T: f^{-1}(\mathb
 similarly for countable union.
 In other words, the preimage of measurable sets form a <span class="math inline">\(\sigma\)</span>-algebra.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-33" class="proposition"><strong>Proposition 3.5  (continuity implies Borel measurability) </strong></span>Every continuous function <span class="math inline">\(f:X\to \mathbb R^n\)</span> defined on
+<p><span id="prp:unlabeled-div-35" class="proposition"><strong>Proposition 3.5  (continuity implies Borel measurability) </strong></span>Every continuous function <span class="math inline">\(f:X\to \mathbb R^n\)</span> defined on
 a Borel subset <span class="math inline">\(X\subset \mathbb R^m\)</span> is a Borel-measurable function.</p>
 </div>
 <p><em>Proof:</em> Consider the preimage of <span class="math inline">\(x&gt;a\)</span> (<span class="math inline">\(x, a\in \mathbb R^n\)</span> and inequality
@@ -249,14 +259,14 @@ Given every <span class="math inline">\(x\in \mathbb R^m: f(x)&gt;a\)</span>, by
 such that <span class="math inline">\(f((x-\delta_x, x+\delta_x))&gt;a\)</span>. The term in the paranthesis
 is an open set, hence its intersection with the Borel set <span class="math inline">\(X\)</span> is Borel.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-34" class="proposition"><strong>Proposition 3.6  (composition preserves measurability) </strong></span>Given measurable <span class="math inline">\(f:(X, \mathcal S)\to \mathbb R^n\)</span> and <span class="math inline">\(g:\mathbb R^n\to \mathbb R^m\)</span>
+<p><span id="prp:unlabeled-div-36" class="proposition"><strong>Proposition 3.6  (composition preserves measurability) </strong></span>Given measurable <span class="math inline">\(f:(X, \mathcal S)\to \mathbb R^n\)</span> and <span class="math inline">\(g:\mathbb R^n\to \mathbb R^m\)</span>
 measurable, then <span class="math inline">\(g\circ f\)</span> is <span class="math inline">\(\mathcal S\)</span>-measurable.</p>
 </div>
 <p><em>Proof:</em> Evident from the definition of measurability.</p>
 <p><span class="math inline">\(f:(X\subset \mathbb R)\to \mathbb R\)</span> is increasing if <span class="math inline">\(x &lt; y\implies f(x)\leq f(y)\)</span>;
 it is monotonic if <span class="math inline">\(f\)</span> or <span class="math inline">\(-f\)</span> is increasing.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-35" class="proposition"><strong>Proposition 3.7  </strong></span>if <span class="math inline">\(f:X\to \mathbb R\)</span> is monotonic and <span class="math inline">\(X\)</span> is Borel, then <span class="math inline">\(f\)</span> is measurable.</p>
+<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 3.7  </strong></span>if <span class="math inline">\(f:X\to \mathbb R\)</span> is monotonic and <span class="math inline">\(X\)</span> is Borel, then <span class="math inline">\(f\)</span> is measurable.</p>
 </div>
 <p><em>Proof:</em> Fix <span class="math inline">\(a\in \mathbb R\)</span>, then for <span class="math inline">\(b=\inf f^{-1}((a, \infty))\)</span>,
 monotonicity implies
@@ -266,7 +276,7 @@ monotonicity implies
     [b, \infty)\cap X
 \]</span></p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-36" class="proposition"><strong>Proposition 3.8  (preservation of measurability under limits) </strong></span>Suppose <span class="math inline">\(\{f_j\}\to f:(X, \mathcal S)\to \mathbb R^n\)</span> point-wise each <span class="math inline">\(f_j\)</span>
+<p><span id="prp:unlabeled-div-38" class="proposition"><strong>Proposition 3.8  (preservation of measurability under limits) </strong></span>Suppose <span class="math inline">\(\{f_j\}\to f:(X, \mathcal S)\to \mathbb R^n\)</span> point-wise each <span class="math inline">\(f_j\)</span>
 is <span class="math inline">\(\mathcal S\)</span>-measurable, then <span class="math inline">\(f\)</span> is <span class="math inline">\(\mathcal S\)</span>-measurable.</p>
 </div>
 <p><em>Proof:</em> Unrolling the definition of the limit: for any
@@ -282,11 +292,11 @@ Note that we only need some <span class="math inline">\(j\)</span> to exist. Eac
 to <span class="math inline">\(\bigcup\)</span>, and each <span class="math inline">\(\forall\)</span> translates to <span class="math inline">\(\bigcap\)</span>. Then
 the preimage of <span class="math inline">\(y&gt;a\)</span> the measurable set above.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-37" class="definition"><strong>Definition 3.2  (extended Borel) </strong></span><span class="math inline">\(A\subset [-\infty \infty]\)</span> is a Borel set if <span class="math inline">\(A\cap \mathbb R\)</span> is Borel.
+<p><span id="def:unlabeled-div-39" class="definition"><strong>Definition 3.2  (extended Borel) </strong></span><span class="math inline">\(A\subset [-\infty \infty]\)</span> is a Borel set if <span class="math inline">\(A\cap \mathbb R\)</span> is Borel.
 Extended measurability is defined similarly.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-38" class="theorem"><strong>Theorem 3.1  (variational limits are measurable) </strong></span>Given measurable <span class="math inline">\(\{f_k: (X, \mathcal S)\to \mathbb R\}\)</span>, the following functions
+<p><span id="thm:unlabeled-div-40" class="theorem"><strong>Theorem 3.1  (variational limits are measurable) </strong></span>Given measurable <span class="math inline">\(\{f_k: (X, \mathcal S)\to \mathbb R\}\)</span>, the following functions
 are also measurable:
 <span class="math display">\[
     g(x) = \inf_k f_k(x), \quad h(x) = \sup_k f_k(x)
@@ -298,7 +308,7 @@ are also measurable:
     h^{-1}((a, \infty]) &amp;= \bigcup_{k=1}^\infty f_k^{-1}((a, \infty])
 \end{align}\]</span></p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-39" class="proposition"><strong>Proposition 3.9  (a.e. measurability) </strong></span>Given <span class="math inline">\(f\)</span> measurable and <span class="math inline">\(f=g\)</span> a.e. (they differ on a set of
+<p><span id="prp:unlabeled-div-41" class="proposition"><strong>Proposition 3.9  (a.e. measurability) </strong></span>Given <span class="math inline">\(f\)</span> measurable and <span class="math inline">\(f=g\)</span> a.e. (they differ on a set of
 measure <span class="math inline">\(0\)</span> on the domain), then <span class="math inline">\(g\)</span> is measurable.</p>
 </div>
 <p><em>Proof:</em> Let <span class="math inline">\(\{\mathcal A\}\)</span> be a subbasis generating the measurable<br />
@@ -322,7 +332,7 @@ sequence of sets is written <span class="math inline">\(A_j\searrow A\)</span>.
 <div id="measures-and-uniqueness" class="section level2 unnumbered hasAnchor">
 <h2>Measures and uniqueness<a href="measure.html#measures-and-uniqueness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-40" class="definition"><strong>Definition 3.4  (measure, measure space) </strong></span>Given a measurable space <span class="math inline">\((X, \mathcal S)\)</span>, a
+<p><span id="def:unlabeled-div-42" class="definition"><strong>Definition 3.4  (measure, measure space) </strong></span>Given a measurable space <span class="math inline">\((X, \mathcal S)\)</span>, a
 measure on <span class="math inline">\((X, \mathcal S)\)</span> is a function
 <span class="math inline">\(\mu:\mathcal S\to [0, \infty]\)</span> with
 <span class="math display">\[
@@ -333,14 +343,14 @@ for every disjoint sequence <span class="math inline">\(\{E_j\} \in \mathcal S\)
 A measure space is an ordered triple <span class="math inline">\((X, \mathcal S, \mu)\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-41" class="proposition"><strong>Proposition 3.10  (elementary properties of measures) </strong></span>Given a measure space <span class="math inline">\((X, \mathcal S, \mu)\)</span> and <span class="math inline">\(D\subset E\in \mathcal S\)</span>:</p>
+<p><span id="prp:unlabeled-div-43" class="proposition"><strong>Proposition 3.10  (elementary properties of measures) </strong></span>Given a measure space <span class="math inline">\((X, \mathcal S, \mu)\)</span> and <span class="math inline">\(D\subset E\in \mathcal S\)</span>:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\mu(D) \leq \mu(E)\)</span>.</li>
 <li><span class="math inline">\(\mu(E - D) = \mu(E) - \mu(D)\)</span>.</li>
 </ol>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-42" class="proposition"><strong>Proposition 3.11  (measure of nested union) </strong></span>Under a measure space <span class="math inline">\((X, \mathcal S, \mu)\)</span> with a nested
+<p><span id="prp:unlabeled-div-44" class="proposition"><strong>Proposition 3.11  (measure of nested union) </strong></span>Under a measure space <span class="math inline">\((X, \mathcal S, \mu)\)</span> with a nested
 chain <span class="math inline">\(E_1\subset E_2\subset \cdots\)</span>, we have
 <span class="math inline">\(\mu \bigcup_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)\)</span>.</p>
 </div>
@@ -356,12 +366,12 @@ Using the disjoint union additivity
 \end{align}\]</span>
 Considering the dual, we have</p>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-43" class="corollary"><strong>Corollary 3.1  (measure of nested intersection) </strong></span>Under a measure space <span class="math inline">\((X, \mathcal S, \mu)\)</span> with a nested
+<p><span id="cor:unlabeled-div-45" class="corollary"><strong>Corollary 3.1  (measure of nested intersection) </strong></span>Under a measure space <span class="math inline">\((X, \mathcal S, \mu)\)</span> with a nested
 chain <span class="math inline">\(E_1\supset E_2\supset \cdots\)</span>, we have
 <span class="math inline">\(\mu \bigcap_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)\)</span>.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-44" class="definition"><strong>Definition 3.5  (σ-finiteness) </strong></span>A measure space <span class="math inline">\((X, \Sigma, \mu)\)</span> is <span class="math inline">\(\sigma\)</span>-finite
+<p><span id="def:unlabeled-div-46" class="definition"><strong>Definition 3.5  (σ-finiteness) </strong></span>A measure space <span class="math inline">\((X, \Sigma, \mu)\)</span> is <span class="math inline">\(\sigma\)</span>-finite
 if there are countably many sets <span class="math inline">\(A_1, \cdots\)</span> such that
 <span class="math display">\[
     \mu(A_{\forall j}) &lt; \infty, \quad X = \bigcup_j A_j
@@ -369,7 +379,7 @@ if there are countably many sets <span class="math inline">\(A_1, \cdots\)</span
 with <span class="math inline">\(\sigma\)</span>-finiteness, w.l.o.g. we can prove <span class="math inline">\(A_j\)</span> to be disjoint.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-45" class="definition"><strong>Definition 3.6  (product measures) </strong></span>The product of two measure spaces is
+<p><span id="def:unlabeled-div-47" class="definition"><strong>Definition 3.6  (product measures) </strong></span>The product of two measure spaces is
 <span class="math display">\[
     (\Omega_1\times \Omega_2, \Sigma_1\times \Sigma_2, \mu_1\times \mu_2)
     = (\Omega_1, \Sigma_1, \mu_1)\times (\Omega_2, \Sigma_2, \mu_2)
@@ -387,11 +397,11 @@ defined by the requirement
 <div id="lebesgue-measure" class="section level2 unnumbered hasAnchor">
 <h2>Lebesgue Measure<a href="measure.html#lebesgue-measure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-46" class="definition"><strong>Definition 3.7  (Lebesgue measurable sets) </strong></span>The set <span class="math inline">\(\mathcal L\)</span> of sets which are <span class="math inline">\(\epsilon\)</span>-approximable from below by closed
+<p><span id="def:unlabeled-div-48" class="definition"><strong>Definition 3.7  (Lebesgue measurable sets) </strong></span>The set <span class="math inline">\(\mathcal L\)</span> of sets which are <span class="math inline">\(\epsilon\)</span>-approximable from below by closed
 sets are called Lebesgue measurable sets.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-47" class="proposition"><strong>Proposition 3.12  (properties of Lebesgue measurable sets) </strong></span><span class="math inline">\(\mathcal B\subset \mathcal L\)</span>, and <span class="math inline">\(\mathcal L\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra.</p>
+<p><span id="prp:unlabeled-div-49" class="proposition"><strong>Proposition 3.12  (properties of Lebesgue measurable sets) </strong></span><span class="math inline">\(\mathcal B\subset \mathcal L\)</span>, and <span class="math inline">\(\mathcal L\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra.</p>
 </div>
 <p><em>Proof:</em> Note that <span class="math inline">\(\mathcal L\)</span> contains all closed sets,
 we just need to show that <span class="math inline">\(\mathcal L\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra:
@@ -403,11 +413,11 @@ Borel: i.e. there exists a Borel set which differs from it by a
 set of measure <span class="math inline">\(0\)</span>.
 </span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-48" class="definition"><strong>Definition 3.8  (Lebesgue measurable set) </strong></span><span class="math inline">\(A\subset \mathbb R^n\)</span> is Lebesgue measurable if it is almost a
+<p><span id="def:unlabeled-div-50" class="definition"><strong>Definition 3.8  (Lebesgue measurable set) </strong></span><span class="math inline">\(A\subset \mathbb R^n\)</span> is Lebesgue measurable if it is almost a
 Borel set, i.e. <span class="math inline">\(\exists B\in \mathcal B\)</span> such that <span class="math inline">\(B\subset A, \mu_*(A-B)=0\)</span>.</p>
 </div>
 <div class="remark">
-<p><span id="unlabeled-div-49" class="remark"><em>Remark</em> (distinction between subset and unions). </span>Let <span class="math inline">\(\mathcal C\)</span> denote the Cantor set, then <span class="math inline">\(\mathcal C/2 + \mathcal C/2=[0, 1]\)</span>.
+<p><span id="unlabeled-div-51" class="remark"><em>Remark</em> (distinction between subset and unions). </span>Let <span class="math inline">\(\mathcal C\)</span> denote the Cantor set, then <span class="math inline">\(\mathcal C/2 + \mathcal C/2=[0, 1]\)</span>.
 This does not contradict subadditivity
 because sumsets are in general much larger than unions.</p>
 </div>
@@ -425,7 +435,7 @@ be the equivalence class of <span class="math inline">\(\alpha\)</span>. Then
 <span class="math inline">\(\mathcal N\)</span> by choosing one element <span class="math inline">\(x_\alpha\)</span> from
 each <span class="math inline">\(\mathcal E_\alpha\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-50" class="proposition"><strong>Proposition 3.13  </strong></span><span class="math inline">\(\mathcal N\)</span> is not measurable.</p>
+<p><span id="prp:unlabeled-div-52" class="proposition"><strong>Proposition 3.13  </strong></span><span class="math inline">\(\mathcal N\)</span> is not measurable.</p>
 </div>
 <p><em>Proof:</em> Assume <span class="math inline">\(\mathcal N\)</span> measurable and let
 <span class="math inline">\(\{r_k\}_{k=1}^\infty\)</span> be an enumeration of all rationals
@@ -447,7 +457,7 @@ countable collection <span class="math inline">\(\{\mathcal N_k\}\)</span>.</p>
 <div id="simple-functions" class="section level2 unnumbered hasAnchor">
 <h2>Simple functions<a href="measure.html#simple-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-51" class="definition"><strong>Definition 3.9  (simple function) </strong></span>A simple function is a finite sum
+<p><span id="def:unlabeled-div-53" class="definition"><strong>Definition 3.9  (simple function) </strong></span>A simple function is a finite sum
 <span class="math display">\[
     f = \sum_{k=1}^N a_k \chi_{E_k}
 \]</span>
@@ -495,7 +505,7 @@ is almost uniformly convergent.</li>
 </ol>
 <p>To be precise, the third principle is formulated as follows:</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-52" class="theorem"><strong>Theorem 3.4  (Egorov's theorem) </strong></span>Given a a measurable sequence <span class="math inline">\((f_k)\)</span> on a finite-measurable set
+<p><span id="thm:unlabeled-div-54" class="theorem"><strong>Theorem 3.4  (Egorov's theorem) </strong></span>Given a a measurable sequence <span class="math inline">\((f_k)\)</span> on a finite-measurable set
 <span class="math inline">\(E\)</span> with <span class="math inline">\(\mu(E)&lt;\infty\)</span> such that <span class="math inline">\(f_k\to f\)</span> a.e. on <span class="math inline">\(E\)</span>.
 For every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists a closed set <span class="math inline">\(A_\epsilon \subset E\)</span>
 such that <span class="math inline">\(\mu(E-A_\epsilon)&lt;\epsilon\)</span> and <span class="math inline">\(f_k\to f\)</span> uniformly
@@ -535,7 +545,7 @@ Moreover, <span class="math inline">\(f_k\to f\)</span> uniformly on <span class
 <span class="math inline">\(x\in E^n_{k_n} \supset A_\epsilon\)</span>.</p>
 <p>Similarly, the precise statement of the second principle is:</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-53" class="theorem"><strong>Theorem 3.5  (Lusin's theorem) </strong></span>Given measurable <span class="math inline">\(f\)</span> finite-valued on <span class="math inline">\(E\)</span> and <span class="math inline">\(\mu(E)&lt;\infty\)</span>, then
+<p><span id="thm:unlabeled-div-55" class="theorem"><strong>Theorem 3.5  (Lusin's theorem) </strong></span>Given measurable <span class="math inline">\(f\)</span> finite-valued on <span class="math inline">\(E\)</span> and <span class="math inline">\(\mu(E)&lt;\infty\)</span>, then
 for every <span class="math inline">\(\epsilon&gt;0\)</span> there exists a closed <span class="math inline">\(\epsilon\)</span>-coveree
 <span class="math inline">\(F_\epsilon \subset E\)</span> with <span class="math inline">\(\mu(E-F_\epsilon)&lt;\epsilon\)</span> such that
 <span class="math inline">\(f_{|F_\epsilon}\)</span> is continuous in the subspace topology.</p>

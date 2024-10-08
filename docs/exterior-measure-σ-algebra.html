@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-05" />
+<meta name="date" content="2024-10-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -110,6 +110,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#riemann-integral"><i class="fa fa-check"></i>Riemann integral</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html"><i class="fa fa-check"></i><b>2</b> Exterior measure, σ-algebra</a>
@@ -137,6 +138,15 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>5</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -212,7 +222,7 @@ the monotone limit of the freely generated algebra.</li>
 <div id="initial-attempt-at-defining-a-measure" class="section level2 unnumbered hasAnchor">
 <h2>Initial attempt at defining a measure<a href="exterior-measure-σ-algebra.html#initial-attempt-at-defining-a-measure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-6" class="definition"><strong>Definition 2.1  (closed rectangle) </strong></span>A rectangle <span class="math inline">\(R\)</span> in <span class="math inline">\(\mathbb R^d\)</span> is of the form
+<p><span id="def:unlabeled-div-8" class="definition"><strong>Definition 2.1  (closed rectangle) </strong></span>A rectangle <span class="math inline">\(R\)</span> in <span class="math inline">\(\mathbb R^d\)</span> is of the form
 <span class="math display">\[
     R = \prod_{j=1}^d [a_j, b_j], \quad a_j\leq b_j\in \mathbb R
 \]</span>
@@ -221,7 +231,7 @@ consists of open intervals. A union of rectangles is <strong>almost disjoint</st
 if the interiors are disjoint.</p>
 </div>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-7" class="lemma"><strong>Lemma 2.1  </strong></span>If a rectangle is the almost-disjoint union of
+<p><span id="lem:unlabeled-div-9" class="lemma"><strong>Lemma 2.1  </strong></span>If a rectangle is the almost-disjoint union of
 finitely many other rectangles <span class="math inline">\(R=\bigcup_{k=1}^N R_k\)</span>, then
 <span class="math display">\[
     |R| = \sum_{k=1}^N |R_k|
@@ -242,14 +252,14 @@ This finer grid partitions the sides of <span class="math inline">\(R\)</span>, 
 \]</span>
 This extends to the following lemma:</p>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-8" class="lemma"><strong>Lemma 2.2  </strong></span>Given rectangles <span class="math inline">\(R, R_1, \cdots, R_N\)</span> such that
+<p><span id="lem:unlabeled-div-10" class="lemma"><strong>Lemma 2.2  </strong></span>Given rectangles <span class="math inline">\(R, R_1, \cdots, R_N\)</span> such that
 <span class="math inline">\(R\subset \bigcup_{k=1}^N R_k\)</span>, then
 <span class="math display">\[
     |R| \leq \sum_{k=1}^N |R_k|
 \]</span></p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-9" class="theorem"><strong>Theorem 2.1  </strong></span>Every open subset <span class="math inline">\(\mathcal O\)</span> of <span class="math inline">\(\mathbb R\)</span> can be written uniquely as a
+<p><span id="thm:unlabeled-div-11" class="theorem"><strong>Theorem 2.1  </strong></span>Every open subset <span class="math inline">\(\mathcal O\)</span> of <span class="math inline">\(\mathbb R\)</span> can be written uniquely as a
 countable union of disjoint open intervals.</p>
 </div>
 <p><em>Proof</em> For each <span class="math inline">\(x\in \mathcal O\)</span>, let <span class="math inline">\(I_x\)</span> be the largest interval
@@ -281,7 +291,7 @@ both are finite. Their union is <span class="math inline">\(\mathcal O\)</span>:
 given <span class="math inline">\(x\in \mathcal O\)</span> there is a cube of side length <span class="math inline">\(2^{-N}\)</span>, for some <span class="math inline">\(N\)</span>,
 that contains <span class="math inline">\(x\)</span> and is entirely contained in <span class="math inline">\(\mathcal O\)</span>.</p>
 <div class="remark">
-<p><span id="unlabeled-div-10" class="remark"><em>Remark</em>. </span>This is an interesting construction which coincides with our
+<p><span id="unlabeled-div-12" class="remark"><em>Remark</em>. </span>This is an interesting construction which coincides with our
 intuition. However, the decomposition of <span class="math inline">\(\mathcal O\)</span> into countable union
 of disjoint open intervals is not unique, and it is nonapparant that
 the “volume” defined by each are equivalent. Instead, we can define
@@ -292,7 +302,7 @@ with the definition above. See proposition <a href="exterior-measure-σ-algebra.
 <div id="the-exterior-measure" class="section level2 unnumbered hasAnchor">
 <h2>The exterior measure<a href="exterior-measure-σ-algebra.html#the-exterior-measure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-11" class="definition"><strong>Definition 2.2  (exterior measure) </strong></span>The exterior measure <span class="math inline">\(\mu_*(E)\)</span> of any subset <span class="math inline">\(E\subset \mathbb R^d\)</span> is
+<p><span id="def:unlabeled-div-13" class="definition"><strong>Definition 2.2  (exterior measure) </strong></span>The exterior measure <span class="math inline">\(\mu_*(E)\)</span> of any subset <span class="math inline">\(E\subset \mathbb R^d\)</span> is
 <span class="math display">\[
     \mu_*(E) = \inf \sum_{j=1}^\infty |Q_j|
 \]</span>
@@ -300,7 +310,7 @@ where the <span class="math inline">\(\inf\)</span> is over all countable coveri
 closed rectangles.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-12" class="proposition"><strong>Proposition 2.1  (monotonicity) </strong></span><span class="math inline">\(E_1\subset E_2\implies \mu_*(E_1)\leq \mu_*(E_2)\)</span></p>
+<p><span id="prp:unlabeled-div-14" class="proposition"><strong>Proposition 2.1  (monotonicity) </strong></span><span class="math inline">\(E_1\subset E_2\implies \mu_*(E_1)\leq \mu_*(E_2)\)</span></p>
 </div>
 <p><em>Proof:</em> Every covering of <span class="math inline">\(E_2\)</span> by a countable set of cubes
 is also a covering of <span class="math inline">\(E_1\)</span>.</p>
@@ -322,7 +332,7 @@ The increasingly tight bound ensures that
     = \sum_{j=1}^\infty \mu_*(E_j)+\epsilon
 \end{align}\]</span></p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-13" class="proposition"><strong>Proposition 2.3  (equivalence with open cover infimum) </strong></span>Given <span class="math inline">\(E\subset \mathbb R^d\)</span>, <span class="math inline">\(\mu_*(E)=\inf \mu_*(\mathcal O)\)</span>, where <span class="math inline">\(\inf\)</span> is
+<p><span id="prp:unlabeled-div-15" class="proposition"><strong>Proposition 2.3  (equivalence with open cover infimum) </strong></span>Given <span class="math inline">\(E\subset \mathbb R^d\)</span>, <span class="math inline">\(\mu_*(E)=\inf \mu_*(\mathcal O)\)</span>, where <span class="math inline">\(\inf\)</span> is
 over all open sets <span class="math inline">\(\mathcal O\)</span> covering <span class="math inline">\(E\)</span>.</p>
 </div>
 <p><em>Proof:</em> <span class="math inline">\(\mu_*(E)\leq \inf \mu_*(\mathcal O)\)</span> holds by monotonicity.
@@ -331,7 +341,7 @@ with margin <span class="math inline">\(\epsilon/2\)</span>, and for each cube c
 <span class="math inline">\(O_j\)</span> covering <span class="math inline">\(Q_j\)</span> with margin <span class="math inline">\(\epsilon/2^{j+1}\)</span>, then <span class="math inline">\((O_j)\)</span>
 cover <span class="math inline">\(E\)</span> with margin <span class="math inline">\(\epsilon\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-14" class="proposition"><strong>Proposition 2.4  (additivity with finite distance) </strong></span>If <span class="math inline">\(E=E_1\cup E_2\)</span> and <span class="math inline">\(d(E_1, E_2)&gt;0\)</span>, then
+<p><span id="prp:unlabeled-div-16" class="proposition"><strong>Proposition 2.4  (additivity with finite distance) </strong></span>If <span class="math inline">\(E=E_1\cup E_2\)</span> and <span class="math inline">\(d(E_1, E_2)&gt;0\)</span>, then
 <span class="math display">\[
     \mu_*(E) = \mu_*(E_1)+\mu_*(E_2)
 \]</span></p>
@@ -371,7 +381,7 @@ differences:
 \]</span></p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-15" class="definition"><strong>Definition 2.4  (σ-algebra) </strong></span>Given a set <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathcal S\subset 2^X\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(X\)</span> if:</p>
+<p><span id="def:unlabeled-div-17" class="definition"><strong>Definition 2.4  (σ-algebra) </strong></span>Given a set <span class="math inline">\(X\)</span>, <span class="math inline">\(\mathcal S\subset 2^X\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(X\)</span> if:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\emptyset\in \mathcal S\)</span>.</li>
 <li>Closure under complement: <span class="math inline">\(E\in \mathcal S\implies X-E\in \mathcal S\)</span>.</li>
@@ -380,7 +390,7 @@ differences:
 </ol>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-16" class="proposition"><strong>Proposition 2.6  (derived properties of σ-algebras) </strong></span>Given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal S\)</span> on <span class="math inline">\(X\)</span>, then</p>
+<p><span id="prp:unlabeled-div-18" class="proposition"><strong>Proposition 2.6  (derived properties of σ-algebras) </strong></span>Given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal S\)</span> on <span class="math inline">\(X\)</span>, then</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(X\in \mathcal S\)</span>.</li>
 <li>Closure under finite union, intersection, and difference:
@@ -394,25 +404,25 @@ D, E\in \mathcal S\implies D\cup E, D\cap E, D-E\in \mathcal S
 (2) follows from <span class="math inline">\(D\cap E = (X-D)\cup (X_E)\)</span> and <span class="math inline">\(D-E=(D\cap E)\cup E\)</span>.
 (3) follows from <span class="math inline">\(\bigcap_{k=1}^\infty E_k = X - \bigcup_{k=1}^\infty (X-E_k)\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-17" class="example"><strong>Example 2.1  </strong></span>Given any set <span class="math inline">\(X\)</span>, both <span class="math inline">\(\{\emptyset, X\}\)</span> and <span class="math inline">\(2^X\)</span> are <span class="math inline">\(\sigma\)</span>-algebras
+<p><span id="exm:unlabeled-div-19" class="example"><strong>Example 2.1  </strong></span>Given any set <span class="math inline">\(X\)</span>, both <span class="math inline">\(\{\emptyset, X\}\)</span> and <span class="math inline">\(2^X\)</span> are <span class="math inline">\(\sigma\)</span>-algebras
 on <span class="math inline">\(X\)</span>. The set of all subsets <span class="math inline">\(E\)</span> such that <span class="math inline">\(E\)</span>
 is countable or <span class="math inline">\(X-E\)</span> countable is a <span class="math inline">\(\sigma\)</span>-algebra (countable
 union of countable set is countable, else if one element’s complement
 is countable, then the union’s complement is countable, too).</p>
 </div>
 <div class="remark">
-<p><span id="unlabeled-div-18" class="remark"><em>Remark</em>. </span>A <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(X\)</span> is a subset of <span class="math inline">\(2^X\)</span> that contains <span class="math inline">\(\emptyset\)</span>
+<p><span id="unlabeled-div-20" class="remark"><em>Remark</em>. </span>A <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(X\)</span> is a subset of <span class="math inline">\(2^X\)</span> that contains <span class="math inline">\(\emptyset\)</span>
 and is closed under countable union. Compare to a topology on <span class="math inline">\(X\)</span>, which
 is a subset of <span class="math inline">\(2^X\)</span> that contains <span class="math inline">\(\emptyset, X\)</span>, and is closed under
 arbitrary unions and finite intersections.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-19" class="definition"><strong>Definition 2.5  (measurable space, measurable set) </strong></span>A measurable space is a pair <span class="math inline">\((X, \mathcal S)\)</span> where <span class="math inline">\(\mathcal S\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra
+<p><span id="def:unlabeled-div-21" class="definition"><strong>Definition 2.5  (measurable space, measurable set) </strong></span>A measurable space is a pair <span class="math inline">\((X, \mathcal S)\)</span> where <span class="math inline">\(\mathcal S\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra
 on <span class="math inline">\(X\)</span>.
 <span class="math inline">\(S\subset X\)</span> is <span class="math inline">\(\mathcal S\)</span>-measurable iff <span class="math inline">\(S\in \mathcal S\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-20" class="proposition"><strong>Proposition 2.7  (freely generated σ-algebra) </strong></span>Given a set <span class="math inline">\(X\)</span> and <span class="math inline">\(\mathcal A\subset 2^X\)</span>, the intersection
+<p><span id="prp:unlabeled-div-22" class="proposition"><strong>Proposition 2.7  (freely generated σ-algebra) </strong></span>Given a set <span class="math inline">\(X\)</span> and <span class="math inline">\(\mathcal A\subset 2^X\)</span>, the intersection
 of all <span class="math inline">\(\sigma\)</span>-algebras <span class="math inline">\(\mathcal S\)</span> on <span class="math inline">\(X\)</span> such that
 <span class="math inline">\(\mathcal A\subset \mathcal S\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(X\)</span>.</p>
 <p>In other words, every subset <span class="math inline">\(A\subset 2^X\)</span> freely generates
@@ -435,7 +445,7 @@ where here <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span> denotes 
 product of sets. The product measure <span class="math inline">\(\mu = \mu_1\times \mu_2\)</span> is</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-21" class="proposition"><strong>Proposition 2.8  (section property of product algebra) </strong></span>The product <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma = \Sigma_1\times \Sigma_2\)</span>
+<p><span id="prp:unlabeled-div-23" class="proposition"><strong>Proposition 2.8  (section property of product algebra) </strong></span>The product <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma = \Sigma_1\times \Sigma_2\)</span>
 has the <strong>section property</strong>: <span class="math inline">\(\forall A\in \Sigma\)</span> and
 define
 <span class="math display">\[
@@ -449,7 +459,7 @@ satisfying the section property is a <span class="math inline">\(\sigma\)</span>
 <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span>; the proof concludes by the universal
 property of <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span>.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-22" class="definition"><strong>Definition 2.7  (monotone class) </strong></span>A monotone class <span class="math inline">\(\mathcal M\)</span> is a set of sets with the following
+<p><span id="def:unlabeled-div-24" class="definition"><strong>Definition 2.7  (monotone class) </strong></span>A monotone class <span class="math inline">\(\mathcal M\)</span> is a set of sets with the following
 properties:
 <span class="math display">\[\begin{align}
     A_1, \cdots \in \mathcal M, \quad A_j\nearrow A &amp;\implies A\in \mathcal M \\
@@ -485,7 +495,7 @@ closed under complement and finite union.</p>
 <p>We will next show that the exterior measure is additive
 on Borel sets.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-23" class="definition"><strong>Definition 2.8  (Borel subset, Borel set) </strong></span>The smallest <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(\mathbb R^n\)</span> containing all
+<p><span id="def:unlabeled-div-25" class="definition"><strong>Definition 2.8  (Borel subset, Borel set) </strong></span>The smallest <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(\mathbb R^n\)</span> containing all
 open subsets of <span class="math inline">\(\mathbb R^n\)</span> is the collection of Borel subsets.
 This <span class="math inline">\(\sigma\)</span>-algebra is called the Borel set.
 <span class="math display">\[
@@ -493,19 +503,19 @@ This <span class="math inline">\(\sigma\)</span>-algebra is called the Borel set
 \]</span></p>
 </div>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-24" class="lemma"><strong>Lemma 2.3  (invariance of outer-measure under interior and closure) </strong></span>For any set <span class="math inline">\(A\)</span>, <span class="math inline">\(\mu_*(A) = \mu_*(\mathrm{Int}(A)) = \mu_*(\bar A)\)</span>.</p>
+<p><span id="lem:unlabeled-div-26" class="lemma"><strong>Lemma 2.3  (invariance of outer-measure under interior and closure) </strong></span>For any set <span class="math inline">\(A\)</span>, <span class="math inline">\(\mu_*(A) = \mu_*(\mathrm{Int}(A)) = \mu_*(\bar A)\)</span>.</p>
 </div>
 <p><em>Proof:</em> For every <span class="math inline">\(\epsilon&gt;0\)</span>, we can (resp. expand) each element of the
 cover for <span class="math inline">\(A\)</span> by <span class="math inline">\(\epsilon/2^j\)</span> so that they cover $</p>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-25" class="lemma"><strong>Lemma 2.4  (additivity conditions for outer measure) </strong></span>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(G\)</span> be disjoint subsets of <span class="math inline">\(\mathbb R^n\)</span>, then
+<p><span id="lem:unlabeled-div-27" class="lemma"><strong>Lemma 2.4  (additivity conditions for outer measure) </strong></span>Let <span class="math inline">\(A\)</span> and <span class="math inline">\(G\)</span> be disjoint subsets of <span class="math inline">\(\mathbb R^n\)</span>, then
 <span class="math inline">\(\mu_*(A\cup G) = \mu_*(A) + \mu_*(G)\)</span> if <span class="math inline">\(G\)</span> is open or closed.</p>
 </div>
 <p><span style="color:red">
 TODO
 </span></p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-26" class="theorem"><strong>Theorem 2.4  (additivity of outer measure if one of the sets is a Borel set) </strong></span>Given <span class="math inline">\(B\in \mathcal B\)</span> and arbitrary <span class="math inline">\(A\)</span>, then
+<p><span id="thm:unlabeled-div-28" class="theorem"><strong>Theorem 2.4  (additivity of outer measure if one of the sets is a Borel set) </strong></span>Given <span class="math inline">\(B\in \mathcal B\)</span> and arbitrary <span class="math inline">\(A\)</span>, then
 <span class="math display">\[
     \mu_*(A\sqcup B) = \mu_*(A)+\mu_*(B)
 \]</span></p>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 \(L^p\) Spaces | Math 114 Notes</title>
+  <meta name="description" content="5 \(L^p\) Spaces | Math 114 Notes" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 \(L^p\) Spaces | Math 114 Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 \(L^p\) Spaces | Math 114 Notes" />
+  
+  
+  
+
+<meta name="author" content="Nicholas Lyu" />
+
+
+<meta name="date" content="2024-10-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="integration.html"/>
+<link rel="next" href="bibliography.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#compactness"><i class="fa fa-check"></i>Compactness</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#compactness-and-metrics"><i class="fa fa-check"></i>Compactness and metrics</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#connectedness"><i class="fa fa-check"></i>Connectedness</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#riemann-integral"><i class="fa fa-check"></i>Riemann integral</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html"><i class="fa fa-check"></i><b>2</b> Exterior measure, σ-algebra</a>
+<ul>
+<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#initial-attempt-at-defining-a-measure"><i class="fa fa-check"></i>Initial attempt at defining a measure</a></li>
+<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#the-exterior-measure"><i class="fa fa-check"></i>The exterior measure</a></li>
+<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#σ-algebra-monotone-class-theorem"><i class="fa fa-check"></i>σ-algebra, monotone class theorem</a></li>
+<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#disjoint-additivity-on-borel-sets"><i class="fa fa-check"></i>Disjoint additivity on Borel sets</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="measure.html"><a href="measure.html"><i class="fa fa-check"></i><b>3</b> Measure</a>
+<ul>
+<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#measurable-functions"><i class="fa fa-check"></i>Measurable functions</a></li>
+<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#measures-and-uniqueness"><i class="fa fa-check"></i>Measures and uniqueness</a></li>
+<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#lebesgue-measure"><i class="fa fa-check"></i>Lebesgue Measure</a>
+<ul>
+<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#non-measurable-set"><i class="fa fa-check"></i>Non-measurable set</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
+<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="integration.html"><a href="integration.html"><i class="fa fa-check"></i><b>4</b> Integration</a>
+<ul>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#definition"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#properties"><i class="fa fa-check"></i>Properties</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>5</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math 114 Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lp-spaces" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> <span class="math inline">\(L^p\)</span> Spaces<a href="lp-spaces.html#lp-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Key takeaways:</p>
+<ol style="list-style-type: decimal">
+<li>The convexity of <span class="math inline">\(x\mapsto |x|^p\)</span> implies Young’s inequality
+and the vector space structure of <span class="math inline">\(L^p(\Omega)\)</span>.</li>
+<li>To be precise, <span class="math inline">\(L^p\)</span> spaces are equivalence classes of
+functions which agree <span class="math inline">\(\mu\)</span>-a.e.</li>
+</ol>
+<div id="definitions" class="section level2 unnumbered hasAnchor">
+<h2>Definitions<a href="lp-spaces.html#definitions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="convexity-youngs-inequality" class="section level3 unnumbered hasAnchor">
+<h3>Convexity, Young’s inequality<a href="lp-spaces.html#convexity-youngs-inequality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-74" class="definition"><strong>Definition 5.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
+<span class="math inline">\((x, y)\mapsto \lambda x + \bar y\)</span>
+for all <span class="math inline">\(\lambda \in [0, 1]\)</span>. A <strong>convex function</strong>
+on a convex set <span class="math inline">\(K\)</span> is a real-valued function satisfying
+<span class="math display">\[
+    f(\lambda x + \bar \lambda y)
+    \leq \lambda f(x) + \bar \lambda f(y)
+\]</span>
+the function <span class="math inline">\(f\)</span> is <strong>strictly convex</strong> at <span class="math inline">\(x\)</span> if the
+inequality is strict for all <span class="math inline">\(y\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-75" class="proposition"><strong>Proposition 5.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
+</div>
+<div style="color:red">
+TODO
+<details>
+<summary>
+Proof
+</summary>
+</details>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-76" class="definition"><strong>Definition 5.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
+<span class="math inline">\(x\in K\subset \mathbb R^n\)</span> is a plane in <span class="math inline">\(\mathbb R^{n+1}\)</span> that
+touches <span class="math inline">\((x, f(x))\)</span> and that nowhere lies above the graph;
+if the support plane at <span class="math inline">\(x\)</span> is unique, then it is the tangent plane.</p>
+</div>
+<p>For example, there is no unique support plane at <span class="math inline">\(x=0\)</span> for <span class="math inline">\(|x|\)</span>.
+For convex <span class="math inline">\(f\)</span>, the existence of a tangent plane is equivalent
+to differentiability. In particular, the tangent plane
+for <span class="math inline">\(y=f(x)\)</span> at <span class="math inline">\(x_0\)</span> has expression
+<span class="math display">\[
+    y - f(x_0) = \nabla f(x_0) \cdot (y - x)
+\]</span>
+Thus for general convex functions, for each <span class="math inline">\(x\)</span> there exists
+a vector <span class="math inline">\(V\in \mathbb R^n\)</span> such that
+<span class="math display">\[
+    f(y) \geq f(x) + V\cdot (y - x)
+\]</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-77" class="definition"><strong>Definition 5.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
+<span class="math display">\[
+    p^{-1} + q^{-1} = 1
+\]</span>
+It is oftentimes more convenient to note that
+<span class="math display">\[
+    p = \dfrac q {q - 1} \iff q = \dfrac p {p - 1}
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-78" class="proposition"><strong>Proposition 5.2  (Young's inequality) </strong></span>Given Hölder conjugates <span class="math inline">\(p, q&gt;1\)</span>,
+<span class="math display">\[
+    ab \leq \dfrac{a^p}{p} + \dfrac{b^q}{q}, \quad \forall a, b\geq 0
+\]</span>
+Equality is saturated when <span class="math inline">\(a^p = b^q\)</span>.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Consider the convex function <span class="math inline">\(f(a) = \dfrac{a^p}{p}\)</span>.
+Its Legendre transform is
+<span class="math display">\[\begin{align}
+    g(b)
+    &amp;= \sup_a \left(ab - \dfrac{a^p}{p}\right)
+    = a_*b - \dfrac{a_*^p}{p},\quad a_* = b^{1/(p-1)} \\
+    &amp;= b^{1 + 1/(p-1)} - \dfrac 1 p b^{p/(p-1)} = b^q - \dfrac 1 p b^q
+    = \dfrac{b^q}{q}
+\end{align}\]</span>
+Young’s inequality follows from the variational characterization
+of the Legendre transform.
+Equality is saturated when <span class="math inline">\(a=b^{1/(p-1)} \iff a^p = b^q\)</span>.
+</details>
+</div>
+</div>
+<div id="space-and-norm" class="section level2 unnumbered hasAnchor">
+<h2>Space and norm<a href="lp-spaces.html#space-and-norm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-79" class="definition"><strong>Definition 5.4  (Lp space, norm) </strong></span>Given a positive (nonnegative) measure
+<span class="math inline">\(\mu\)</span> and <span class="math inline">\(1\leq p&lt;\infty\)</span>, the space
+<span class="math inline">\(L^p(\Omega, d\mu)\)</span>
+is the space of complex-valued functions <span class="math inline">\(f:\Omega\to \mathbb C\)</span>
+such that:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f\)</span> is <span class="math inline">\(\mu\)</span>-measurable.</li>
+<li><span class="math inline">\(|f|^p\)</span> is <span class="math inline">\(\mu\)</span>-integrable.</li>
+</ol>
+<p>The measure <span class="math inline">\(d\mu\)</span> is usually omitted if understood.
+Given <span class="math inline">\(f\in L^p(\Omega)\)</span>, its norm is
+<span class="math display">\[
+    \|f\|_p = \left[\int_\Omega |f(x)|^p \mu(dx)\right]^{1/p}
+\]</span>
+This definition is extended to <span class="math inline">\(L^\infty(\Omega, d\mu)\)</span>
+as the space of <span class="math inline">\(\mu\)</span>-a.e. bounded functions, with
+<span class="math display">\[
+    \|f\|_\infty = \inf \{
+        K: f \leq K \text{ for } \mu\text{-a.e.}
+    \}
+\]</span>
+The <span class="math inline">\(\infty\)</span>-norm is also called the <strong>essential supremum</strong>
+of <span class="math inline">\(|f|\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-80" class="proposition"><strong>Proposition 5.3  (vector space property) </strong></span><span class="math inline">\(L^p(\Omega, d\mu)\)</span> is a vector space.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Closure under scalar multiplication is apparant.
+Closure under addition is implied by
+<span class="math inline">\(|\alpha + \beta|^p \leq 2^{p-1}(|\alpha|^p + |\beta|^p)\)</span>,
+which follows from the convexity of <span class="math inline">\(|x|^p\)</span>.
+</details>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-81" class="proposition"><strong>Proposition 5.4  (norm properties) </strong></span>The <span class="math inline">\(L^p\)</span> norm satisfies:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Linearity: <span class="math inline">\(\|\lambda f\|_p = |\lambda| \|f\|_p\)</span>.</li>
+<li>Nonnegativity: <span class="math inline">\(\|f\|_p\geq 0\)</span> with equality iff <span class="math inline">\(f=0\)</span> for <span class="math inline">\(\mu\)</span>-a.e.</li>
+<li>Triangle inequality: <span class="math inline">\(\|f+g\|_p \leq \|f_p\| + \|g\|_p\)</span>.</li>
+</ol>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Linearity is apparant, for the second part,
+<span class="math inline">\(\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0\)</span>, the second and
+third <span class="math inline">\(=0\)</span> are to be understood as <span class="math inline">\(\mu\)</span>-a.e.
+</details>
+</div>
+<div id="major-inequalities" class="section level2 unnumbered hasAnchor">
+<h2>Major inequalities<a href="lp-spaces.html#major-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>From now on we work in a measure space denoted
+<span class="math inline">\((\Omega, \Sigma, \mu)\)</span>.</p>
+<p>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the average of
+a measurable function <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is defined as
+<span class="math display">\[
+    \langle f\rangle= \dfrac 1 {\mu(\Omega)} \int_\Omega f\, d\mu
+\]</span></p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-82" class="theorem"><strong>Theorem 5.1  (Jensen's inequality) </strong></span>Given a convex function <span class="math inline">\(J:\mathbb R\to \mathbb R\)</span> and
+measurable <span class="math inline">\(f:\Omega\to \mathbb R\)</span>, then</p>
+<ol style="list-style-type: decimal">
+<li>The negative part <span class="math inline">\((J\circ f)_-\)</span> is in <span class="math inline">\(L^1(\Omega)\)</span>.</li>
+<li><span class="math inline">\(\langle J\circ f\rangle\geq J(\langle f\rangle)\)</span>; when <span class="math inline">\(J\)</span> is strictly
+convex at $f, there is equality iff <span class="math inline">\(f\)</span> is constant.</li>
+</ol>
+</div>
+<p><em>Proof:</em> Fixing <span class="math inline">\(\langle f\rangle\)</span>, there exists a constant <span class="math inline">\(V\in \mathbb R\)</span>
+such that
+<span class="math display">\[
+    J(\forall t)\geq J(\langle f\rangle) + V(t - \langle f\rangle)
+\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="integration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
