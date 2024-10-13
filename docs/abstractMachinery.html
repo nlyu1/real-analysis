@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 σ-algebra, Measures | Math 114 Notes</title>
+  <meta name="description" content="2 σ-algebra, Measures | Math 114 Notes" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 σ-algebra, Measures | Math 114 Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 σ-algebra, Measures | Math 114 Notes" />
+  
+  
+  
+
+<meta name="author" content="Nicholas Lyu" />
+
+
+<meta name="date" content="2024-10-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="prelimaries.html"/>
+<link rel="next" href="realMeasures.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i>Organization</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> σ-algebra, Measures</a>
+<ul>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#sigmaDefinition"><i class="fa fa-check"></i>σ-algebra</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableSpaceFunctions"><i class="fa fa-check"></i>Measure spaces, measurable functions</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#productFubini"><i class="fa fa-check"></i>Product measures, Fubini</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="realMeasures.html"><a href="realMeasures.html"><i class="fa fa-check"></i><b>3</b> Measures on <span class="math inline">\(\mathbb R^n\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#exterior-measure"><i class="fa fa-check"></i>Exterior measure</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#realMeasurableFunctions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#disjoint-additivity-on-borel-sets"><i class="fa fa-check"></i>Disjoint additivity on Borel sets</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#lebesgue-measure"><i class="fa fa-check"></i>Lebesgue Measure</a>
+<ul>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#non-measurable-set"><i class="fa fa-check"></i>Non-measurable set</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="integration.html"><a href="integration.html"><i class="fa fa-check"></i><b>4</b> Integration</a>
+<ul>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#definition"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#properties"><i class="fa fa-check"></i>Properties</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>5</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math 114 Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="abstractMachinery" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> σ-algebra, Measures<a href="abstractMachinery.html#abstractMachinery" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This section develops the abstract machinery of measures and <span class="math inline">\(\sigma\)</span>-algebras:</p>
+<ol style="list-style-type: decimal">
+<li><a href="abstractMachinery.html#sigmaDefinition">Definitions</a> of <span class="math inline">\(\sigma\)</span>-algebra and monotone class theorem.</li>
+<li><a href="abstractMachinery.html#measurableSpaceFunctions">Measure spaces and measurable functions</a>:
+<span class="math inline">\(\sigma\)</span>-finite measures, measures of nested intersections or unions;
+sufficient conditions for measurable functions; uniqueness of <span class="math inline">\(\sigma\)</span>-finite
+measures (a prime demonstration of the monotone class theorem).</li>
+<li><a href="abstractMachinery.html#productFubini">Product constructions</a>: product <span class="math inline">\(\sigma\)</span>-algebras and measures.</li>
+</ol>
+<p>Key takeaways:</p>
+<ol style="list-style-type: decimal">
+<li>A measure space specifies the well-behaved, measurable
+sets (<span class="math inline">\(\sigma\)</span>-algebra), together with a function (called measure) which assigns a measure value
+to each measurable set. The key desired property of a measure is
+countable additivity under disjoint unions.</li>
+<li>The preimage-operation commutes with all closure operations
+of the <span class="math inline">\(\sigma\)</span>-algebra.</li>
+<li>Finite and <span class="math inline">\(\sigma\)</span>-finite measures (definition <a href="abstractMachinery.html#def:finiteMeasure">2.7</a>).</li>
+<li>Monotone class theorem <a href="abstractMachinery.html#thm:monotoneClassTheorem">2.1</a>:
+the transfinite construction of
+a freely generated <span class="math inline">\(\sigma\)</span>-algebra is simplified as
+the monotone limit of the freely generated algebra.</li>
+<li>The product algebra <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span> is universal and satisfies
+the section property (proposition <a href="abstractMachinery.html#prp:productSection">2.7</a>).</li>
+</ol>
+<div id="sigmaDefinition" class="section level2 unnumbered hasAnchor">
+<h2>σ-algebra<a href="abstractMachinery.html#sigmaDefinition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:setAlgebra" class="definition"><strong>Definition 2.1  (algebra of sets) </strong></span>A collection <span class="math inline">\(\mathcal A\)</span> of sets is an algebra
+of sets if it is closed under finite union and
+differences:
+<span class="math display">\[
+    A, B\in \mathcal A\implies A\cup B, A-B, B-A\in \mathcal A
+\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-8" class="definition"><strong>Definition 2.2  (σ-algebra) </strong></span>Given a set <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(\Sigma\subset 2^\Omega\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(\Omega\)</span> if:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\emptyset\in \Sigma\)</span>.</li>
+<li>Closure under complement: <span class="math inline">\(E\in \Sigma\implies \Omega-E\in \Sigma\)</span>.</li>
+<li>Closure under countable union:
+<span class="math inline">\(\{E_j\}\in \Sigma\implies \bigcup_{k=1}^\infty E_k \in \Sigma\)</span>.</li>
+</ol>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-9" class="proposition"><strong>Proposition 2.1  (derived properties of σ-algebras) </strong></span>Given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma\)</span> on <span class="math inline">\(\Omega\)</span>, then</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\Omega\in \Sigma\)</span>.</li>
+<li>Closure under finite union, intersection, and difference:
+<span class="math display">\[
+D, E\in \Sigma\implies D\cup E, D\cap E, D-E\in \Sigma
+\]</span></li>
+<li><span class="math inline">\(E_1, \cdots\in \Sigma\implies \bigcap_{k=1}^\infty E_k \in \Sigma\)</span></li>
+</ol>
+</div>
+<p><em>Proof:</em> (1) follows from <span class="math inline">\(\Omega=\Omega-\emptyset\)</span>.
+(2) follows from <span class="math inline">\(D\cap E = (\Omega-D)\cup (\Omega_E)\)</span> and <span class="math inline">\(D-E=(D\cap E)\cup E\)</span>.
+(3) follows from <span class="math inline">\(\bigcap_{k=1}^\infty E_k = \Omega - \bigcup_{k=1}^\infty (\Omega-E_k)\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Example 2.1  </strong></span>Given any set <span class="math inline">\(\Omega\)</span>, both <span class="math inline">\(\{\emptyset, \Omega\}\)</span> and <span class="math inline">\(2^\Omega\)</span> are <span class="math inline">\(\sigma\)</span>-algebras
+on <span class="math inline">\(\Omega\)</span>. The set of all subsets <span class="math inline">\(E\)</span> such that <span class="math inline">\(E\)</span>
+is countable or <span class="math inline">\(\Omega-E\)</span> countable is a <span class="math inline">\(\sigma\)</span>-algebra (countable
+union of countable set is countable, else if one element’s complement
+is countable, then the union’s complement is countable, too).</p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-11" class="remark"><em>Remark</em>. </span>A <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(\Omega\)</span> is a subset of <span class="math inline">\(2^\Omega\)</span> that contains <span class="math inline">\(\emptyset\)</span>
+and is closed under countable union. Compare to a topology on <span class="math inline">\(\Omega\)</span>, which
+is a subset of <span class="math inline">\(2^\Omega\)</span> that contains <span class="math inline">\(\emptyset, \Omega\)</span>, and is closed under
+arbitrary unions and finite intersections.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-12" class="definition"><strong>Definition 2.3  (measurable space, measurable set) </strong></span>A measurable space is a pair <span class="math inline">\((\Omega, \Sigma)\)</span> where <span class="math inline">\(\Sigma\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra
+on <span class="math inline">\(\Omega\)</span>.
+A subset <span class="math inline">\(S\subset \Omega\)</span> is <span class="math inline">\(\Sigma\)</span>-measurable iff <span class="math inline">\(S\in \Sigma\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-13" class="definition"><strong>Definition 2.4  (freely generated σ-algebra) </strong></span>Given a set <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\mathcal A\subset 2^\Omega\)</span>, the intersection
+of all <span class="math inline">\(\sigma\)</span>-algebras <span class="math inline">\(\Sigma\)</span> on <span class="math inline">\(\Omega\)</span> such that
+<span class="math inline">\(\mathcal A\subset \Sigma\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra on <span class="math inline">\(\Omega\)</span>.</p>
+<p>In other words, every subset <span class="math inline">\(A\subset 2^\Omega\)</span> freely generates
+a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\sigma_{\mathrm{Alg}}(A)\)</span> on <span class="math inline">\(\Omega\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-14" class="definition"><strong>Definition 2.5  (monotone class) </strong></span>A monotone class <span class="math inline">\(\mathcal M\)</span> is a set of sets with the following
+properties:
+<span class="math display">\[\begin{align}
+    A_1, \cdots \in \mathcal M, \quad A_j\nearrow A &amp;\implies A\in \mathcal M \\
+    A_1, \cdots \in \mathcal M, \quad A_j\searrow A &amp;\implies A\in \mathcal M
+\end{align}\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:monotoneClassTheorem" class="theorem"><strong>Theorem 2.1  (monotone class theorem) </strong></span>Given a set <span class="math inline">\(\Omega\)</span> and an algebra (definition <a href="abstractMachinery.html#def:setAlgebra">2.1</a>)
+of subsets of <span class="math inline">\(\Omega\)</span> such that <span class="math inline">\(\Omega, \emptyset\in \mathcal A\)</span>.
+Then the smallest monotone class <span class="math inline">\(\mathcal M\)</span> containing <span class="math inline">\(\mathcal A\)</span>
+is equal to <span class="math inline">\(\sigma_{\mathrm{Alg}}(\mathcal A)\)</span>.</p>
+</div>
+<span style="color:green">
+Proof idea: every <span class="math inline">\(\sigma\)</span>-algebra is a monotone class.
+Monotone class + closure under finite union and complement implies <span class="math inline">\(\sigma\)</span>-algebra.
+Show that <span class="math inline">\(\mathcal M\)</span> is closed under finite union and complements.
+</span>
+<details>
+<summary>
+Proof
+</summary>
+The smallest monotone class <span class="math inline">\(\mathcal M\)</span> containing <span class="math inline">\(\mathcal A\)</span>
+is the intersection of all monotone classes containing <span class="math inline">\(\mathcal A\)</span>.
+Now, if <span class="math inline">\(\Sigma\)</span> is closed under complement and finite unions,
+then for any <span class="math inline">\(A_1, \cdots\)</span>, the sequence
+<span class="math display">\[
+    \left(B_j = \bigcup_{k=1}^j A_j \in \mathcal M\right) \nearrow
+    \bigcup_{j=1}^\infty A_j \in \mathcal M
+\]</span>
+Together with complements, this will show that <span class="math inline">\(\mathcal M\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra;
+then <span class="math inline">\(\mathcal M\)</span> is the minimal <span class="math inline">\(\sigma\)</span>-algebra since every
+<span class="math inline">\(\sigma\)</span>-algebra is a monotone class. To show that <span class="math inline">\(\mathcal M\)</span>
+is indeed closed under complement and finite union, argue for
+every set <span class="math inline">\(A\in \mathcal M\)</span> that the set <span class="math inline">\(C(A)\)</span> of all sets which
+stay within <span class="math inline">\(\mathcal M\)</span> under complement (or union) is a
+monotone class, since <span class="math inline">\(\mathcal M\)</span> itself is a monotone class. For example,
+<span class="math display">\[
+    A\cup \bigcup_{j=1}^\infty B_j = \bigcup_{j=1}^\infty A\cup B \in \mathcal M
+\]</span>
+By the algebraic property of <span class="math inline">\(\mathcal A\)</span> we have
+<span class="math inline">\(A\in C(A)\subset C(A)=\mathcal M\)</span>. This shows that <span class="math inline">\(A\)</span> is
+closed under complement and finite union.
+</details>
+</div>
+<div id="measurableSpaceFunctions" class="section level2 unnumbered hasAnchor">
+<h2>Measure spaces, measurable functions<a href="abstractMachinery.html#measurableSpaceFunctions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-15" class="definition"><strong>Definition 2.6  (measure, measure space) </strong></span>Given a measurable space <span class="math inline">\((\Omega, \Sigma)\)</span>, a
+measure on <span class="math inline">\((\Omega, \Sigma)\)</span> is a function
+<span class="math inline">\(\mu:\Sigma\to [0, \infty]\)</span> with
+<span class="math display">\[
+    \mu \left(\bigsqcup_{k=1}^\infty E_k\right)
+    = \sum_{k=1}^\infty \mu(E_k), \quad \mu(\emptyset) = 0
+\]</span>
+for every disjoint sequence <span class="math inline">\(\{E_j\} \in \Sigma\)</span>.
+A measure space is an ordered triple <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-16" class="proposition"><strong>Proposition 2.2  (elementary properties of measures) </strong></span>Given a measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(D\subset E\in \Sigma\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mu(D) \leq \mu(E)\)</span>.</li>
+<li><span class="math inline">\(\mu(E - D) = \mu(E) - \mu(D)\)</span>.</li>
+</ol>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-17" class="proposition"><strong>Proposition 2.3  (measure of nested union) </strong></span>Under a measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> with a nested
+chain <span class="math inline">\(E_1\subset E_2\subset \cdots\)</span>, we have
+<span class="math inline">\(\mu \bigcup_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)\)</span>.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Only consider the case <span class="math inline">\(\mu(E_k) &lt; \infty\)</span>
+and define <span class="math inline">\(E_0=\emptyset\)</span>, then
+<span class="math inline">\(\bigcup_{j=1}^\infty E_j = \bigsqcup_{j=1}^\infty E_j - E_{j-1}\)</span>.
+Using the disjoint union additivity
+<span class="math display">\[\begin{align}
+    \bigcup_{j=1}^\infty E_j
+    &amp;= \sum_{j=1}^\infty \mu(E_j - E_{j-1})
+    = \lim_{k\to \infty} \sum_{j=1}^k \mu(E_j) - \mu(E_{j-1})
+    = \lim_{k\to \infty} \mu(E_k)
+\end{align}\]</span>
+The dual of the proposition above leads to the following:
+</details>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-18" class="corollary"><strong>Corollary 2.1  (measure of nested intersection) </strong></span>Under a measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> with a nested
+chain <span class="math inline">\(E_1\supset E_2\supset \cdots\)</span>, we have
+<span class="math inline">\(\mu \bigcap_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:finiteMeasure" class="definition"><strong>Definition 2.7  (finite and σ-finite measures) </strong></span>A measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> is <span class="math inline">\(\sigma\)</span>-finite
+if there are countably many sets <span class="math inline">\(A_1, \cdots\)</span> such that
+<span class="math display">\[
+    \mu(A_{\forall j}) &lt; \infty, \quad \Omega = \bigcup_j A_j
+\]</span>
+with <span class="math inline">\(\sigma\)</span>-finiteness, w.l.o.g. we can prove <span class="math inline">\(A_j\)</span> to be disjoint.
+The measure space is finite if <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-19" class="proposition"><strong>Proposition 2.4  (composition preserves measurability) </strong></span>Given measurable <span class="math inline">\(f:(\Omega, \Sigma)\to \mathbb R^n\)</span> and <span class="math inline">\(g:\mathbb R^n\to \mathbb R^m\)</span>
+measurable, then <span class="math inline">\(g\circ f\)</span> is <span class="math inline">\(\Sigma\)</span>-measurable.</p>
+</div>
+<p>We next prove a convenient criteria for proving measurability.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-20" class="proposition"><strong>Proposition 2.5  (algebra of function preimages) </strong></span>The inverse image operation commutes with elementary algebraic operations:
+given <span class="math inline">\(f:\Omega\to Y\)</span>, then</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f^{-1}(Y-A) = \Omega - f^{-1}(A)\)</span>.</li>
+<li><span class="math inline">\(f^{-1}(\bigcup_{A\in \mathcal A} A) = \bigcup_{A\in \mathcal A} f^{-1}(A)\)</span>.</li>
+<li><span class="math inline">\(f^{-1}(\bigcap_{A\in \mathcal A} A) = \bigcap_{A\in \mathcal A} f^{-1}(A)\)</span>.</li>
+</ol>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-21" class="proposition"><strong>Proposition 2.6  (condition for measurable function) </strong></span>Given measurable spaces <span class="math inline">\((\Omega_1, \Sigma_1), (\Omega_2, \Sigma_2)\)</span>,
+such that <span class="math inline">\(\Sigma_2 = \sigma_{\mathrm{Alg}}(\mathcal A)\)</span>.
+For every function <span class="math inline">\(f:\Omega_1\to \Omega_2\)</span>
+<span class="math display">\[
+    f^{-1}(\forall A\in \mathcal A) \in \Sigma_1 \implies
+    f \quad \Sigma_1\text{-measurable}.
+\]</span></p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+<p>Consider the subsets
+whose preimage are measurable
+<span class="math display">\[  
+    \mathcal T = \{B\in \Sigma_2 | f^{-1}(B)\in \Sigma_1\} \supset \mathcal A
+\]</span>
+It suffices to show that <span class="math inline">\(\Sigma_2 \subset \mathcal T\)</span>.
+To do so, we show that <span class="math inline">\(\mathcal T\)</span> is a <span class="math inline">\(\sigma\)</span>-algebra
+by the well-behavior of set operations under preimage:</p>
+<ul>
+<li><span class="math inline">\(\emptyset = f^{-1}(\emptyset) = \emptyset \in \Sigma_1,  f^{-1}(\Omega_2) = \Omega_1\in \Sigma_1\)</span>.</li>
+<li>For complement: given <span class="math inline">\(B\in \mathcal T: f^{-1}(\Omega_2-B) = \Omega_1-f^{-1}(B) \in \Sigma_1\)</span>.</li>
+<li>For countable union:
+<span class="math inline">\(\displaystyle f^{-1}\bigcup B_j = \bigcup f^{-1}B_j \in \Sigma_1\)</span>.</li>
+</ul>
+The algebra of preimage commutes with all elementary set operations.
+</details>
+<div class="theorem">
+<p><span id="thm:uniqueMeasure" class="theorem"><strong>Theorem 2.2  (uniqueness of measures) </strong></span>Given <span class="math inline">\(\Omega\)</span> and <span class="math inline">\(\Sigma = \sigma_{\mathrm{Alg}}(\mathcal A)\)</span>, where <span class="math inline">\(\mathcal A\)</span>
+is a set algebra with <span class="math inline">\(\Omega, \emptyset \in \mathcal A\)</span>.
+If <span class="math inline">\(\mu_1\)</span> is a <span class="math inline">\(\sigma\)</span>-finite measure in the stronger sense such that
+<span class="math display">\[
+    \exists \{A_j\in \mathcal A\}_{i=1}^\infty, \quad \mu_1(A_j)&lt;\infty, \quad
+    \bigcup_{j=1}^\infty A_j=\Omega
+\]</span>
+Then every <span class="math inline">\(\mu_2\)</span> which coincides with <span class="math inline">\(\mu_1\)</span> on <span class="math inline">\(\mathcal A\)</span>
+satisfies <span class="math inline">\(\mu_1=\mu_2\)</span>.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+First assume that <span class="math inline">\(\mu_1(\Omega)&lt;\infty\)</span>. Consider
+<span class="math display">\[
+    \mathcal M = \{A\in \Sigma: \mu_1(A) = \mu_2(A)\} \supset \mathcal A
+\]</span> If this is shown to be a monotone class, then <span class="math inline">\(\Sigma\subseteq \mathcal M\)</span>
+(in fact it’s equality by <span class="math inline">\(A\in \Sigma\)</span> condition). Given an
+increasing sequence of sets <span class="math inline">\(A_j\subset \mathcal M\)</span>, construct
+<span class="math inline">\(B_1 = A_1, B_{j&gt;1} = A_j - A_{j-1}\)</span>, then
+<span class="math display">\[
+    \mu_1(A_{n\to \infty})
+    = \mu_1 \bigsqcup_{j=1}^{n\to \infty} B_j
+    = \lim_{n\to \infty} \sum_{j=1}^n \mu_1(B_j)
+    = \lim_{n\to \infty} \mu_1(A_n) = \lim_{n\to \infty} \mu_2(A_n)
+    = \mu_2(A_{n\to \infty})
+\]</span>
+Additionally, <span class="math inline">\(A\in \mathcal A\implies A^c\in \mathcal M\)</span> since <span class="math inline">\(\mu_j(A^c) = \mu_j(\Omega)-\mu_j(A)\)</span>
+by <span class="math inline">\(\mu_j\)</span> finite, from which <span class="math inline">\(\mathcal M\)</span> is a monotone class.
+Next, for general <span class="math inline">\(\sigma\)</span>-finite measures, <span class="math inline">\(\mu_1(B\cap A_0) = \mu_2(B\cap A_0\)</span> for every
+<span class="math inline">\(\mu(A_0)&lt;\infty\)</span> and <span class="math inline">\(B\in \Sigma\)</span> since <span class="math inline">\(A_0\cap \Sigma = \sigma_{\mathrm{Alg}}(A_0 \cap \mathcal A)\)</span>.
+By <span class="math inline">\(\sigma\)</span>-finite assumption choose <span class="math inline">\(\Omega = \bigsqcup A_j\)</span> each with finite measure, then
+<span class="math display">\[
+    \mu_1(B\in \Sigma) = \mu_1 \bigsqcup_{j=1}^\infty A_j\cap B
+    = \sum_{j=1}^\infty \mu_1(A_j\cap B)
+    = \sum_{j=1}^\infty \mu_2(A_j\cap B) = \mu_2(B)
+\]</span>
+</details>
+</div>
+<div id="productFubini" class="section level2 unnumbered hasAnchor">
+<h2>Product measures, Fubini<a href="abstractMachinery.html#productFubini" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:productSigmaAlg" class="definition"><strong>Definition 2.8  (product σ-algebra) </strong></span>The product <span class="math inline">\(\sigma\)</span>-algebra is the smallest
+<span class="math inline">\(\sigma\)</span>-algebra containing all rectangles.
+<span class="math display">\[
+    \Sigma = \sigma_{\mathrm{Alg}}(\Sigma_1\times \Sigma_2)
+    = \sigma_{\mathrm{Alg}}\left(\{
+        A_1\times A_2 | A_1\in \Sigma_1, A_2\in \Sigma_2
+    \}\right)
+\]</span>
+where here <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span> denotes the Cartesian
+product of sets. The product measure <span class="math inline">\(\mu = \mu_1\times \mu_2\)</span> is</p>
+</div>
+<div class="proposition">
+<p><span id="prp:productSection" class="proposition"><strong>Proposition 2.7  (section property of product algebra) </strong></span>The product <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma = \Sigma_1\times \Sigma_2\)</span>
+has the <u>section property</u>: <span class="math inline">\(\forall A\in \Sigma\)</span>, define
+<span class="math display">\[
+    A_1(x_2)\in \Omega_1 = \{x_1\in \Omega_1: (x_1, x_2)\in A\}
+\]</span>
+then <span class="math inline">\(A_1(x_2)\in \Sigma_1\)</span> for every choice of <span class="math inline">\(x_2\)</span>.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+The set <span class="math inline">\(\Sigma&#39;\)</span> of all subsets of <span class="math inline">\(\Omega_1\times \Omega_2\)</span>
+(regarded as Cartesian product of sets)
+satisfying the section property is a <span class="math inline">\(\sigma\)</span>-algebra containing
+<span class="math inline">\(\Sigma_1\times \Sigma_2\)</span>; the proof concludes by the universal
+property of <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span>.
+</details>
+<div class="definition">
+<p><span id="def:unlabeled-div-22" class="definition"><strong>Definition 2.9  (product measures) </strong></span>The product of two measure spaces is
+<span class="math display">\[
+    (\Omega_1\times \Omega_2, \Sigma_1\times \Sigma_2, \mu_1\times \mu_2)
+    = (\Omega_1, \Sigma_1, \mu_1)\times (\Omega_2, \Sigma_2, \mu_2)
+\]</span>
+where <span class="math inline">\(\Omega_1\times \Omega_2\)</span> is the Cartesian product of sets,
+<span class="math inline">\(\Sigma_1\times \Sigma_2\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra product
+<a href="abstractMachinery.html#def:productSigmaAlg">2.8</a>,
+and <span class="math inline">\(\mu_1\times \mu_2\)</span> is uniquely
+defined by the requirement
+<span class="math display">\[
+    \mu(A_1\times A_2) = \mu_1(A_1) \mu_2(A_2)
+\]</span></p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-23" class="theorem"><strong>Theorem 2.3  </strong></span>Given two <span class="math inline">\(\sigma\)</span>-finite measure spaces <span class="math inline">\((\Omega_1, \Sigma_1, \mu_1)\)</span> and
+<span class="math inline">\((\Omega_2, \Sigma_2, \mu_2)\)</span> define, for every measurable
+<span class="math inline">\(A\in \Sigma_1\times \Sigma_2\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f(y) = \mu_1(A_1(y)) = \mu_1(\{x\in \Omega_1: (x, y)\in A\})\)</span>.</li>
+<li><span class="math inline">\(g(x) = \mu_2(A_2(x)) = \mu_2(\{y\in \Omega_2: (x, y)\in A\})\)</span>.</li>
+</ol>
+Then <span class="math inline">\(f\)</span> is <span class="math inline">\(\Sigma_1\)</span>-measurable, <span class="math inline">\(g\)</span> is <span class="math inline">\(\Sigma_2\)</span>-measurable, and
+<span class="math display">\[
+    (\mu_1\times \mu_2)(A)
+    = \int_{\Omega_2} f(y) d\mu_2 = \int_{\Omega_1} g(x) d\mu_1
+\]</span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="images/fubini.jpg" alt="Visual example. " width="80%" />
+<p class="caption">
+Figure 2.1: Visual example.
+</p>
+</div>
+</div>
+<p>To prove that <span class="math inline">\(g\)</span> is <span class="math inline">\(\Sigma_1\)</span>-measurable, we prove that
+the set <span class="math inline">\(\mathcal T\)</span> of all subsets of <span class="math inline">\(\mathbb R\)</span> whose preimage is <span class="math inline">\(\Sigma_1\)</span>-measurable
+generates the measurable sets on <span class="math inline">\(\mathbb R\)</span>.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-24" class="proposition"><strong>Proposition 2.8  (finiteness) </strong></span>The product <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span> of
+two <span class="math inline">\(\sigma\)</span>-finite measures is <span class="math inline">\(\sigma\)</span>-finite.</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prelimaries.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="realMeasures.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

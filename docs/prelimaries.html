@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Prelimaries | Math 114 Notes</title>
   <meta name="description" content="1 Prelimaries | Math 114 Notes" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Prelimaries | Math 114 Notes" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-07" />
+<meta name="date" content="2024-10-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="exterior-measure-σ-algebra.html"/>
+<link rel="next" href="abstractMachinery.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -64,7 +64,6 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -97,39 +96,31 @@ div.csl-indent {
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i>Organization</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
 <ul>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a>
-<ul>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#compactness"><i class="fa fa-check"></i>Compactness</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#compactness-and-metrics"><i class="fa fa-check"></i>Compactness and metrics</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#connectedness"><i class="fa fa-check"></i>Connectedness</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a>
+<li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> σ-algebra, Measures</a>
 <ul>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#riemann-integral"><i class="fa fa-check"></i>Riemann integral</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#sigmaDefinition"><i class="fa fa-check"></i>σ-algebra</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableSpaceFunctions"><i class="fa fa-check"></i>Measure spaces, measurable functions</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#productFubini"><i class="fa fa-check"></i>Product measures, Fubini</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html"><i class="fa fa-check"></i><b>2</b> Exterior measure, σ-algebra</a>
+<li class="chapter" data-level="3" data-path="realMeasures.html"><a href="realMeasures.html"><i class="fa fa-check"></i><b>3</b> Measures on <span class="math inline">\(\mathbb R^n\)</span></a>
 <ul>
-<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#initial-attempt-at-defining-a-measure"><i class="fa fa-check"></i>Initial attempt at defining a measure</a></li>
-<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#the-exterior-measure"><i class="fa fa-check"></i>The exterior measure</a></li>
-<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#σ-algebra-monotone-class-theorem"><i class="fa fa-check"></i>σ-algebra, monotone class theorem</a></li>
-<li class="chapter" data-level="" data-path="exterior-measure-σ-algebra.html"><a href="exterior-measure-σ-algebra.html#disjoint-additivity-on-borel-sets"><i class="fa fa-check"></i>Disjoint additivity on Borel sets</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="measure.html"><a href="measure.html"><i class="fa fa-check"></i><b>3</b> Measure</a>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#exterior-measure"><i class="fa fa-check"></i>Exterior measure</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#realMeasurableFunctions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#disjoint-additivity-on-borel-sets"><i class="fa fa-check"></i>Disjoint additivity on Borel sets</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#lebesgue-measure"><i class="fa fa-check"></i>Lebesgue Measure</a>
 <ul>
-<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#measurable-functions"><i class="fa fa-check"></i>Measurable functions</a></li>
-<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#measures-and-uniqueness"><i class="fa fa-check"></i>Measures and uniqueness</a></li>
-<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#lebesgue-measure"><i class="fa fa-check"></i>Lebesgue Measure</a>
-<ul>
-<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#non-measurable-set"><i class="fa fa-check"></i>Non-measurable set</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#non-measurable-set"><i class="fa fa-check"></i>Non-measurable set</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
-<li class="chapter" data-level="" data-path="measure.html"><a href="measure.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="integration.html"><a href="integration.html"><i class="fa fa-check"></i><b>4</b> Integration</a>
 <ul>
@@ -170,8 +161,6 @@ div.csl-indent {
 <h1><span class="header-section-number">1</span> Prelimaries<a href="prelimaries.html#prelimaries" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="topology" class="section level2 unnumbered hasAnchor">
 <h2>Topology<a href="prelimaries.html#topology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="compactness" class="section level3 unnumbered hasAnchor">
-<h3>Compactness<a href="prelimaries.html#compactness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="proposition">
 <p><span id="prp:closedSubsetCompact" class="proposition"><strong>Proposition 1.1  </strong></span>A closed subset <span class="math inline">\(A\subset K\)</span> where <span class="math inline">\(K\)</span> is compact, is compact.</p>
 </div>
@@ -181,78 +170,96 @@ for any <span class="math inline">\(\{U_j\}\)</span> covering <span class="math 
 cover <span class="math inline">\(K\)</span>. Choose a finite subcover and remove <span class="math inline">\(V\)</span> to obtain
 a finite subcover for <span class="math inline">\(A\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:compactHausdorffClosed" class="proposition"><strong>Proposition 1.2  </strong></span>A compact subset <span class="math inline">\(K\)</span> of a Hausdorff space <span class="math inline">\(X\)</span> is closed.</p>
+<p><span id="prp:compactHausdorffClosed" class="proposition"><strong>Proposition 1.2  </strong></span>A compact subset <span class="math inline">\(K\)</span> of a Hausdorff space <span class="math inline">\(\Omega\)</span> is closed.</p>
 </div>
-<p><em>Proof:</em> We show that <span class="math inline">\(X-K\)</span> is open: for each <span class="math inline">\(y\in X-K\)</span>,
+<details>
+<summary>
+Proof
+</summary>
+We show that <span class="math inline">\(\Omega-K\)</span> is open: for each <span class="math inline">\(y\in \Omega-K\)</span>,
 use Hausdorff to construct a open covering <span class="math inline">\(\{(U_x, V_x)\}_{x\in K}\)</span>
 separating <span class="math inline">\(x, y\)</span> such that <span class="math inline">\(x\in U_x, y\in V_y\)</span>.
 Choose a finite subset of <span class="math inline">\((U_x)_{x\in J\subsetneq K}\)</span> covering <span class="math inline">\(K\)</span>,
-then <span class="math inline">\(y\in \bigcap_{x\in J} V_x \subset X-K\)</span>, so <span class="math inline">\(X-K\)</span> is open.</p>
+then <span class="math inline">\(y\in \bigcap_{x\in J} V_x \subset \Omega-K\)</span>, so <span class="math inline">\(\Omega-K\)</span> is open.
+</details>
 <div class="proposition">
 <p><span id="prp:closedBoundedCompact" class="proposition"><strong>Proposition 1.3  (closed+bounded=compact) </strong></span>For <span class="math inline">\(\mathbb R^d\)</span>, a set <span class="math inline">\(A\)</span> is compact if and only if it is
 closed and bounded.</p>
 </div>
-<p><em>Proof:</em> Given compactness, choose a cover by unit-cube coverings,
+<details>
+<summary>
+Proof
+</summary>
+Given compactness, choose a cover by unit-cube coverings,
 then <span class="math inline">\(A\subset [-R, R]^n\)</span>, which is bounded. Closure follows
 from proposition <a href="prelimaries.html#prp:compactHausdorffClosed">1.2</a>.
 Conversely, given <span class="math inline">\(A\subset [-R, R]^n\)</span> and closed, it is
 a closed subset of a compact set, so it is compact by proposition
-<a href="prelimaries.html#prp:closedSubsetCompact">1.1</a></p>
+<a href="prelimaries.html#prp:closedSubsetCompact">1.1</a>
+</details>
 <div class="lemma">
 <p><span id="lem:compactClosedDistance" class="lemma"><strong>Lemma 1.1  (finite distance between compact and closed sets) </strong></span>If <span class="math inline">\(F\)</span> is closed and <span class="math inline">\(K\)</span> compact, and <span class="math inline">\(F\cap K = \emptyset\)</span>, then
 <span class="math inline">\(d(F, K)&gt;0\)</span>.</p>
 </div>
-<p><em>Proof:</em> By <span class="math inline">\(F^c\)</span> open for each <span class="math inline">\(x\in K\)</span> choose <span class="math inline">\(B(2\delta_x, x)\subset F^c\)</span>.
+<details>
+<summary>
+Proof
+</summary>
+By <span class="math inline">\(F^c\)</span> open for each <span class="math inline">\(x\in K\)</span> choose <span class="math inline">\(B(2\delta_x, x)\subset F^c\)</span>.
 Choose an finite open subcover <span class="math inline">\(\{B_{\delta_x, x}\}_{x\in [n]}\)</span> of <span class="math inline">\(K\)</span>, then
-<span class="math inline">\(d(F, K) &gt; \min_{x\in [n]} \delta_x\)</span>.</p>
+<span class="math inline">\(d(F, K) &gt; \min_{x\in [n]} \delta_x\)</span>.
+</details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-1" class="proposition"><strong>Proposition 1.4  (compactness and product) </strong></span><span class="math inline">\(X, Y\)</span> compact implies <span class="math inline">\(X\times Y\)</span> compact.</p>
+<p><span id="prp:unlabeled-div-1" class="proposition"><strong>Proposition 1.4  (compactness and product) </strong></span><span class="math inline">\(\Omega, Y\)</span> compact implies <span class="math inline">\(\Omega\times Y\)</span> compact.</p>
 </div>
-</div>
-<div id="compactness-and-metrics" class="section level3 unnumbered hasAnchor">
-<h3>Compactness and metrics<a href="prelimaries.html#compactness-and-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="lemma">
-<p><span id="lem:distanceContinuity" class="lemma"><strong>Lemma 1.2  (continuity of distance) </strong></span>Given a metric space <span class="math inline">\((X, d)\)</span> and a subset <span class="math inline">\(Y\subset X\)</span>,
-the function <span class="math inline">\(\varphi:X\to \mathbb R\)</span> defined below is continuous:
+<p><span id="lem:distanceContinuity" class="lemma"><strong>Lemma 1.2  (continuity of distance) </strong></span>Given a metric space <span class="math inline">\((\Omega, d)\)</span> and a subset <span class="math inline">\(Y\subset \Omega\)</span>,
+the function <span class="math inline">\(\varphi:\Omega\to \mathbb R\)</span> defined below is continuous:
 <span class="math display">\[
     \varphi(x) = \inf_{y\in Y} d(x, y)
 \]</span></p>
 </div>
-<p><em>Proof:</em> The preimage operation commutes with arbitrary
+<details>
+<summary>
+Proof
+</summary>
+The preimage operation commutes with arbitrary
 union and intersections, so it suffices to demonstrate this
 for open intervals <span class="math inline">\(\{(0, a)\}\cup \{(b, \infty)\}\)</span>, to show that
 <span class="math display">\[
     \varphi^{-1}((0, a)) = \{
-        x\in X: \forall \epsilon&gt;0,
+        x\in \Omega: \forall \epsilon&gt;0,
         \exists y\in Y: d(x, y) &lt; a+\epsilon
     \}
 \]</span>
 is open, similarly for the other subbasis component. Standard
-argument is omitted.</p>
+argument is omitted.
+</details>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-2" class="lemma"><strong>Lemma 1.3  (Lebesgue number lemma) </strong></span>Given a compact metric space <span class="math inline">\((X, d)\)</span> and an open cover <span class="math inline">\((U_j)\)</span>
-of <span class="math inline">\(X\)</span>, there <span class="math inline">\(\exists\delta&gt;0\)</span> such that any subset of diameter <span class="math inline">\(&lt;\delta\)</span>
+<p><span id="lem:unlabeled-div-2" class="lemma"><strong>Lemma 1.3  (Lebesgue number lemma) </strong></span>Given a compact metric space <span class="math inline">\((\Omega, d)\)</span> and an open cover <span class="math inline">\((U_j)\)</span>
+of <span class="math inline">\(\Omega\)</span>, there <span class="math inline">\(\exists\delta&gt;0\)</span> such that any subset of diameter <span class="math inline">\(&lt;\delta\)</span>
 is entirely contained in a single open set.</p>
 </div>
-<p><em>Proof:</em> Select a finite subcover <span class="math inline">\(U_1\cup \cdots \cup U_n\)</span> of
-<span class="math inline">\(X\)</span>. The function
+<details>
+<summary>
+Proof
+</summary>
+Select a finite subcover <span class="math inline">\(U_1\cup \cdots \cup U_n\)</span> of
+<span class="math inline">\(\Omega\)</span>. The function
 <span class="math display">\[
-    f(x) = \min_j d(x, X-U_j)
+    f(x) = \min_j d(x, \Omega-U_j)
 \]</span>
-is continuous on compact interval, thus achieves its min <span class="math inline">\(\delta\)</span>.</p>
-</div>
-<div id="connectedness" class="section level3 unnumbered hasAnchor">
-<h3>Connectedness<a href="prelimaries.html#connectedness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+is continuous on compact interval, thus achieves its min <span class="math inline">\(\delta\)</span>.
+</details>
 <div class="definition">
-<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 1.1  (connected sets) </strong></span>A space <span class="math inline">\(X\)</span> is connected if any of the following equivalent conditions
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Definition 1.1  (connected sets) </strong></span>A space <span class="math inline">\(\Omega\)</span> is connected if any of the following equivalent conditions
 are true:</p>
 <ul>
-<li>Every binary partition <span class="math inline">\(U\sqcup V=X\)</span> of <span class="math inline">\(X\)</span> is trivial: <span class="math inline">\(U\)</span> or <span class="math inline">\(V=\emptyset\)</span>
-and the other <span class="math inline">\(X\)</span>.</li>
-<li>The only subsets which are both open and closed in <span class="math inline">\(X\)</span> is <span class="math inline">\(\emptyset, X\)</span>.<br />
+<li>Every binary partition <span class="math inline">\(U\sqcup V=\Omega\)</span> of <span class="math inline">\(\Omega\)</span> is trivial: <span class="math inline">\(U\)</span> or <span class="math inline">\(V=\emptyset\)</span>
+and the other <span class="math inline">\(\Omega\)</span>.</li>
+<li>The only subsets which are both open and closed in <span class="math inline">\(\Omega\)</span> is <span class="math inline">\(\emptyset, \Omega\)</span>.<br />
 </li>
 </ul>
-</div>
 </div>
 </div>
 <div id="real-analysis" class="section level2 unnumbered hasAnchor">
@@ -265,8 +272,6 @@ and the other <span class="math inline">\(X\)</span>.</li>
 \]</span>
 The counterpart <span class="math inline">\(\limsup\)</span> is defined similarly.</p>
 </div>
-<div id="riemann-integral" class="section level3 unnumbered hasAnchor">
-<h3>Riemann integral<a href="prelimaries.html#riemann-integral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
 <p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 1.3  (Riemann integral) </strong></span>Fix <span class="math inline">\([a, b]\)</span> and a partition <span class="math inline">\(a=x_0\leq \cdots \leq x_n =b\)</span>,
 define <span class="math inline">\(\Delta x_j = x_j - x_{j-1}\)</span> and
@@ -282,9 +287,6 @@ The upper and lower integrals are defined as
     \underline{\int}^b_a f\, d\alpha = \sup L(P, f, \alpha)
 \end{align}\]</span></p>
 </div>
-</div>
-<div id="semi-continuity" class="section level3 unnumbered hasAnchor">
-<h3>Semi-continuity<a href="prelimaries.html#semi-continuity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
 <p><span id="def:unlabeled-div-6" class="definition"><strong>Definition 1.4  (semi-continuity) </strong></span>A real-valued function <span class="math inline">\(f\)</span> is <strong>lower-semicontinuous</strong>
 if
@@ -295,40 +297,21 @@ It is <strong>upper-semicontinuous</strong> when
 <span class="math inline">\(f^{-1}((-\infty, t))\)</span> is open for all <span class="math inline">\(t\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-7" class="proposition"><strong>Proposition 1.5  (equivalent characterization) </strong></span><span class="math inline">\(f:X\to \mathbb R\)</span> is lower semi-continuous
+<p><span id="prp:unlabeled-div-7" class="proposition"><strong>Proposition 1.5  (equivalent characterization) </strong></span><span class="math inline">\(f:\Omega\to \mathbb R\)</span> is lower semi-continuous
 iff any of the following holds for all <span class="math inline">\(x\)</span>:</p>
 <ol style="list-style-type: decimal">
 <li>Sequential characterization:
 <span class="math inline">\(x_n\to x \implies f(x)\leq \liminf f(x_n)\)</span>.</li>
 <li>Epsilon-delta characterization:
-<span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:
-f(B_\delta(x))&gt;f(x)-\epsilon\)</span>.</li>
+<span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:  f(B_\delta(x))&gt;f(x)-\epsilon\)</span>.</li>
 </ol>
 <p>The corresponding characterizations of lower-continuity are:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(x_n\to x \implies f(x)\)</span></li>
-<li><span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:
-f(B_\delta(x)) &lt; f(x)+\epsilon\)</span>.</li>
+<li><span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:  f(B_\delta(x)) &lt; f(x)+\epsilon\)</span>.</li>
 </ol>
 </div>
-<p>Focus on the second characterization:</p>
-<ul>
-<li>For <span class="math inline">\(\liminf\)</span>, <span class="math inline">\(f(x) \leq \lim_{n\to \infty} \inf_{k\geq n} f(x_n)\)</span>
-unrolls to: <span class="math inline">\(\forall \epsilon&gt;0, \exists n\)</span> such that
-<span class="math inline">\(\inf_k f(x_{k&gt;n}) \geq f(x)\)</span>.</li>
-</ul>
-<details>
-<summary>
-Proof
-</summary>
-Fixing <span class="math inline">\(x\)</span> and <span class="math inline">\(\epsilon&gt;0\)</span>, rewrite the convex condition to obtain
-<span class="math display">\[
-    f(\lambda x + \bar \lambda y) \leq f(x) +
-    \bar \lambda [f(y) - f(x)]
-\]</span>
-</details>
 
-</div>
 </div>
 </div>
             </section>
@@ -337,7 +320,7 @@ Fixing <span class="math inline">\(x\)</span> and <span class="math inline">\(\e
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exterior-measure-σ-algebra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="abstractMachinery.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

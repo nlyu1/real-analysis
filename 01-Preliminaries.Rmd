@@ -2,8 +2,6 @@
 
 ## Topology {-}
 
-### Compactness {-}
-
 :::{.proposition #closedSubsetCompact}
 A closed subset $A\subset K$ where $K$ is compact, is compact. 
 :::
@@ -14,80 +12,90 @@ cover $K$. Choose a finite subcover and remove $V$ to obtain
 a finite subcover for $A$. 
 
 :::{.proposition #compactHausdorffClosed}
-A compact subset $K$ of a Hausdorff space $X$ is closed. 
+A compact subset $K$ of a Hausdorff space $\Omega$ is closed. 
 :::
-_Proof:_ We show that $X-K$ is open: for each $y\in X-K$, 
+<details>
+<summary>Proof</summary>
+We show that $\Omega-K$ is open: for each $y\in \Omega-K$, 
 use Hausdorff to construct a open covering $\{(U_x, V_x)\}_{x\in K}$ 
 separating $x, y$ such that $x\in U_x, y\in V_y$. 
 Choose a finite subset of $(U_x)_{x\in J\subsetneq K}$ covering $K$, 
-then $y\in \bigcap_{x\in J} V_x \subset X-K$, so $X-K$ is open. 
+then $y\in \bigcap_{x\in J} V_x \subset \Omega-K$, so $\Omega-K$ is open. 
+</details>
 
 :::{.proposition #closedBoundedCompact name="closed+bounded=compact"}
 For $\R^d$, a set $A$ is compact if and only if it is 
 closed and bounded. 
 :::
-_Proof:_ Given compactness, choose a cover by unit-cube coverings, 
+<details>
+<summary>Proof</summary>
+Given compactness, choose a cover by unit-cube coverings, 
 then $A\subset [-R, R]^n$, which is bounded. Closure follows 
 from proposition \@ref(prp:compactHausdorffClosed). 
 Conversely, given $A\subset [-R, R]^n$ and closed, it is 
 a closed subset of a compact set, so it is compact by proposition 
 \@ref(prp:closedSubsetCompact)
+</details>
 
 :::{.lemma #compactClosedDistance name="finite distance between compact and closed sets"}
 If $F$ is closed and $K$ compact, and $F\cap K = \emptyset$, then 
 $d(F, K)>0$. 
 :::
-_Proof:_ By $F^c$ open for each $x\in K$ choose $B(2\delta_x, x)\subset F^c$. 
+<details>
+<summary>Proof</summary>
+By $F^c$ open for each $x\in K$ choose $B(2\delta_x, x)\subset F^c$. 
 Choose an finite open subcover $\{B_{\delta_x, x}\}_{x\in [n]}$ of $K$, then 
 $d(F, K) > \min_{x\in [n]} \delta_x$. 
+</details>
 
 :::{.proposition name="compactness and product"}
-$X, Y$ compact implies $X\times Y$ compact. 
+$\Omega, Y$ compact implies $\Omega\times Y$ compact. 
 :::
 
-### Compactness and metrics {-}
-
 :::{.lemma #distanceContinuity name="continuity of distance"}
-Given a metric space $(X, d)$ and a subset $Y\subset X$, 
-the function $\varphi:X\to \R$ defined below is continuous: 
+Given a metric space $(\Omega, d)$ and a subset $Y\subset \Omega$, 
+the function $\varphi:\Omega\to \R$ defined below is continuous: 
 \[ 
     \varphi(x) = \inf_{y\in Y} d(x, y) 
 \] 
 :::
-_Proof:_ The preimage operation commutes with arbitrary 
+<details>
+<summary>Proof</summary>
+The preimage operation commutes with arbitrary 
 union and intersections, so it suffices to demonstrate this 
 for open intervals $\{(0, a)\}\cup \{(b, \infty)\}$, to show that 
 \[ 
     \varphi^{-1}((0, a)) = \{
-        x\in X: \forall \epsilon>0, 
+        x\in \Omega: \forall \epsilon>0, 
         \exists y\in Y: d(x, y) < a+\epsilon
     \}
 \] 
 is open, similarly for the other subbasis component. Standard 
 argument is omitted. 
+</details>
 
 :::{.lemma name="Lebesgue number lemma"}
-Given a compact metric space $(X, d)$ and an open cover $(U_j)$ 
-of $X$, there $\exists\delta>0$ such that any subset of diameter $<\delta$ 
+Given a compact metric space $(\Omega, d)$ and an open cover $(U_j)$ 
+of $\Omega$, there $\exists\delta>0$ such that any subset of diameter $<\delta$ 
 is entirely contained in a single open set. 
 :::
-_Proof:_ Select a finite subcover $U_1\cup \cdots \cup U_n$ of 
-$X$. The function 
+<details>
+<summary>Proof</summary>
+Select a finite subcover $U_1\cup \cdots \cup U_n$ of 
+$\Omega$. The function 
 \[ 
-    f(x) = \min_j d(x, X-U_j)
+    f(x) = \min_j d(x, \Omega-U_j)
 \] 
 is continuous on compact interval, thus achieves its min $\delta$. 
-
-
-### Connectedness {-}
+</details>
 
 :::{.definition name="connected sets"}
-A space $X$ is connected if any of the following equivalent conditions 
+A space $\Omega$ is connected if any of the following equivalent conditions 
 are true: 
 
-- Every binary partition $U\sqcup V=X$ of $X$ is trivial: $U$ or $V=\emptyset$ 
-    and the other $X$.
-- The only subsets which are both open and closed in $X$ is $\emptyset, X$.   
+- Every binary partition $U\sqcup V=\Omega$ of $\Omega$ is trivial: $U$ or $V=\emptyset$ 
+    and the other $\Omega$.
+- The only subsets which are both open and closed in $\Omega$ is $\emptyset, \Omega$.   
 :::
 
 
@@ -101,8 +109,6 @@ Given a countable sequence of reals $(a_j)$, the limit inferior is
 \] 
 The counterpart $\limsup$ is defined similarly. 
 :::
-
-### Riemann integral {-}
 
 :::{.definition name="Riemann integral"}
 Fix $[a, b]$ and a partition $a=x_0\leq \cdots \leq x_n =b$, 
@@ -120,8 +126,6 @@ The upper and lower integrals are defined as
 \end{align}
 :::
 
-### Semi-continuity {-}
-
 :::{.definition name="semi-continuity"}
 A real-valued function $f$ is **lower-semicontinuous** 
 if 
@@ -133,7 +137,7 @@ $f^{-1}((-\infty, t))$ is open for all $t$.
 :::
 
 :::{.proposition name="equivalent characterization"}
-$f:X\to \R$ is lower semi-continuous 
+$f:\Omega\to \R$ is lower semi-continuous 
 iff any of the following holds for all $x$: 
 
 1. Sequential characterization: 
@@ -148,18 +152,3 @@ The corresponding characterizations of lower-continuity are:
 2. $\forall \epsilon>0, \exists \delta>0: 
     f(B_\delta(x)) < f(x)+\epsilon$. 
 :::
-
-Focus on the second characterization: 
-
-- For $\liminf$, $f(x) \leq \lim_{n\to \infty} \inf_{k\geq n} f(x_n)$ 
-unrolls to: $\forall \epsilon>0, \exists n$ such that 
-$\inf_k f(x_{k>n}) \geq f(x)$. 
-
-<details>
-<summary>Proof</summary>
-Fixing $x$ and $\epsilon>0$, rewrite the convex condition to obtain 
-\[ 
-    f(\lambda x + \bar \lambda y) \leq f(x) + 
-    \bar \lambda [f(y) - f(x)]
-\] 
-</details>

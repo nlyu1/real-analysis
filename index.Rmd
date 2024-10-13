@@ -42,6 +42,16 @@ link-citations: true
 These notes accompany the 
 Fall 2024 iteration of Math 114. 
 
+## Organization {-}
+These notes are organized as follows:
+
+1. Abstract machinery of [measures and $\sigma$-algebra](#abstractMachinery)
+    - Monotone class theorem \@ref(thm:monotoneClassTheorem), 
+    Fubini. 
+    - Reference: Lieb and Loss, _Analysis_ (2nd ed), Chapter 1. 
+2. The [exterior measure and Lebesgue measure on $\R^n$](#realMeasures)
+    - Characterization of measurable sets, 
+
 ## Motivation {-} 
 Consider the space $\mca C([a, b])$ of functions on $[a, b]$ 
 where $a, b$ are bounded. 
@@ -63,3 +73,11 @@ Topics in this course:
 3. Fourier analysis, Hilbert spaces. 
 4. Radon-Nikadym theorem and Hölder spaces 
 (gadget which captures RN-theorem and differentiation). 
+
+Nontrivial results: 
+
+1. Monotone class theorem \@ref(thm:monotoneClassTheorem): 
+    - Techniques for use (example theorem \@ref(thm:uniqueMeasure)): 
+    rewrite nested chain as disjoint union, then pass through the limit 
+    using the countable additivity of measures. 
+    Next apply the reduction from finite to $\sigma$-finite measures. 

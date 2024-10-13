@@ -3,7 +3,9 @@
 Key takeaways: 
 
 1. The convexity of $x\mapsto |x|^p$ implies Young's inequality 
-    and the vector space structure of $L^p(\Omega)$. 
+    (proposition \@ref(prp:youngInequality)) 
+    and the vector space structure of $L^p(\Omega)$ 
+    (proposition \@ref(prp:LpVectorSpace)). 
 2. To be precise, $L^p$ spaces are equivalence classes of 
     functions which agree $\mu$-a.e.
 
@@ -26,12 +28,6 @@ inequality is strict for all $y$.
 :::{.proposition}
 If $K$ is an open set, then a convex function on $K$ is continuous. 
 :::
-<div style="color:red"> TODO
-<details>
-<summary>Proof</summary>
-
-</details>
-</div>
 
 :::{.definition name="support plane"}
 The support plane to a graph of $f:K\to \R$ at 
@@ -63,7 +59,7 @@ It is oftentimes more convenient to note that
 \] 
 :::
 
-:::{.proposition name="Young's inequality"}
+:::{.proposition #youngInequality name="Young's inequality"}
 Given Hölder conjugates $p, q>1$, 
 \[ 
     ab \leq \df {a^p}{p} + \df{b^q}{q}, \quad \forall a, b\geq 0
@@ -114,15 +110,16 @@ The $\infty$-norm is also called the **essential supremum**
 of $|f|$. 
 :::
 
-:::{.proposition name="vector space property"}
+:::{.proposition #LpVectorSpace name="vector space property"}
 $L^p(\Omega, d\mu)$ is a vector space. 
 :::
-
 <details>
 <summary>Proof</summary>
 Closure under scalar multiplication is apparant. 
-Closure under addition is implied by 
-$|\alpha + \beta|^p \leq 2^{p-1}(|\alpha|^p + |\beta|^p)$, 
+Closure under addition follows from the convexity of $|x|^p$. 
+\[ 
+    \left\|\df{\alpha + \beta}{2}\right\|^p \leq \df{|\alpha|^p + |\beta|^p}{2}
+\] 
 which follows from the convexity of $|x|^p$. 
 </details>
 
@@ -157,12 +154,33 @@ a measurable function $f:\Omega\to \R$ is defined as
 Given a convex function $J:\R\to \R$ and 
 measurable $f:\Omega\to \R$, then 
 
-1. The negative part $(J\circ f)_-$ is in $L^1(\Omega)$. 
+1. The negative part $(J\circ f)_-$ is in $L^1(\Omega)$ 
+    (recall the decomposition $f=f_+ - f_-$. 
 2. $\la J\circ f\ra \geq J(\la f\ra)$; when $J$ is strictly 
-convex at $\la f\ra4, there is equality iff $f$ is constant. 
+convex at $\la f\ra$, there is equality iff $f$ is constant. 
 :::
 _Proof:_ Fixing $\la f\ra$, there exists a constant $V\in \R$ 
 such that 
 \[ 
     J(\forall t)\geq J(\la f\ra) + V(t - \la f\ra)
+    (\#eq:convexity) 
 \] 
+This bounds the negative component (but not the positive one!) 
+\[ 
+    [J\circ f]_-(x) \leq |J(\la f\ra)| + |V||\la f\ra| + |V| |f(x)| 
+\] 
+using $\mu(\Omega)<\infty$, this bounded function is integrable. 
+To obtain (2), integrate \@ref(eq:convexity) for all $t=f(x)$ 
+\[ 
+    \la J \circ f\ra \geq J(\la f\ra) - V \la f\ra + V\la f\ra 
+\] 
+with $J$ strictly convex, the inequality is saturated 
+when $\la J\circ f\ra = J(\la f\ra)$. 
+
+:::{.theorem name="Hölder's inequality"}
+Given dual $p, q$ with $p\geq 1$. Let $f\in L^p(\Omega), g\in L^q(\Omega)$. 
+The pointwise product $fg\in L^1(\Omega)$ and 
+\[ 
+    \|fg\|_1 \leq \int_\Omega |f||g| \, d\mu \leq \|f\|_p \|g\|_q 
+\] 
+:::

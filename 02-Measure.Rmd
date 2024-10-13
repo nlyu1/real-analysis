@@ -1,0 +1,354 @@
+# σ-algebra, Measures {#abstractMachinery}
+
+This section develops the abstract machinery of measures and $\sigma$-algebras: 
+
+1. [Definitions](#sigmaDefinition) of $\sigma$-algebra and monotone class theorem. 
+2. [Measure spaces and measurable functions](#measurableSpaceFunctions): 
+    $\sigma$-finite measures, measures of nested intersections or unions; 
+    sufficient conditions for measurable functions; uniqueness of $\sigma$-finite 
+    measures (a prime demonstration of the monotone class theorem). 
+3. [Product constructions](#productFubini): product $\sigma$-algebras and measures. 
+
+Key takeaways: 
+
+1. A measure space specifies the well-behaved, measurable 
+    sets ($\sigma$-algebra), together with a function (called measure) which assigns a measure value 
+    to each measurable set. The key desired property of a measure is 
+    countable additivity under disjoint unions.
+2. The preimage-operation commutes with all closure operations
+    of the $\sigma$-algebra. 
+3. Finite and $\sigma$-finite measures (definition \@ref(def:finiteMeasure)). 
+4. Monotone class theorem \@ref(thm:monotoneClassTheorem): 
+    the transfinite construction of 
+    a freely generated $\sigma$-algebra is simplified as 
+    the monotone limit of the freely generated algebra. 
+5. The product algebra $\Sigma_1\times \Sigma_2$ is universal and satisfies 
+    the section property (proposition \@ref(prp:productSection)). 
+
+## σ-algebra {#sigmaDefinition -}
+
+:::{.definition #setAlgebra name="algebra of sets"}
+A collection $\mca A$ of sets is an algebra 
+of sets if it is closed under finite union and 
+differences: 
+\[ 
+    A, B\in \mca A\implies A\cup B, A-B, B-A\in \mca A 
+\] 
+:::
+
+:::{.definition name="σ-algebra"}
+Given a set $\Omega$, $\Sigma\subset 2^\Omega$ is a $\sigma$-algebra on $\Omega$ if: 
+
+1. $\emptyset\in \Sigma$. 
+2. Closure under complement: $E\in \Sigma\implies \Omega-E\in \Sigma$. 
+3. Closure under countable union: 
+    $\{E_j\}\in \Sigma\implies \bigcup_{k=1}^\infty E_k \in \Sigma$. 
+:::
+
+:::{.proposition name="derived properties of σ-algebras"}
+Given a $\sigma$-algebra $\Sigma$ on $\Omega$, then 
+
+1. $\Omega\in \Sigma$. 
+2. Closure under finite union, intersection, and difference: 
+\[ 
+    D, E\in \Sigma\implies D\cup E, D\cap E, D-E\in \Sigma 
+\] 
+3. $E_1, \cdots\in \Sigma\implies \bigcap_{k=1}^\infty E_k \in \Sigma$
+:::
+_Proof:_ (1) follows from $\Omega=\Omega-\emptyset$. 
+(2) follows from $D\cap E = (\Omega-D)\cup (\Omega_E)$ and $D-E=(D\cap E)\cup E$. 
+(3) follows from $\bigcap_{k=1}^\infty E_k = \Omega - \bigcup_{k=1}^\infty (\Omega-E_k)$. 
+
+:::{.example}
+Given any set $\Omega$, both $\{\emptyset, \Omega\}$ and $2^\Omega$ are $\sigma$-algebras 
+on $\Omega$. The set of all subsets $E$ such that $E$ 
+is countable or $\Omega-E$ countable is a $\sigma$-algebra (countable 
+union of countable set is countable, else if one element's complement 
+is countable, then the union's complement is countable, too). 
+:::
+
+:::{.remark}
+A $\sigma$-algebra on $\Omega$ is a subset of $2^\Omega$ that contains $\emptyset$ 
+and is closed under countable union. Compare to a topology on $\Omega$, which 
+is a subset of $2^\Omega$ that contains $\emptyset, \Omega$, and is closed under 
+arbitrary unions and finite intersections. 
+:::
+
+:::{.definition name="measurable space, measurable set"}
+A measurable space is a pair $(\Omega, \Sigma)$ where $\Sigma$ is a $\sigma$-algebra 
+on $\Omega$. 
+A subset $S\subset \Omega$ is $\Sigma$-measurable iff $S\in \Sigma$. 
+:::
+
+:::{.definition name="freely generated σ-algebra"}
+Given a set $\Omega$ and $\mca A\subset 2^\Omega$, the intersection 
+of all $\sigma$-algebras $\Sigma$ on $\Omega$ such that 
+$\mca A\subset \Sigma$ is a $\sigma$-algebra on $\Omega$. 
+
+In other words, every subset $A\subset 2^\Omega$ freely generates 
+a $\sigma$-algebra $\sigma_{\mrm{Alg}}(A)$ on $\Omega$.
+:::
+
+:::{.definition name="monotone class"}
+A monotone class $\mca M$ is a set of sets with the following 
+properties: 
+\begin{align}
+    A_1, \cdots \in \mca M, \quad A_j\nearrow A &\implies A\in \mca M \\ 
+    A_1, \cdots \in \mca M, \quad A_j\searrow A &\implies A\in \mca M
+\end{align}
+:::
+
+:::{.theorem #monotoneClassTheorem name="monotone class theorem"}
+Given a set $\Omega$ and an algebra (definition \@ref(def:setAlgebra))
+of subsets of $\Omega$ such that $\Omega, \emptyset\in \mca A$. 
+Then the smallest monotone class $\mca M$ containing $\mca A$ 
+is equal to $\sigma_{\mrm{Alg}}(\mca A)$. 
+:::
+<span style="color:green">
+Proof idea: every $\sigma$-algebra is a monotone class. 
+Monotone class + closure under finite union and complement implies $\sigma$-algebra. 
+Show that $\mca M$ is closed under finite union and complements. 
+</span>
+<details>
+<summary>Proof</summary>
+The smallest monotone class $\mca M$ containing $\mca A$ 
+is the intersection of all monotone classes containing $\mca A$. 
+Now, if $\Sigma$ is closed under complement and finite unions, 
+then for any $A_1, \cdots$, the sequence 
+\[ 
+    \left(B_j = \bigcup_{k=1}^j A_j \in \mca M\right) \nearrow
+    \bigcup_{j=1}^\infty A_j \in \mca M 
+\] 
+Together with complements, this will show that $\mca M$ is a $\sigma$-algebra; 
+then $\mca M$ is the minimal $\sigma$-algebra since every 
+$\sigma$-algebra is a monotone class. To show that $\mca M$ 
+is indeed closed under complement and finite union, argue for 
+every set $A\in \mca M$ that the set $C(A)$ of all sets which 
+stay within $\mca M$ under complement (or union) is a 
+monotone class, since $\mca M$ itself is a monotone class. For example, 
+\[ 
+    A\cup \bigcup_{j=1}^\infty B_j = \bigcup_{j=1}^\infty A\cup B \in \mca M
+\] 
+By the algebraic property of $\mca A$ we have 
+$A\in C(A)\subset C(A)=\mca M$. This shows that $A$ is 
+closed under complement and finite union.  
+</details>
+
+## Measure spaces, measurable functions {#measurableSpaceFunctions -}
+:::{.definition name="measure, measure space"}
+Given a measurable space $(\Omega, \Sigma)$, a 
+measure on $(\Omega, \Sigma)$ is a function 
+$\mu:\Sigma\to [0, \infty]$ with 
+\[ 
+    \mu \left(\bigsqcup_{k=1}^\infty E_k\right) 
+    = \sum_{k=1}^\infty \mu(E_k), \quad \mu(\emptyset) = 0 
+\] 
+for every disjoint sequence $\{E_j\} \in \Sigma$. 
+A measure space is an ordered triple $(\Omega, \Sigma, \mu)$. 
+:::
+
+:::{.proposition name="elementary properties of measures"}
+Given a measure space $(\Omega, \Sigma, \mu)$ and $D\subset E\in \Sigma$: 
+
+1. $\mu(D) \leq \mu(E)$.
+2. $\mu(E - D) = \mu(E) - \mu(D)$. 
+:::
+
+:::{.proposition name="measure of nested union"}
+Under a measure space $(\Omega, \Sigma, \mu)$ with a nested 
+chain $E_1\subset E_2\subset \cdots$, we have 
+$\mu \bigcup_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)$.  
+:::
+<details>
+<summary>Proof</summary>
+Only consider the case $\mu(E_k) < \infty$ 
+and define $E_0=\emptyset$, then 
+$\bigcup_{j=1}^\infty E_j = \bigsqcup_{j=1}^\infty E_j - E_{j-1}$. 
+Using the disjoint union additivity 
+\begin{align}
+    \bigcup_{j=1}^\infty E_j 
+    &= \sum_{j=1}^\infty \mu(E_j - E_{j-1}) 
+    = \lim_{k\to \infty} \sum_{j=1}^k \mu(E_j) - \mu(E_{j-1}) 
+    = \lim_{k\to \infty} \mu(E_k)
+\end{align}
+The dual of the proposition above leads to the following: 
+</details>
+
+:::{.corollary name="measure of nested intersection"}
+Under a measure space $(\Omega, \Sigma, \mu)$ with a nested 
+chain $E_1\supset E_2\supset \cdots$, we have 
+$\mu \bigcap_{j=1}^\infty E_j = \lim_{j\to \infty} \mu(E_j)$. 
+:::
+
+:::{.definition #finiteMeasure name="finite and σ-finite measures"}
+A measure space $(\Omega, \Sigma, \mu)$ is $\sigma$-finite 
+if there are countably many sets $A_1, \cdots$ such that 
+\[ 
+    \mu(A_{\forall j}) < \infty, \quad \Omega = \bigcup_j A_j
+\] 
+with $\sigma$-finiteness, w.l.o.g. we can prove $A_j$ to be disjoint. 
+The measure space is finite if $\mu(\Omega)<\infty$. 
+:::
+
+
+:::{.proposition name="composition preserves measurability"}
+Given measurable $f:(\Omega, \Sigma)\to \R^n$ and $g:\R^n\to \R^m$ 
+measurable, then $g\circ f$ is $\Sigma$-measurable. 
+::: 
+
+We next prove a convenient criteria for proving measurability. 
+
+:::{.proposition name="algebra of function preimages"}
+The inverse image operation commutes with elementary algebraic operations: 
+given $f:\Omega\to Y$, then 
+
+1. $f^{-1}(Y-A) = \Omega - f^{-1}(A)$. 
+2. $f^{-1}(\bigcup_{A\in \mca A} A) = \bigcup_{A\in \mca A} f^{-1}(A)$. 
+3. $f^{-1}(\bigcap_{A\in \mca A} A) = \bigcap_{A\in \mca A} f^{-1}(A)$. 
+:::
+
+:::{.proposition name="condition for measurable function"}
+Given measurable spaces $(\Omega_1, \Sigma_1), (\Omega_2, \Sigma_2)$, 
+such that $\Sigma_2 = \sigma_{\mrm{Alg}}(\mca A)$. 
+For every function $f:\Omega_1\to \Omega_2$ 
+\[ 
+    f^{-1}(\forall A\in \mca A) \in \Sigma_1 \implies 
+    f \quad \Sigma_1\text{-measurable}. 
+\] 
+:::
+<details>
+<summary>Proof</summary>
+Consider the subsets 
+whose preimage are measurable 
+\[  
+    \mca T = \{B\in \Sigma_2 | f^{-1}(B)\in \Sigma_1\} \supset \mca A
+\] 
+It suffices to show that $\Sigma_2 \subset \mca T$. 
+To do so, we show that $\mca T$ is a $\sigma$-algebra 
+by the well-behavior of set operations under preimage: 
+
+- $\emptyset = f^{-1}(\emptyset) = \emptyset \in \Sigma_1,
+    f^{-1}(\Omega_2) = \Omega_1\in \Sigma_1$. 
+- For complement: given $B\in \mca T: f^{-1}(\Omega_2-B) = \Omega_1-f^{-1}(B) \in \Sigma_1$. 
+- For countable union: 
+    $\displaystyle f^{-1}\bigcup B_j = \bigcup f^{-1}B_j \in \Sigma_1$. 
+
+The algebra of preimage commutes with all elementary set operations. 
+</details>
+
+:::{.theorem #uniqueMeasure name="uniqueness of measures"}
+Given $\Omega$ and $\Sigma = \sigma_{\mrm{Alg}}(\mca A)$, where $\mca A$ 
+is a set algebra with $\Omega, \emptyset \in \mca A$. 
+If $\mu_1$ is a $\sigma$-finite measure in the stronger sense such that 
+\[ 
+    \exists \{A_j\in \mca A\}_{i=1}^\infty, \quad \mu_1(A_j)<\infty, \quad 
+    \bigcup_{j=1}^\infty A_j=\Omega 
+\] 
+Then every $\mu_2$ which coincides with $\mu_1$ on $\mca A$ 
+satisfies $\mu_1=\mu_2$. 
+:::
+<details>
+<summary>Proof</summary>
+First assume that $\mu_1(\Omega)<\infty$. Consider 
+\[ 
+    \mca M = \{A\in \Sigma: \mu_1(A) = \mu_2(A)\} \supset \mca A
+\]  If this is shown to be a monotone class, then $\Sigma\subseteq \mca M$ 
+(in fact it's equality by $A\in \Sigma$ condition). Given an 
+increasing sequence of sets $A_j\subset \mca M$, construct 
+$B_1 = A_1, B_{j>1} = A_j - A_{j-1}$, then 
+\[ 
+    \mu_1(A_{n\to \infty}) 
+    = \mu_1 \bigsqcup_{j=1}^{n\to \infty} B_j 
+    = \lim_{n\to \infty} \sum_{j=1}^n \mu_1(B_j) 
+    = \lim_{n\to \infty} \mu_1(A_n) = \lim_{n\to \infty} \mu_2(A_n) 
+    = \mu_2(A_{n\to \infty}) 
+\] 
+Additionally, $A\in \mca A\implies A^c\in \mca M$ since $\mu_j(A^c) = \mu_j(\Omega)-\mu_j(A)$
+by $\mu_j$ finite, from which $\mca M$ is a monotone class. 
+Next, for general $\sigma$-finite measures, $\mu_1(B\cap A_0) = \mu_2(B\cap A_0$ for every 
+$\mu(A_0)<\infty$ and $B\in \Sigma$ since $A_0\cap \Sigma = \sigma_{\mrm{Alg}}(A_0 \cap \mca A)$. 
+By $\sigma$-finite assumption choose $\Omega = \bigsqcup A_j$ each with finite measure, then 
+\[ 
+    \mu_1(B\in \Sigma) = \mu_1 \bigsqcup_{j=1}^\infty A_j\cap B 
+    = \sum_{j=1}^\infty \mu_1(A_j\cap B) 
+    = \sum_{j=1}^\infty \mu_2(A_j\cap B) = \mu_2(B)
+\] 
+</details>
+
+## Product measures, Fubini {#productFubini -}
+
+:::{.definition #productSigmaAlg name="product σ-algebra"}
+The product $\sigma$-algebra is the smallest 
+$\sigma$-algebra containing all rectangles. 
+\[ 
+    \Sigma = \sigma_{\mrm{Alg}}(\Sigma_1\times \Sigma_2) 
+    = \sigma_{\mrm{Alg}}\left(\{
+        A_1\times A_2 | A_1\in \Sigma_1, A_2\in \Sigma_2
+    \}\right)
+\] 
+where here $\Sigma_1\times \Sigma_2$ denotes the Cartesian 
+product of sets. The product measure $\mu = \mu_1\times \mu_2$ is 
+:::
+
+
+:::{.proposition #productSection name="section property of product algebra"}
+The product $\sigma$-algebra $\Sigma = \Sigma_1\times \Sigma_2$ 
+has the <u>section property</u>: $\forall A\in \Sigma$, define 
+\[ 
+    A_1(x_2)\in \Omega_1 = \{x_1\in \Omega_1: (x_1, x_2)\in A\}
+\] 
+then $A_1(x_2)\in \Sigma_1$ for every choice of $x_2$. 
+:::
+<details>
+<summary>Proof</summary>
+The set $\Sigma'$ of all subsets of $\Omega_1\times \Omega_2$ 
+(regarded as Cartesian product of sets) 
+satisfying the section property is a $\sigma$-algebra containing 
+$\Sigma_1\times \Sigma_2$; the proof concludes by the universal 
+property of $\Sigma_1\times \Sigma_2$. 
+</details>
+
+
+:::{.definition name="product measures"}
+The product of two measure spaces is 
+\[ 
+    (\Omega_1\times \Omega_2, \Sigma_1\times \Sigma_2, \mu_1\times \mu_2) 
+    = (\Omega_1, \Sigma_1, \mu_1)\times (\Omega_2, \Sigma_2, \mu_2)
+\] 
+where $\Omega_1\times \Omega_2$ is the Cartesian product of sets, 
+$\Sigma_1\times \Sigma_2$ is the $\sigma$-algebra product 
+\@ref(def:productSigmaAlg), 
+and $\mu_1\times \mu_2$ is uniquely 
+defined by the requirement 
+\[ 
+    \mu(A_1\times A_2) = \mu_1(A_1) \mu_2(A_2)
+\] 
+:::
+
+:::{.theorem}
+Given two $\sigma$-finite measure spaces $(\Omega_1, \Sigma_1, \mu_1)$ and 
+$(\Omega_2, \Sigma_2, \mu_2)$ define, for every measurable 
+$A\in \Sigma_1\times \Sigma_2$: 
+
+1. $f(y) = \mu_1(A_1(y)) = \mu_1(\{x\in \Omega_1: (x, y)\in A\})$. 
+2. $g(x) = \mu_2(A_2(x)) = \mu_2(\{y\in \Omega_2: (x, y)\in A\})$. 
+
+Then $f$ is $\Sigma_1$-measurable, $g$ is $\Sigma_2$-measurable, and 
+\[ 
+    (\mu_1\times \mu_2)(A) 
+    = \int_{\Omega_2} f(y) d\mu_2 = \int_{\Omega_1} g(x) d\mu_1 
+\] 
+```{r echo=FALSE, fig.align='center', out.width='80%', fig.cap="Visual example. "}
+  knitr::include_graphics("images/fubini.jpg") 
+```
+:::
+
+To prove that $g$ is $\Sigma_1$-measurable, we prove that 
+the set $\mca T$ of all subsets of $\R$ whose preimage is $\Sigma_1$-measurable 
+generates the measurable sets on $\R$. 
+
+
+:::{.proposition name="finiteness"}
+The product $\Sigma_1\times \Sigma_2$ of 
+two $\sigma$-finite measures is $\sigma$-finite. 
+:::

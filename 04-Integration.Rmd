@@ -28,16 +28,16 @@ the closure of domain on which $f$ does not vanish.
 :::
 
 :::{.definition name="S-partition"}
-Given a $\sigma$-algebra $\mca S$ on set $X$, an 
-$\mca S$-partition of $X$ is a finite collection 
-$A_1, \cdots, A_m$ of disjoint sets in $\mca S$ 
-such that $\bigsqcup A_j = X$. 
+Given a $\sigma$-algebra $\Sigma$ on set $\Omega$, an 
+$\Sigma$-partition of $\Omega$ is a finite collection 
+$A_1, \cdots, A_m$ of disjoint sets in $\Sigma$ 
+such that $\bigsqcup A_j = \Omega$. 
 :::
 
 :::{.definition name="lower Lebesgue sum"}
-Given measure space $(X, \mca S, \mu)$, 
-an $\mca S$-measurable function $f:X\to [0, \infty]$, 
-and a $\mca S$-partition $P=\{A_1, \cdots, A_m\}$ of $X$, 
+Given measure space $(\Omega, \Sigma, \mu)$, 
+an $\Sigma$-measurable function $f:\Omega\to [0, \infty]$, 
+and a $\Sigma$-partition $P=\{A_1, \cdots, A_m\}$ of $\Omega$, 
 the lower Lebesgue sum is 
 \[ 
     \mca L_\mu(f, P) = \sum_{j=1}^m \mu(A_j)\inf_{A_j} f 
@@ -45,21 +45,21 @@ the lower Lebesgue sum is
 :::
 
 :::{.definition #nonNegativeIntegral name="non-negative integral"}
-The integral of a non-negative function $f:X\to [0, \infty]$ 
-w.r.t. the measure $(\mca S, \mu)$ is 
+The integral of a non-negative function $f:\Omega\to [0, \infty]$ 
+w.r.t. the measure $(\Sigma, \mu)$ is 
 \[ 
     \int f\, d\mu = \sup_P \mca L_\mu(f, P)
 \] 
-where $P$ is taken over all $\mca S$-partition of $X$. 
+where $P$ is taken over all $\Sigma$-partition of $\Omega$. 
 :::
 
 :::{.proposition name="integral of characteristic function"}
-Given $X, \mca S, \mu)$ and $E\in \mca S$, 
+Given $\Omega, \Sigma, \mu)$ and $E\in \Sigma$, 
 $\int \chi_E\, d\mu = \mu(E)$. 
 :::
-_Proof_ we have $\mca L_\mu(\chi_E, \{E, X-E\}) = \mu(E)$, then 
-$\int f\, d\mu \geq \mu(E)$. Conversely, given any $\mca S$-partition 
-$P=\{A_1, \cdots, A_m\}$ of $X$, for each $j$ 
+_Proof_ we have $\mca L_\mu(\chi_E, \{E, \Omega-E\}) = \mu(E)$, then 
+$\int f\, d\mu \geq \mu(E)$. Conversely, given any $\Sigma$-partition 
+$P=\{A_1, \cdots, A_m\}$ of $\Omega$, for each $j$ 
 \[ 
     \mu(A_j) \inf_{A_j} \chi_E = \begin{cases}
         \mu(A_j) & A_j\subset E \\ 
@@ -70,33 +70,33 @@ then
 $\mca L(\chi_E, P) = \sum_{A_j\subset E} \mu(A_j) \leq \mu(E)$. 
 
 :::{.proposition name="integral of a simple function"}
-Given a measure space $(X, \mca S, \mu)$ and disjoint
+Given a measure space $(\Omega, \Sigma, \mu)$ and disjoint
 $E_1, \cdots E_n$, we have 
 \[ 
     \int \left(\sum_{k=1}^n c_k \chi_{E_k}\right)\, d\mu 
     = \sum_{k=1}^n c_k \mu(E_k)
 \] 
 :::
-_Proof:_ The LHS integral is lower-bounded by the $\mca S$-partition 
-$\{E_j\}\cup \{X-\bigcup E_j\}$. The converse follows similar 
+_Proof:_ The LHS integral is lower-bounded by the $\Sigma$-partition 
+$\{E_j\}\cup \{\Omega-\bigcup E_j\}$. The converse follows similar 
 to the last proposition. 
 
 In light of the previous proposition, we have 
 
 :::{.corollary name="equivalent definition of nonnegative integral"}
-Given $(X, \mca S, \mu)$ and measurable $f:X\to [0, \infty]$, 
+Given $(\Omega, \Sigma, \mu)$ and measurable $f:\Omega\to [0, \infty]$, 
 the integral definition \@ref(def:nonNegativeIntegral) is equivalent to 
 \[ 
     \int f\, d\mu = \sup_P \mca L_\mu(f, P) = \sup_s \int s\, d\mu 
 \] 
 where the last $\sup$ is taken over all simple function $f$ dominated 
-by $f$: $\forall x\in X: f(x)\geq s(x)$. 
+by $f$: $\forall x\in \Omega: f(x)\geq s(x)$. 
 :::
 _Proof:_ Simply follows from $\mca L_\mu(f, P)$ being 
 the integral of a simple function. 
 
 :::{.definition name="general real integral"}
-Given $(X, \mca S, \mu)$ and measurable $f:[-\infty, \infty]$ 
+Given $(\Omega, \Sigma, \mu)$ and measurable $f:[-\infty, \infty]$ 
 such that _at least one_ of $\int f^+\, d\mu, \int f^-\, d\mu$ 
 is finite; the integral of $f$ w.r.t. $\mu$ is 
 \[ 
@@ -114,14 +114,14 @@ Note that the integral of the following function is not defined:
 ## Properties {-}
 
 :::{.definition name="integral metric, integrable space"}
-Fix $(X, \mca S, \mu)$; if $f:X\to [-\infty, \infty]$ 
+Fix $(\Omega, \Sigma, \mu)$; if $f:\Omega\to [-\infty, \infty]$ 
 is measurable, then the $L^1$-norm of $f$ is 
 \[  
     \|f_1\| = \int |f|\, d\mu 
 \] 
 The Lebesgue space $L^1(\mu)$ is also 
 \[  
-    L^1(\mu) = \{f:X\to \R | \|f\|_1 < \infty \}
+    L^1(\mu) = \{f:\Omega\to \R | \|f\|_1 < \infty \}
 \] 
 :::
 
@@ -147,8 +147,8 @@ For (3),
 \end{align}
 
 :::{.definition name="integration on subset"}
-Given $(X, \mca S, \mu)$ and $E\in \mca S$ and 
-measurable $f:X\to [-\infty, \infty]$, the subset integral is 
+Given $(\Omega, \Sigma, \mu)$ and $E\in \Sigma$ and 
+measurable $f:\Omega\to [-\infty, \infty]$, the subset integral is 
 \[ 
     \int_E f\, d\mu = \int \chi_E f\, d\mu 
 \] 
@@ -168,11 +168,11 @@ _Proof:_ let $c=\sup_E |f|$, then
 
 :::{.theorem #domainIntegralAdditivity name="disjoint additivity w.r.t domain"}
 Given measurable $f$, define the function 
-$\phi:\mca S\to [-\infty, \infty]$ by 
+$\phi:\Sigma\to [-\infty, \infty]$ by 
 \[ 
     \phi(A) = \int_A f\, d\mu 
 \] 
-then for every $A, B\in \mca S$, we have 
+then for every $A, B\in \Sigma$, we have 
 $\phi(A\sqcup B) = \phi(A)+\phi(B)$. 
 :::
 _Proof:_ without loss of generality consider nonnegative $f$. 
@@ -183,7 +183,7 @@ countable subadditivity with the $\sup$ integral construction.
 
 :::{.corollary name="sets of zero measure are negligible in integration"}
 Given 
-$A, B\in \mca S$ such that $\mu(A-B)=0$, then 
+$A, B\in \Sigma$ such that $\mu(A-B)=0$, then 
 \[ 
     \int_A f\, d\mu = \int_B f\, d\mu 
 \] 
@@ -255,7 +255,7 @@ Applying the monotone convergence theorem above to
 partial sums yield 
 
 :::{.corollary}
-Given measurable $E\in \mca S$ and nonnegative measurable sequence 
+Given measurable $E\in \Sigma$ and nonnegative measurable sequence 
 $(f_j)$; define their sum 
 \[ 
     f = \sum_{n=1}^\infty f_n 
