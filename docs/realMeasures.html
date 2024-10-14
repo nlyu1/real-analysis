@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Lebesgue measure | Math 114 Notes</title>
   <meta name="description" content="3 Lebesgue measure | Math 114 Notes" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Lebesgue measure | Math 114 Notes" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-13" />
+<meta name="date" content="2024-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -64,7 +64,6 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -95,16 +94,21 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i>Organization</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-deliverables"><i class="fa fa-check"></i>Main deliverables</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> Measures and σ-algebra</a>
 <ul>
 <li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#sigmaDefinition"><i class="fa fa-check"></i>σ-algebra</a></li>
-<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableSpaceFunctions"><i class="fa fa-check"></i>Measure spaces, functions</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableSpace"><i class="fa fa-check"></i>Measure space</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableFunction"><i class="fa fa-check"></i>Measurable function</a></li>
 <li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#caratheodory"><i class="fa fa-check"></i>Carathéodory theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="realMeasures.html"><a href="realMeasures.html"><i class="fa fa-check"></i><b>3</b> Lebesgue measure</a>
@@ -191,12 +195,14 @@ or lower-approximated by a closed subset up to arbitrarily small but
 finite measure <a href="realMeasures.html#thm:squeezeMeasurable">3.3</a>.</li>
 <li>it can be approximated by a Borel set up
 to zero measure <a href="realMeasures.html#thm:borelApprox">3.4</a>.</li>
+<li>it differs from a measurable set by zero
+measure <a href="#prp:nullDifferenceMeasurability">3.7</a>.</li>
 </ul></li>
 </ol>
 <div id="extMeasure" class="section level2 unnumbered hasAnchor">
 <h2>Rectangles, exterior measure<a href="realMeasures.html#extMeasure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-26" class="definition"><strong>Definition 3.1  (exterior measure) </strong></span>The exterior measure <span class="math inline">\(\mu_*(E)\)</span> of any subset <span class="math inline">\(E\subset \mathbb R^n\)</span> is
+<p><span id="def:unlabeled-div-25" class="definition"><strong>Definition 3.1  (exterior measure) </strong></span>The exterior measure <span class="math inline">\(\mu_*(E)\)</span> of any subset <span class="math inline">\(E\subset \mathbb R^n\)</span> is
 <span class="math display">\[
     \mu_*(E) = \inf \sum_{j=1}^\infty |R_j|
 \]</span>
@@ -205,7 +211,7 @@ closed rectangles, the measure of a closed rectangle
 <span class="math inline">\(R_j = \prod_{j=1}^n [a_j, b_j]\)</span> is <span class="math inline">\(|Q_j| = \prod_{j=1}^n (b_j - a_j)\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-27" class="proposition"><strong>Proposition 3.1  </strong></span>The exterior is an outer measure per definition <a href="abstractMachinery.html#def:defOuterMeasure">2.10</a>.</p>
+<p><span id="prp:extOuterMeasure" class="proposition"><strong>Proposition 3.1  </strong></span>The exterior is an outer measure per definition <a href="abstractMachinery.html#def:defOuterMeasure">2.10</a>.</p>
 <ul>
 <li><span class="math inline">\(E_1\subset E_2\implies \mu_*(E_1)\leq \mu_*(E_2)\)</span>.</li>
 <li><span class="math inline">\(E=\bigcup_{j=1}^\infty E_j\implies \mu_*(E)\leq \sum_{j=1}^\infty \mu_*(E_j)\)</span>.</li>
@@ -317,18 +323,20 @@ boundaries of closed sets which have nontrivial measure
 <div id="lebMeasure" class="section level2 unnumbered hasAnchor">
 <h2>Lebesgue measure, Borel regularity<a href="realMeasures.html#lebMeasure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-28" class="definition"><strong>Definition 3.2  (Lebesgue measure) </strong></span>The set <span class="math inline">\(\mathcal L\subset \mathbb R^n\)</span> of Lebesgue measurable sets
+<p><span id="def:unlabeled-div-26" class="definition"><strong>Definition 3.2  (Lebesgue measure) </strong></span>The set <span class="math inline">\(\mathcal L\subset \mathbb R^n\)</span> of Lebesgue measurable sets
 are the Carathéodory-measurable sets of the exterior measure:
 <span class="math display">\[
-    S\in \mathcal L \iff \mu(\forall E\subset \mathbb R^n) = \mu(E\cap S)+\mu(E\cap S^c)
+    S\in \mathcal L \iff \mu_*(\forall E\subset \mathbb R^n)
+    = \mu_*(E\cap S)+\mu_*(E\cap S^c)
 \]</span></p>
 </div>
-<p>Note that one direction in the Carathéodory criterion always holds:
+<p>Note that one direction in the Carathéodory criterion always holds
+by subadditivity:
 <span class="math display">\[
-    \mu(E) \leq \mu(E\cap B) + \mu(E\cap B^c)
+    \mu_*(E) \leq \mu_*(E\cap B) + \mu_*(E\cap B^c)
 \]</span></p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-29" class="proposition"><strong>Proposition 3.5  (null sets are measurable) </strong></span><span class="math inline">\(\mu(E\subset \mathbb R^n)=0\implies E\in \mathcal L\)</span>.</p>
+<p><span id="prp:unlabeled-div-27" class="proposition"><strong>Proposition 3.5  (null sets are measurable) </strong></span><span class="math inline">\(\mu(E\subset \mathbb R^n)=0\implies E\in \mathcal L\)</span>.</p>
 </div>
 <details>
 <summary>
@@ -337,12 +345,34 @@ Proof
 To show the nontrivial direction, <span class="math inline">\(\mu(E\cap B)\leq \mu(E)=0\)</span>, then
 <span class="math inline">\(\mu(E\cap B^c) \leq \mu(E)\)</span> by subadditivity.
 </details>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-28" class="proposition"><strong>Proposition 3.6  Proposition 3.7  </strong></span>If <span class="math inline">\(\mu_*(A\Delta B) = 0\)</span> for <span class="math inline">\(\in \mathcal L\)</span>,
+then <span class="math inline">\(A\)</span> is measurable.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Without loss of generality assume <span class="math inline">\(B\subset A\)</span>.
+We wish to show thenontrivial direction
+<span class="math display">\[\begin{align}
+    \mu_*(\forall E)
+    &amp;\geq \mu_*(E\cap A) + \mu_*(E\cap A^c)  
+\end{align}\]</span>
+The second term <span class="math inline">\(\mu_*(E\cap A^c)\leq \mu_*(E\cap B^c)\)</span>
+by subadditivity, and the first term
+<span class="math display">\[
+    \mu_*(E\cap A) \leq \mu_*(E\cap B) + \mu_*(E\cap (A-B))
+    \leq \mu_*(E\cap B) + \mu_*(A-B)_{=0}
+\]</span>
+Then <span class="math inline">\(\mu_*(E\cap A) + \mu_*(E\cap A^c)\leq  \mu_*(E\cap B) + \mu_*(E\cap B^c) = \mu_*(E)\)</span> by <span class="math inline">\(B\)</span> measurable.
+</details>
 <div class="definition">
-<p><span id="def:unlabeled-div-30" class="definition"><strong>Definition 3.3  (Borel sets) </strong></span>The Borel set <span class="math inline">\(\mathcal B\subset 2^{R^n}\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra
+<p><span id="def:unlabeled-div-29" class="definition"><strong>Definition 3.3  (Borel sets) </strong></span>The Borel set <span class="math inline">\(\mathcal B\subset 2^{R^n}\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra
 freely generated by rectangles.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-31" class="theorem"><strong>Theorem 3.1  (Borel sets are Lebesgue measurable) </strong></span><span class="math inline">\(\mathcal B\subset \mathcal L\)</span>.</p>
+<p><span id="thm:unlabeled-div-30" class="theorem"><strong>Theorem 3.1  (Borel sets are Lebesgue measurable) </strong></span><span class="math inline">\(\mathcal B\subset \mathcal L\)</span>.</p>
 </div>
 <p><em>Proof:</em> Proposition <a href="realMeasures.html#prp:rectangleMeasurable">3.4</a> states that rectangles
 are measurable; invoking the machinery we built in the section
@@ -357,7 +387,7 @@ be the equivalence class of <span class="math inline">\(\alpha\)</span>. Then
 <span class="math inline">\(\mathcal N\)</span> by choosing one element <span class="math inline">\(x_\alpha\)</span> from
 each <span class="math inline">\(\mathcal E_\alpha\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-32" class="proposition"><strong>Proposition 3.6  </strong></span><span class="math inline">\(\mathcal N\)</span> is not measurable.</p>
+<p><span id="prp:unlabeled-div-31" class="proposition"><strong>Proposition 3.8  </strong></span><span class="math inline">\(\mathcal N\)</span> is not measurable.</p>
 </div>
 <p><em>Proof:</em> Assume <span class="math inline">\(\mathcal N\)</span> measurable and let
 <span class="math inline">\(\{r_k\}_{k=1}^\infty\)</span> be an enumeration of all rationals
@@ -380,7 +410,7 @@ countable collection <span class="math inline">\(\{\mathcal N_k\}\)</span>.</p>
 <p>We have seen that the exterior measure is equivalent to open cover infinum
 <a href="realMeasures.html#prp:openCoverInfimum">3.2</a>. We also have</p>
 <div class="proposition">
-<p><span id="prp:measurableCompactSupremum" class="proposition"><strong>Proposition 3.7  (compact subset supremum) </strong></span>If <span class="math inline">\(A\)</span> is Lebesgue measurable, then
+<p><span id="prp:measurableCompactSupremum" class="proposition"><strong>Proposition 3.9  (compact subset supremum) </strong></span>If <span class="math inline">\(A\)</span> is Lebesgue measurable, then
 <span class="math display">\[
     \mu(A) = \sup_{K\subset A\text{ compact}} \mu(K)
 \]</span></p>
@@ -444,7 +474,7 @@ measurability of <span class="math inline">\(G\)</span> and subadditivity
 \end{align}\]</span>
 </details>
 <div class="theorem">
-<p><span id="thm:squeezeMeasurable" class="theorem"><strong>Theorem 3.3  (measurability by squeezing) </strong></span><span class="math inline">\(A\subset \mathbb R^n\)</span> is Lebesgue measurable iff <span class="math inline">\(\forall \epsilon&gt;0\)</span>,
+<p><span id="thm:squeezeMeasurable" class="theorem"><strong>Theorem 3.3  (inner and outer regularity) </strong></span><span class="math inline">\(A\subset \mathbb R^n\)</span> is Lebesgue measurable iff <span class="math inline">\(\forall \epsilon&gt;0\)</span>,
 there exists open <span class="math inline">\(G\)</span>, closed <span class="math inline">\(F\)</span>, with <span class="math inline">\(F\subset A\subset G\)</span> such that
 <span class="math inline">\(\mu_*(G - F) &lt; \epsilon\)</span>.</p>
 </div>

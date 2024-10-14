@@ -26,6 +26,8 @@ Key takeaways:
     finite measure \@ref(thm:squeezeMeasurable). 
     - it can be approximated by a Borel set up 
     to zero measure \@ref(thm:borelApprox). 
+    - it differs from a measurable set by zero 
+    measure \@ref(prp:nullDifferenceMeasurability). 
 
 ## Rectangles, exterior measure {#extMeasure -}
 
@@ -39,7 +41,7 @@ closed rectangles, the measure of a closed rectangle
 $R_j = \prod_{j=1}^n [a_j, b_j]$ is $|Q_j| = \prod_{j=1}^n (b_j - a_j)$. 
 :::
 
-:::{.proposition}
+:::{.proposition #extOuterMeasure}
 The exterior is an outer measure per definition \@ref(def:defOuterMeasure). 
 
 - $E_1\subset E_2\implies \mu_*(E_1)\leq \mu_*(E_2)$. 
@@ -154,13 +156,15 @@ boundaries of closed sets which have nontrivial measure
 The set $\mca L\subset \R^n$ of Lebesgue measurable sets 
 are the Carathéodory-measurable sets of the exterior measure: 
 \[ 
-    S\in \mca L \iff \mu(\forall E\subset \R^n) = \mu(E\cap S)+\mu(E\cap S^c)
+    S\in \mca L \iff \mu_*(\forall E\subset \R^n) 
+    = \mu_*(E\cap S)+\mu_*(E\cap S^c)
 \] 
 :::
 
-Note that one direction in the Carathéodory criterion always holds: 
+Note that one direction in the Carathéodory criterion always holds 
+by subadditivity: 
 \[ 
-    \mu(E) \leq \mu(E\cap B) + \mu(E\cap B^c)
+    \mu_*(E) \leq \mu_*(E\cap B) + \mu_*(E\cap B^c)
 \] 
 
 :::{.proposition name="null sets are measurable"}
@@ -170,6 +174,28 @@ $\mu(E\subset \R^n)=0\implies E\in \mca L$.
 <summary>Proof</summary>
 To show the nontrivial direction, $\mu(E\cap B)\leq \mu(E)=0$, then 
 $\mu(E\cap B^c) \leq \mu(E)$ by subadditivity. 
+</details>
+
+:::{.proposition name=#prp:nullDifferenceMeasurability}
+If $\mu_*(A\Delta B) = 0$ for $\in \mca L$, 
+then $A$ is measurable. 
+:::
+<details>
+<summary>Proof</summary>
+Without loss of generality assume $B\subset A$. 
+We wish to show thenontrivial direction 
+\begin{align}
+    \mu_*(\forall E) 
+    &\geq \mu_*(E\cap A) + \mu_*(E\cap A^c)  
+\end{align}
+The second term $\mu_*(E\cap A^c)\leq \mu_*(E\cap B^c)$ 
+by subadditivity, and the first term 
+\[ 
+    \mu_*(E\cap A) \leq \mu_*(E\cap B) + \mu_*(E\cap (A-B)) 
+    \leq \mu_*(E\cap B) + \mu_*(A-B)_{=0}
+\] 
+Then $\mu_*(E\cap A) + \mu_*(E\cap A^c)\leq 
+    \mu_*(E\cap B) + \mu_*(E\cap B^c) = \mu_*(E)$ by $B$ measurable. 
 </details>
 
 :::{.definition name="Borel sets"}
@@ -275,7 +301,7 @@ measurability of $G$ and subadditivity
 \end{align}
 </details>
 
-:::{.theorem #squeezeMeasurable name="measurability by squeezing"}
+:::{.theorem #squeezeMeasurable name="inner and outer regularity"}
 $A\subset \R^n$ is Lebesgue measurable iff $\forall \epsilon>0$, 
 there exists open $G$, closed $F$, with $F\subset A\subset G$ such that 
 $\mu_*(G - F) < \epsilon$. 

@@ -117,16 +117,7 @@ are true:
 :::
 
 
-## Real analysis {-}
-
-:::{.definition name="limit inferior"}
-Given a countable sequence of reals $(a_j)$, the limit inferior is 
-\[ 
-    \liminf_{n\to \infty} a_n = \lim_{n\to \infty} g_n, \quad 
-    g_n = \inf_{k\geq n} a_k 
-\] 
-The counterpart $\limsup$ is defined similarly. 
-:::
+## Real analysis {#realAnalysis -}
 
 :::{.definition name="Riemann integral"}
 Fix $[a, b]$ and a partition $a=x_0\leq \cdots \leq x_n =b$, 
@@ -144,29 +135,85 @@ The upper and lower integrals are defined as
 \end{align}
 :::
 
-:::{.definition name="semi-continuity"}
-A real-valued function $f$ is **lower-semicontinuous** 
+:::{.definition name="limit inferior"}
+Given a countable sequence of reals $(a_j)$, the limit inferior is 
+\[ 
+    \liminf_{n\to \infty} a_n = \lim_{n\to \infty} g_n, \quad 
+    g_n = \inf_{k\geq n} a_k 
+\] 
+The counterpart $\limsup$ is defined similarly. 
+:::
+
+:::{.definition #semiContinuity name="semi-continuity"}
+A $\R^n$-valued function $f$ is **lower-semicontinuous** 
 if 
 \[ 
     f^{-1}((t, \infty)) \text{ is open }\forall t
 \] 
 It is **upper-semicontinuous** when 
-$f^{-1}((-\infty, t))$ is open for all $t$. 
+$f^{-1}((-\infty, t))$ is open for all $t$. Here $(t, \infty)$ 
+denotes the set of all vectors which larger than $t$ pointwise. 
 :::
 
-:::{.proposition name="equivalent characterization"}
-$f:\Omega\to \R$ is lower semi-continuous 
-iff any of the following holds for all $x$: 
+:::{.proposition name="ε-δ definition of semi-continuity"}
+Given a metric space $X$, 
+$f:X\to \R^n$ is lower semicontinuous at $x_0\in X$ if for every 
+vector $\epsilon>0$ there exists a real scalar $\delta>0$ such that 
+\[ 
+    f(B_\delta(x_0)) \geq f(x_0) - \epsilon 
+\] 
+Similarly, it is upper-semicontinuous when 
+$f(B_\delta(x_0)) \leq f(x_0) + \epsilon$. 
+:::
+_Proof:_ We do the proof for lower-semicontinuity. 
 
-1. Sequential characterization: 
-    $x_n\to x \implies f(x)\leq \liminf f(x_n)$. 
-2. Epsilon-delta characterization: 
-$\forall \epsilon>0, \exists \delta>0: 
-    f(B_\delta(x))>f(x)-\epsilon$. 
+- Assuming definition \@ref(def:semiContinuity), 
+    $f^{-1}((t-\epsilon, \infty))$ open for every $\epsilon$ 
+    implies that at $x_0\in f^{-1}(t-\epsilon, \infty)$ has an 
+    open neighborhood. 
+- Conversely, assuming the given condition holds at every $x_0\in X$, 
+    the preimage of every open set $f^{-1}((t, \infty))$ 
+    contains an open neighborhood for each point thus is open. 
 
-The corresponding characterizations of lower-continuity are: 
+:::{.proposition name="limit definition of semi-continuity"}
+$f:X\to \R^n$ is lower semicontinuous at $x_0$ if 
+\[ 
+    \liminf_{x\to x_0} f(x) \geq f(x_0)
+\] 
+Similarly, it is upper-continuous at $x_0$  if 
+$\limsup_{x\to x_0} f(x) \leq f(x_0)$. 
+:::
+_Proof:_
+$\liminf_{x\to x_0} f(x) \geq f(x_0)$ 
+implies that $\forall \epsilon>0\in \R^n$, 
+there exists $\delta > 0 \in \R$ such that $f(B_\delta(x_0))\geq f(x_0) - \epsilon$. 
+Similarly, $\limsup_{x\to x_0} f(x) \leq f(x_0)$ 
+if for every $\epsilon>0\in \R^n$, there exists $\delta>0\in \R$ 
+such that $f(B_\delta(x_0)) \leq f(x_0) + \epsilon$. 
 
-1. $x_n\to x \implies f(x)$ 
-2. $\forall \epsilon>0, \exists \delta>0: 
-    f(B_\delta(x)) < f(x)+\epsilon$. 
+:::{.example}
+Of the following, $f_1, f_4$ is lower but not upper semi-continuous, 
+$f_2, f_3$ is upper but not lower semi-continuous. 
+is 
+\[
+    f_1(x) = \begin{cases}
+        0 & x\leq 0 \\
+        1 & x > 0 
+    \end{cases}, \quad 
+    f_2(x) = \begin{cases}
+        0 & x < 0 \\ 
+        1 & x \geq 0 
+    \end{cases}, \quad 
+    f_3(x) = \begin{cases}
+        0 & x \leq 0 \\ 
+        -1 & x > 0 
+    \end{cases}, \quad 
+    f_4(x) = \begin{cases}
+        0 & x < 0 \\ 
+        -1 & x \geq 0 
+    \end{cases}
+\]
+(Lower, upper) semi-continuous 
+functions can only jump (down, up) in limit 
+on the side with open iterval. 
 :::

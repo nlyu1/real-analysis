@@ -32,6 +32,7 @@ link-citations: true
 \newcommand{\Pf}{\mrm{Pf}}
 \newcommand{\Pa}{\mca P}
 \newcommand{\R}{\mbb R}
+\newcommand{\N}{\mbb N}
 \newcommand{\supp}{\mrm{supp}}
 
 \newcommand{\poly}{\mrm{poly}}
@@ -52,41 +53,57 @@ deviate quite a bit from lecture materials, in particular:
 2. Materials are heavily supplemented by Sheldon Axler's 
     _Measure, Integration and Real Analysis_. 
 
-These notes are organized as follows:
+## Organization {-}
 
 1. Abstract machinery of [measures and $\sigma$-algebra](#abstractMachinery). 
-    - Lieb and Loss, _Analysis_ (2nd ed), chapter 1. 
+    - Lieb and Loss, chapter 1. 
 2. The [exterior measure and Lebesgue measure](#realMeasures) on $\R^n$. 
-    - John K. Hunter, [_Measure theory_](https://www.math.ucdavis.edu/~hunter/measure_theory/measure_notes_ch2.pdf)
-        chapter 2. 
+    - Hunter. 
 3. [Lebesgue integral](#integration), 
     Littlewood's three principles, and integral convergence theorems. 
-    - Rudin, _Principles of Real Analysis_, chapter 11; 
-    Axler, chapter 2; Lieb and Loss, chapter 1. 
+    - Rudin, , chapter 11; Axler, chapter 2; Lieb and Loss, chapter 1. 
 4. [Iterated integrals](#iteratedIntegrals}): uniqueness of product measure 
     and Fubini's theorem. 
+    - Lieb and Loss, chapter 1. 
 5. [$L^p$ spaces](#Lpspaces). 
     - Lieb and Loss, chapter 2; Axler, chapter 7. 
 
+References for these notes
 
-Course agenda: 
+1. Axler, _Measure, Integration \& Real analysis_ [@axler2020measure]. 
+2. Lieb and Loss, _Analysis_ [@lieb2001analysis]. 
+3. John K. Hunter, [online notes](https://www.math.ucdavis.edu/~hunter/measure_theory/measure_notes_ch2.pdf)
+    on the Lebesgue measure. 
+4. Rudin, _Principles of Mathematical Analysis_ [@rudin1964principles]. 
 
-1. Basic elements of measure theory: Lebesgue integration. 
-2. $L^p$-spaces, which are constructions which internalize Lebesgue integration. 
-3. Fourier analysis, Hilbert spaces. 
-4. Radon-Nikadym theorem and Hölder spaces, which are constructions 
-    internalizing the RN-theorem and differentiation. 
 
-Nontrivial results: 
+## Main deliverables {-}
 
-1. Monotone class theorem \@ref(thm:monotoneClassTheorem): 
+1. <u>Monotone class theorem</u> \@ref(thm:monotoneClassTheorem): 
     freely-generated monotone class equals freely-generated $\sigma$-algebra 
     for algebra of sets containing $\Omega$. 
-    - Techniques for use (example theorem \@ref(thm:uniqueMeasure)): 
-    rewrite nested chain as disjoint union, then pass through the limit 
-    using the countable additivity of measures. 
-    Next apply the reduction from finite to $\sigma$-finite measures. 
-2. Carathéodory measurability theorem \@ref(thm:measureConstruction): 
+2. <u>Carathéodory's theorem</u> \@ref(thm:measureConstruction): 
     given an outer measure $\mu$, the measurable sets $B\subset \Omega$ satisfying 
     $\mu(\forall E) = \mu(E\cap B) + \mu(E\cap B^c)$ form a $\sigma$-algebra 
     and obey countable additivity. 
+3. <u>Dominated convergence theorem</u>:  
+4. <u>Fubini's theorem</u>
+
+Proof techniques:
+
+1. Using the monotone class theorem (example theorem \@ref(thm:uniqueMeasure)): 
+    rewrite nested chain as disjoint union, then pass through the limit 
+    using the countable additivity of measures. 
+    Next apply the reduction from finite to $\sigma$-finite measures. 
+2. Working with countable collection of approximations: given tolerance $\epsilon$, 
+    introduce approximation of index $j$ with tolerance $\epsilon 2^{-j}$ 
+    to have additively bounded total tolerance. 
+    - Examples: outer measure properties of 
+    exterior measure (proposition \@ref(prp:extOuterMeasure)). 
+3. Prove properties for characteristic functions, then generalize them 
+    using approximation and limit theorems [here](#realIntegration). 
+    - Examples: Luzin's theorem, 
+    monotone convergence theorem \@ref(thm:monotoneConvergence),   
+4. Sandwich bounds 
+    - Lemma \@ref(lem:caratheodoryAdditive), 
+    Monotone convergence theorem. 
