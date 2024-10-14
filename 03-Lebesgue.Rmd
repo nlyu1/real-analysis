@@ -1,4 +1,4 @@
-# Measure on $\R^n$ {#realMeasures}
+# Lebesgue measure {#realMeasures}
 
 This section establishes the base case of the Lebesgue 
 measure on $\R^n$: 
@@ -8,7 +8,6 @@ measure on $\R^n$:
 2. [Lebesgue measure and Borel regularity](#lebMeasure): 
     definition and relation with Borel sets, 
     characterization of measurable sets, example of a non-measurable set. 
-3. [Measurable functions](#realMeasurableFunctions): .
 
 Key takeaways: 
 

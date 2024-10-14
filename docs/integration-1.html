@@ -115,18 +115,20 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#a-non-measurable-set"><i class="fa fa-check"></i>A non-measurable set</a></li>
 <li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#approximation-of-measurable-sets"><i class="fa fa-check"></i>Approximation of measurable sets</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#functionMeasurabilityConditions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#lebesgueIntegration"><i class="fa fa-check"></i>Lebesgue integration</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#lebesgueConvergence"><i class="fa fa-check"></i>Convergence theorems</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#littlewoodPrinciples"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="integration.html"><a href="integration.html"><i class="fa fa-check"></i><b>4</b> Integration</a>
+<li class="chapter" data-level="4" data-path="integration.html"><a href="integration.html"><i class="fa fa-check"></i><b>4</b> Measurable functions</a>
 <ul>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#realMeasurableFunctions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
-<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
 <li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#product-measures-fubini"><i class="fa fa-check"></i>Product measures, Fubini</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="integration-1.html"><a href="integration-1.html"><i class="fa fa-check"></i><b>5</b> Integration</a>
 <ul>
 <li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#definition"><i class="fa fa-check"></i>Definition</a></li>
-<li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#properties"><i class="fa fa-check"></i>Properties</a></li>
 <li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
 <li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
 <li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
@@ -170,191 +172,21 @@ into two nonnegative parts.</li>
 an “absolutely convergent integral.”</li>
 <li>The space <span class="math inline">\(L^1(\mu)\)</span> of integrable functions is complete under<br />
 monotone pointwise convergence (monotone convergence theorem
-<a href="integration-1.html#thm:monotoneConvergence">5.3</a>) and dominated pointwise convergence
-(dominated convergence theorem <a href="integration-1.html#thm:dominatedConvergence">5.5</a>).</li>
+<a href="integration-1.html#thm:monotoneConvergence">5.1</a>) and dominated pointwise convergence
+(dominated convergence theorem <a href="integration-1.html#thm:dominatedConvergence">5.3</a>).</li>
 <li>Chain of reasoning: Monotone convergence thm <span class="math inline">\(\implies\)</span> Fatou’s theorem
 <span class="math inline">\(\implies\)</span> dominated convergence theorem.</li>
 <li>Measure theory characterizes Riemann integrability.</li>
 </ol>
 <div id="definition" class="section level2 unnumbered hasAnchor">
 <h2>Definition<a href="integration-1.html#definition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="definition">
-<p><span id="def:unlabeled-div-47" class="definition"><strong>Definition 5.1  (function support) </strong></span>The support of a measurable function <span class="math inline">\(f\)</span> is
-<span class="math display">\[
-    \mathrm{supp}(f) = \overline{f^{-1}(\{0\}^C)}
-\]</span>
-the closure of domain on which <span class="math inline">\(f\)</span> does not vanish.</p>
-</div>
-<div class="definition">
-<p><span id="def:unlabeled-div-48" class="definition"><strong>Definition 5.2  (S-partition) </strong></span>Given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma\)</span> on set <span class="math inline">\(\Omega\)</span>, an
-<span class="math inline">\(\Sigma\)</span>-partition of <span class="math inline">\(\Omega\)</span> is a finite collection
-<span class="math inline">\(A_1, \cdots, A_m\)</span> of disjoint sets in <span class="math inline">\(\Sigma\)</span>
-such that <span class="math inline">\(\bigsqcup A_j = \Omega\)</span>.</p>
-</div>
-<div class="definition">
-<p><span id="def:unlabeled-div-49" class="definition"><strong>Definition 5.3  (lower Lebesgue sum) </strong></span>Given measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>,
-an <span class="math inline">\(\Sigma\)</span>-measurable function <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>,
-and a <span class="math inline">\(\Sigma\)</span>-partition <span class="math inline">\(P=\{A_1, \cdots, A_m\}\)</span> of <span class="math inline">\(\Omega\)</span>,
-the lower Lebesgue sum is
-<span class="math display">\[
-    \mathcal L_\mu(f, P) = \sum_{j=1}^m \mu(A_j)\inf_{A_j} f
-\]</span></p>
-</div>
-<div class="definition">
-<p><span id="def:nonNegativeIntegral" class="definition"><strong>Definition 5.4  (non-negative integral) </strong></span>The integral of a non-negative function <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>
-w.r.t. the measure <span class="math inline">\((\Sigma, \mu)\)</span> is
-<span class="math display">\[
-    \int f\, d\mu = \sup_P \mathcal L_\mu(f, P)
-\]</span>
-where <span class="math inline">\(P\)</span> is taken over all <span class="math inline">\(\Sigma\)</span>-partition of <span class="math inline">\(\Omega\)</span>.</p>
-</div>
-<div class="proposition">
-<p><span id="prp:unlabeled-div-50" class="proposition"><strong>Proposition 5.1  (integral of characteristic function) </strong></span>Given <span class="math inline">\(\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(E\in \Sigma\)</span>,
-<span class="math inline">\(\int \chi_E\, d\mu = \mu(E)\)</span>.</p>
-</div>
-<p><em>Proof</em> we have <span class="math inline">\(\mathcal L_\mu(\chi_E, \{E, \Omega-E\}) = \mu(E)\)</span>, then
-<span class="math inline">\(\int f\, d\mu \geq \mu(E)\)</span>. Conversely, given any <span class="math inline">\(\Sigma\)</span>-partition
-<span class="math inline">\(P=\{A_1, \cdots, A_m\}\)</span> of <span class="math inline">\(\Omega\)</span>, for each <span class="math inline">\(j\)</span>
-<span class="math display">\[
-    \mu(A_j) \inf_{A_j} \chi_E = \begin{cases}
-        \mu(A_j) &amp; A_j\subset E \\
-        0 &amp; \text{otherwise}
-    \end{cases}
-\]</span>
-then
-<span class="math inline">\(\mathcal L(\chi_E, P) = \sum_{A_j\subset E} \mu(A_j) \leq \mu(E)\)</span>.</p>
-<div class="proposition">
-<p><span id="prp:unlabeled-div-51" class="proposition"><strong>Proposition 5.2  (integral of a simple function) </strong></span>Given a measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and disjoint
-<span class="math inline">\(E_1, \cdots E_n\)</span>, we have
-<span class="math display">\[
-    \int \left(\sum_{k=1}^n c_k \chi_{E_k}\right)\, d\mu
-    = \sum_{k=1}^n c_k \mu(E_k)
-\]</span></p>
-</div>
-<p><em>Proof:</em> The LHS integral is lower-bounded by the <span class="math inline">\(\Sigma\)</span>-partition
-<span class="math inline">\(\{E_j\}\cup \{\Omega-\bigcup E_j\}\)</span>. The converse follows similar
-to the last proposition.</p>
-<p>In light of the previous proposition, we have</p>
-<div class="corollary">
-<p><span id="cor:unlabeled-div-52" class="corollary"><strong>Corollary 5.1  (equivalent definition of nonnegative integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>,
-the integral definition <a href="integration-1.html#def:nonNegativeIntegral">5.4</a> is equivalent to
-<span class="math display">\[
-    \int f\, d\mu = \sup_P \mathcal L_\mu(f, P) = \sup_s \int s\, d\mu
-\]</span>
-where the last <span class="math inline">\(\sup\)</span> is taken over all simple function <span class="math inline">\(f\)</span> dominated
-by <span class="math inline">\(f\)</span>: <span class="math inline">\(\forall x\in \Omega: f(x)\geq s(x)\)</span>.</p>
-</div>
-<p><em>Proof:</em> Simply follows from <span class="math inline">\(\mathcal L_\mu(f, P)\)</span> being
-the integral of a simple function.</p>
-<div class="definition">
-<p><span id="def:unlabeled-div-53" class="definition"><strong>Definition 5.5  (general real integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(f:[-\infty, \infty]\)</span>
-such that <em>at least one</em> of <span class="math inline">\(\int f^+\, d\mu, \int f^-\, d\mu\)</span>
-is finite; the integral of <span class="math inline">\(f\)</span> w.r.t. <span class="math inline">\(\mu\)</span> is
-<span class="math display">\[
-    \int f\, d\mu = \int f^+\, d\mu - \int f^-\, d\mu
-\]</span></p>
-</div>
-<p>Note that the integral of the following function is not defined:
-<span class="math display">\[
-    f(x) = \begin{cases}
-        1 &amp; x\geq 0 \\ -1 &amp; x &lt; 0
-    \end{cases}
-\]</span></p>
-</div>
-<div id="properties" class="section level2 unnumbered hasAnchor">
-<h2>Properties<a href="integration-1.html#properties" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="definition">
-<p><span id="def:unlabeled-div-54" class="definition"><strong>Definition 5.6  (integral metric, integrable space) </strong></span>Fix <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>; if <span class="math inline">\(f:\Omega\to [-\infty, \infty]\)</span>
-is measurable, then the <span class="math inline">\(L^1\)</span>-norm of <span class="math inline">\(f\)</span> is
-<span class="math display">\[  
-    \|f_1\| = \int |f|\, d\mu
-\]</span>
-The Lebesgue space <span class="math inline">\(L^1(\mu)\)</span> is also
-<span class="math display">\[  
-    L^1(\mu) = \{f:\Omega\to \mathbb R| \|f\|_1 &lt; \infty \}
-\]</span></p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-55" class="theorem"><strong>Theorem 5.1  (properties of integration) </strong></span>The following properties are evident for <span class="math inline">\(f, g\in L^1(\mu)\)</span>:</p>
-<ol style="list-style-type: decimal">
-<li><em>Linearity:</em> <span class="math inline">\(\int cf+g\, d\mu = c\int f\, d\mu + \int g\, d\mu\)</span>.</li>
-<li><em>Order-preserving</em>: <span class="math inline">\(f\leq g\implies \int f\, d\mu \leq \int g\, d\mu\)</span>.</li>
-<li><em>Metric subadditivity</em>:
-<span class="math inline">\(\left|\int f\, d\mu\right| \leq \int |f|\, d\mu\)</span>.</li>
-</ol>
-</div>
-<p><em>Proof:</em> General idea is to establish for simple functions, then
-show that the proof commutes with integral construction.
-For (2), use <span class="math inline">\(\int g\, d\mu - \int f\, d\mu = \int (g-f)\, d\mu\)</span>.
-For (3),
-<span class="math display">\[\begin{align}
-    \left|\int f\, d\mu\right|
-    &amp;= \left| \int f^+\, d\mu - \int f^-\, d\mu\right|
-    \leq \int f^+\, d\mu + \int f^-\, d\mu \\
-    &amp;= \int (f^++f^-)\, d\mu
-    = \int |f|\, d\mu
-\end{align}\]</span></p>
-<div class="definition">
-<p><span id="def:unlabeled-div-56" class="definition"><strong>Definition 5.7  (integration on subset) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(E\in \Sigma\)</span> and
-measurable <span class="math inline">\(f:\Omega\to [-\infty, \infty]\)</span>, the subset integral is
-<span class="math display">\[
-    \int_E f\, d\mu = \int \chi_E f\, d\mu
-\]</span></p>
-</div>
-<div class="proposition">
-<p><span id="prp:integralBound" class="proposition"><strong>Proposition 5.3  (integral bound) </strong></span>Given <span class="math inline">\(\int_E f\, d\mu &lt; \infty\)</span>,
-<span class="math display">\[
-    \left|\int_E f\, d\mu \right| \leq \mu(E) \sup_E |f|
-\]</span></p>
-</div>
-<p><em>Proof:</em> let <span class="math inline">\(c=\sup_E |f|\)</span>, then
-<span class="math display">\[
-    \left|\int_E f\, d\mu\right| \leq \int \chi_E |f|\, d\mu
-    \leq \int c\chi_E \, d\mu = c\mu(E)
-\]</span></p>
-<div class="theorem">
-<p><span id="thm:domainIntegralAdditivity" class="theorem"><strong>Theorem 5.2  (disjoint additivity w.r.t domain) </strong></span>Given measurable <span class="math inline">\(f\)</span>, define the function
-<span class="math inline">\(\phi:\Sigma\to [-\infty, \infty]\)</span> by
-<span class="math display">\[
-    \phi(A) = \int_A f\, d\mu
-\]</span>
-then for every <span class="math inline">\(A, B\in \Sigma\)</span>, we have
-<span class="math inline">\(\phi(A\sqcup B) = \phi(A)+\phi(B)\)</span>.</p>
-</div>
-<p><em>Proof:</em> without loss of generality consider nonnegative <span class="math inline">\(f\)</span>.
-If <span class="math inline">\(f\)</span> is a characteristic function, then countable additivity
-is equivalent to the countable subadditivity of <span class="math inline">\(\mu\)</span>.
-The general proof just demonstrates the commutativity of
-countable subadditivity with the <span class="math inline">\(\sup\)</span> integral construction.</p>
-<div class="corollary">
-<p><span id="cor:unlabeled-div-57" class="corollary"><strong>Corollary 5.2  (sets of zero measure are negligible in integration) </strong></span>Given
-<span class="math inline">\(A, B\in \Sigma\)</span> such that <span class="math inline">\(\mu(A-B)=0\)</span>, then
-<span class="math display">\[
-    \int_A f\, d\mu = \int_B f\, d\mu
-\]</span></p>
-</div>
-<p><em>Proof:</em> Follows from additivity theorem
-<a href="integration-1.html#thm:domainIntegralAdditivity">5.2</a> and applying <span class="math inline">\(\mu(A-B)=0\)</span>
-to proposition <a href="integration-1.html#prp:integralBound">5.3</a>.</p>
-<p>The integrability of <span class="math inline">\(f\)</span> implies that of <span class="math inline">\(|f|\)</span>, and the
-Lebesgue integral is often called an absolutely convergent integral.</p>
-<div class="proposition">
-<p><span id="prp:unlabeled-div-58" class="proposition"><strong>Proposition 5.4  (several conditions for integrability) </strong></span></p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(f\in L^1(\mu)\implies |f|\in L^1(\mu)\)</span>.</li>
-<li><span class="math inline">\(f\)</span> is measurable and <span class="math inline">\(|f|\leq g \in L^1(\mu)\implies f\in L^1(\mu)\)</span>.</li>
-</ol>
-</div>
-<p><em>Proof:</em> for (1), recall that <span class="math inline">\(f\in L^1(\mu)\)</span> if both <span class="math inline">\(f^+, f^-\)</span>
-have finite integrals, then <span class="math inline">\(|f|=f^++f^-\)</span> is integrable.
-Similarly, (2) follows from <span class="math inline">\(f^+, f^-\leq g\)</span>.</p>
 </div>
 <div id="convergence-theorems" class="section level2 unnumbered hasAnchor">
 <h2>Convergence theorems<a href="integration-1.html#convergence-theorems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The following convergence theorems are the cornerstone of
 Lebesgue theory:</p>
 <div class="theorem">
-<p><span id="thm:monotoneConvergence" class="theorem"><strong>Theorem 5.3  (Lebesgue's monotone convergence theorem) </strong></span>Given <span class="math inline">\(E\)</span> measurable, let <span class="math inline">\(\{f_n\}\)</span> be a sequence of
+<p><span id="thm:monotoneConvergence" class="theorem"><strong>Theorem 5.1  (Lebesgue's monotone convergence theorem) </strong></span>Given <span class="math inline">\(E\)</span> measurable, let <span class="math inline">\(\{f_n\}\)</span> be a sequence of
 measurable functions such that <span class="math inline">\(0\leq f_1\leq \cdots\)</span> on <span class="math inline">\(E\)</span>
 and <span class="math inline">\(f_n\to f\)</span>, then
 <span class="math display">\[
@@ -384,7 +216,7 @@ and, for every <span class="math inline">\(n\)</span>
     \geq c\int_{E_n} s\, d\mu
 \]</span>
 Let <span class="math inline">\(n\to \infty\)</span> and notice that the last integral is disjoint-additive
-on the domain argument <span class="math inline">\(E_n\)</span> by theorem <a href="integration-1.html#thm:domainIntegralAdditivity">5.2</a>;
+on the domain argument <span class="math inline">\(E_n\)</span> by theorem <a href="realMeasures.html#thm:domainIntegralAdditivity">3.6</a>;
 let <span class="math inline">\(c\to 1\)</span> to obtain
 <span class="math display">\[
     F \geq \int E_s\, d\mu c\int_E s\, d\mu
@@ -395,7 +227,7 @@ theorem <a href="integration.html#thm:simpleFunctionApproximation">4.2</a> to ob
 <p>Applying the monotone convergence theorem above to
 partial sums yield</p>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-59" class="corollary"><strong>Corollary 5.3  </strong></span>Given measurable <span class="math inline">\(E\in \Sigma\)</span> and nonnegative measurable sequence
+<p><span id="cor:unlabeled-div-59" class="corollary"><strong>Corollary 5.1  </strong></span>Given measurable <span class="math inline">\(E\in \Sigma\)</span> and nonnegative measurable sequence
 <span class="math inline">\((f_j)\)</span>; define their sum
 <span class="math display">\[
     f = \sum_{n=1}^\infty f_n
@@ -403,7 +235,7 @@ partial sums yield</p>
 then <span class="math inline">\(\int_E f = \sum_{n=1}^\infty \int_E f_n\, d\mu\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-60" class="theorem"><strong>Theorem 5.4  (Fatou's theorem) </strong></span>For measurable <span class="math inline">\(E\)</span>, given nonnegative measurable
+<p><span id="thm:unlabeled-div-60" class="theorem"><strong>Theorem 5.2  (Fatou's theorem) </strong></span>For measurable <span class="math inline">\(E\)</span>, given nonnegative measurable
 sequence <span class="math inline">\((f_j)\)</span> and
 <span class="math display">\[
     f(x) = \liminf_{n\to \infty} f_n(x)
@@ -445,7 +277,7 @@ then <span class="math inline">\(\liminf_{n\to \infty} f_n = 0\)</span> but
 <span class="math inline">\(\forall n, \int_0^1 f_n(x)\, dx = 1/2\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:dominatedConvergence" class="theorem"><strong>Theorem 5.5  (Lebesgue's dominated convergence theorem) </strong></span>Given measurable sequence <span class="math inline">\((f_j)\to f\)</span> pointwise and
+<p><span id="thm:dominatedConvergence" class="theorem"><strong>Theorem 5.3  (Lebesgue's dominated convergence theorem) </strong></span>Given measurable sequence <span class="math inline">\((f_j)\to f\)</span> pointwise and
 <span class="math inline">\(|f_j| \leq g\)</span> with <span class="math inline">\(g\)</span> measurable, then
 <span class="math display">\[
     \lim_{n\to \infty} \int_E f_n\, d\mu = \int_E f\, d\mu
@@ -476,7 +308,7 @@ Combine the two results to obtain equality
     \liminf_{n\to \infty} \int_E f_n\, d\mu
 \]</span></p>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-62" class="corollary"><strong>Corollary 5.4  (bounded convergence theorem) </strong></span>Given finite-measurable <span class="math inline">\(\mu(E) &lt; \infty\)</span> and uniformly bounded
+<p><span id="cor:unlabeled-div-62" class="corollary"><strong>Corollary 5.2  (bounded convergence theorem) </strong></span>Given finite-measurable <span class="math inline">\(\mu(E) &lt; \infty\)</span> and uniformly bounded
 convergent sequence <span class="math inline">\((f_n)\to f\)</span> (i.e. <span class="math inline">\(|f_n(x)|\leq M\)</span> for all <span class="math inline">\(n, x\)</span>),
 the dominated convergence theorem applies.</p>
 </div>
@@ -487,7 +319,7 @@ constant-<span class="math inline">\(M\)</span> function is integrable and domin
 <h2>Comparison with Riemann integral<a href="integration-1.html#comparison-with-riemann-integral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Denote the Riemann integral by <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-63" class="theorem"><strong>Theorem 5.6  (compatibility with Riemann integral) </strong></span>Given Riemann integrable <span class="math inline">\(f\)</span> on <span class="math inline">\([a, b]\)</span>, then <span class="math inline">\(f\in L^1([a, b])\)</span> and
+<p><span id="thm:unlabeled-div-63" class="theorem"><strong>Theorem 5.4  (compatibility with Riemann integral) </strong></span>Given Riemann integrable <span class="math inline">\(f\)</span> on <span class="math inline">\([a, b]\)</span>, then <span class="math inline">\(f\in L^1([a, b])\)</span> and
 <span class="math display">\[
     \int_a^b f\, dx = \mathcal R \int_a^b f\, dx
 \]</span></p>
@@ -518,7 +350,7 @@ Riemann-integrable iff <span class="math inline">\(\int L\, dx = \int U\, dx\)</
 This implies <span class="math inline">\(L=U\)</span> a.e. since <span class="math inline">\(L\leq U\)</span>, then <span class="math inline">\(L=f=U\)</span> a.e. and <span class="math inline">\(f\)</span>
 is measurable; equality with Lebesgue integral follows.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-64" class="theorem"><strong>Theorem 5.7  (Riemann integrability theorem) </strong></span>Given <span class="math inline">\(f\)</span> bounded on <span class="math inline">\([a, b]\)</span>, then the Riemann integral <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>
+<p><span id="thm:unlabeled-div-64" class="theorem"><strong>Theorem 5.5  (Riemann integrability theorem) </strong></span>Given <span class="math inline">\(f\)</span> bounded on <span class="math inline">\([a, b]\)</span>, then the Riemann integral <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>
 exists iff <span class="math inline">\(f\)</span> is continuous a.e. on <span class="math inline">\([a, b]\)</span>.</p>
 </div>
 <p><em>Proof:</em> Extending the last proof:
