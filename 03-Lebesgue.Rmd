@@ -6,8 +6,8 @@ measure on $\R^n$:
 1. [Exterior measure](#extMeasure): foundational properties of the exterior 
     measure and interaction with rectangles. 
 2. [Lebesgue measure and Borel regularity](#lebMeasure): 
-    definition and relation with Borel sets, 
-    characterization of measurable sets, example of a non-measurable set. 
+    Borel sets, example of a non-measurable set, and approximation characterizations 
+    of measurable sets. 
 
 Key takeaways: 
 

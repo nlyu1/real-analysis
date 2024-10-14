@@ -1,5 +1,9 @@
-# Iterated integrals
+# Iterated integrals {#iteratedIntegrals}
 
-## Product measures {-}
+## Product measure {-}
+
+:::{.theorem #productMeasure name="characterization of product measure"}
+Placeholder. 
+:::
 
 ## Fubini's theorem {-}

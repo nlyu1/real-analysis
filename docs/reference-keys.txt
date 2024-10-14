@@ -91,6 +91,7 @@ thm:dominatedConvergence
 cor:unlabeled-div-60
 thm:unlabeled-div-61
 thm:unlabeled-div-62
+thm:productMeasure
 def:unlabeled-div-63
 prp:unlabeled-div-64
 def:unlabeled-div-65
@@ -106,5 +107,5 @@ prelimaries
 abstractMachinery
 realMeasures
 realIntegration
-iterated-integrals
+iteratedIntegrals
 lp-spaces

@@ -151,7 +151,7 @@ Given an algebra of sets, its freely generated monotone class
 $\sigma$-algebra. 
 :::
 
-## Measure spaces, measurable functions {#measurableSpaceFunctions -}
+## Measure spaces, functions {#measurableSpaceFunctions -}
 :::{.definition name="measure, measure space"}
 Given a measurable space $(\Omega, \Sigma)$, a 
 measure on $(\Omega, \Sigma)$ is a function 
