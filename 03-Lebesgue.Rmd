@@ -12,8 +12,7 @@ measure on $\R^n$:
 Key takeaways: 
 
 1. The exterior measure is the natural outer-measure extension of rectangle volume that 
-    satisfies _monotonicity_, _countable subadditivity_, 
-    and agrees with our initial definition. 
+    satisfies _monotonicity_ and _countable subadditivity_. 
 2. The Lebesgue measure is the Carathéodory restriction of the exterior measure. 
 3. Rectangles are measurable (proposition \@ref(prp:rectangleMeasurable)), 
         so Borel sets are measurable since they 
