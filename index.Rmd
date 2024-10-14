@@ -56,12 +56,13 @@ These notes are organized as follows:
 
 1. Abstract machinery of [measures and $\sigma$-algebra](#abstractMachinery). 
     - Lieb and Loss, _Analysis_ (2nd ed), chapter 1. 
-2. The [exterior measure and Lebesgue measure](#realMeasures) on $\R^n$: 
+2. The [exterior measure and Lebesgue measure](#realMeasures) on $\R^n$. 
     - John K. Hunter, [_Measure theory_](https://www.math.ucdavis.edu/~hunter/measure_theory/measure_notes_ch2.pdf)
         chapter 2. 
-3. Lebesgue's theory of integration. 
-    - Rudin, _Principles of Real Analysis_, chapter 11; Axler, chapter 2. 
-4. $L^p$ spaces
+3. [Measurable functions, Lebesgue's theory of integration, and Fubini](#integration). 
+    - Rudin, _Principles of Real Analysis_, chapter 11; 
+    Axler, chapter 2; Lieb and Loss, chapter 1. 
+4. $L^p$ spaces. 
     - Lieb and Loss, chapter 2; Axler, chapter 7. 
 
 

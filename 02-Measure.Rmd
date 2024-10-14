@@ -8,7 +8,7 @@ This section develops the abstract machinery of measures and $\sigma$-algebras:
     sufficient conditions for measurable functions; uniqueness of $\sigma$-finite 
     measures (a prime demonstration of the monotone class theorem); 
     product $\sigma$-algebras and measures. 
-3. [Carathéodory measurability](#caratheodory): constructing 
+3. [Carathéodory theorem](#caratheodory): constructing 
     a measure by restricting an outer measure. 
 
 Key takeaways: 
@@ -343,7 +343,7 @@ product measure is postponed to
 theorem \@ref(thm:productMeasure). 
 :::
 
-## Carathéodory measurability {#caratheodory -}
+## Carathéodory theorem {#caratheodory -}
 
 :::{.definition #defOuterMeasure name="outer measure"}
 Given a set $\Omega$, a function $\mu:2^\Omega\to \R_{\geq 0}$ 

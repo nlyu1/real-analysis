@@ -1,5 +1,8 @@
 # Prelimaries 
 
+This section is a dump of various preliminary results for reference. 
+Please see the next section for the main content of the course. 
+
 ## Topology {-}
 
 First recall some topological definitions:
