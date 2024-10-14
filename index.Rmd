@@ -42,7 +42,7 @@ link-citations: true
 
 # Preface {-}
 These notes accompany the Fall 2024 iteration of Math 114, a second-semester 
-undergraduate course on real analysis and measure theory. The notes 
+undergraduate course on real analysis and measure theory. These notes 
 deviate quite a bit from lecture materials, in particular: 
 
 1. I prefer a more principled construction of the Lebesgue measure as the restriction of 
@@ -53,8 +53,11 @@ deviate quite a bit from lecture materials, in particular:
     to establish the measurability of the Borel sets.
 2. Materials are heavily supplemented by Sheldon Axler's 
     _Measure, Integration and Real Analysis_. 
-3. We spend some time with infinite-dimensional vector spaces, since 
-    intracacies around boundedness occur when we move to infinite-dimensions. 
+3. Some time is spent on infinite-dimensional vector spaces and 
+    results in Banach spaces, since 
+    (1) nontrivial complexities arive when we generalize linear algebra 
+    constructions to infinite-dimensions, and 
+    (2) several theorems are important for convex analysis. 
 
 ## Organization {-}
 
