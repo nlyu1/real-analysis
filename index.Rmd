@@ -86,24 +86,25 @@ References for these notes
     given an outer measure $\mu$, the measurable sets $B\subset \Omega$ satisfying 
     $\mu(\forall E) = \mu(E\cap B) + \mu(E\cap B^c)$ form a $\sigma$-algebra 
     and obey countable additivity. 
-3. <u>Dominated convergence theorem</u>:  
+3. <u>Dominated convergence theorem</u> \@ref(thm:dominatedConvergence): 
+    dominated pointwise limit of measurable functions can be exchanged with integral.  
 4. <u>Fubini's theorem</u>
 
 Proof techniques:
 
-1. Using the monotone class theorem (example theorem \@ref(thm:uniqueMeasure)): 
-    rewrite nested chain as disjoint union, then pass through the limit 
-    using the countable additivity of measures. 
-    Next apply the reduction from finite to $\sigma$-finite measures. 
-2. Working with countable collection of approximations: given tolerance $\epsilon$, 
+1. Working with countable collection of approximations: given tolerance $\epsilon$, 
     introduce approximation of index $j$ with tolerance $\epsilon 2^{-j}$ 
     to have additively bounded total tolerance. 
     - Examples: outer measure properties of 
     exterior measure (proposition \@ref(prp:extOuterMeasure)). 
-3. Prove properties for characteristic functions, then generalize them 
+2. Prove properties for characteristic functions, then generalize them 
     using approximation and limit theorems [here](#realIntegration). 
     - Examples: Luzin's theorem, 
     monotone convergence theorem \@ref(thm:monotoneConvergence),   
-4. Sandwich bounds 
+3. Sandwich bounds 
     - Lemma \@ref(lem:caratheodoryAdditive), 
     Monotone convergence theorem. 
+4. Using the monotone class theorem (example theorem \@ref(thm:uniqueMeasure)): 
+    rewrite nested chain as disjoint union, then pass through the limit 
+    using the countable additivity of measures. 
+    Next apply the reduction from finite to $\sigma$-finite measures. 
