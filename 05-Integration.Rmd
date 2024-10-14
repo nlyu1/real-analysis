@@ -1,0 +1,398 @@
+# Integration 
+
+Key takeaways: 
+
+1. Integral of simple functions are easy to define; 
+    general nonnegative integration is the $\sup$ of the integral 
+    of dominated simple functions. Real functions are split 
+    into two nonnegative parts. 
+2. $f$ integrable implies $|f|$ integrable: the Lebesgue integral is 
+    an "absolutely convergent integral." 
+3. The space $L^1(\mu)$ of integrable functions is complete under  
+    monotone pointwise convergence (monotone convergence theorem 
+    \@ref(thm:monotoneConvergence)) and dominated pointwise convergence 
+    (dominated convergence theorem \@ref(thm:dominatedConvergence)).
+4. Chain of reasoning: Monotone convergence thm $\implies$ Fatou's theorem 
+    $\implies$ dominated convergence theorem. 
+5. Measure theory characterizes Riemann integrability. 
+
+
+## Definition {-}
+
+:::{.definition name="function support"}
+The support of a measurable function $f$ is 
+\[ 
+    \supp(f) = \overline{f^{-1}(\{0\}^C)}
+\] 
+the closure of domain on which $f$ does not vanish. 
+:::
+
+:::{.definition name="S-partition"}
+Given a $\sigma$-algebra $\Sigma$ on set $\Omega$, an 
+$\Sigma$-partition of $\Omega$ is a finite collection 
+$A_1, \cdots, A_m$ of disjoint sets in $\Sigma$ 
+such that $\bigsqcup A_j = \Omega$. 
+:::
+
+:::{.definition name="lower Lebesgue sum"}
+Given measure space $(\Omega, \Sigma, \mu)$, 
+an $\Sigma$-measurable function $f:\Omega\to [0, \infty]$, 
+and a $\Sigma$-partition $P=\{A_1, \cdots, A_m\}$ of $\Omega$, 
+the lower Lebesgue sum is 
+\[ 
+    \mca L_\mu(f, P) = \sum_{j=1}^m \mu(A_j)\inf_{A_j} f 
+\] 
+:::
+
+:::{.definition #nonNegativeIntegral name="non-negative integral"}
+The integral of a non-negative function $f:\Omega\to [0, \infty]$ 
+w.r.t. the measure $(\Sigma, \mu)$ is 
+\[ 
+    \int f\, d\mu = \sup_P \mca L_\mu(f, P)
+\] 
+where $P$ is taken over all $\Sigma$-partition of $\Omega$. 
+:::
+
+:::{.proposition name="integral of characteristic function"}
+Given $\Omega, \Sigma, \mu)$ and $E\in \Sigma$, 
+$\int \chi_E\, d\mu = \mu(E)$. 
+:::
+_Proof_ we have $\mca L_\mu(\chi_E, \{E, \Omega-E\}) = \mu(E)$, then 
+$\int f\, d\mu \geq \mu(E)$. Conversely, given any $\Sigma$-partition 
+$P=\{A_1, \cdots, A_m\}$ of $\Omega$, for each $j$ 
+\[ 
+    \mu(A_j) \inf_{A_j} \chi_E = \begin{cases}
+        \mu(A_j) & A_j\subset E \\ 
+        0 & \text{otherwise}
+    \end{cases}
+\] 
+then 
+$\mca L(\chi_E, P) = \sum_{A_j\subset E} \mu(A_j) \leq \mu(E)$. 
+
+:::{.proposition name="integral of a simple function"}
+Given a measure space $(\Omega, \Sigma, \mu)$ and disjoint
+$E_1, \cdots E_n$, we have 
+\[ 
+    \int \left(\sum_{k=1}^n c_k \chi_{E_k}\right)\, d\mu 
+    = \sum_{k=1}^n c_k \mu(E_k)
+\] 
+:::
+_Proof:_ The LHS integral is lower-bounded by the $\Sigma$-partition 
+$\{E_j\}\cup \{\Omega-\bigcup E_j\}$. The converse follows similar 
+to the last proposition. 
+
+In light of the previous proposition, we have 
+
+:::{.corollary name="equivalent definition of nonnegative integral"}
+Given $(\Omega, \Sigma, \mu)$ and measurable $f:\Omega\to [0, \infty]$, 
+the integral definition \@ref(def:nonNegativeIntegral) is equivalent to 
+\[ 
+    \int f\, d\mu = \sup_P \mca L_\mu(f, P) = \sup_s \int s\, d\mu 
+\] 
+where the last $\sup$ is taken over all simple function $f$ dominated 
+by $f$: $\forall x\in \Omega: f(x)\geq s(x)$. 
+:::
+_Proof:_ Simply follows from $\mca L_\mu(f, P)$ being 
+the integral of a simple function. 
+
+:::{.definition name="general real integral"}
+Given $(\Omega, \Sigma, \mu)$ and measurable $f:[-\infty, \infty]$ 
+such that _at least one_ of $\int f^+\, d\mu, \int f^-\, d\mu$ 
+is finite; the integral of $f$ w.r.t. $\mu$ is 
+\[ 
+    \int f\, d\mu = \int f^+\, d\mu - \int f^-\, d\mu 
+\] 
+:::
+
+Note that the integral of the following function is not defined: 
+\[ 
+    f(x) = \begin{cases}
+        1 & x\geq 0 \\ -1 & x < 0
+    \end{cases}
+\] 
+
+## Properties {-}
+
+:::{.definition name="integral metric, integrable space"}
+Fix $(\Omega, \Sigma, \mu)$; if $f:\Omega\to [-\infty, \infty]$ 
+is measurable, then the $L^1$-norm of $f$ is 
+\[  
+    \|f_1\| = \int |f|\, d\mu 
+\] 
+The Lebesgue space $L^1(\mu)$ is also 
+\[  
+    L^1(\mu) = \{f:\Omega\to \R | \|f\|_1 < \infty \}
+\] 
+:::
+
+:::{.theorem name="properties of integration"}
+The following properties are evident for $f, g\in L^1(\mu)$: 
+
+1. _Linearity:_ $\int cf+g\, d\mu = c\int f\, d\mu + \int g\, d\mu$. 
+2. _Order-preserving_: $f\leq g\implies \int f\, d\mu \leq \int g\, d\mu$. 
+3. _Metric subadditivity_: 
+    $\left|\int f\, d\mu\right| \leq \int |f|\, d\mu$. 
+:::
+
+_Proof:_ General idea is to establish for simple functions, then 
+show that the proof commutes with integral construction. 
+For (2), use $\int g\, d\mu - \int f\, d\mu = \int (g-f)\, d\mu$. 
+For (3), 
+\begin{align}
+    \left|\int f\, d\mu\right| 
+    &= \left| \int f^+\, d\mu - \int f^-\, d\mu\right| 
+    \leq \int f^+\, d\mu + \int f^-\, d\mu \\ 
+    &= \int (f^++f^-)\, d\mu 
+    = \int |f|\, d\mu 
+\end{align}
+
+:::{.definition name="integration on subset"}
+Given $(\Omega, \Sigma, \mu)$ and $E\in \Sigma$ and 
+measurable $f:\Omega\to [-\infty, \infty]$, the subset integral is 
+\[ 
+    \int_E f\, d\mu = \int \chi_E f\, d\mu 
+\] 
+:::
+
+:::{.proposition #integralBound name="integral bound"}
+Given $\int_E f\, d\mu < \infty$, 
+\[ 
+    \left|\int_E f\, d\mu \right| \leq \mu(E) \sup_E |f|
+\] 
+:::
+_Proof:_ let $c=\sup_E |f|$, then 
+\[ 
+    \left|\int_E f\, d\mu\right| \leq \int \chi_E |f|\, d\mu 
+    \leq \int c\chi_E \, d\mu = c\mu(E)
+\] 
+
+:::{.theorem #domainIntegralAdditivity name="disjoint additivity w.r.t domain"}
+Given measurable $f$, define the function 
+$\phi:\Sigma\to [-\infty, \infty]$ by 
+\[ 
+    \phi(A) = \int_A f\, d\mu 
+\] 
+then for every $A, B\in \Sigma$, we have 
+$\phi(A\sqcup B) = \phi(A)+\phi(B)$. 
+:::
+_Proof:_ without loss of generality consider nonnegative $f$. 
+If $f$ is a characteristic function, then countable additivity 
+is equivalent to the countable subadditivity of $\mu$. 
+The general proof just demonstrates the commutativity of 
+countable subadditivity with the $\sup$ integral construction. 
+
+:::{.corollary name="sets of zero measure are negligible in integration"}
+Given 
+$A, B\in \Sigma$ such that $\mu(A-B)=0$, then 
+\[ 
+    \int_A f\, d\mu = \int_B f\, d\mu 
+\] 
+:::
+_Proof:_ Follows from additivity theorem 
+\@ref(thm:domainIntegralAdditivity) and applying $\mu(A-B)=0$ 
+to proposition \@ref(prp:integralBound). 
+
+The integrability of $f$ implies that of $|f|$, and the 
+Lebesgue integral is often called an absolutely convergent integral. 
+
+:::{.proposition name="several conditions for integrability"}
+
+1. $f\in L^1(\mu)\implies |f|\in L^1(\mu)$. 
+2. $f$ is measurable and $|f|\leq g \in L^1(\mu)\implies f\in L^1(\mu)$. 
+:::
+_Proof:_ for (1), recall that $f\in L^1(\mu)$ if both $f^+, f^-$ 
+have finite integrals, then $|f|=f^++f^-$ is integrable. 
+Similarly, (2) follows from $f^+, f^-\leq g$. 
+
+
+## Convergence theorems {-}
+
+The following convergence theorems are the cornerstone of 
+Lebesgue theory: 
+
+:::{.theorem #monotoneConvergence name="Lebesgue's monotone convergence theorem"}
+Given $E$ measurable, let $\{f_n\}$ be a sequence of 
+measurable functions such that $0\leq f_1\leq \cdots$ on $E$
+and $f_n\to f$, then 
+\[ 
+    \int_E f_n \, d\mu \to \int_E f\, d\mu 
+\] 
+Pointwise monotone convergence of measurable functions 
+on a measurable set implies convergence of integral. 
+:::
+_Proof:_ One direction is trivial; the other is established by 
+first proving for a dominated simple lower approximation of $f$ 
+then taking the $\sup$. 
+
+Let $F_n = \int_E f_n\, d\mu$. It is 
+clear that $F_n\to F\in (-\infty, \infty]$. We also have 
+\[ 
+    f_n \leq f\implies \lim_{n\to \infty} F_n 
+    = F \leq \int_E f\, d\mu 
+\] 
+To establish the other direction， fix $c\in (0, 1)$ 
+and simple function $s\leq f$. Define 
+\[ 
+    E_n = \{x| f_n \geq c s\} 
+\] 
+note that $E_j \nearrow E$ (recall notation \@ref(def:setSequenceNotation)) 
+and, for every $n$ 
+\[  
+    F_n = \int_E f_n \, d\mu \geq \int_{E_n} f_n\, d\mu 
+    \geq c\int_{E_n} s\, d\mu 
+\] 
+Let $n\to \infty$ and notice that the last integral is disjoint-additive 
+on the domain argument $E_n$ by theorem \@ref(thm:domainIntegralAdditivity); 
+let $c\to 1$ to obtain 
+\[ 
+    F \geq \int E_s\, d\mu c\int_E s\, d\mu 
+\] 
+Take the $\sup$ over all $s$ and the simple function approximation 
+theorem \@ref(thm:simpleFunctionApproximation) to obtain 
+$F\geq \int_E f\, d\mu$. 
+
+Applying the monotone convergence theorem above to 
+partial sums yield 
+
+:::{.corollary}
+Given measurable $E\in \Sigma$ and nonnegative measurable sequence 
+$(f_j)$; define their sum 
+\[ 
+    f = \sum_{n=1}^\infty f_n 
+\] 
+then $\int_E f = \sum_{n=1}^\infty \int_E f_n\, d\mu$. 
+:::
+
+:::{.theorem name="Fatou's theorem"}
+For measurable $E$, given nonnegative measurable 
+sequence $(f_j)$ and 
+\[ 
+    f(x) = \liminf_{n\to \infty} f_n(x) 
+\] 
+then the integral is similarly bounded 
+\[ 
+    \int_E f\, d\mu \leq \liminf_{n\to \infty} \int_E f_n\, d\mu 
+\] 
+:::
+_Proof:_ Define $g_n = \inf_{i\geq n} f_i$, then $g_n$ is 
+measurable and 
+\[ 
+    i\leq j\implies g_i\leq g_j, \quad g_n\to f 
+\] 
+Applying the monotone convergence theorem yields 
+\[ 
+    \int_E g_n\, d\mu \to \int_E f\, d\mu 
+\] 
+<span style="color:green">
+Note that this _does not_ imply equality because the 
+monotone convergence theorem above only implies 
+\[ 
+    \int_E f\, d\mu 
+    = \lim_{n\to \infty} \int_E \inf_{k\geq n} f_k\, d\mu 
+    \not \implies 
+    \int_E f\, d\mu 
+    = \lim_{n\to \infty} \inf_{k\geq n} \int_E f_k\, d\mu 
+\] 
+In the presence of the limit, we can only establish LHS $\leq$ RHS: 
+there may be cases where measure is lost through $\inf f_k$ 
+but not through the $\inf$ of the measure. 
+</span>
+
+:::{.remark name="strict inequality in Fatou's theorem"}
+Let $g(x) = (0\leq x\leq 1/2)^?0:1$ and 
+\[ 
+    f_{2k}(x) = g(x), \quad f_{2k+1} = g(1-x)
+\] 
+then $\liminf_{n\to \infty} f_n = 0$ but 
+$\forall n, \int_0^1 f_n(x)\, dx = 1/2$. 
+:::
+
+:::{.theorem #dominatedConvergence name="Lebesgue's dominated convergence theorem"}
+Given measurable sequence $(f_j)\to f$ pointwise and 
+$|f_j| \leq g$ with $g$ measurable, then 
+\[ 
+    \lim_{n\to \infty} \int_E f_n\, d\mu = \int_E f\, d\mu 
+\] 
+As a corollary, $L^1$ is complete under dominated 
+pointwise convergence. 
+:::
+_Proof:_ First note that $f_j, f$ are integrable since 
+they're dominated by $g$. By $f_n+g\geq 0$, 
+invoke Fatou's theorem 
+\[ 
+    \int_E (f + g)\, d\mu \leq 
+    \liminf_{n\to \infty} \int_E (f_n+g)\, d\mu 
+    \implies \int_E f\, d\mu \leq \liminf_{n\to \infty} \int_E f_n\, d\mu 
+\] 
+and pull $g$ out of both sides. Again, by $g-f_n\geq 0$ see 
+\begin{align}
+    \int_E (g - f)\, d\mu &\leq 
+    \liminf_{n\to \infty} \int_E (g - f_n)\, d\mu \\ 
+    -\int_E f\, d\mu &\leq 
+    \liminf_{n\to \infty} \int_E -f_n\, d\mu 
+    =-\limsup_{n\to \infty} \int_E f_n\, d\mu 
+\end{align}
+Combine the two results to obtain equality 
+\[ 
+    \limsup_{n\to \infty} \int_E f_n\, d\mu 
+    \leq \int_E f\, d\mu \leq 
+    \liminf_{n\to \infty} \int_E f_n\, d\mu 
+\] 
+
+:::{.corollary name="bounded convergence theorem"}
+Given finite-measurable $\mu(E) < \infty$ and uniformly bounded 
+convergent sequence $(f_n)\to f$ (i.e. $|f_n(x)|\leq M$ for all $n, x$), 
+the dominated convergence theorem applies. 
+:::
+_Proof:_ Given finite measure $\mu(E)<\infty$, the 
+constant-$M$ function is integrable and dominates $(f_n)$. 
+
+
+## Comparison with Riemann integral {-}
+
+Denote the Riemann integral by $\mca R\int_a^b f\, dx$. 
+
+:::{.theorem name="compatibility with Riemann integral"}
+Given Riemann integrable $f$ on $[a, b]$, then $f\in L^1([a, b])$ and 
+\[ 
+    \int_a^b f\, dx = \mca R \int_a^b f\, dx 
+\] 
+:::
+_Proof:_ By existence of the Riemann integral, there 
+exists a countable sequence of iteratively refined partitions $P_k$ 
+such that 
+\[ 
+    \lim_{k\to \infty} L(P_k, f) = \mca R \underline{\int} f\, dx, \quad 
+    \lim_{k\to \infty} U(P_k, f) = \mca R \bar \int f\, dx 
+\] 
+For each partition $P_k$, define functions $U_k(x\in [x_{j-1}, x_j])$ and 
+$L_k$ to be the sup and inf along the interval, respectively, then 
+in the Lebesgue sense, 
+\[ 
+    L(P_k, f) = \int L_k\, dx, \quad U(P_k, f) = \int U_k\, dx 
+\] 
+the functions are also monotone 
+$L_1 \leq L_2 \leq \cdots \leq f \leq \cdots \leq U_1$. 
+Let $L_k\to L, U_k\to U$, then $L, U$ are bounded measurable functions 
+with $L\leq f\leq U$. Then 
+\[ 
+    \int L\, dx = \mca R \underline \int f\, dx, \quad 
+    \int U\, dx = \mca R \bar \int f\, dx 
+\] 
+by the monotone convergence theorem. Further note that $f$ is 
+Riemann-integrable iff $\int L\, dx = \int U\, dx$. 
+This implies $L=U$ a.e. since $L\leq U$, then $L=f=U$ a.e. and $f$ 
+is measurable; equality with Lebesgue integral follows. 
+
+:::{.theorem name="Riemann integrability theorem"}
+Given $f$ bounded on $[a, b]$, then the Riemann integral $\mca R\int_a^b f\, dx$ 
+exists iff $f$ is continuous a.e. on $[a, b]$. 
+:::
+_Proof:_ Extending the last proof: 
+for any $x\notin P_k$ for any $k$, we have $U(x)=L(x)$ iff $f$ 
+is continuous at $x$ (think about this! equivalent to saying that 
+$\sup\approx \inf$ arbitrarily close intervals about $x$); the union 
+$\bigcup P_k$ is countable of measure $0$, then $f$ is continuous a.e. 
+iff $L=U$ a.e. iff $f$ is Riemann-integrable on $[a, b]$. 
+
+## Fubini's theorem {-}

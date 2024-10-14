@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="realMeasures.html"/>
-<link rel="next" href="lp-spaces.html"/>
+<link rel="next" href="integration-1.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -115,20 +115,23 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#a-non-measurable-set"><i class="fa fa-check"></i>A non-measurable set</a></li>
 <li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#approximation-of-measurable-sets"><i class="fa fa-check"></i>Approximation of measurable sets</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#realMeasurableFunctions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a></li>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#product-measures-fubini"><i class="fa fa-check"></i>Product measures, Fubini</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="integration.html"><a href="integration.html"><i class="fa fa-check"></i><b>4</b> Integration</a>
 <ul>
-<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#definition"><i class="fa fa-check"></i>Definition</a></li>
-<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#properties"><i class="fa fa-check"></i>Properties</a></li>
-<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
-<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
-<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#realMeasurableFunctions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
+<li class="chapter" data-level="" data-path="integration.html"><a href="integration.html#product-measures-fubini"><i class="fa fa-check"></i>Product measures, Fubini</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>5</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<li class="chapter" data-level="5" data-path="integration-1.html"><a href="integration-1.html"><i class="fa fa-check"></i><b>5</b> Integration</a>
+<ul>
+<li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#definition"><i class="fa fa-check"></i>Definition</a></li>
+<li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#properties"><i class="fa fa-check"></i>Properties</a></li>
+<li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#convergence-theorems"><i class="fa fa-check"></i>Convergence theorems</a></li>
+<li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
+<li class="chapter" data-level="" data-path="integration-1.html"><a href="integration-1.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>6</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
 <ul>
@@ -157,377 +160,286 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="integration" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">4</span> Integration<a href="integration.html#integration" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This section establishes the base case of the Lebesgue
+measure on <span class="math inline">\(\mathbb R^n\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><a href="realMeasures.html#extMeasure">Exterior measure</a>: foundational properties of the exterior
+measure and interaction with rectangles.</li>
+<li><a href="realMeasures.html#lebMeasure">Lebesgue measure and Borel regularity</a>:
+definition and relation with Borel sets,
+characterization of measurable sets, example of a non-measurable set.</li>
+<li><a href="integration.html#realMeasurableFunctions">Measurable functions</a>: .</li>
+</ol>
 <p>Key takeaways:</p>
 <ol style="list-style-type: decimal">
-<li>Integral of simple functions are easy to define;
-general nonnegative integration is the <span class="math inline">\(\sup\)</span> of the integral
-of dominated simple functions. Real functions are split
-into two nonnegative parts.</li>
-<li><span class="math inline">\(f\)</span> integrable implies <span class="math inline">\(|f|\)</span> integrable: the Lebesgue integral is
-an “absolutely convergent integral.”</li>
-<li>The space <span class="math inline">\(L^1(\mu)\)</span> of integrable functions is complete under<br />
-monotone pointwise convergence (monotone convergence theorem
-<a href="integration.html#thm:monotoneConvergence">4.3</a>) and dominated pointwise convergence
-(dominated convergence theorem <a href="integration.html#thm:dominatedConvergence">4.5</a>).</li>
-<li>Chain of reasoning: Monotone convergence thm <span class="math inline">\(\implies\)</span> Fatou’s theorem
-<span class="math inline">\(\implies\)</span> dominated convergence theorem.</li>
-<li>Measure theory characterizes Riemann integrability.</li>
+<li>The exterior measure is the natural outer-measure extension of rectangle volume that
+satisfies <em>monotonicity</em>, <em>countable subadditivity</em>,
+and agrees with our initial definition.</li>
+<li>The Lebesgue measure is the Carathéodory restriction of the exterior measure.</li>
+<li>Rectangles are measurable (proposition <a href="realMeasures.html#prp:rectangleMeasurable">3.4</a>),
+so Borel sets are measurable since they
+are freely-generated by rectangles.</li>
+<li>The exterior measure (rectangle cover infimum)
+is equivalent to open cover infimum, and on measurable sets equivalent
+to compact subset supremum.</li>
+<li>A set is measurable iff
+<ul>
+<li>it can be upper-approximated by an open cover
+or lower-approximated by a closed subset up to arbitrarily small but
+finite measure <a href="realMeasures.html#thm:squeezeMeasurable">3.3</a>.</li>
+<li>it can be approximated by a Borel set up
+to zero measure <a href="realMeasures.html#thm:borelApprox">3.4</a>.</li>
+</ul></li>
 </ol>
-<div id="definition" class="section level2 unnumbered hasAnchor">
-<h2>Definition<a href="integration.html#definition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="definition">
-<p><span id="def:unlabeled-div-47" class="definition"><strong>Definition 4.1  (function support) </strong></span>The support of a measurable function <span class="math inline">\(f\)</span> is
-<span class="math display">\[
-    \mathrm{supp}(f) = \overline{f^{-1}(\{0\}^C)}
-\]</span>
-the closure of domain on which <span class="math inline">\(f\)</span> does not vanish.</p>
-</div>
-<div class="definition">
-<p><span id="def:unlabeled-div-48" class="definition"><strong>Definition 4.2  (S-partition) </strong></span>Given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma\)</span> on set <span class="math inline">\(\Omega\)</span>, an
-<span class="math inline">\(\Sigma\)</span>-partition of <span class="math inline">\(\Omega\)</span> is a finite collection
-<span class="math inline">\(A_1, \cdots, A_m\)</span> of disjoint sets in <span class="math inline">\(\Sigma\)</span>
-such that <span class="math inline">\(\bigsqcup A_j = \Omega\)</span>.</p>
-</div>
-<div class="definition">
-<p><span id="def:unlabeled-div-49" class="definition"><strong>Definition 4.3  (lower Lebesgue sum) </strong></span>Given measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>,
-an <span class="math inline">\(\Sigma\)</span>-measurable function <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>,
-and a <span class="math inline">\(\Sigma\)</span>-partition <span class="math inline">\(P=\{A_1, \cdots, A_m\}\)</span> of <span class="math inline">\(\Omega\)</span>,
-the lower Lebesgue sum is
-<span class="math display">\[
-    \mathcal L_\mu(f, P) = \sum_{j=1}^m \mu(A_j)\inf_{A_j} f
-\]</span></p>
-</div>
-<div class="definition">
-<p><span id="def:nonNegativeIntegral" class="definition"><strong>Definition 4.4  (non-negative integral) </strong></span>The integral of a non-negative function <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>
-w.r.t. the measure <span class="math inline">\((\Sigma, \mu)\)</span> is
-<span class="math display">\[
-    \int f\, d\mu = \sup_P \mathcal L_\mu(f, P)
-\]</span>
-where <span class="math inline">\(P\)</span> is taken over all <span class="math inline">\(\Sigma\)</span>-partition of <span class="math inline">\(\Omega\)</span>.</p>
-</div>
+<div id="realMeasurableFunctions" class="section level2 unnumbered hasAnchor">
+<h2>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span><a href="integration.html#realMeasurableFunctions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-50" class="proposition"><strong>Proposition 4.1  (integral of characteristic function) </strong></span>Given <span class="math inline">\(\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(E\in \Sigma\)</span>,
-<span class="math inline">\(\int \chi_E\, d\mu = \mu(E)\)</span>.</p>
+<p><span id="prp:unlabeled-div-33" class="proposition"><strong>Proposition 4.1  (measurable function) </strong></span>Given a measurable space <span class="math inline">\((\Omega, \Sigma)\)</span>. A function
+<span class="math inline">\(\Omega\to \mathbb R^n\)</span> is <span class="math inline">\(\Sigma\)</span>-measurable if
+<span class="math inline">\(f^{-1}(B) \in \Sigma\)</span>
+for every Borel set <span class="math inline">\(B\subset \mathbb R^n\)</span>.</p>
 </div>
-<p><em>Proof</em> we have <span class="math inline">\(\mathcal L_\mu(\chi_E, \{E, \Omega-E\}) = \mu(E)\)</span>, then
-<span class="math inline">\(\int f\, d\mu \geq \mu(E)\)</span>. Conversely, given any <span class="math inline">\(\Sigma\)</span>-partition
-<span class="math inline">\(P=\{A_1, \cdots, A_m\}\)</span> of <span class="math inline">\(\Omega\)</span>, for each <span class="math inline">\(j\)</span>
-<span class="math display">\[
-    \mu(A_j) \inf_{A_j} \chi_E = \begin{cases}
-        \mu(A_j) &amp; A_j\subset E \\
-        0 &amp; \text{otherwise}
-    \end{cases}
-\]</span>
-then
-<span class="math inline">\(\mathcal L(\chi_E, P) = \sum_{A_j\subset E} \mu(A_j) \leq \mu(E)\)</span>.</p>
-<div class="proposition">
-<p><span id="prp:unlabeled-div-51" class="proposition"><strong>Proposition 4.2  (integral of a simple function) </strong></span>Given a measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and disjoint
-<span class="math inline">\(E_1, \cdots E_n\)</span>, we have
-<span class="math display">\[
-    \int \left(\sum_{k=1}^n c_k \chi_{E_k}\right)\, d\mu
-    = \sum_{k=1}^n c_k \mu(E_k)
-\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-34" class="example"><strong>Example 4.1  </strong></span>If <span class="math inline">\(\Sigma=\{\emptyset, \Omega\}\)</span>, then the only <span class="math inline">\(\Sigma\)</span>-measurable
+functions from <span class="math inline">\(\Omega\to \mathbb R^n\)</span> are constant functions. On the
+other extreme, if <span class="math inline">\(\Sigma=2^\Omega\)</span>, then every function is measurable.
+For a nontrivial example, if <span class="math inline">\(\Sigma=\{\emptyset, (-\infty, 0), [0, \infty), \mathbb R\}\)</span>
+then <span class="math inline">\(f:\mathbb R\to \mathbb R\)</span> is measurable iff it is
+constant on <span class="math inline">\((-\infty, 0), [0, \infty)\)</span>.</p>
 </div>
-<p><em>Proof:</em> The LHS integral is lower-bounded by the <span class="math inline">\(\Sigma\)</span>-partition
-<span class="math inline">\(\{E_j\}\cup \{\Omega-\bigcup E_j\}\)</span>. The converse follows similar
-to the last proposition.</p>
-<p>In light of the previous proposition, we have</p>
-<div class="corollary">
-<p><span id="cor:unlabeled-div-52" class="corollary"><strong>Corollary 4.1  (equivalent definition of nonnegative integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>,
-the integral definition <a href="integration.html#def:nonNegativeIntegral">4.4</a> is equivalent to
-<span class="math display">\[
-    \int f\, d\mu = \sup_P \mathcal L_\mu(f, P) = \sup_s \int s\, d\mu
-\]</span>
-where the last <span class="math inline">\(\sup\)</span> is taken over all simple function <span class="math inline">\(f\)</span> dominated
-by <span class="math inline">\(f\)</span>: <span class="math inline">\(\forall x\in \Omega: f(x)\geq s(x)\)</span>.</p>
-</div>
-<p><em>Proof:</em> Simply follows from <span class="math inline">\(\mathcal L_\mu(f, P)\)</span> being
-the integral of a simple function.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-53" class="definition"><strong>Definition 4.5  (general real integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(f:[-\infty, \infty]\)</span>
-such that <em>at least one</em> of <span class="math inline">\(\int f^+\, d\mu, \int f^-\, d\mu\)</span>
-is finite; the integral of <span class="math inline">\(f\)</span> w.r.t. <span class="math inline">\(\mu\)</span> is
+<p><span id="def:unlabeled-div-35" class="definition"><strong>Definition 4.1  (characteristic function) </strong></span>Given <span class="math inline">\(E\subset \Omega\)</span>, the characteristic function <span class="math inline">\(\chi_E:\Omega\to \mathbb R\)</span> is
 <span class="math display">\[
-    \int f\, d\mu = \int f^+\, d\mu - \int f^-\, d\mu
-\]</span></p>
-</div>
-<p>Note that the integral of the following function is not defined:
-<span class="math display">\[
-    f(x) = \begin{cases}
-        1 &amp; x\geq 0 \\ -1 &amp; x &lt; 0
+    \chi_E(x) = \begin{cases}
+        1 &amp; x\in E \\
+        0 &amp; x\notin E
     \end{cases}
 \]</span></p>
 </div>
-<div id="properties" class="section level2 unnumbered hasAnchor">
-<h2>Properties<a href="integration.html#properties" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="definition">
-<p><span id="def:unlabeled-div-54" class="definition"><strong>Definition 4.6  (integral metric, integrable space) </strong></span>Fix <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>; if <span class="math inline">\(f:\Omega\to [-\infty, \infty]\)</span>
-is measurable, then the <span class="math inline">\(L^1\)</span>-norm of <span class="math inline">\(f\)</span> is
-<span class="math display">\[  
-    \|f_1\| = \int |f|\, d\mu
-\]</span>
-The Lebesgue space <span class="math inline">\(L^1(\mu)\)</span> is also
-<span class="math display">\[  
-    L^1(\mu) = \{f:\Omega\to \mathbb R| \|f\|_1 &lt; \infty \}
-\]</span></p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-55" class="theorem"><strong>Theorem 4.1  (properties of integration) </strong></span>The following properties are evident for <span class="math inline">\(f, g\in L^1(\mu)\)</span>:</p>
-<ol style="list-style-type: decimal">
-<li><em>Linearity:</em> <span class="math inline">\(\int cf+g\, d\mu = c\int f\, d\mu + \int g\, d\mu\)</span>.</li>
-<li><em>Order-preserving</em>: <span class="math inline">\(f\leq g\implies \int f\, d\mu \leq \int g\, d\mu\)</span>.</li>
-<li><em>Metric subadditivity</em>:
-<span class="math inline">\(\left|\int f\, d\mu\right| \leq \int |f|\, d\mu\)</span>.</li>
-</ol>
-</div>
-<p><em>Proof:</em> General idea is to establish for simple functions, then
-show that the proof commutes with integral construction.
-For (2), use <span class="math inline">\(\int g\, d\mu - \int f\, d\mu = \int (g-f)\, d\mu\)</span>.
-For (3),
-<span class="math display">\[\begin{align}
-    \left|\int f\, d\mu\right|
-    &amp;= \left| \int f^+\, d\mu - \int f^-\, d\mu\right|
-    \leq \int f^+\, d\mu + \int f^-\, d\mu \\
-    &amp;= \int (f^++f^-)\, d\mu
-    = \int |f|\, d\mu
-\end{align}\]</span></p>
-<div class="definition">
-<p><span id="def:unlabeled-div-56" class="definition"><strong>Definition 4.7  (integration on subset) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(E\in \Sigma\)</span> and
-measurable <span class="math inline">\(f:\Omega\to [-\infty, \infty]\)</span>, the subset integral is
-<span class="math display">\[
-    \int_E f\, d\mu = \int \chi_E f\, d\mu
-\]</span></p>
-</div>
 <div class="proposition">
-<p><span id="prp:integralBound" class="proposition"><strong>Proposition 4.3  (integral bound) </strong></span>Given <span class="math inline">\(\int_E f\, d\mu &lt; \infty\)</span>,
-<span class="math display">\[
-    \left|\int_E f\, d\mu \right| \leq \mu(E) \sup_E |f|
-\]</span></p>
+<p><span id="prp:unlabeled-div-36" class="proposition"><strong>Proposition 4.2  (property of characteristic function) </strong></span>Given <span class="math inline">\((\Omega, \Sigma), E\subset \Omega\)</span>, then <span class="math inline">\(\chi_E\)</span> is <span class="math inline">\(\Sigma\)</span>-measurable
+iff <span class="math inline">\(E\in \Sigma\)</span>.</p>
 </div>
-<p><em>Proof:</em> let <span class="math inline">\(c=\sup_E |f|\)</span>, then
-<span class="math display">\[
-    \left|\int_E f\, d\mu\right| \leq \int \chi_E |f|\, d\mu
-    \leq \int c\chi_E \, d\mu = c\mu(E)
-\]</span></p>
-<div class="theorem">
-<p><span id="thm:domainIntegralAdditivity" class="theorem"><strong>Theorem 4.2  (disjoint additivity w.r.t domain) </strong></span>Given measurable <span class="math inline">\(f\)</span>, define the function
-<span class="math inline">\(\phi:\Sigma\to [-\infty, \infty]\)</span> by
-<span class="math display">\[
-    \phi(A) = \int_A f\, d\mu
-\]</span>
-then for every <span class="math inline">\(A, B\in \Sigma\)</span>, we have
-<span class="math inline">\(\phi(A\sqcup B) = \phi(A)+\phi(B)\)</span>.</p>
-</div>
-<p><em>Proof:</em> without loss of generality consider nonnegative <span class="math inline">\(f\)</span>.
-If <span class="math inline">\(f\)</span> is a characteristic function, then countable additivity
-is equivalent to the countable subadditivity of <span class="math inline">\(\mu\)</span>.
-The general proof just demonstrates the commutativity of
-countable subadditivity with the <span class="math inline">\(\sup\)</span> integral construction.</p>
-<div class="corollary">
-<p><span id="cor:unlabeled-div-57" class="corollary"><strong>Corollary 4.2  (sets of zero measure are negligible in integration) </strong></span>Given
-<span class="math inline">\(A, B\in \Sigma\)</span> such that <span class="math inline">\(\mu(A-B)=0\)</span>, then
-<span class="math display">\[
-    \int_A f\, d\mu = \int_B f\, d\mu
-\]</span></p>
-</div>
-<p><em>Proof:</em> Follows from additivity theorem
-<a href="integration.html#thm:domainIntegralAdditivity">4.2</a> and applying <span class="math inline">\(\mu(A-B)=0\)</span>
-to proposition <a href="integration.html#prp:integralBound">4.3</a>.</p>
-<p>The integrability of <span class="math inline">\(f\)</span> implies that of <span class="math inline">\(|f|\)</span>, and the
-Lebesgue integral is often called an absolutely convergent integral.</p>
+<p><em>Proof:</em>
+<span class="math inline">\(\chi_E^{-1}(B) = \{E, \Omega-E, \Omega, \emptyset\}\)</span>
+depending on how <span class="math inline">\(B\subset \mathbb R\)</span> intersects with <span class="math inline">\(\{0, 1\}\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-58" class="proposition"><strong>Proposition 4.4  (several conditions for integrability) </strong></span></p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(f\in L^1(\mu)\implies |f|\in L^1(\mu)\)</span>.</li>
-<li><span class="math inline">\(f\)</span> is measurable and <span class="math inline">\(|f|\leq g \in L^1(\mu)\implies f\in L^1(\mu)\)</span>.</li>
-</ol>
+<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 4.3  (continuity implies Borel measurability) </strong></span>Every continuous function <span class="math inline">\(f:\Omega\to \mathbb R^n\)</span> defined on
+a Borel subset <span class="math inline">\(\Omega\subset \mathbb R^m\)</span> is a Borel-measurable function.</p>
 </div>
-<p><em>Proof:</em> for (1), recall that <span class="math inline">\(f\in L^1(\mu)\)</span> if both <span class="math inline">\(f^+, f^-\)</span>
-have finite integrals, then <span class="math inline">\(|f|=f^++f^-\)</span> is integrable.
-Similarly, (2) follows from <span class="math inline">\(f^+, f^-\leq g\)</span>.</p>
+<p><em>Proof:</em> Consider the preimage of <span class="math inline">\(x&gt;a\)</span> (<span class="math inline">\(x, a\in \mathbb R^n\)</span> and inequality
+holds elementwise). For any such <span class="math inline">\(a\)</span>, consider
+<span class="math display">\[
+    f^{-1}(x&gt;a)
+    = \left[\bigcup_{x\in f^{-1}(x&gt;a)} (x-\delta_x, x+\delta_x) \right]\cap \Omega
+\]</span>
+Given every <span class="math inline">\(x\in \mathbb R^m: f(x)&gt;a\)</span>, by continuity <span class="math inline">\(\exists \delta_x\in \mathbb R\)</span>
+such that <span class="math inline">\(f((x-\delta_x, x+\delta_x))&gt;a\)</span>. The term in the paranthesis
+is an open set, hence its intersection with the Borel set <span class="math inline">\(\Omega\)</span> is Borel.</p>
+<p><span class="math inline">\(f:(\Omega\subset \mathbb R)\to \mathbb R\)</span> is increasing if <span class="math inline">\(x &lt; y\implies f(x)\leq f(y)\)</span>;
+it is monotonic if <span class="math inline">\(f\)</span> or <span class="math inline">\(-f\)</span> is increasing.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-38" class="proposition"><strong>Proposition 4.4  </strong></span>if <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is monotonic and <span class="math inline">\(\Omega\)</span> is Borel, then <span class="math inline">\(f\)</span> is measurable.</p>
 </div>
-<div id="convergence-theorems" class="section level2 unnumbered hasAnchor">
-<h2>Convergence theorems<a href="integration.html#convergence-theorems" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The following convergence theorems are the cornerstone of
-Lebesgue theory:</p>
-<div class="theorem">
-<p><span id="thm:monotoneConvergence" class="theorem"><strong>Theorem 4.3  (Lebesgue's monotone convergence theorem) </strong></span>Given <span class="math inline">\(E\)</span> measurable, let <span class="math inline">\(\{f_n\}\)</span> be a sequence of
-measurable functions such that <span class="math inline">\(0\leq f_1\leq \cdots\)</span> on <span class="math inline">\(E\)</span>
-and <span class="math inline">\(f_n\to f\)</span>, then
+<p><em>Proof:</em> Fix <span class="math inline">\(a\in \mathbb R\)</span>, then for <span class="math inline">\(b=\inf f^{-1}((a, \infty))\)</span>,
+monotonicity implies
 <span class="math display">\[
-    \int_E f_n \, d\mu \to \int_E f\, d\mu
-\]</span>
-Pointwise monotone convergence of measurable functions
-on a measurable set implies convergence of integral.</p>
-</div>
-<p><em>Proof:</em> One direction is trivial; the other is established by
-first proving for a dominated simple lower approximation of <span class="math inline">\(f\)</span>
-then taking the <span class="math inline">\(\sup\)</span>.</p>
-<p>Let <span class="math inline">\(F_n = \int_E f_n\, d\mu\)</span>. It is
-clear that <span class="math inline">\(F_n\to F\in (-\infty, \infty]\)</span>. We also have
-<span class="math display">\[
-    f_n \leq f\implies \lim_{n\to \infty} F_n
-    = F \leq \int_E f\, d\mu
-\]</span>
-To establish the other direction， fix <span class="math inline">\(c\in (0, 1)\)</span>
-and simple function <span class="math inline">\(s\leq f\)</span>. Define
-<span class="math display">\[
-    E_n = \{x| f_n \geq c s\}
-\]</span>
-note that <span class="math inline">\(E_j \nearrow E\)</span> (recall notation <a href="realMeasures.html#def:setSequenceNotation">3.6</a>)
-and, for every <span class="math inline">\(n\)</span>
-<span class="math display">\[  
-    F_n = \int_E f_n \, d\mu \geq \int_{E_n} f_n\, d\mu
-    \geq c\int_{E_n} s\, d\mu
-\]</span>
-Let <span class="math inline">\(n\to \infty\)</span> and notice that the last integral is disjoint-additive
-on the domain argument <span class="math inline">\(E_n\)</span> by theorem <a href="integration.html#thm:domainIntegralAdditivity">4.2</a>;
-let <span class="math inline">\(c\to 1\)</span> to obtain
-<span class="math display">\[
-    F \geq \int E_s\, d\mu c\int_E s\, d\mu
-\]</span>
-Take the <span class="math inline">\(\sup\)</span> over all <span class="math inline">\(s\)</span> and the simple function approximation
-theorem <a href="realMeasures.html#thm:simpleFunctionApproximation">3.6</a> to obtain
-<span class="math inline">\(F\geq \int_E f\, d\mu\)</span>.</p>
-<p>Applying the monotone convergence theorem above to
-partial sums yield</p>
-<div class="corollary">
-<p><span id="cor:unlabeled-div-59" class="corollary"><strong>Corollary 4.3  </strong></span>Given measurable <span class="math inline">\(E\in \Sigma\)</span> and nonnegative measurable sequence
-<span class="math inline">\((f_j)\)</span>; define their sum
-<span class="math display">\[
-    f = \sum_{n=1}^\infty f_n
-\]</span>
-then <span class="math inline">\(\int_E f = \sum_{n=1}^\infty \int_E f_n\, d\mu\)</span>.</p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-60" class="theorem"><strong>Theorem 4.4  (Fatou's theorem) </strong></span>For measurable <span class="math inline">\(E\)</span>, given nonnegative measurable
-sequence <span class="math inline">\((f_j)\)</span> and
-<span class="math display">\[
-    f(x) = \liminf_{n\to \infty} f_n(x)
-\]</span>
-then the integral is similarly bounded
-<span class="math display">\[
-    \int_E f\, d\mu \leq \liminf_{n\to \infty} \int_E f_n\, d\mu
+    f^{-1}((a, \infty)) = (b, \infty)\cap \Omega
+    \text{ or }
+    [b, \infty)\cap \Omega
 \]</span></p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-39" class="proposition"><strong>Proposition 4.5  (preservation of measurability under limits) </strong></span>Suppose <span class="math inline">\(\{f_j\}\to f:(\Omega, \Sigma)\to \mathbb R^n\)</span> point-wise each <span class="math inline">\(f_j\)</span>
+is <span class="math inline">\(\Sigma\)</span>-measurable, then <span class="math inline">\(f\)</span> is <span class="math inline">\(\Sigma\)</span>-measurable.</p>
 </div>
-<p><em>Proof:</em> Define <span class="math inline">\(g_n = \inf_{i\geq n} f_i\)</span>, then <span class="math inline">\(g_n\)</span> is
-measurable and
-<span class="math display">\[
-    i\leq j\implies g_i\leq g_j, \quad g_n\to f
-\]</span>
-Applying the monotone convergence theorem yields
-<span class="math display">\[
-    \int_E g_n\, d\mu \to \int_E f\, d\mu
-\]</span>
-<span style="color:green">
-Note that this <em>does not</em> imply equality because the
-monotone convergence theorem above only implies
-<span class="math display">\[
-    \int_E f\, d\mu
-    = \lim_{n\to \infty} \int_E \inf_{k\geq n} f_k\, d\mu
-    \not \implies
-    \int_E f\, d\mu
-    = \lim_{n\to \infty} \inf_{k\geq n} \int_E f_k\, d\mu
-\]</span>
-In the presence of the limit, we can only establish LHS <span class="math inline">\(\leq\)</span> RHS:
-there may be cases where measure is lost through <span class="math inline">\(\inf f_k\)</span>
-but not through the <span class="math inline">\(\inf\)</span> of the measure.
-</span></p>
-<div class="remark">
-<p><span id="unlabeled-div-61" class="remark"><em>Remark</em> (strict inequality in Fatou's theorem). </span>Let <span class="math inline">\(g(x) = (0\leq x\leq 1/2)^?0:1\)</span> and
-<span class="math display">\[
-    f_{2k}(x) = g(x), \quad f_{2k+1} = g(1-x)
-\]</span>
-then <span class="math inline">\(\liminf_{n\to \infty} f_n = 0\)</span> but
-<span class="math inline">\(\forall n, \int_0^1 f_n(x)\, dx = 1/2\)</span>.</p>
-</div>
-<div class="theorem">
-<p><span id="thm:dominatedConvergence" class="theorem"><strong>Theorem 4.5  (Lebesgue's dominated convergence theorem) </strong></span>Given measurable sequence <span class="math inline">\((f_j)\to f\)</span> pointwise and
-<span class="math inline">\(|f_j| \leq g\)</span> with <span class="math inline">\(g\)</span> measurable, then
-<span class="math display">\[
-    \lim_{n\to \infty} \int_E f_n\, d\mu = \int_E f\, d\mu
-\]</span>
-As a corollary, <span class="math inline">\(L^1\)</span> is complete under dominated
-pointwise convergence.</p>
-</div>
-<p><em>Proof:</em> First note that <span class="math inline">\(f_j, f\)</span> are integrable since
-they’re dominated by <span class="math inline">\(g\)</span>. By <span class="math inline">\(f_n+g\geq 0\)</span>,
-invoke Fatou’s theorem
-<span class="math display">\[
-    \int_E (f + g)\, d\mu \leq
-    \liminf_{n\to \infty} \int_E (f_n+g)\, d\mu
-    \implies \int_E f\, d\mu \leq \liminf_{n\to \infty} \int_E f_n\, d\mu
-\]</span>
-and pull <span class="math inline">\(g\)</span> out of both sides. Again, by <span class="math inline">\(g-f_n\geq 0\)</span> see
+<p><em>Proof:</em> Unrolling the definition of the limit: for any
+<span class="math inline">\(x\in \Omega, a\in \mathbb R^n\)</span>, <span class="math inline">\(f(x)&gt;a\)</span> iff
 <span class="math display">\[\begin{align}
-    \int_E (g - f)\, d\mu &amp;\leq
-    \liminf_{n\to \infty} \int_E (g - f_n)\, d\mu \\
-    -\int_E f\, d\mu &amp;\leq
-    \liminf_{n\to \infty} \int_E -f_n\, d\mu
-    =-\limsup_{n\to \infty} \int_E f_n\, d\mu
+    &amp; \lim_{k\to \infty} f_k(x) &gt; a \\
+    \iff &amp; \exists j&gt;0, \exists N: f_{\forall k&gt;N}(x)&gt;a+1/j \\
+    \iff &amp; x\in \bigcup_{j=1}^\infty
+        \bigcup_{N=1}^\infty
+        \bigcap_{k=1}^\infty f_k^{-1}(y&gt;a+1/j)
 \end{align}\]</span>
-Combine the two results to obtain equality
-<span class="math display">\[
-    \limsup_{n\to \infty} \int_E f_n\, d\mu
-    \leq \int_E f\, d\mu \leq
-    \liminf_{n\to \infty} \int_E f_n\, d\mu
-\]</span></p>
-<div class="corollary">
-<p><span id="cor:unlabeled-div-62" class="corollary"><strong>Corollary 4.4  (bounded convergence theorem) </strong></span>Given finite-measurable <span class="math inline">\(\mu(E) &lt; \infty\)</span> and uniformly bounded
-convergent sequence <span class="math inline">\((f_n)\to f\)</span> (i.e. <span class="math inline">\(|f_n(x)|\leq M\)</span> for all <span class="math inline">\(n, x\)</span>),
-the dominated convergence theorem applies.</p>
+Note that we only need some <span class="math inline">\(j\)</span> to exist. Each <span class="math inline">\(\exists\)</span> translates
+to <span class="math inline">\(\bigcup\)</span>, and each <span class="math inline">\(\forall\)</span> translates to <span class="math inline">\(\bigcap\)</span>. Then
+the preimage of <span class="math inline">\(y&gt;a\)</span> the measurable set above.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-40" class="definition"><strong>Definition 4.2  (extended Borel) </strong></span><span class="math inline">\(A\subset [-\infty \infty]\)</span> is a Borel set if <span class="math inline">\(A\cap \mathbb R\)</span> is Borel.
+Extended measurability is defined similarly.</p>
 </div>
-<p><em>Proof:</em> Given finite measure <span class="math inline">\(\mu(E)&lt;\infty\)</span>, the
-constant-<span class="math inline">\(M\)</span> function is integrable and dominates <span class="math inline">\((f_n)\)</span>.</p>
-</div>
-<div id="comparison-with-riemann-integral" class="section level2 unnumbered hasAnchor">
-<h2>Comparison with Riemann integral<a href="integration.html#comparison-with-riemann-integral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Denote the Riemann integral by <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-63" class="theorem"><strong>Theorem 4.6  (compatibility with Riemann integral) </strong></span>Given Riemann integrable <span class="math inline">\(f\)</span> on <span class="math inline">\([a, b]\)</span>, then <span class="math inline">\(f\in L^1([a, b])\)</span> and
+<p><span id="thm:unlabeled-div-41" class="theorem"><strong>Theorem 4.1  (variational limits are measurable) </strong></span>Given measurable <span class="math inline">\(\{f_k: (\Omega, \Sigma)\to \mathbb R\}\)</span>, the following functions
+are also measurable:
 <span class="math display">\[
-    \int_a^b f\, dx = \mathcal R \int_a^b f\, dx
+    g(x) = \inf_k f_k(x), \quad h(x) = \sup_k f_k(x)
 \]</span></p>
 </div>
-<p><em>Proof:</em> By existence of the Riemann integral, there
-exists a countable sequence of iteratively refined partitions <span class="math inline">\(P_k\)</span>
+<p><em>Proof:</em> It suffices to verify for the <span class="math inline">\(\sup\)</span> case that
+<span class="math display">\[\begin{align}
+    h(x) &gt; a &amp;\implies \exists k: f_k(x) &gt; a \\
+    h^{-1}((a, \infty]) &amp;= \bigcup_{k=1}^\infty f_k^{-1}((a, \infty])
+\end{align}\]</span></p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-42" class="proposition"><strong>Proposition 4.6  (a.e. measurability) </strong></span>Given <span class="math inline">\(f\)</span> measurable and <span class="math inline">\(f=g\)</span> a.e. (they differ on a set of
+measure <span class="math inline">\(0\)</span> on the domain), then <span class="math inline">\(g\)</span> is measurable.</p>
+</div>
+<p><em>Proof:</em> Let <span class="math inline">\(\{\mathcal A\}\)</span> be a subbasis generating the measurable<br />
+sets, then <span class="math inline">\(\forall A\in \mathcal A\)</span>, the symmetric difference of
+pre-images <span class="math inline">\(f^{-1}(A), g^{-1}(A)\)</span> is dominated by a set of
+measure <span class="math inline">\(0\)</span>; by measurability <span class="math inline">\(g^{-1}(A)\)</span> is measurable,
+so <span class="math inline">\(f^{-1}(S)\)</span> is also measurable.</p>
+<p>Some notations are convenient:</p>
+<div class="definition">
+<p><span id="def:setSequenceNotation" class="definition"><strong>Definition 4.3  (sequence of sets) </strong></span>An increasing sequence of sets <span class="math inline">\(\{A_n\}\)</span> is a sequence
+<span class="math display">\[
+    A_1\subset A_2\subset \cdots \to A = \bigcup_{n=1}^\infty A_n
+\]</span>
+also written <span class="math inline">\(A_j\nearrow A\)</span>. Similarly, a decreasing
+sequence of sets is written <span class="math inline">\(A_j\searrow A\)</span>.
+<span class="math display">\[
+    A_1\supset A_2\supset \cdots \to A = \bigcap_{n=1}^\infty A_n
+\]</span></p>
+</div>
+</div>
+<div id="simple-functions" class="section level2 unnumbered hasAnchor">
+<h2>Simple functions<a href="integration.html#simple-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-43" class="definition"><strong>Definition 4.4  (simple function) </strong></span>A simple function is a finite sum
+<span class="math display">\[
+    f = \sum_{k=1}^N a_k \chi_{E_k}
+\]</span>
+where each <span class="math inline">\(E_k\)</span> is a finite-measurable set.</p>
+</div>
+<p>The following proof is from Ch. 11 of <span class="citation">(<a href="#ref-rudin1964principles">Rudin et al. 1964</a>)</span>.</p>
+<div class="theorem">
+<p><span id="thm:simpleFunctionApproximation" class="theorem"><strong>Theorem 4.2  (simple-function approximation) </strong></span>Given a real function <span class="math inline">\(f:\Omega\to \mathbb R\)</span>, there exists a sequence
+<span class="math inline">\(\{s_n\}\)</span> of simple functions such that <span class="math inline">\(s_n(x)\to f(x)\)</span>
+point-wise. If <span class="math inline">\(f\)</span> is measurable, then <span class="math inline">\(\{s_n\}\)</span>
+may be chosen to be a sequence of measurable functions.
+If <span class="math inline">\(f\geq 0\)</span>, then <span class="math inline">\(\{s_n\}\)</span> may be chosen to be a monotonically
+increasing sequence.</p>
+</div>
+<p><em>Proof:</em> Given <span class="math inline">\(f\geq 0\)</span>, define <span class="math inline">\(F_n = f^{-1}([n, \infty))\)</span> and
+<span class="math display">\[
+    E_{n, i} = f^{-1} \left(\left[2^{-n}(i-1), 2^{-n}i \right]\right)
+\]</span>
+For <span class="math inline">\(n=1, 2, \cdots\)</span> and <span class="math inline">\(i=1, 2, \cdots, n2^n\)</span>, choose
+<span class="math display">\[
+    s_n = n\chi_{F_n} + \sum_{i=1}^{n2^n} \dfrac{i-1}{2^n} \chi_{E_{n, i}}
+\]</span>
+Note that <span class="math inline">\(E_{n, i}\)</span> is the pre-image of the <span class="math inline">\(i\)</span>-th slice of
+nonnegative real blocks of size <span class="math inline">\(2^{-n}\)</span>, and the first term assigns
+<span class="math inline">\(\inf f=2^{-n}(i-1)\)</span> on the corresponding intervals. The second
+term just assigns approximates with <span class="math inline">\(n\)</span> all places where <span class="math inline">\(f(x)\geq n\)</span>.
+The second term is reserved for cases where <span class="math inline">\(f(x)=\infty\)</span>. In short:</p>
+<ol style="list-style-type: decimal">
+<li>In the <span class="math inline">\(n\)</span>-th approximation, approximate <span class="math inline">\(f\)</span> up to value <span class="math inline">\(n\)</span>.</li>
+<li>Divide <span class="math inline">\(f^{-1}([0, n])\)</span> into <span class="math inline">\(2^{-n}\)</span> pieces and assign a dominated
+simple function. Approximate the rest simply with <span class="math inline">\(n\)</span>.</li>
+</ol>
+<p>If <span class="math inline">\(f\)</span> is measurable, the domains of the characteristic decomposition
+are measurable so <span class="math inline">\(s_n\)</span> is measurable. The general case follows by
+<span class="math inline">\(f=f^+-f^-\)</span>.</p>
+</div>
+<div id="littlewoods-three-principles" class="section level2 unnumbered hasAnchor">
+<h2>Littlewood’s three principles<a href="integration.html#littlewoods-three-principles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Littlewood’s three principles are:</p>
+<ol style="list-style-type: decimal">
+<li>Every finite-measurable set is almost a finite union of intervals.</li>
+<li>Every measurable function is almost continuous.</li>
+<li>Every pointwise convergent sequence of measurable functions
+is almost uniformly convergent.</li>
+</ol>
+<p>To be precise, the third principle is formulated as follows:</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-44" class="theorem"><strong>Theorem 4.3  (Egorov's theorem) </strong></span>Given a a measurable sequence <span class="math inline">\((f_k)\)</span> on a finite-measurable set
+<span class="math inline">\(E\)</span> with <span class="math inline">\(\mu(E)&lt;\infty\)</span> such that <span class="math inline">\(f_k\to f\)</span> a.e. on <span class="math inline">\(E\)</span>.
+For every <span class="math inline">\(\epsilon&gt;0\)</span>, there exists a closed set <span class="math inline">\(A_\epsilon \subset E\)</span>
+such that <span class="math inline">\(\mu(E-A_\epsilon)&lt;\epsilon\)</span> and <span class="math inline">\(f_k\to f\)</span> uniformly
+on <span class="math inline">\(A_\epsilon\)</span></p>
+</div>
+<p><em>Proof:</em> without loss of generality assume <span class="math inline">\(f_k\to f\)</span> pointwise (not just
+pointwise a.e.) since we only require <span class="math inline">\(\mu(E-A_\epsilon)&lt;\epsilon\)</span>;
+for each <span class="math inline">\(n, k\)</span>, define
+<span class="math display">\[
+    E_k^n = \{x\in E: |f_{\forall j&gt;k}(x) - f(x)|&lt;1/n\}
+\]</span>
+In other words, this is the set on which <span class="math inline">\(f_{j&gt;k}\)</span> is
+<span class="math inline">\(1/n\)</span>-close to <span class="math inline">\(f\)</span> on <span class="math inline">\(E\)</span>. Fix <span class="math inline">\(n\)</span>. Note that
+<span class="math inline">\(E^n_k\nearrow E\)</span> by <span class="math inline">\(f_k\to f\)</span> (recall definition
+<a href="integration.html#def:setSequenceNotation">4.3</a>); then there exists <span class="math inline">\(k_n\)</span>
 such that
 <span class="math display">\[
-    \lim_{k\to \infty} L(P_k, f) = \mathcal R \underline{\int} f\, dx, \quad
-    \lim_{k\to \infty} U(P_k, f) = \mathcal R \bar \int f\, dx
+    \mu(E - E^n_{k_n}) &lt; 2^{-n}, \quad
+    \sup_{x\in E^n_{k_n}} |f_j(x) - f(x)| &lt; 1/n
 \]</span>
-For each partition <span class="math inline">\(P_k\)</span>, define functions <span class="math inline">\(U_k(x\in [x_{j-1}, x_j])\)</span> and
-<span class="math inline">\(L_k\)</span> to be the sup and inf along the interval, respectively, then
-in the Lebesgue sense,
+Choose <span class="math inline">\(N\)</span> so that <span class="math inline">\(\sum_{n=N}^\infty 2^{-n}&lt;\epsilon/2\)</span> and let
 <span class="math display">\[
-    L(P_k, f) = \int L_k\, dx, \quad U(P_k, f) = \int U_k\, dx
+    \tilde A_\epsilon = \bigcap_{n\geq N} E^n_{k_n}
 \]</span>
-the functions are also monotone
-<span class="math inline">\(L_1 \leq L_2 \leq \cdots \leq f \leq \cdots \leq U_1\)</span>.
-Let <span class="math inline">\(L_k\to L, U_k\to U\)</span>, then <span class="math inline">\(L, U\)</span> are bounded measurable functions
-with <span class="math inline">\(L\leq f\leq U\)</span>. Then
+This is domain subset on which, for each <span class="math inline">\(n\geq N\)</span>,
+<span class="math inline">\(|f_{j\geq k_n}(x) - f(x)| \leq 1/N\)</span>; also note that
 <span class="math display">\[
-    \int L\, dx = \mathcal R \underline \int f\, dx, \quad
-    \int U\, dx = \mathcal R \bar \int f\, dx
+    \mu(E - \tilde A_\epsilon) \leq \sum_{n=N}^\infty \mu(E - E^n_{k_n})
+    &lt; \epsilon/2
 \]</span>
-by the monotone convergence theorem. Further note that <span class="math inline">\(f\)</span> is
-Riemann-integrable iff <span class="math inline">\(\int L\, dx = \int U\, dx\)</span>.
-This implies <span class="math inline">\(L=U\)</span> a.e. since <span class="math inline">\(L\leq U\)</span>, then <span class="math inline">\(L=f=U\)</span> a.e. and <span class="math inline">\(f\)</span>
-is measurable; equality with Lebesgue integral follows.</p>
+Also note that <span class="math inline">\(\tilde A_\epsilon\)</span> is measurable since it is the
+intersection of <span class="math inline">\(E^n_k\)</span> which are pre-images; then by measurability
+characterization <a href="#thm:measurableCharacterization"><strong>??</strong></a> there exists a
+closed <span class="math inline">\(\epsilon/4\)</span>-coveree <span class="math inline">\(A_\epsilon\)</span> of <span class="math inline">\(\tilde A_\epsilon\)</span>.
+Moreover, <span class="math inline">\(f_k\to f\)</span> uniformly on <span class="math inline">\(A_\epsilon\)</span> since for every
+<span class="math inline">\(0&lt;\epsilon&#39;&lt;1/n\)</span>, <span class="math inline">\(|f_j(x)-f(x)|&lt;\epsilon&#39;\)</span> when <span class="math inline">\(j&gt;k_n\)</span> and
+<span class="math inline">\(x\in E^n_{k_n} \supset A_\epsilon\)</span>.</p>
+<p>Similarly, the precise statement of the second principle is:</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-64" class="theorem"><strong>Theorem 4.7  (Riemann integrability theorem) </strong></span>Given <span class="math inline">\(f\)</span> bounded on <span class="math inline">\([a, b]\)</span>, then the Riemann integral <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>
-exists iff <span class="math inline">\(f\)</span> is continuous a.e. on <span class="math inline">\([a, b]\)</span>.</p>
+<p><span id="thm:unlabeled-div-45" class="theorem"><strong>Theorem 4.4  (Lusin's theorem) </strong></span>Given measurable <span class="math inline">\(f\)</span> finite-valued on <span class="math inline">\(E\)</span> and <span class="math inline">\(\mu(E)&lt;\infty\)</span>, then
+for every <span class="math inline">\(\epsilon&gt;0\)</span> there exists a closed <span class="math inline">\(\epsilon\)</span>-coveree
+<span class="math inline">\(F_\epsilon \subset E\)</span> with <span class="math inline">\(\mu(E-F_\epsilon)&lt;\epsilon\)</span> such that
+<span class="math inline">\(f_{|F_\epsilon}\)</span> is continuous in the subspace topology.</p>
 </div>
-<p><em>Proof:</em> Extending the last proof:
-for any <span class="math inline">\(x\notin P_k\)</span> for any <span class="math inline">\(k\)</span>, we have <span class="math inline">\(U(x)=L(x)\)</span> iff <span class="math inline">\(f\)</span>
-is continuous at <span class="math inline">\(x\)</span> (think about this! equivalent to saying that
-<span class="math inline">\(\sup\approx \inf\)</span> arbitrarily close intervals about <span class="math inline">\(x\)</span>); the union
-<span class="math inline">\(\bigcup P_k\)</span> is countable of measure <span class="math inline">\(0\)</span>, then <span class="math inline">\(f\)</span> is continuous a.e.
-iff <span class="math inline">\(L=U\)</span> a.e. iff <span class="math inline">\(f\)</span> is Riemann-integrable on <span class="math inline">\([a, b]\)</span>.</p>
+<p><em>Proof:</em> <span style="color:red"> TODO </span></p>
+<p><span style="color:green">
+Lusin’s theorem <em>does not claim</em> that <span class="math inline">\(f\)</span> is continuous on <span class="math inline">\(F_\epsilon\)</span>,
+only that <span class="math inline">\(f_{|F_\epsilon}\)</span> is continuous in the subspace topology.
+</span></p>
 </div>
-<div id="fubinis-theorem" class="section level2 unnumbered hasAnchor">
-<h2>Fubini’s theorem<a href="integration.html#fubinis-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="product-measures-fubini" class="section level2 unnumbered hasAnchor">
+<h2>Product measures, Fubini<a href="integration.html#product-measures-fubini" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="theorem">
+<p><span id="thm:productMeasure" class="theorem"><strong>Theorem 4.5  (characterization of product measure) </strong></span>Given two <span class="math inline">\(\sigma\)</span>-finite measure spaces <span class="math inline">\((\Omega_1, \Sigma_1, \mu_1)\)</span> and
+<span class="math inline">\((\Omega_2, \Sigma_2, \mu_2)\)</span> define, for every measurable
+<span class="math inline">\(A\in \Sigma_1\times \Sigma_2\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f(y) = \mu_1(A_1(y)) = \mu_1(\{x\in \Omega_1: (x, y)\in A\})\)</span>.</li>
+<li><span class="math inline">\(g(x) = \mu_2(A_2(x)) = \mu_2(\{y\in \Omega_2: (x, y)\in A\})\)</span>.</li>
+</ol>
+Then <span class="math inline">\(f\)</span> is <span class="math inline">\(\Sigma_1\)</span>-measurable, <span class="math inline">\(g\)</span> is <span class="math inline">\(\Sigma_2\)</span>-measurable, and
+<span class="math display">\[
+    (\mu_1\times \mu_2)(A)
+    = \int_{\Omega_2} f(y) d\mu_2 = \int_{\Omega_1} g(x) d\mu_1
+\]</span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="images/fubini.jpg" alt="Visual example. " width="80%" />
+<p class="caption">
+Figure 4.1: Visual example.
+</p>
+</div>
+</div>
+<p>To prove that <span class="math inline">\(g\)</span> is <span class="math inline">\(\Sigma_1\)</span>-measurable, we prove that
+the set <span class="math inline">\(\mathcal T\)</span> of all subsets of <span class="math inline">\(\mathbb R\)</span> whose preimage is <span class="math inline">\(\Sigma_1\)</span>-measurable
+generates the measurable sets on <span class="math inline">\(\mathbb R\)</span>.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-46" class="proposition"><strong>Proposition 4.7  (finiteness) </strong></span>The product <span class="math inline">\(\Sigma_1\times \Sigma_2\)</span> of
+two <span class="math inline">\(\sigma\)</span>-finite measures is <span class="math inline">\(\sigma\)</span>-finite.</p>
+</div>
 
+</div>
+</div>
+<h3>Bibliography<a href="bibliography.html#bibliography" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-rudin1964principles" class="csl-entry">
+Rudin, Walter et al. 1964. <em>Principles of Mathematical Analysis</em>. Vol. 3. McGraw-hill New York.
 </div>
 </div>
             </section>
@@ -536,7 +448,7 @@ iff <span class="math inline">\(L=U\)</span> a.e. iff <span class="math inline">
         </div>
       </div>
 <a href="realMeasures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lp-spaces.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="integration-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
