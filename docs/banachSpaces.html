@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Banach spaces | Math 114 Notes</title>
+  <meta name="description" content="6 Banach spaces | Math 114 Notes" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Banach spaces | Math 114 Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Banach spaces | Math 114 Notes" />
+  
+  
+  
+
+<meta name="author" content="Nicholas Lyu" />
+
+
+<meta name="date" content="2024-10-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="iteratedIntegrals.html"/>
+<link rel="next" href="lp-spaces.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i>Organization</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#main-deliverables"><i class="fa fa-check"></i>Main deliverables</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#cauchy-sequences"><i class="fa fa-check"></i>Cauchy sequences</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> Measures and σ-algebra</a>
+<ul>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#sigmaDefinition"><i class="fa fa-check"></i>σ-algebra</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableSpace"><i class="fa fa-check"></i>Measure space</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableFunction"><i class="fa fa-check"></i>Measurable function</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#caratheodory"><i class="fa fa-check"></i>Carathéodory theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="realMeasures.html"><a href="realMeasures.html"><i class="fa fa-check"></i><b>3</b> Lebesgue measure</a>
+<ul>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#extMeasure"><i class="fa fa-check"></i>Rectangles, exterior measure</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#lebMeasure"><i class="fa fa-check"></i>Lebesgue measure, Borel regularity</a>
+<ul>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#a-non-measurable-set"><i class="fa fa-check"></i>A non-measurable set</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#approximation-of-measurable-sets"><i class="fa fa-check"></i>Approximation of measurable sets</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="realIntegration.html"><a href="realIntegration.html"><i class="fa fa-check"></i><b>4</b> Integration on <span class="math inline">\(\mathbb R^n\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="realIntegration.html"><a href="realIntegration.html#functionMeasurabilityConditions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="realIntegration.html"><a href="realIntegration.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
+<li class="chapter" data-level="" data-path="realIntegration.html"><a href="realIntegration.html#conditions-for-measurability"><i class="fa fa-check"></i>Conditions for measurability</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="realIntegration.html"><a href="realIntegration.html#littlewoodPrinciples"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
+<li class="chapter" data-level="" data-path="realIntegration.html"><a href="realIntegration.html#lebesgueIntegration"><i class="fa fa-check"></i>Lebesgue integration</a></li>
+<li class="chapter" data-level="" data-path="realIntegration.html"><a href="realIntegration.html#lebesgueConvergence"><i class="fa fa-check"></i>Convergence theorems</a>
+<ul>
+<li class="chapter" data-level="" data-path="realIntegration.html"><a href="realIntegration.html#comparison-with-riemann-integral"><i class="fa fa-check"></i>Comparison with Riemann integral</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html"><i class="fa fa-check"></i><b>5</b> Iterated integrals</a>
+<ul>
+<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#product-measure"><i class="fa fa-check"></i>Product measure</a></li>
+<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Banach spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach spaces</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#construction-of-lp"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Math 114 Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="banachSpaces" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Banach spaces<a href="banachSpaces.html#banachSpaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Nontrivialities arise when we generalize from finite-dimensional
+to infinite-dimensional vector spaces.
+Banach spaces capture the <span class="math inline">\(L^p\)</span> spaces of integrable
+functions we will later be working with. We take care
+to develop some of its properties. In this section,
+we work with <span class="math inline">\(\mathbb F\)</span> which can be either real or complex.</p>
+<ol style="list-style-type: decimal">
+<li><a href="banachSpaces.html#vectorSpace">Vector space and duals</a>:
+existence of a basis, normed space of linear operators,
+characterization of continuous linear functionals and operators,
+graphs, the Hahn-Banach theorem.</li>
+<li><a href="banachSpaces.html#banachSpace">Banach spaces</a>:
+Baire’s (category) theorem,
+open mapping theorem, inverse mapping theorem,
+principle of uniform boundedness, bounded inverse theorem,
+closed graph theorem.</li>
+</ol>
+<p>Key takeaways:</p>
+<ol style="list-style-type: decimal">
+<li>A basis in infinite-dimensional vector spaces spans by
+<strong>finite</strong> linear combinations, and dual space
+(definition <a href="banachSpaces.html#def:dualSpace">6.4</a>)
+consists of the set of <strong>bounded</strong> or, equivalently, continuous
+linear functionals under the operator norm
+(definition <a href="banachSpaces.html#def:operatorNorm">6.2</a>).</li>
+<li>The existence of a basis for infinite-dimensional vector space is
+is nontrivial and nonconstructive (theorem <a href="banachSpaces.html#thm:vectorBasisExistence">6.1</a>).</li>
+<li>Continuity of linear maps cannot be taken for granted in
+infinite-dimensional vector spaces. A linear map is continuous
+iff bounded (theorem <a href="banachSpaces.html#thm:continuousLinear">6.2</a>).
+Every infinite-dimensional normed vector space has a
+discontinuous linear functional
+(proposition <a href="banachSpaces.html#prp:disctLinearFunctional">6.1</a>).</li>
+<li>Hahn-Banach theorem <a href="banachSpaces.html#thm:hahnBanach">6.3</a>:</li>
+<li>Baire’s theorem <a href="banachSpaces.html#thm:baire">6.4</a>:
+every closed cover of a Banach space contains an element which has
+nonempty interior.</li>
+<li>Baire’s theorem leads to the principle of
+uniform boundedness (corollary <a href="banachSpaces.html#cor:uniformBounded">6.1</a>):
+every family of pointwise bounded linear operators from a
+Banach space to a normed vector space is uniformly bounded.</li>
+</ol>
+<p><span style="color:green">TODO: Hahn-Banach theorem</span></p>
+<div id="vectorSpace" class="section level2 unnumbered hasAnchor">
+<h2>Vector space and duals<a href="banachSpaces.html#vectorSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-62" class="definition"><strong>Definition 6.1  ((Hamel) basis) </strong></span>A subset <span class="math inline">\(B\subset V\)</span> of a vector space <span class="math inline">\(V\)</span> is a (Hamel)
+basis if it is linearly independent and every <span class="math inline">\(v\in V\)</span> can
+be written as a <span style="color:green">finite</span>
+linear combination of elements in <span class="math inline">\(V\)</span>.</p>
+</div>
+<p>Zorn’s lemma is in fact equivalent to the axiom of choice;
+it is responsible for the nonconstructive existence result
+for the basis of infinite-dimensional vector spaces.
+We will take it for granted.
+Fun quote from Wikipedia:</p>
+<blockquote>
+If you are building a mathematical object in stages and
+find that (i) you have not finished even after infinitely
+many stages, and (ii) there seems to be nothing to stop you
+continuing to build, then Zorn’s lemma may well be able to
+help you.
+<footer>
+— William Timothy Gowers
+</footer>
+</blockquote>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-63" class="lemma"><strong>Lemma 6.1  (Zorn's lemma) </strong></span>Given a partially ordered set <span class="math inline">\(P\)</span> in which every
+chain (subset with pairwise comparable elements) has an upper bound
+in <span class="math inline">\(P\)</span>, then <span class="math inline">\(P\)</span> contains at least one maximal element.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:vectorBasisExistence" class="theorem"><strong>Theorem 6.1  (existence of basis) </strong></span>Every infinite-dimensional vector space <span class="math inline">\(V\)</span> has a basis.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Consider the space <span class="math inline">\(A\subset 2^V\)</span> of all linearly independent
+subsets of <span class="math inline">\(V\)</span>, partially-ordered by set inclusion.
+Every chain <span class="math inline">\(B_1\subset B_2\cdots \in A\)</span> is upper-bounded
+<span class="math inline">\(B_j\nearrow B\)</span> (which is still linearly independent!),
+then the maximal element is precisely a basis, else
+the vector not in the finite linear span could be added to
+extend the basis.
+</details>
+<div class="definition">
+<p><span id="def:operatorNorm" class="definition"><strong>Definition 6.2  ((normed) space of linear operators) </strong></span>Given two vector spaces <span class="math inline">\(U, V\)</span>, the set of linear
+operators from <span class="math inline">\(U\)</span> to <span class="math inline">\(V\)</span> is also a vector space,
+which we denote <span class="math inline">\(\mathcal L(U, V)\)</span>. If <span class="math inline">\(U, V\)</span> are normed,
+then <span class="math inline">\(\mathcal L(U, V)\)</span> is equipped with the <strong>operator norm</strong>
+<span class="math display">\[
+    \|T\| = \sup_{\|f\in U\|\leq 1} \|Tf\|
+\]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-64" class="definition"><strong>Definition 6.3  (bounded linear functional) </strong></span>A linear functional on a vector space <span class="math inline">\(V\)</span>
+is a linear map of signature <span class="math inline">\(T:V\to \mathbb F\)</span>.
+It is bounded if <span class="math inline">\(\|T\|&lt;\infty\)</span> using the operator norm.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:continuousLinear" class="theorem"><strong>Theorem 6.2  (characterization of continuous linear maps) </strong></span>A linear map <span class="math inline">\(T:U\to V\)</span> is continuous iff it is bounded.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Given <span class="math inline">\(T\)</span> bounded, for every <span class="math inline">\(f_j\to f\in U\)</span>,
+we have continuity from
+<span class="math display">\[
+    \|Tf_k - Tf\| \leq \|T\| \, \|f_k - f\|
+\]</span>
+Conversely, assume <span class="math inline">\(T\)</span> unbounded, then there exists
+a sequence <span class="math inline">\(f_j\in V\)</span> with <span class="math inline">\(\|f_j\|\leq 1\)</span> and <span class="math inline">\(\|T f_{k\to \infty}\| \to \infty\)</span>.
+Then
+<span class="math display">\[
+    \lim_{k\to \infty} \dfrac{f_k}{\|T f_k\|} = 0, \quad T\, \dfrac{f_k}{\|T f_k\|}
+    \not \to 0
+\]</span>
+</details>
+<div class="theorem">
+<p><span id="thm:continuousLinear" class="theorem"><strong>Theorem 6.2  (characterization of continuous linear functionals) </strong></span>A linear functional <span class="math inline">\(\varphi:U\to \mathbb F\)</span> which is not identally <span class="math inline">\(0\)</span>
+is continuous iff it is bounded iff:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\ker \varphi\)</span> is a closed subspace of <span class="math inline">\(V\)</span>.</li>
+<li><span class="math inline">\(\overline{\ker \varphi} \neq V\)</span>.</li>
+</ol>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Continuity implies (1) since <span class="math inline">\(\ker \varphi = \varphi^{-1}(\{0\})\)</span> and
+continuous maps send closed singletons to closed sets. Conversely,
+<span class="math inline">\(\varphi\)</span> unbounded implies <span class="math inline">\(\exists f_j\in V\)</span> such that <span class="math inline">\(\|f_j\|\leq 1\)</span>
+and <span class="math inline">\(|\varphi\, f_j|&gt;j\)</span> for each <span class="math inline">\(j\)</span>, note that
+<span class="math display">\[
+    \forall j, \quad \dfrac{f_1}{\varphi\, f_1}
+    - \dfrac{f_k}{\varphi\, f_k} \in \ker \varphi
+\]</span>
+On the other hand, we have
+<span class="math display">\[
+    \lim_{k\to \infty} \dfrac{f_1}{\varphi\, f_1}
+    - \dfrac{f_k}{\varphi\, f_k} = \dfrac{f_1}{\varphi\, f_1}
+    \notin \ker \varphi
+\]</span>
+thus <span class="math inline">\(\overline{\ker \varphi}\neq \ker \varphi\)</span> if <span class="math inline">\(\varphi\)</span> unbounded.
+Finally prove equivalence with (2), we have (1) implies (2)
+since <span class="math inline">\(V\)</span> is closed. Conversely, if
+<span class="math inline">\(\overline{\ker \varphi} \supsetneq \ker \varphi\)</span>, we will show that
+<span class="math inline">\(\overline{\ker \varphi} = V\)</span>. To do so, let
+<span class="math inline">\(f\in \overline{\ker \varphi} - \ker \varphi\)</span>, then <span class="math inline">\(\forall g\in V\)</span>:
+<span class="math display">\[
+    g = \left(g - \dfrac{\varphi\, g}{\varphi\, f}
+    f\right) + \dfrac{\varphi\, g}{\varphi\, f} f
+\]</span>
+Recall that <span class="math inline">\(\overline{\ker \varphi}\)</span> is a vector space.
+The term in the big paranthesis is in <span class="math inline">\(\ker \varphi\)</span>, and the
+trailing term is in <span class="math inline">\(\overline{\ker \varphi}\)</span>, thus
+<span class="math inline">\(g\in \overline{\ker \varphi}\)</span> for every <span class="math inline">\(g\in V\)</span>.
+</details>
+<div class="proposition">
+<p><span id="prp:disctLinearFunctional" class="proposition"><strong>Proposition 6.1  </strong></span>Every infinite-dimensional normed vector space has a
+discontinuous linear functional.</p>
+</div>
+<p><em>Proof:</em> Consider a basis <span class="math inline">\(\{e_j\in V\}_{j\in \Gamma \supset \mathbb N}\)</span>.
+The linear functional which maps <span class="math inline">\(e_j\)</span> to <span class="math inline">\(j\)</span> is discontinuous.</p>
+<div class="definition">
+<p><span id="def:dualSpace" class="definition"><strong>Definition 6.4  (dual space) </strong></span>Given a normed vector space <span class="math inline">\(V\)</span>, its dual space <span class="math inline">\(V^*\)</span>
+consists of the vector space of bounded linear operators
+under the operator norm (definition <a href="banachSpaces.html#def:operatorNorm">6.2</a>).</p>
+</div>
+<div class="theorem">
+<p><span id="thm:hahnBanach" class="theorem"><strong>Theorem 6.3  (Hahn-Banach theorem) </strong></span>Given a normed vector space <span class="math inline">\(V\)</span> with subspace <span class="math inline">\(U\)</span>
+a bounded linear functional <span class="math inline">\(\psi\in U^*\)</span>, then
+there exists <span class="math inline">\(\tilde \psi\in V^*\)</span> with <span class="math inline">\(\|\tilde \psi\|_V = \|\psi\|_U\)</span>
+and <span class="math inline">\(\tilde \psi_{|U} = \psi\)</span>.</p>
+</div>
+</div>
+<div id="banachSpace" class="section level2 unnumbered hasAnchor">
+<h2>Banach spaces<a href="banachSpaces.html#banachSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-65" class="definition"><strong>Definition 6.5  (completeness, Banach space) </strong></span>A metric space is complete if every Cauchy sequence
+in the space converges. A Banach space is
+a complete normed metric space.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-66" class="proposition"><strong>Proposition 6.2  (connection between complete and closed spaces) </strong></span>A complete subset of a metric space is closed, and a closed
+subset of a complete metric space is complete.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Given a complete subset <span class="math inline">\(V\)</span> of a metric space, every convergent
+sequence is also a convergent Cauchy sequence whose limit
+stays inside <span class="math inline">\(V\)</span>. Given a closed subset, the convergent
+limit of every Cauchy sequence must say within <span class="math inline">\(V\)</span> by closure
+property, so <span class="math inline">\(V\)</span> is complete.
+</details>
+<p>Recall that to argue for Cauchy convergence we can
+drop to subsequences (proposition <a href="prelimaries.html#prp:cauchySubsequence">1.7</a>).</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-67" class="proposition"><strong>Proposition 6.3  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
+iff <span class="math inline">\(\sum_{k=1}^\infty g_k\)</span> converges for every sequence
+<span class="math inline">\(g_j\in V\)</span> satisfying <span class="math inline">\(\sum_{k=1}^\infty \|g_k\|&lt;\infty\)</span>.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Given <span class="math inline">\(V\)</span> complete, the partial sum of <span class="math inline">\(g\)</span> is a Cauchy
+sequence thus converges. Conversely,
+given a Cauchy sequence, drop to a subsequence <span class="math inline">\(f_j\)</span>
+and set <span class="math inline">\(f_0=0\)</span> so that<br />
+<span class="math display">\[
+    \sum_{k=1}^\infty \|f_k - f_{k-1}\| &lt; \infty
+\]</span>
+then by assumption
+<span class="math inline">\(\sum_{k=1}^\infty (f_k - f_{k-1})=\lim_{n\to \infty} f_n\)</span>
+exists.
+</details>
+<div class="theorem">
+<p><span id="thm:baire" class="theorem"><strong>Theorem 6.4  (Baire's theorem) </strong></span>Given a Banach space:</p>
+<ol style="list-style-type: decimal">
+<li>the intersection of countably many dense open sets is nonempty.</li>
+<li>if <span class="math inline">\(X\)</span> is the countable union of
+closed subsets <span class="math inline">\(G_1, \cdots\)</span>, then some <span class="math inline">\(G_j\)</span>
+contains an open ball.</li>
+</ol>
+</div>
+<span style="color:green">
+Proof idea: for (1), by denseness construct a Cauchy sequence;
+argue (2) by contradiction.
+</span>
+<details>
+<summary>
+Proof
+</summary>
+<p>We prove first prove (1):
+given a countable sequence of dense open sets <span class="math inline">\(U_j\)</span>,
+we want to show that <span class="math inline">\(\bigcap_{k=1}^\infty U_k \neq \infty\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Choose <span class="math inline">\(f_1\in U_1\)</span> and <span class="math inline">\(r_1\in (0, 1)\)</span> with
+<span class="math inline">\(\bar B_{r_1}(f_1)\subset U_1\)</span> (denoting closure).</li>
+<li>For each <span class="math inline">\(j\)</span>, choose <span class="math inline">\(0&lt;r_j&lt;1/j\)</span>, <span class="math inline">\(\bar B_{r_j}(f_j) \subset U_j\)</span>
+and <span class="math inline">\(\bar B_{r_j}(f_j)\subset \bar B_{r_{j-1}}(f_{j-1})\)</span>.
+We can do this because, fixing <span class="math inline">\(r_{j-1}, f_{j-1}\)</span>, the ball
+<span class="math inline">\(B_{r_{j-1}}(f_{j-1})\cap U_j\)</span> is a nontrivial (by <span class="math inline">\(U_j\)</span> dense)
+open set, from which we can choose <span class="math inline">\(f_j\)</span> and the radius
+such that <span class="math inline">\(\bar B_{r_j}(f_j)\subset U_{j-1}\)</span>.</li>
+<li>Then <span class="math inline">\(f_j\)</span> is naturally a Cauchy sequence because
+<span class="math inline">\(|f_{j&gt;N} - f_{k&gt;n}| &lt; 1/N\)</span>.</li>
+</ol>
+By completeness, <span class="math inline">\(f_j\to f\in X\)</span>, completing the proof of (1).
+To prove (2) suppose for contradiction that <span class="math inline">\(X=\bigcup G_j\)</span>,
+each of which has empty interior, then <span class="math inline">\(U_j = G_j^c\)</span>
+is open and dense; by (1) there exists
+<span class="math inline">\(f\in \bigcap (G_j^c) = (\bigcup G_j)^c\)</span>, contradicting <span class="math inline">\(\bigcup G_j=X\)</span>.
+</details>
+<div class="corollary">
+<p><span id="cor:uniformBounded" class="corollary"><strong>Corollary 6.1  (principle of uniform boundedness) </strong></span>Given <span class="math inline">\(\mathcal A\subset \mathcal B(V, W)\)</span> with
+<span class="math inline">\(V\)</span> Banach and <span class="math inline">\(W\)</span> normed satisfiny pointwise boundedness:
+<span class="math display">\[
+    \sup_{T\in \mathcal A} \|Tf\| &lt; \infty, \quad \text{ for every } f\in V
+\]</span>
+Then <span class="math inline">\(\sup_{T\in \mathcal A} \|T\|&lt;\infty\)</span>.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-68" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Placeholder.</p>
+</div>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-69" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> where <span class="math inline">\(V, W\)</span> are Banach spaces,
+<span class="math inline">\(T^{-1}\)</span> is a bounded linear map <span class="math inline">\(W\to V\)</span>.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-70" class="theorem"><strong>Theorem 6.6  (closed graph theorem) </strong></span>Placeholder.</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-71" class="theorem"><strong>Theorem 6.7  (Hahn-Banach theorem) </strong></span>Placeholder.</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="iteratedIntegrals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lp-spaces.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

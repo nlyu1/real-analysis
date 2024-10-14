@@ -33,6 +33,7 @@ link-citations: true
 \newcommand{\Pa}{\mca P}
 \newcommand{\R}{\mbb R}
 \newcommand{\N}{\mbb N}
+\newcommand{\F}{\mbb F}
 \newcommand{\supp}{\mrm{supp}}
 
 \newcommand{\poly}{\mrm{poly}}
@@ -52,6 +53,8 @@ deviate quite a bit from lecture materials, in particular:
     to establish the measurability of the Borel sets.
 2. Materials are heavily supplemented by Sheldon Axler's 
     _Measure, Integration and Real Analysis_. 
+3. We spend some time with infinite-dimensional vector spaces, since 
+    intracacies around boundedness occur when we move to infinite-dimensions. 
 
 ## Organization {-}
 
@@ -65,7 +68,10 @@ deviate quite a bit from lecture materials, in particular:
 4. [Iterated integrals](#iteratedIntegrals}): uniqueness of product measure 
     and Fubini's theorem. 
     - Lieb and Loss, chapter 1. 
-5. [$L^p$ spaces](#Lpspaces). 
+5. [Banach spaces](#banachSpaces): Baire's theorem, bounded linear 
+    functionals, Hahn-Banach theorem. 
+    - Axler, Chapter 6. 
+6. [$L^p$ spaces](#Lpspaces). 
     - Lieb and Loss, chapter 2; Axler, chapter 7. 
 
 References for these notes
@@ -89,6 +95,7 @@ References for these notes
 3. <u>Dominated convergence theorem</u> \@ref(thm:dominatedConvergence): 
     dominated pointwise limit of measurable functions can be exchanged with integral.  
 4. <u>Fubini's theorem</u>
+5. <u>Baire's theorem</u>
 
 Proof techniques:
 

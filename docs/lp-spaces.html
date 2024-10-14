@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 \(L^p\) Spaces | Math 114 Notes</title>
-  <meta name="description" content="6 \(L^p\) Spaces | Math 114 Notes" />
+  <title>7 \(L^p\) Spaces | Math 114 Notes</title>
+  <meta name="description" content="7 \(L^p\) Spaces | Math 114 Notes" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 \(L^p\) Spaces | Math 114 Notes" />
+  <meta property="og:title" content="7 \(L^p\) Spaces | Math 114 Notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 \(L^p\) Spaces | Math 114 Notes" />
+  <meta name="twitter:title" content="7 \(L^p\) Spaces | Math 114 Notes" />
   
   
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="iteratedIntegrals.html"/>
+<link rel="prev" href="banachSpaces.html"/>
 <link rel="next" href="bibliography.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -143,9 +143,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#product-measure"><i class="fa fa-check"></i>Product measure</a></li>
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>6</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Banach spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#banach-spaces-completeness"><i class="fa fa-check"></i>Banach spaces, completeness</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach spaces</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity"><i class="fa fa-check"></i>Convexity</a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#construction-of-lp"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
@@ -168,86 +172,21 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lp-spaces" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> <span class="math inline">\(L^p\)</span> Spaces<a href="lp-spaces.html#lp-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lp-spaces" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> <span class="math inline">\(L^p\)</span> Spaces<a href="lp-spaces.html#lp-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Key takeaways:</p>
 <ol style="list-style-type: decimal">
 <li>The convexity of <span class="math inline">\(x\mapsto |x|^p\)</span> implies Young’s inequality
-(proposition <a href="lp-spaces.html#prp:youngInequality">6.4</a>)
+(proposition <a href="lp-spaces.html#prp:youngInequality">7.2</a>)
 and the vector space structure of <span class="math inline">\(L^p(\Omega)\)</span>
-(proposition <a href="lp-spaces.html#prp:LpVectorSpace">6.5</a>).</li>
+(proposition <a href="lp-spaces.html#prp:LpVectorSpace">7.3</a>).</li>
 <li>To be precise, <span class="math inline">\(L^p\)</span> spaces are equivalence classes of
 functions which agree <span class="math inline">\(\mu\)</span>-a.e.</li>
 </ol>
-<div id="banach-spaces-completeness" class="section level2 unnumbered hasAnchor">
-<h2>Banach spaces, completeness<a href="lp-spaces.html#banach-spaces-completeness" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="definition">
-<p><span id="def:unlabeled-div-62" class="definition"><strong>Definition 6.1  (completeness, Banach space) </strong></span>A metric is complete if every Cauchy sequence
-in the space converges. A Banach space is
-a complete normed metric space.</p>
-</div>
-<div class="proposition">
-<p><span id="prp:unlabeled-div-63" class="proposition"><strong>Proposition 6.1  (connection between complete and closed spaces) </strong></span>A complete subset of a metric space is closed, and a closed
-subset of a complete metric space is complete.</p>
-</div>
-<details>
-<summary>
-Proof
-</summary>
-Given a complete subset <span class="math inline">\(V\)</span> of a metric space, every convergent
-sequence is also a convergent Cauchy sequence whose limit
-stays inside <span class="math inline">\(V\)</span>. Given a closed subset, the convergent
-limit of every Cauchy sequence must say within <span class="math inline">\(V\)</span> by closure
-property, so <span class="math inline">\(V\)</span> is complete.
-</details>
-<p>Recall that to argue for Cauchy convergence we can
-drop to subsequences (proposition <a href="prelimaries.html#prp:cauchySubsequence">1.7</a>).</p>
-<div class="proposition">
-<p><span id="prp:unlabeled-div-64" class="proposition"><strong>Proposition 6.2  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
-iff <span class="math inline">\(\sum_{k=1}^\infty g_k\)</span> converges for every sequence
-<span class="math inline">\(g_j\in V\)</span> satisfying <span class="math inline">\(\sum_{k=1}^\infty \|g_k\|&lt;\infty\)</span>.</p>
-</div>
-<details>
-<summary>
-Proof
-</summary>
-Given <span class="math inline">\(V\)</span> complete, the partial sum of <span class="math inline">\(g\)</span> is a Cauchy
-sequence thus converges. Conversely,
-given a Cauchy sequence, drop to a subsequence <span class="math inline">\(f_j\)</span>
-and set <span class="math inline">\(f_0=0\)</span> so that<br />
-<span class="math display">\[
-    \sum_{k=1}^\infty \|f_k - f_{k-1}\| &lt; \infty
-\]</span>
-then by assumption
-<span class="math inline">\(\sum_{k=1}^\infty (f_k - f_{k-1})=\lim_{n\to \infty} f_n\)</span>
-exists.
-</details>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-65" class="theorem"><strong>Theorem 6.1  (Baire's theorem) </strong></span></p>
-<ol style="list-style-type: lower-alpha">
-<li>A complete vector space is not the countable union
-of closed subsets with empty interior.</li>
-<li>The countable intersection of dense open sets of a complete
-metric space is nonempty.</li>
-</ol>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-66" class="theorem"><strong>Theorem 6.2  (open mapping theorem) </strong></span>Placeholder.</p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-67" class="theorem"><strong>Theorem 6.3  (bounded inverse theorem) </strong></span>Placeholder.</p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-68" class="theorem"><strong>Theorem 6.4  (closed graph theorem) </strong></span>Placeholder.</p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-69" class="theorem"><strong>Theorem 6.5  (Hahn-Banach theorem) </strong></span>Placeholder.</p>
-</div>
-</div>
 <div id="convexity" class="section level2 unnumbered hasAnchor">
 <h2>Convexity<a href="lp-spaces.html#convexity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-70" class="definition"><strong>Definition 6.2  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
+<p><span id="def:unlabeled-div-72" class="definition"><strong>Definition 7.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
 <span class="math inline">\((x, y)\mapsto \lambda x + \bar y\)</span>
 for all <span class="math inline">\(\lambda \in [0, 1]\)</span>. A <strong>convex function</strong>
 on a convex set <span class="math inline">\(K\)</span> is a real-valued function satisfying
@@ -259,10 +198,10 @@ the function <span class="math inline">\(f\)</span> is <strong>strictly convex</
 inequality is strict for all <span class="math inline">\(y\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-71" class="proposition"><strong>Proposition 6.3  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
+<p><span id="prp:unlabeled-div-73" class="proposition"><strong>Proposition 7.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-72" class="definition"><strong>Definition 6.3  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
+<p><span id="def:unlabeled-div-74" class="definition"><strong>Definition 7.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
 <span class="math inline">\(x\in K\subset \mathbb R^n\)</span> is a plane in <span class="math inline">\(\mathbb R^{n+1}\)</span> that
 touches <span class="math inline">\((x, f(x))\)</span> and that nowhere lies above the graph;
 if the support plane at <span class="math inline">\(x\)</span> is unique, then it is the tangent plane.</p>
@@ -278,10 +217,10 @@ Thus for general convex functions, for each <span class="math inline">\(x\)</spa
 a vector <span class="math inline">\(V\in \mathbb R^n\)</span> such that
 <span class="math display" id="eq:supportingVector">\[
     f(y) \geq f(x) + V\cdot (y - x)
-    \tag{6.1}
+    \tag{7.1}
 \]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-73" class="definition"><strong>Definition 6.4  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
+<p><span id="def:unlabeled-div-75" class="definition"><strong>Definition 7.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
 <span class="math display">\[
     p^{-1} + q^{-1} = 1
 \]</span>
@@ -292,7 +231,7 @@ It is oftentimes more convenient to note that
 \]</span></p>
 </div>
 <div class="proposition">
-<p><span id="prp:youngInequality" class="proposition"><strong>Proposition 6.4  (Young's inequality) </strong></span>Given Hölder conjugates <span class="math inline">\(p, q&gt;1\)</span>,
+<p><span id="prp:youngInequality" class="proposition"><strong>Proposition 7.2  (Young's inequality) </strong></span>Given Hölder conjugates <span class="math inline">\(p, q&gt;1\)</span>,
 <span class="math display">\[
     ab \leq \dfrac{a^p}{p} + \dfrac{b^q}{q}, \quad \forall a, b\geq 0
 \]</span>
@@ -316,14 +255,14 @@ of the Legendre transform.
 Equality is saturated when <span class="math inline">\(a=b^{1/(p-1)} \iff a^p = b^q\)</span>.
 </details>
 <div class="definition">
-<p><span id="def:unlabeled-div-74" class="definition"><strong>Definition 6.5  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
+<p><span id="def:unlabeled-div-76" class="definition"><strong>Definition 7.4  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
 a measurable function <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is defined as
 <span class="math display">\[
     \langle f\rangle= \dfrac 1 {\mu(\Omega)} \int_\Omega f\, d\mu
 \]</span></p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-75" class="theorem"><strong>Theorem 6.6  (Jensen's inequality) </strong></span>Given a convex function <span class="math inline">\(J:\mathbb R\to \mathbb R\)</span> and
+<p><span id="thm:unlabeled-div-77" class="theorem"><strong>Theorem 7.1  (Jensen's inequality) </strong></span>Given a convex function <span class="math inline">\(J:\mathbb R\to \mathbb R\)</span> and
 measurable <span class="math inline">\(f:\Omega\to \mathbb R\)</span> with <span class="math inline">\(\mu(Omega)&lt;\infty\)</span>, then</p>
 <ol style="list-style-type: decimal">
 <li>The negative part <span class="math inline">\((J\circ f)_-\)</span> is in <span class="math inline">\(L^1(\Omega)\)</span>
@@ -334,7 +273,7 @@ convex at <span class="math inline">\(\langle f\rangle\)</span>, there is equali
 </div>
 <span style="color:green">
 Proof idea: integrate the supporting
-vector equation <a href="lp-spaces.html#eq:supportingVector">(6.1)</a>.
+vector equation <a href="lp-spaces.html#eq:supportingVector">(7.1)</a>.
 </span>
 <details>
 <summary>
@@ -344,14 +283,14 @@ Fixing <span class="math inline">\(\langle f\rangle\)</span>, there exists a con
 such that
 <span class="math display" id="eq:convexity">\[
     J(\forall t)\geq J(\langle f\rangle) + V(t - \langle f\rangle)
-    \tag{6.2}
+    \tag{7.2}
 \]</span>
 This bounds the negative component (but not the positive one!)
 <span class="math display">\[
     [J\circ f]_-(x) \leq |J(\langle f\rangle)| + |V||\langle f\rangle| + |V| |f(x)|
 \]</span>
 using <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, this bounded function is integrable.
-To obtain (2), integrate <a href="lp-spaces.html#eq:convexity">(6.2)</a> for all <span class="math inline">\(t=f(x)\)</span>
+To obtain (2), integrate <a href="lp-spaces.html#eq:convexity">(7.2)</a> for all <span class="math inline">\(t=f(x)\)</span>
 <span class="math display">\[
     \langle J \circ f\rangle\geq J(\langle f\rangle) - V \langle f\rangle+ V\langle f\rangle
 \]</span>
@@ -362,7 +301,7 @@ when <span class="math inline">\(\langle J\circ f\rangle= J(\langle f\rangle)\)<
 <div id="construction-of-lp" class="section level2 unnumbered hasAnchor">
 <h2>Construction of <span class="math inline">\(L^p\)</span><a href="lp-spaces.html#construction-of-lp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-76" class="definition"><strong>Definition 6.6  (Lp space, norm) </strong></span>Given a positive (nonnegative) measure
+<p><span id="def:unlabeled-div-78" class="definition"><strong>Definition 7.5  (Lp space, norm) </strong></span>Given a positive (nonnegative) measure
 <span class="math inline">\(\mu\)</span> and <span class="math inline">\(1\leq p&lt;\infty\)</span>, the space
 <span class="math inline">\(L^p(\Omega, d\mu)\)</span>
 is the space of complex-valued functions <span class="math inline">\(f:\Omega\to \mathbb C\)</span>
@@ -387,7 +326,7 @@ The <span class="math inline">\(\infty\)</span>-norm is also called the <strong>
 of <span class="math inline">\(|f|\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:LpVectorSpace" class="proposition"><strong>Proposition 6.5  (vector space property) </strong></span><span class="math inline">\(L^p(\Omega, d\mu)\)</span> is a vector space.</p>
+<p><span id="prp:LpVectorSpace" class="proposition"><strong>Proposition 7.3  (vector space property) </strong></span><span class="math inline">\(L^p(\Omega, d\mu)\)</span> is a vector space.</p>
 </div>
 <details>
 <summary>
@@ -401,7 +340,7 @@ Closure under addition follows from the convexity of <span class="math inline">\
 which follows from the convexity of <span class="math inline">\(|x|^p\)</span>.
 </details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-77" class="proposition"><strong>Proposition 6.6  (norm properties) </strong></span>The <span class="math inline">\(L^p\)</span> norm satisfies:</p>
+<p><span id="prp:unlabeled-div-79" class="proposition"><strong>Proposition 7.4  (norm properties) </strong></span>The <span class="math inline">\(L^p\)</span> norm satisfies:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Linearity: <span class="math inline">\(\|\lambda f\|_p = |\lambda| \|f\|_p\)</span>.</li>
 <li>Nonnegativity: <span class="math inline">\(\|f\|_p\geq 0\)</span> with equality iff <span class="math inline">\(f=0\)</span> for <span class="math inline">\(\mu\)</span>-a.e.</li>
@@ -416,45 +355,45 @@ Linearity follows from definition.
 For nonnegativity,
 <span class="math inline">\(\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0\)</span>, where the second and
 third equalities are to be understood as <span class="math inline">\(\mu\)</span>-a.e.
-Triangle inequality is proved by Minkowski’s inequality <a href="lp-spaces.html#thm:Minkowski">6.7</a>.
+Triangle inequality is proved by Minkowski’s inequality <a href="lp-spaces.html#thm:Minkowski">7.2</a>.
 </details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-78" class="proposition"><strong>Proposition 6.7  (Hölder's inequality) </strong></span>Given measurable <span class="math inline">\(f, g\)</span> on <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(p\in [1, \infty]\)</span>
+<p><span id="prp:unlabeled-div-80" class="proposition"><strong>Proposition 7.5  (Hölder's inequality) </strong></span>Given measurable <span class="math inline">\(f, g\)</span> on <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(p\in [1, \infty]\)</span>
 <span class="math display">\[
     \|fg\|_1 \leq \|f\|_p \|g\|_{\bar p}
 \]</span></p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-79" class="proposition"><strong>Proposition 6.8  </strong></span>If <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, then for <span class="math inline">\(0&lt;p&lt;q&lt;\infty\)</span>, we have
+<p><span id="prp:unlabeled-div-81" class="proposition"><strong>Proposition 7.6  </strong></span>If <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, then for <span class="math inline">\(0&lt;p&lt;q&lt;\infty\)</span>, we have
 <span class="math display">\[
     \|f\|_p \leq \mu(\Omega)^{(q-p)/pq} \|f\|_q
 \]</span>
 and <span class="math inline">\(L^q \subset L^p\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-80" class="proposition"><strong>Proposition 6.9  (variational formula for p-norm) </strong></span>Given <span class="math inline">\(1\leq p&lt;\infty\)</span> and <span class="math inline">\(f\in L^p\)</span>
+<p><span id="prp:unlabeled-div-82" class="proposition"><strong>Proposition 7.7  (variational formula for p-norm) </strong></span>Given <span class="math inline">\(1\leq p&lt;\infty\)</span> and <span class="math inline">\(f\in L^p\)</span>
 <span class="math display">\[
     \|f\|_p = \sup_{\|g\|_{\bar p} \leq 1} \|fg\|_1
 \]</span></p>
 </div>
 <div class="theorem">
-<p><span id="thm:Minkowski" class="theorem"><strong>Theorem 6.7  (Minkowski's inequality) </strong></span>Given <span class="math inline">\(1\leq p \leq \infty\)</span> and
+<p><span id="thm:Minkowski" class="theorem"><strong>Theorem 7.2  (Minkowski's inequality) </strong></span>Given <span class="math inline">\(1\leq p \leq \infty\)</span> and
 <span class="math inline">\(f, g\in L^p\)</span>, <span class="math inline">\(\|f+g\|_p \leq \|f\|_p + \|g\|_p\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-81" class="theorem"><strong>Theorem 6.8  (Lp is a Banach space) </strong></span>Every Cauchy sequence in <span class="math inline">\(L^p\)</span> converges.</p>
+<p><span id="thm:unlabeled-div-83" class="theorem"><strong>Theorem 7.3  (Lp is a Banach space) </strong></span>Every Cauchy sequence in <span class="math inline">\(L^p\)</span> converges.</p>
 </div>
 </div>
 <div id="duality" class="section level2 unnumbered hasAnchor">
 <h2>Duality<a href="lp-spaces.html#duality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-82" class="definition"><strong>Definition 6.7  (norm of linear functional) </strong></span>placeholder.</p>
+<p><span id="def:unlabeled-div-84" class="definition"><strong>Definition 7.6  (norm of linear functional) </strong></span>placeholder.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-83" class="definition"><strong>Definition 6.8  (continuity and boundedness) </strong></span>placeholder.</p>
+<p><span id="def:unlabeled-div-85" class="definition"><strong>Definition 7.7  (continuity and boundedness) </strong></span>placeholder.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:LpDual" class="theorem"><strong>Theorem 6.9  (Riesz representation theorem) </strong></span>The dual space of <span class="math inline">\((L^p)\)</span> for <span class="math inline">\(1&lt; p &lt; \infty\)</span>
+<p><span id="thm:LpDual" class="theorem"><strong>Theorem 7.4  (Riesz representation theorem) </strong></span>The dual space of <span class="math inline">\((L^p)\)</span> for <span class="math inline">\(1&lt; p &lt; \infty\)</span>
 is <span class="math inline">\(L^{\bar p}\)</span>; every linear functional <span class="math inline">\(L\in L^p(\Omega)^*\)</span>
 has the form, for some unique <span class="math inline">\(v\in L^{\bar p}\)</span>,
 <span class="math display">\[
@@ -474,7 +413,7 @@ The identification <span class="math inline">\((L^p)^* \cong L^{\bar p}\)</span>
           </div>
         </div>
       </div>
-<a href="iteratedIntegrals.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="banachSpaces.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
