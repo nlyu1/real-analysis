@@ -2,6 +2,21 @@
 
 ## Topology {-}
 
+First recall some topological definitions:
+
+2. The **norm** $|x|$ of $x$ equals $(\sum x_j^2)^{1/2}$.
+3. The **distance** between two points is is $|x-y|$. 
+4. The **distance** between two sets is $d(E, F)=\inf_{x\in E, y\in F}|x-y|$. 
+5. A set $E$ is **bounded** if it is contained in some ball of finite radius. 
+6. A bounded set is **compact** if it is also closed. 
+7. A point $x$ is a **limit point** of the set 
+    $E$ if $\forall r>0, B_r(x)\cap E\neq \emptyset$. 
+8. $x\in E$ is **isolated** if $\exists r>0: B_r(x)\cap E=\{x\}$. 
+9. $x\in E$ is an **interior** point if $\exists r>0: B_r(x)\subset E$; the 
+    interior points of $E$ is denoted $\mrm{Int}(E)$. 
+10. The **boundary** $\partial E = \bar E - \mrm{Int}(E)$. 
+11. A closed set $E$ is **perfect** if it does not have any isolated points. 
+
 :::{.proposition #closedSubsetCompact}
 A closed subset $A\subset K$ where $K$ is compact, is compact. 
 :::

@@ -39,45 +39,50 @@ link-citations: true
 
 
 # Preface {-}
-These notes accompany the 
-Fall 2024 iteration of Math 114. 
+These notes accompany the Fall 2024 iteration of Math 114, a second-semester 
+undergraduate course on real analysis and measure theory. The notes 
+deviate quite a bit from lecture materials, in particular: 
 
-## Organization {-}
+1. I prefer a more principled construction of the Lebesgue measure as the restriction of 
+    the exterior measure using the Carathéodory theorem.
+    - Sets declared measurable by the Carathéodory criteria are automatically 
+    closed under $\sigma$-algebra operations, so 
+    one only needs to show the measurability of rectangles 
+    to establish the measurability of the Borel sets.
+2. Materials are heavily supplemented by Sheldon Axler's 
+    _Measure, Integration and Real Analysis_. 
+
 These notes are organized as follows:
 
-1. Abstract machinery of [measures and $\sigma$-algebra](#abstractMachinery)
-    - Monotone class theorem \@ref(thm:monotoneClassTheorem), 
-    Fubini. 
-    - Reference: Lieb and Loss, _Analysis_ (2nd ed), Chapter 1. 
-2. The [exterior measure and Lebesgue measure on $\R^n$](#realMeasures)
-    - Characterization of measurable sets, 
+1. Abstract machinery of [measures and $\sigma$-algebra](#abstractMachinery). 
+    - Lieb and Loss, _Analysis_ (2nd ed), chapter 1. 
+2. The [exterior measure and Lebesgue measure](#realMeasures) on $\R^n$: 
+    - John K. Hunter, [_Measure theory_](https://www.math.ucdavis.edu/~hunter/measure_theory/measure_notes_ch2.pdf)
+        chapter 2. 
+3. Lebesgue's theory of integration. 
+    - Rudin, _Principles of Real Analysis_, chapter 11; Axler, chapter 2. 
+4. $L^p$ spaces
+    - Lieb and Loss, chapter 2; Axler, chapter 7. 
 
-## Motivation {-} 
-Consider the space $\mca C([a, b])$ of functions on $[a, b]$ 
-where $a, b$ are bounded. 
 
-**Fact**: If $\{f_k\}$ is a sequence of functions in 
-$\mca C([a, b])$ and $f_k\to f$ _uniformly_ on $[a, b]$, 
-then 
-\[ 
-    \int_a^b |f_k(x)-f(x)|\, dx \to 0 
-\] 
-In other words, uniform convergence of functions imply 
-convergence of integrals. 
-However, the converse is not true. 
-
-Topics in this course: 
+Course agenda: 
 
 1. Basic elements of measure theory: Lebesgue integration. 
-2. $L^p$-spaces (gadget which captures Lebesgue integration)
+2. $L^p$-spaces, which are constructions which internalize Lebesgue integration. 
 3. Fourier analysis, Hilbert spaces. 
-4. Radon-Nikadym theorem and Hölder spaces 
-(gadget which captures RN-theorem and differentiation). 
+4. Radon-Nikadym theorem and Hölder spaces, which are constructions 
+    internalizing the RN-theorem and differentiation. 
 
 Nontrivial results: 
 
 1. Monotone class theorem \@ref(thm:monotoneClassTheorem): 
+    freely-generated monotone class equals freely-generated $\sigma$-algebra 
+    for algebra of sets containing $\Omega$. 
     - Techniques for use (example theorem \@ref(thm:uniqueMeasure)): 
     rewrite nested chain as disjoint union, then pass through the limit 
     using the countable additivity of measures. 
     Next apply the reduction from finite to $\sigma$-finite measures. 
+2. Carathéodory measurability theorem \@ref(thm:measureConstruction): 
+    given an outer measure $\mu$, the measurable sets $B\subset \Omega$ satisfying 
+    $\mu(\forall E) = \mu(E\cap B) + \mu(E\cap B^c)$ form a $\sigma$-algebra 
+    and obey countable additivity. 

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Prelimaries | Math 114 Notes</title>
   <meta name="description" content="1 Prelimaries | Math 114 Notes" />
-  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Prelimaries | Math 114 Notes" />
   <meta property="og:type" content="book" />
@@ -64,6 +64,7 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -94,33 +95,29 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#organization"><i class="fa fa-check"></i>Organization</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#motivation"><i class="fa fa-check"></i>Motivation</a></li>
-</ul></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#real-analysis"><i class="fa fa-check"></i>Real analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> σ-algebra, Measures</a>
+<li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> Measures and σ-algebra</a>
 <ul>
 <li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#sigmaDefinition"><i class="fa fa-check"></i>σ-algebra</a></li>
 <li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#measurableSpaceFunctions"><i class="fa fa-check"></i>Measure spaces, measurable functions</a></li>
-<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#productFubini"><i class="fa fa-check"></i>Product measures, Fubini</a></li>
+<li class="chapter" data-level="" data-path="abstractMachinery.html"><a href="abstractMachinery.html#caratheodory"><i class="fa fa-check"></i>Carathéodory measurability</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="realMeasures.html"><a href="realMeasures.html"><i class="fa fa-check"></i><b>3</b> Measures on <span class="math inline">\(\mathbb R^n\)</span></a>
+<li class="chapter" data-level="3" data-path="realMeasures.html"><a href="realMeasures.html"><i class="fa fa-check"></i><b>3</b> Measure on <span class="math inline">\(\mathbb R^n\)</span></a>
 <ul>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#exterior-measure"><i class="fa fa-check"></i>Exterior measure</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#extMeasure"><i class="fa fa-check"></i>Rectangles, exterior measure</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#lebMeasure"><i class="fa fa-check"></i>Lebesgue measure, Borel regularity</a>
+<ul>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#a-non-measurable-set"><i class="fa fa-check"></i>A non-measurable set</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#realMeasurableFunctions"><i class="fa fa-check"></i>Measurable functions on <span class="math inline">\(\mathbb R^n\)</span></a></li>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#disjoint-additivity-on-borel-sets"><i class="fa fa-check"></i>Disjoint additivity on Borel sets</a></li>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#lebesgue-measure"><i class="fa fa-check"></i>Lebesgue Measure</a>
-<ul>
-<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#non-measurable-set"><i class="fa fa-check"></i>Non-measurable set</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#simple-functions"><i class="fa fa-check"></i>Simple functions</a></li>
 <li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#littlewoods-three-principles"><i class="fa fa-check"></i>Littlewood’s three principles</a></li>
+<li class="chapter" data-level="" data-path="realMeasures.html"><a href="realMeasures.html#product-measures-fubini"><i class="fa fa-check"></i>Product measures, Fubini</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="integration.html"><a href="integration.html"><i class="fa fa-check"></i><b>4</b> Integration</a>
 <ul>
@@ -161,6 +158,21 @@ div.csl-indent {
 <h1><span class="header-section-number">1</span> Prelimaries<a href="prelimaries.html#prelimaries" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="topology" class="section level2 unnumbered hasAnchor">
 <h2>Topology<a href="prelimaries.html#topology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First recall some topological definitions:</p>
+<ol start="2" style="list-style-type: decimal">
+<li>The <strong>norm</strong> <span class="math inline">\(|x|\)</span> of <span class="math inline">\(x\)</span> equals <span class="math inline">\((\sum x_j^2)^{1/2}\)</span>.</li>
+<li>The <strong>distance</strong> between two points is is <span class="math inline">\(|x-y|\)</span>.</li>
+<li>The <strong>distance</strong> between two sets is <span class="math inline">\(d(E, F)=\inf_{x\in E, y\in F}|x-y|\)</span>.</li>
+<li>A set <span class="math inline">\(E\)</span> is <strong>bounded</strong> if it is contained in some ball of finite radius.</li>
+<li>A bounded set is <strong>compact</strong> if it is also closed.</li>
+<li>A point <span class="math inline">\(x\)</span> is a <strong>limit point</strong> of the set
+<span class="math inline">\(E\)</span> if <span class="math inline">\(\forall r&gt;0, B_r(x)\cap E\neq \emptyset\)</span>.</li>
+<li><span class="math inline">\(x\in E\)</span> is <strong>isolated</strong> if <span class="math inline">\(\exists r&gt;0: B_r(x)\cap E=\{x\}\)</span>.</li>
+<li><span class="math inline">\(x\in E\)</span> is an <strong>interior</strong> point if <span class="math inline">\(\exists r&gt;0: B_r(x)\subset E\)</span>; the
+interior points of <span class="math inline">\(E\)</span> is denoted <span class="math inline">\(\mathrm{Int}(E)\)</span>.</li>
+<li>The <strong>boundary</strong> <span class="math inline">\(\partial E = \bar E - \mathrm{Int}(E)\)</span>.</li>
+<li>A closed set <span class="math inline">\(E\)</span> is <strong>perfect</strong> if it does not have any isolated points.</li>
+</ol>
 <div class="proposition">
 <p><span id="prp:closedSubsetCompact" class="proposition"><strong>Proposition 1.1  </strong></span>A closed subset <span class="math inline">\(A\subset K\)</span> where <span class="math inline">\(K\)</span> is compact, is compact.</p>
 </div>
@@ -303,12 +315,14 @@ iff any of the following holds for all <span class="math inline">\(x\)</span>:</
 <li>Sequential characterization:
 <span class="math inline">\(x_n\to x \implies f(x)\leq \liminf f(x_n)\)</span>.</li>
 <li>Epsilon-delta characterization:
-<span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:  f(B_\delta(x))&gt;f(x)-\epsilon\)</span>.</li>
+<span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:
+f(B_\delta(x))&gt;f(x)-\epsilon\)</span>.</li>
 </ol>
 <p>The corresponding characterizations of lower-continuity are:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(x_n\to x \implies f(x)\)</span></li>
-<li><span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:  f(B_\delta(x)) &lt; f(x)+\epsilon\)</span>.</li>
+<li><span class="math inline">\(\forall \epsilon&gt;0, \exists \delta&gt;0:
+f(B_\delta(x)) &lt; f(x)+\epsilon\)</span>.</li>
 </ol>
 </div>
 
