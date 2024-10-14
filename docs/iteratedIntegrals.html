@@ -103,6 +103,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#cauchy-sequences"><i class="fa fa-check"></i>Cauchy sequences</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> Measures and σ-algebra</a>
 <ul>
@@ -141,12 +145,10 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>6</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
-<ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#banach-spaces-completeness"><i class="fa fa-check"></i>Banach spaces, completeness</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#construction-of-lp"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -168,11 +170,50 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="iteratedIntegrals" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> Iterated integrals<a href="iteratedIntegrals.html#iteratedIntegrals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this section, we consider</p>
+<ul>
+<li>Two <span class="math inline">\(\sigma\)</span>-finite measure spaces <span class="math inline">\((\Omega_1, \Sigma_1, \mu_1)\)</span>
+and <span class="math inline">\((\Omega_2, \Sigma_2, \mu_2)\)</span>.</li>
+<li><span class="math inline">\(\Omega = \Omega_1\times \Omega_2, \Sigma=\Sigma_1\times \Sigma_2\)</span>
+in the <span class="math inline">\(\sigma\)</span>-algebra product <a href="abstractMachinery.html#def:productSigmaAlg">2.8</a>.</li>
+</ul>
+<p>Key takeaways:</p>
+<ol style="list-style-type: decimal">
+<li>The product <span class="math inline">\(\sigma\)</span>-algebra is characterized by the
+section property (proposition <a href="abstractMachinery.html#prp:productSection">2.4</a>).</li>
+<li><span class="math inline">\(\sigma\)</span>-finiteness is extremely important.</li>
+</ol>
 <div id="product-measure" class="section level2 unnumbered hasAnchor">
 <h2>Product measure<a href="iteratedIntegrals.html#product-measure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recall that, given <span class="math inline">\(A\in \Sigma\)</span>, we defined the functions
+<span class="math display">\[
+    A_1(y) = \{x\in \Omega_1: (x, y)\in A\}, \quad
+    A_2(x) = \{y\in \Omega_2: (x, y)\in A\}
+\]</span></p>
 <div class="theorem">
-<p><span id="thm:productMeasure" class="theorem"><strong>Theorem 5.1  (characterization of product measure) </strong></span>Placeholder.</p>
+<p><span id="thm:productMeasure" class="theorem"><strong>Theorem 5.1  (characterization of product measure) </strong></span></p>
+Fixing <span class="math inline">\(A\in \Sigma\)</span>, define
+<span class="math inline">\(f: \Omega_2\to \mathbb R\)</span> and <span class="math inline">\(g: \Omega_1\to \mathbb R\)</span> by
+<span class="math inline">\(g = \mu_1 \circ A_1, m_2 = \mu_2 \circ A_2\)</span>, then
+<span class="math display">\[
+    (\mu_1\times \mu_2)(A)
+    = \int_{\Omega_2} f(y)\, d\mu_2
+    = \int_{\Omega_1} g(x)\, d\mu_1
+\]</span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="images/fubini.jpg" alt="demonstration of product measure." width="80%" />
+<p class="caption">
+Figure 5.1: demonstration of product measure.
+</p>
 </div>
+</div>
+<p>Proof outline:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f, g\)</span> are measurable (by monotone class theorem).</li>
+<li></li>
+</ol>
+<p>Consider the set <span class="math inline">\(\mathcal M\subset \Sigma\)</span> of all
+sets for which <span class="math inline">\(f, g\)</span> defined as above are measurable.</p>
 </div>
 <div id="fubinis-theorem" class="section level2 unnumbered hasAnchor">
 <h2>Fubini’s theorem<a href="iteratedIntegrals.html#fubinis-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>

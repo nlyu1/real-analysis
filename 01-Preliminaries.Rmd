@@ -135,6 +135,8 @@ The upper and lower integrals are defined as
 \end{align}
 :::
 
+## Semi-continuity {-}
+
 :::{.definition name="limit inferior"}
 Given a countable sequence of reals $(a_j)$, the limit inferior is 
 \[ 
@@ -216,4 +218,19 @@ is
 (Lower, upper) semi-continuous 
 functions can only jump (down, up) in limit 
 on the side with open iterval. 
+:::
+
+### Cauchy sequences {-}
+
+:::{.definition name="Cauchy sequence"}
+A sequence $f_j$ in a metric space $(V, d)$ is 
+a Cauchy sequence if $\forall \epsilon>0$, 
+there exists $n\in \mbb Z_+$ such that 
+$d(f_{\forall j\geq N}, f_{\forall k\geq n})<\epsilon$. 
+:::
+
+:::{.proposition #cauchySubsequence name="convergent subsequence"}
+Given a Cauchy sequence $(f_j)$, if some subsequence 
+$f_{n_j}\to f$ converges, then the whole sequence $f_j\to f$ 
+converges. 
 :::

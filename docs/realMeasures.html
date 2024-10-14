@@ -103,6 +103,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#cauchy-sequences"><i class="fa fa-check"></i>Cauchy sequences</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> Measures and σ-algebra</a>
 <ul>
@@ -141,12 +145,10 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>6</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
-<ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#banach-spaces-completeness"><i class="fa fa-check"></i>Banach spaces, completeness</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#construction-of-lp"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -202,7 +204,7 @@ measure <a href="#prp:nullDifferenceMeasurability">3.7</a>.</li>
 <div id="extMeasure" class="section level2 unnumbered hasAnchor">
 <h2>Rectangles, exterior measure<a href="realMeasures.html#extMeasure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-25" class="definition"><strong>Definition 3.1  (exterior measure) </strong></span>The exterior measure <span class="math inline">\(\mu_*(E)\)</span> of any subset <span class="math inline">\(E\subset \mathbb R^n\)</span> is
+<p><span id="def:unlabeled-div-26" class="definition"><strong>Definition 3.1  (exterior measure) </strong></span>The exterior measure <span class="math inline">\(\mu_*(E)\)</span> of any subset <span class="math inline">\(E\subset \mathbb R^n\)</span> is
 <span class="math display">\[
     \mu_*(E) = \inf \sum_{j=1}^\infty |R_j|
 \]</span>
@@ -323,7 +325,7 @@ boundaries of closed sets which have nontrivial measure
 <div id="lebMeasure" class="section level2 unnumbered hasAnchor">
 <h2>Lebesgue measure, Borel regularity<a href="realMeasures.html#lebMeasure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-26" class="definition"><strong>Definition 3.2  (Lebesgue measure) </strong></span>The set <span class="math inline">\(\mathcal L\subset \mathbb R^n\)</span> of Lebesgue measurable sets
+<p><span id="def:unlabeled-div-27" class="definition"><strong>Definition 3.2  (Lebesgue measure) </strong></span>The set <span class="math inline">\(\mathcal L\subset \mathbb R^n\)</span> of Lebesgue measurable sets
 are the Carathéodory-measurable sets of the exterior measure:
 <span class="math display">\[
     S\in \mathcal L \iff \mu_*(\forall E\subset \mathbb R^n)
@@ -336,7 +338,7 @@ by subadditivity:
     \mu_*(E) \leq \mu_*(E\cap B) + \mu_*(E\cap B^c)
 \]</span></p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-27" class="proposition"><strong>Proposition 3.5  (null sets are measurable) </strong></span><span class="math inline">\(\mu(E\subset \mathbb R^n)=0\implies E\in \mathcal L\)</span>.</p>
+<p><span id="prp:unlabeled-div-28" class="proposition"><strong>Proposition 3.5  (null sets are measurable) </strong></span><span class="math inline">\(\mu(E\subset \mathbb R^n)=0\implies E\in \mathcal L\)</span>.</p>
 </div>
 <details>
 <summary>
@@ -346,7 +348,7 @@ To show the nontrivial direction, <span class="math inline">\(\mu(E\cap B)\leq \
 <span class="math inline">\(\mu(E\cap B^c) \leq \mu(E)\)</span> by subadditivity.
 </details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-28" class="proposition"><strong>Proposition 3.6  Proposition 3.7  </strong></span>If <span class="math inline">\(\mu_*(A\Delta B) = 0\)</span> for <span class="math inline">\(\in \mathcal L\)</span>,
+<p><span id="prp:unlabeled-div-29" class="proposition"><strong>Proposition 3.6  Proposition 3.7  </strong></span>If <span class="math inline">\(\mu_*(A\Delta B) = 0\)</span> for <span class="math inline">\(\in \mathcal L\)</span>,
 then <span class="math inline">\(A\)</span> is measurable.</p>
 </div>
 <details>
@@ -368,11 +370,11 @@ by subadditivity, and the first term
 Then <span class="math inline">\(\mu_*(E\cap A) + \mu_*(E\cap A^c)\leq  \mu_*(E\cap B) + \mu_*(E\cap B^c) = \mu_*(E)\)</span> by <span class="math inline">\(B\)</span> measurable.
 </details>
 <div class="definition">
-<p><span id="def:unlabeled-div-29" class="definition"><strong>Definition 3.3  (Borel sets) </strong></span>The Borel set <span class="math inline">\(\mathcal B\subset 2^{R^n}\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra
+<p><span id="def:unlabeled-div-30" class="definition"><strong>Definition 3.3  (Borel sets) </strong></span>The Borel set <span class="math inline">\(\mathcal B\subset 2^{R^n}\)</span> is the <span class="math inline">\(\sigma\)</span>-algebra
 freely generated by rectangles.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-30" class="theorem"><strong>Theorem 3.1  (Borel sets are Lebesgue measurable) </strong></span><span class="math inline">\(\mathcal B\subset \mathcal L\)</span>.</p>
+<p><span id="thm:unlabeled-div-31" class="theorem"><strong>Theorem 3.1  (Borel sets are Lebesgue measurable) </strong></span><span class="math inline">\(\mathcal B\subset \mathcal L\)</span>.</p>
 </div>
 <p><em>Proof:</em> Proposition <a href="realMeasures.html#prp:rectangleMeasurable">3.4</a> states that rectangles
 are measurable; invoking the machinery we built in the section
@@ -387,7 +389,7 @@ be the equivalence class of <span class="math inline">\(\alpha\)</span>. Then
 <span class="math inline">\(\mathcal N\)</span> by choosing one element <span class="math inline">\(x_\alpha\)</span> from
 each <span class="math inline">\(\mathcal E_\alpha\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-31" class="proposition"><strong>Proposition 3.8  </strong></span><span class="math inline">\(\mathcal N\)</span> is not measurable.</p>
+<p><span id="prp:unlabeled-div-32" class="proposition"><strong>Proposition 3.8  </strong></span><span class="math inline">\(\mathcal N\)</span> is not measurable.</p>
 </div>
 <p><em>Proof:</em> Assume <span class="math inline">\(\mathcal N\)</span> measurable and let
 <span class="math inline">\(\{r_k\}_{k=1}^\infty\)</span> be an enumeration of all rationals

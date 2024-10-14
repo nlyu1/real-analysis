@@ -9,8 +9,74 @@ Key takeaways:
 2. To be precise, $L^p$ spaces are equivalence classes of 
     functions which agree $\mu$-a.e.
 
-## Definitions {-}
-### Convexity, Young's inequality {-}
+## Banach spaces, completeness {-}
+
+:::{.definition name="completeness, Banach space"}
+A metric is complete if every Cauchy sequence 
+in the space converges. A Banach space is 
+a complete normed metric space. 
+:::
+
+:::{.proposition name="connection between complete and closed spaces"}
+A complete subset of a metric space is closed, and a closed 
+subset of a complete metric space is complete. 
+:::
+<details>
+<summary>Proof</summary>
+Given a complete subset $V$ of a metric space, every convergent 
+sequence is also a convergent Cauchy sequence whose limit 
+stays inside $V$. Given a closed subset, the convergent 
+limit of every Cauchy sequence must say within $V$ by closure 
+property, so $V$ is complete. 
+</details>
+
+Recall that to argue for Cauchy convergence we can 
+drop to subsequences (proposition \@ref(prp:cauchySubsequence)). 
+
+:::{.proposition name="characterization of Banach space"}
+A normed vector space $V$ is complete (i.e. a Banach space) 
+iff $\sum_{k=1}^\infty g_k$ converges for every sequence 
+$g_j\in V$ satisfying $\sum_{k=1}^\infty \|g_k\|<\infty$. 
+:::
+<details>
+<summary>Proof</summary>
+Given $V$ complete, the partial sum of $g$ is a Cauchy 
+sequence thus converges. Conversely, 
+given a Cauchy sequence, drop to a subsequence $f_j$ 
+and set $f_0=0$ so that  
+\[ 
+    \sum_{k=1}^\infty \|f_k - f_{k-1}\| < \infty 
+\] 
+then by assumption 
+$\sum_{k=1}^\infty (f_k - f_{k-1})=\lim_{n\to \infty} f_n$ 
+exists. 
+</details>
+
+:::{.theorem name="Baire's theorem"}
+
+a. A complete vector space is not the countable union 
+    of closed subsets with empty interior. 
+b. The countable intersection of dense open sets of a complete 
+    metric space is nonempty. 
+:::
+
+:::{.theorem name="open mapping theorem"}
+Placeholder. 
+:::
+
+:::{.theorem name="bounded inverse theorem"}
+Placeholder. 
+:::
+
+:::{.theorem name="closed graph theorem"}
+Placeholder. 
+:::
+
+:::{.theorem name="Hahn-Banach theorem"}
+Placeholder. 
+:::
+
+## Convexity {-}
 
 :::{.definition name="convex set and function"}
 A convex set $K\subset \R^n$ is closed under 
@@ -46,6 +112,7 @@ Thus for general convex functions, for each $x$ there exists
 a vector $V\in \R^n$ such that 
 \[ 
     f(y) \geq f(x) + V\cdot (y - x)
+    (\#eq:supportingVector)
 \] 
 
 :::{.definition name="Hölder conjugate"}
@@ -53,6 +120,7 @@ The Hölder conjugate of $p>1$ is given by the equation
 \[ 
     p^{-1} + q^{-1} = 1
 \] 
+We also denote $q=\bar p$. 
 It is oftentimes more convenient to note that 
 \[ 
     p = \df q {q - 1} \iff q = \df p {p - 1}
@@ -82,7 +150,49 @@ of the Legendre transform.
 Equality is saturated when $a=b^{1/(p-1)} \iff a^p = b^q$. 
 </details>
 
-## Space and norm {-}
+:::{.definition name="average of a measurable function"}
+Assuming $\mu(\Omega)$ is finite, the expectation (average) of 
+a measurable function $f:\Omega\to \R$ is defined as 
+\[ 
+    \la f\ra = \df 1 {\mu(\Omega)} \int_\Omega f\, d\mu 
+\] 
+:::
+
+:::{.theorem name="Jensen's inequality"}
+Given a convex function $J:\R\to \R$ and 
+measurable $f:\Omega\to \R$ with $\mu(Omega)<\infty$, then 
+
+1. The negative part $(J\circ f)_-$ is in $L^1(\Omega)$ 
+    (recall the decomposition $f=f_+ - f_-$. 
+2. $\la J\circ f\ra \geq J(\la f\ra)$; when $J$ is strictly 
+convex at $\la f\ra$, there is equality iff $f$ is constant. 
+:::
+<span style="color:green">
+Proof idea: integrate the supporting 
+vector equation \@ref(eq:supportingVector). 
+</span>
+<details>
+<summary>Proof</summary>
+Fixing $\la f\ra$, there exists a constant $V\in \R$ 
+such that 
+\[ 
+    J(\forall t)\geq J(\la f\ra) + V(t - \la f\ra)
+    (\#eq:convexity) 
+\] 
+This bounds the negative component (but not the positive one!) 
+\[ 
+    [J\circ f]_-(x) \leq |J(\la f\ra)| + |V||\la f\ra| + |V| |f(x)| 
+\] 
+using $\mu(\Omega)<\infty$, this bounded function is integrable. 
+To obtain (2), integrate \@ref(eq:convexity) for all $t=f(x)$ 
+\[ 
+    \la J \circ f\ra \geq J(\la f\ra) - V \la f\ra + V\la f\ra 
+\] 
+with $J$ strictly convex, the inequality is saturated 
+when $\la J\circ f\ra = J(\la f\ra)$. 
+</details>
+
+## Construction of $L^p$ {-}
 
 :::{.definition name="Lp space, norm"}
 Given a positive (nonnegative) measure 
@@ -133,54 +243,66 @@ c. Triangle inequality: $\|f+g\|_p \leq \|f_p\| + \|g\|_p$.
 
 <details>
 <summary>Proof</summary>
-Linearity is apparant, for the second part, 
-$\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0$, the second and 
-third $=0$ are to be understood as $\mu$-a.e. 
+Linearity follows from definition. 
+For nonnegativity, 
+$\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0$, where the second and 
+third equalities are to be understood as $\mu$-a.e. 
+Triangle inequality is proved by Minkowski's inequality \@ref(thm:Minkowski). 
 </details>
 
-
-## Major inequalities {-}
-
-From now on we work in a measure space denoted 
-$(\Omega, \Sigma, \mu)$. 
-
-Assuming $\mu(\Omega)$ is finite, the average of 
-a measurable function $f:\Omega\to \R$ is defined as 
+:::{.proposition name="Hölder's inequality"}
+Given measurable $f, g$ on $(\Omega, \Sigma, \mu)$ and $p\in [1, \infty]$
 \[ 
-    \la f\ra = \df 1 {\mu(\Omega)} \int_\Omega f\, d\mu 
+    \|fg\|_1 \leq \|f\|_p \|g\|_{\bar p}
 \] 
-
-:::{.theorem name="Jensen's inequality"}
-Given a convex function $J:\R\to \R$ and 
-measurable $f:\Omega\to \R$, then 
-
-1. The negative part $(J\circ f)_-$ is in $L^1(\Omega)$ 
-    (recall the decomposition $f=f_+ - f_-$. 
-2. $\la J\circ f\ra \geq J(\la f\ra)$; when $J$ is strictly 
-convex at $\la f\ra$, there is equality iff $f$ is constant. 
 :::
-_Proof:_ Fixing $\la f\ra$, there exists a constant $V\in \R$ 
-such that 
-\[ 
-    J(\forall t)\geq J(\la f\ra) + V(t - \la f\ra)
-    (\#eq:convexity) 
-\] 
-This bounds the negative component (but not the positive one!) 
-\[ 
-    [J\circ f]_-(x) \leq |J(\la f\ra)| + |V||\la f\ra| + |V| |f(x)| 
-\] 
-using $\mu(\Omega)<\infty$, this bounded function is integrable. 
-To obtain (2), integrate \@ref(eq:convexity) for all $t=f(x)$ 
-\[ 
-    \la J \circ f\ra \geq J(\la f\ra) - V \la f\ra + V\la f\ra 
-\] 
-with $J$ strictly convex, the inequality is saturated 
-when $\la J\circ f\ra = J(\la f\ra)$. 
 
-:::{.theorem name="Hölder's inequality"}
-Given dual $p, q$ with $p\geq 1$. Let $f\in L^p(\Omega), g\in L^q(\Omega)$. 
-The pointwise product $fg\in L^1(\Omega)$ and 
+:::{.proposition}
+If $\mu(\Omega)<\infty$, then for $0<p<q<\infty$, we have 
 \[ 
-    \|fg\|_1 \leq \int_\Omega |f||g| \, d\mu \leq \|f\|_p \|g\|_q 
+    \|f\|_p \leq \mu(\Omega)^{(q-p)/pq} \|f\|_q
+\] 
+and $L^q \subset L^p$. 
+:::
+
+:::{.proposition name="variational formula for p-norm"}
+Given $1\leq p<\infty$ and $f\in L^p$ 
+\[ 
+    \|f\|_p = \sup_{\|g\|_{\bar p} \leq 1} \|fg\|_1 
+\] 
+:::
+
+:::{.theorem #Minkowski name="Minkowski's inequality"}
+Given $1\leq p \leq \infty$ and 
+$f, g\in L^p$, $\|f+g\|_p \leq \|f\|_p + \|g\|_p$. 
+:::
+
+:::{.theorem name="Lp is a Banach space"}
+Every Cauchy sequence in $L^p$ converges. 
+:::
+
+
+
+## Duality {-}
+
+:::{.definition name="norm of linear functional"}
+placeholder. 
+:::
+
+:::{.definition name="continuity and boundedness"}
+placeholder. 
+:::
+
+:::{.theorem #LpDual name="Riesz representation theorem"}
+The dual space of $(L^p)$ for $1< p < \infty$ 
+is $L^{\bar p}$; every linear functional $L\in L^p(\Omega)^*$ 
+has the form, for some unique $v\in L^{\bar p}$, 
+\[ 
+    L(g) = \int_\Omega v(x)g(x)\, d\mu 
+\] 
+This is true for $p=1$ if $(\Omega, \Sigma, \mu)$ is $\sigma$-finite. 
+The identification $(L^p)^* \cong L^{\bar p}$ is further norm-preserving: 
+\[  
+    \|L\| = \|v\|_q
 \] 
 :::

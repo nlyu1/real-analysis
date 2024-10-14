@@ -103,6 +103,10 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a></li>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a>
+<ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#cauchy-sequences"><i class="fa fa-check"></i>Cauchy sequences</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="abstractMachinery.html"><a href="abstractMachinery.html"><i class="fa fa-check"></i><b>2</b> Measures and σ-algebra</a>
 <ul>
@@ -141,12 +145,10 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>6</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
-<ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#banach-spaces-completeness"><i class="fa fa-check"></i>Banach spaces, completeness</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#construction-of-lp"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -245,7 +247,7 @@ measurable sequence, or equals a measurable function a.e.</li>
 <div id="simple-functions" class="section level3 unnumbered hasAnchor">
 <h3>Simple functions<a href="realIntegration.html#simple-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
-<p><span id="def:unlabeled-div-32" class="definition"><strong>Definition 4.1  (characteristic function) </strong></span>Given <span class="math inline">\(E\subset \Omega\)</span>, the characteristic function <span class="math inline">\(\chi_E:\Omega\to \mathbb R\)</span> is
+<p><span id="def:unlabeled-div-33" class="definition"><strong>Definition 4.1  (characteristic function) </strong></span>Given <span class="math inline">\(E\subset \Omega\)</span>, the characteristic function <span class="math inline">\(\chi_E:\Omega\to \mathbb R\)</span> is
 <span class="math display">\[
     \chi_E(x) = \begin{cases}
         1 &amp; x\in E \\
@@ -254,14 +256,14 @@ measurable sequence, or equals a measurable function a.e.</li>
 \]</span></p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-33" class="proposition"><strong>Proposition 4.1  </strong></span>Given <span class="math inline">\((\Omega, \Sigma), E\subset \Omega\)</span>, then
+<p><span id="prp:unlabeled-div-34" class="proposition"><strong>Proposition 4.1  </strong></span>Given <span class="math inline">\((\Omega, \Sigma), E\subset \Omega\)</span>, then
 <span class="math inline">\(\chi_E\)</span> is <span class="math inline">\(\Sigma\)</span>-measurable iff <span class="math inline">\(E\in \Sigma\)</span>.</p>
 </div>
 <p><em>Proof:</em>
 <span class="math inline">\(\chi_E^{-1}(B) = \{E, \Omega-E, \Omega, \emptyset\}\)</span>
 depending on how <span class="math inline">\(B\subset \mathbb R\)</span> intersects with <span class="math inline">\(\{0, 1\}\)</span>.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-34" class="definition"><strong>Definition 4.2  (simple function) </strong></span>A simple function is a finite sum below,
+<p><span id="def:unlabeled-div-35" class="definition"><strong>Definition 4.2  (simple function) </strong></span>A simple function is a finite sum below,
 where each <span class="math inline">\(E_k\)</span> is a finite-measurable set.
 <span class="math display">\[
     f = \sum_{k=1}^N a_k \chi_{E_k}
@@ -308,7 +310,7 @@ are measurable so <span class="math inline">\(s_n\)</span> is measurable. The ge
 <div id="conditions-for-measurability" class="section level3 unnumbered hasAnchor">
 <h3>Conditions for measurability<a href="realIntegration.html#conditions-for-measurability" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="example">
-<p><span id="exm:unlabeled-div-35" class="example"><strong>Example 4.1  </strong></span>If <span class="math inline">\(\Sigma=\{\emptyset, \Omega\}\)</span>, then the only <span class="math inline">\(\Sigma\)</span>-measurable
+<p><span id="exm:unlabeled-div-36" class="example"><strong>Example 4.1  </strong></span>If <span class="math inline">\(\Sigma=\{\emptyset, \Omega\}\)</span>, then the only <span class="math inline">\(\Sigma\)</span>-measurable
 functions from <span class="math inline">\(\Omega\to \mathbb R^n\)</span> are constant functions. On the
 other extreme, if <span class="math inline">\(\Sigma=2^\Omega\)</span>, then every function is measurable.
 For a nontrivial example, if <span class="math inline">\(\Sigma=\{\emptyset, (-\infty, 0), [0, \infty), \mathbb R\}\)</span>
@@ -316,7 +318,7 @@ then <span class="math inline">\(f:\mathbb R\to \mathbb R\)</span> is measurable
 constant on <span class="math inline">\((-\infty, 0), [0, \infty)\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-36" class="proposition"><strong>Proposition 4.2  (semi-continuity implies measurability) </strong></span>Every (lower or upper) semi-continuous <span class="math inline">\(R^n\)</span>-valued function
+<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 4.2  (semi-continuity implies measurability) </strong></span>Every (lower or upper) semi-continuous <span class="math inline">\(R^n\)</span>-valued function
 (definition <a href="prelimaries.html#def:semiContinuity">1.4</a>) is measurable.</p>
 </div>
 <p><em>Proof:</em> Recall proposition <a href="abstractMachinery.html#prp:measurableFunctionCondition">2.7</a>.
@@ -325,7 +327,7 @@ half-rectangles <span class="math inline">\((\infty, t\in \mathbb R^n)\)</span> 
 <p>The explicit proof below demonstrates the relation between
 continuity and measurability.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 4.3  (continuity implies Borel measurability) </strong></span>Every continuous function <span class="math inline">\(f:\Omega\to \mathbb R^n\)</span> defined on
+<p><span id="prp:unlabeled-div-38" class="proposition"><strong>Proposition 4.3  (continuity implies Borel measurability) </strong></span>Every continuous function <span class="math inline">\(f:\Omega\to \mathbb R^n\)</span> defined on
 a Borel subset <span class="math inline">\(\Omega\subset \mathbb R^m\)</span> is a Borel-measurable function.</p>
 </div>
 <details>
@@ -345,7 +347,7 @@ is an open set, hence its intersection with the Borel set <span class="math inli
 <p><span class="math inline">\(f:(\Omega\subset \mathbb R)\to \mathbb R\)</span> is increasing if <span class="math inline">\(x &lt; y\implies f(x)\leq f(y)\)</span>;
 it is monotonic if <span class="math inline">\(f\)</span> or <span class="math inline">\(-f\)</span> is increasing.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-38" class="proposition"><strong>Proposition 4.4  </strong></span>if <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is monotonic and <span class="math inline">\(\Omega\)</span> is Borel, then <span class="math inline">\(f\)</span> is measurable.</p>
+<p><span id="prp:unlabeled-div-39" class="proposition"><strong>Proposition 4.4  </strong></span>if <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is monotonic and <span class="math inline">\(\Omega\)</span> is Borel, then <span class="math inline">\(f\)</span> is measurable.</p>
 </div>
 <details>
 <summary>
@@ -382,11 +384,11 @@ to <span class="math inline">\(\bigcup\)</span>, and each <span class="math inli
 the preimage of <span class="math inline">\(y&gt;a\)</span> the measurable set above.
 </details>
 <div class="definition">
-<p><span id="def:unlabeled-div-39" class="definition"><strong>Definition 4.3  (extended Borel) </strong></span><span class="math inline">\(A\subset [-\infty \infty]\)</span> is a Borel set if <span class="math inline">\(A\cap \mathbb R\)</span> is Borel.
+<p><span id="def:unlabeled-div-40" class="definition"><strong>Definition 4.3  (extended Borel) </strong></span><span class="math inline">\(A\subset [-\infty \infty]\)</span> is a Borel set if <span class="math inline">\(A\cap \mathbb R\)</span> is Borel.
 Extended measurability is defined similarly.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-40" class="theorem"><strong>Theorem 4.2  (variational limits are measurable) </strong></span>Given measurable <span class="math inline">\(\{f_k: (\Omega, \Sigma)\to \mathbb R\}\)</span>, the following functions
+<p><span id="thm:unlabeled-div-41" class="theorem"><strong>Theorem 4.2  (variational limits are measurable) </strong></span>Given measurable <span class="math inline">\(\{f_k: (\Omega, \Sigma)\to \mathbb R\}\)</span>, the following functions
 are also measurable:
 <span class="math display">\[
     g(x) = \inf_k f_k(x), \quad h(x) = \sup_k f_k(x)
@@ -403,7 +405,7 @@ It suffices to verify for the <span class="math inline">\(\sup\)</span> case tha
 \end{align}\]</span>
 </details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-41" class="proposition"><strong>Proposition 4.6  (a.e. measurability) </strong></span>Given <span class="math inline">\(f\)</span> measurable and <span class="math inline">\(f=g\)</span> a.e. (they differ on a set of
+<p><span id="prp:unlabeled-div-42" class="proposition"><strong>Proposition 4.6  (a.e. measurability) </strong></span>Given <span class="math inline">\(f\)</span> measurable and <span class="math inline">\(f=g\)</span> a.e. (they differ on a set of
 measure <span class="math inline">\(0\)</span> on the domain), then <span class="math inline">\(g\)</span> is measurable.</p>
 </div>
 <details>
@@ -441,7 +443,7 @@ sequence of sets is written <span class="math inline">\(A_j\searrow A\)</span>.
 \]</span></p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-42" class="proposition"><strong>Proposition 4.7  (Littlewood's first principle) </strong></span>Given measurable <span class="math inline">\(E\subset \mathbb R\)</span> with <span class="math inline">\(\mu(E)&lt;\infty\)</span>,
+<p><span id="prp:unlabeled-div-43" class="proposition"><strong>Proposition 4.7  (Littlewood's first principle) </strong></span>Given measurable <span class="math inline">\(E\subset \mathbb R\)</span> with <span class="math inline">\(\mu(E)&lt;\infty\)</span>,
 there exists a finite union <span class="math inline">\(O\)</span> of intervals such that
 <span class="math inline">\(\mu(O\Delta E) &lt; \epsilon\)</span> for every <span class="math inline">\(\epsilon\)</span>.</p>
 </div>
@@ -565,20 +567,20 @@ to the continuous extension of <span class="math inline">\(f\)</span> to all of 
 <div id="lebesgueIntegration" class="section level2 unnumbered hasAnchor">
 <h2>Lebesgue integration<a href="realIntegration.html#lebesgueIntegration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-43" class="definition"><strong>Definition 4.5  (function support) </strong></span>The support of a measurable function <span class="math inline">\(f\)</span> is
+<p><span id="def:unlabeled-div-44" class="definition"><strong>Definition 4.5  (function support) </strong></span>The support of a measurable function <span class="math inline">\(f\)</span> is
 <span class="math display">\[
     \mathrm{supp}(f) = \overline{f^{-1}(\{0\}^C)}
 \]</span>
 the closure of domain on which <span class="math inline">\(f\)</span> does not vanish.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-44" class="definition"><strong>Definition 4.6  (S-partition) </strong></span>Given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma\)</span> on <span class="math inline">\(\Omega\)</span>, a
+<p><span id="def:unlabeled-div-45" class="definition"><strong>Definition 4.6  (S-partition) </strong></span>Given a <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\Sigma\)</span> on <span class="math inline">\(\Omega\)</span>, a
 <span class="math inline">\(S\)</span>-partition of <span class="math inline">\(\Omega\)</span> is a <em>finite</em> collection
 <span class="math inline">\(A_1, \cdots, A_m\in \Sigma\)</span> of disjoint sets
 such that <span class="math inline">\(\bigsqcup A_j = \Omega\)</span>.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-45" class="definition"><strong>Definition 4.7  (lower Lebesgue sum) </strong></span>Given measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>,
+<p><span id="def:unlabeled-div-46" class="definition"><strong>Definition 4.7  (lower Lebesgue sum) </strong></span>Given measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>,
 an <span class="math inline">\(\Sigma\)</span>-measurable function <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>,
 and a <span class="math inline">\(\Sigma\)</span>-partition <span class="math inline">\(P=\{A_1, \cdots, A_m\}\)</span> of <span class="math inline">\(\Omega\)</span>,
 the lower Lebesgue sum is
@@ -595,7 +597,7 @@ w.r.t. the measure <span class="math inline">\((\Sigma, \mu)\)</span> is the fol
 \]</span></p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-46" class="proposition"><strong>Proposition 4.8  (base case for Lebesgue integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(E\in \Sigma\)</span>,
+<p><span id="prp:unlabeled-div-47" class="proposition"><strong>Proposition 4.8  (base case for Lebesgue integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(E\in \Sigma\)</span>,
 we have <span class="math inline">\(\int \chi_E\, d\mu = \mu(E)\)</span>.</p>
 </div>
 <details>
@@ -614,7 +616,7 @@ We have <span class="math inline">\(\mathcal L_\mu(\chi_E, \{E, \Omega-E\}) = \m
 then <span class="math inline">\(\mathcal L(\chi_E, P) = \sum_{A_j\subset E} \mu(A_j) \leq \mu(E)\)</span>.
 </details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-47" class="proposition"><strong>Proposition 4.9  (integral of a simple function) </strong></span>Given a measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and disjoint
+<p><span id="prp:unlabeled-div-48" class="proposition"><strong>Proposition 4.9  (integral of a simple function) </strong></span>Given a measure space <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and disjoint
 <span class="math inline">\(E_1, \cdots E_n\)</span>, we have
 <span class="math display">\[
     \int \left(\sum_{k=1}^n c_k \chi_{E_k}\right)\, d\mu
@@ -630,7 +632,7 @@ The LHS integral is lower-bounded by the <span class="math inline">\(\Sigma\)</s
 to the last proposition.
 </details>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-48" class="corollary"><strong>Corollary 4.1  (equivalent definition of nonnegative integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>,
+<p><span id="cor:unlabeled-div-49" class="corollary"><strong>Corollary 4.1  (equivalent definition of nonnegative integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable <span class="math inline">\(f:\Omega\to [0, \infty]\)</span>,
 the integral definition <a href="realIntegration.html#def:nonNegativeIntegral">4.8</a> is equivalent to
 <span class="math display">\[
     \int f\, d\mu = \sup_P \mathcal L_\mu(f, P) = \sup_{s\leq f} \int s\, d\mu
@@ -641,7 +643,7 @@ by <span class="math inline">\(f\)</span>: <span class="math inline">\(\forall x
 <p><em>Proof:</em> Follows from <span class="math inline">\(\mathcal L_\mu(f, P)\)</span> being
 the integral of a simple function.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-49" class="definition"><strong>Definition 4.9  (Lebesgue integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable
+<p><span id="def:unlabeled-div-50" class="definition"><strong>Definition 4.9  (Lebesgue integral) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and measurable
 <span class="math inline">\(f(x)\in [-\infty, \infty]\)</span> with <span class="math inline">\(f=f^+-f^-\)</span> and <span class="math inline">\(f^+, f^-\geq 0\)</span>.
 If <em>at least one</em> of <span class="math inline">\(\int f^+\, d\mu, \int f^-\, d\mu\)</span>
 is finite, then the Lebesgue integral of <span class="math inline">\(f\)</span> is
@@ -656,7 +658,7 @@ is finite, then the Lebesgue integral of <span class="math inline">\(f\)</span> 
     \end{cases}
 \]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-50" class="definition"><strong>Definition 4.10  (integral metric, integrable space) </strong></span>Fix <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>; if <span class="math inline">\(f:\Omega\to [-\infty, \infty]\)</span>
+<p><span id="def:unlabeled-div-51" class="definition"><strong>Definition 4.10  (integral metric, integrable space) </strong></span>Fix <span class="math inline">\((\Omega, \Sigma, \mu)\)</span>; if <span class="math inline">\(f:\Omega\to [-\infty, \infty]\)</span>
 is measurable, then the <span class="math inline">\(L^1\)</span>-norm of <span class="math inline">\(f\)</span> is
 <span class="math display">\[  
     \|f_1\| = \int |f|\, d\mu
@@ -666,7 +668,7 @@ defined as
 <span class="math inline">\(L^1(\mu) = \{f:\Omega\to \mathbb R\text{ satisfying } \|f\|_1 &lt; \infty \}\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-51" class="theorem"><strong>Theorem 4.5  (properties of integration) </strong></span>The following properties are evident for <span class="math inline">\(f, g\in L^1(\mu)\)</span>:</p>
+<p><span id="thm:unlabeled-div-52" class="theorem"><strong>Theorem 4.5  (properties of integration) </strong></span>The following properties are evident for <span class="math inline">\(f, g\in L^1(\mu)\)</span>:</p>
 <ol style="list-style-type: decimal">
 <li><em>Linearity:</em> <span class="math inline">\(\int cf+g\, d\mu = c\int f\, d\mu + \int g\, d\mu\)</span>.</li>
 <li><em>Order-preserving</em>: <span class="math inline">\(f\leq g\implies \int f\, d\mu \leq \int g\, d\mu\)</span>.</li>
@@ -690,7 +692,7 @@ For (3),
 \end{align}\]</span>
 </details>
 <div class="definition">
-<p><span id="def:unlabeled-div-52" class="definition"><strong>Definition 4.11  (integration on subset) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(E\in \Sigma\)</span> and
+<p><span id="def:unlabeled-div-53" class="definition"><strong>Definition 4.11  (integration on subset) </strong></span>Given <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(E\in \Sigma\)</span> and
 measurable <span class="math inline">\(f:\Omega\to [-\infty, \infty]\)</span>, the subset integral is
 <span class="math display">\[
     \int_E f\, d\mu = \int \chi_E f\, d\mu
@@ -729,7 +731,7 @@ The general proof just demonstrates the commutativity of
 countable subadditivity with the <span class="math inline">\(\sup\)</span> integral construction.
 </details>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-53" class="corollary"><strong>Corollary 4.2  (sets of zero measure are negligible in integration) </strong></span>Given
+<p><span id="cor:unlabeled-div-54" class="corollary"><strong>Corollary 4.2  (sets of zero measure are negligible in integration) </strong></span>Given
 <span class="math inline">\(A, B\in \Sigma\)</span> such that <span class="math inline">\(\mu(A-B)=0\)</span>, then
 <span class="math display">\[
     \int_A f\, d\mu = \int_B f\, d\mu
@@ -746,7 +748,7 @@ to proposition <a href="realIntegration.html#prp:integralBound">4.10</a>.
 <p>The integrability of <span class="math inline">\(f\)</span> implies that of <span class="math inline">\(|f|\)</span>, and the
 Lebesgue integral is often called an absolutely convergent integral.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-54" class="proposition"><strong>Proposition 4.11  (several conditions for integrability) </strong></span></p>
+<p><span id="prp:unlabeled-div-55" class="proposition"><strong>Proposition 4.11  (several conditions for integrability) </strong></span></p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(f\in L^1(\mu)\implies |f|\in L^1(\mu)\)</span>.</li>
 <li><span class="math inline">\(f\)</span> is measur_Proof:_able and <span class="math inline">\(|f|\leq g \in L^1(\mu)\implies f\in L^1(\mu)\)</span>.</li>
@@ -810,7 +812,7 @@ theorem <a href="realIntegration.html#thm:simpleFunctionApproximation">4.1</a> t
 <p>Applying the monotone convergence theorem above to
 partial sums yield</p>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-55" class="corollary"><strong>Corollary 4.3  </strong></span>Given measurable <span class="math inline">\(E\in \Sigma\)</span> and nonnegative measurable sequence
+<p><span id="cor:unlabeled-div-56" class="corollary"><strong>Corollary 4.3  </strong></span>Given measurable <span class="math inline">\(E\in \Sigma\)</span> and nonnegative measurable sequence
 <span class="math inline">\((f_j)\)</span>; define their sum
 <span class="math display">\[
     f = \sum_{n=1}^\infty f_n
@@ -818,7 +820,7 @@ partial sums yield</p>
 then <span class="math inline">\(\int_E f = \sum_{n=1}^\infty \int_E f_n\, d\mu\)</span>.</p>
 </div>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-56" class="lemma"><strong>Lemma 4.2  (Fatou's lemma) </strong></span>For measurable <span class="math inline">\(E\)</span>, given nonnegative measurable
+<p><span id="lem:unlabeled-div-57" class="lemma"><strong>Lemma 4.2  (Fatou's lemma) </strong></span>For measurable <span class="math inline">\(E\)</span>, given nonnegative measurable
 sequence <span class="math inline">\((f_j)\)</span> and
 <span class="math display">\[
     f(x) = \liminf_{n\to \infty} f_n(x)
@@ -861,7 +863,7 @@ but not through the <span class="math inline">\(\inf\)</span> of the integral.
 </span>
 </details>
 <div class="example">
-<p><span id="exm:unlabeled-div-57" class="example"><strong>Example 4.2  (strict inequality in Fatou's theorem) </strong></span>Let <span class="math inline">\(g(x) = (0\leq x\leq 1/2)^?0:1\)</span> and
+<p><span id="exm:unlabeled-div-58" class="example"><strong>Example 4.2  (strict inequality in Fatou's theorem) </strong></span>Let <span class="math inline">\(g(x) = (0\leq x\leq 1/2)^?0:1\)</span> and
 <span class="math display">\[
     f_{2k}(x) = g(x), \quad f_{2k+1} = g(1-x)
 \]</span>
@@ -908,7 +910,7 @@ Combine the two results to obtain equality
 \]</span>
 </details>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-58" class="corollary"><strong>Corollary 4.4  (bounded convergence theorem) </strong></span>Given finite-measurable <span class="math inline">\(\mu(E) &lt; \infty\)</span> and uniformly bounded
+<p><span id="cor:unlabeled-div-59" class="corollary"><strong>Corollary 4.4  (bounded convergence theorem) </strong></span>Given finite-measurable <span class="math inline">\(\mu(E) &lt; \infty\)</span> and uniformly bounded
 convergent sequence <span class="math inline">\((f_n)\to f\)</span> (i.e. <span class="math inline">\(|f_n(x)|\leq M\)</span> for all <span class="math inline">\(n, x\)</span>),
 the dominated convergence theorem applies.</p>
 </div>
@@ -918,7 +920,7 @@ constant-<span class="math inline">\(M\)</span> function is integrable and domin
 <h3>Comparison with Riemann integral<a href="realIntegration.html#comparison-with-riemann-integral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Denote the Riemann integral by <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-59" class="theorem"><strong>Theorem 4.9  (compatibility with Riemann integral) </strong></span>A function <span class="math inline">\(f\)</span> Riemann integrable on <span class="math inline">\([a, b]\)</span>
+<p><span id="thm:unlabeled-div-60" class="theorem"><strong>Theorem 4.9  (compatibility with Riemann integral) </strong></span>A function <span class="math inline">\(f\)</span> Riemann integrable on <span class="math inline">\([a, b]\)</span>
 implies <span class="math inline">\(f\in L^1([a, b])\)</span> and
 <span class="math display">\[
     \int_a^b f\, dx = \mathcal R \int_a^b f\, dx
@@ -950,7 +952,7 @@ Riemann-integrable iff <span class="math inline">\(\int L\, dx = \int U\, dx\)</
 This implies <span class="math inline">\(L=U\)</span> a.e. since <span class="math inline">\(L\leq U\)</span>, then <span class="math inline">\(L=f=U\)</span> a.e. and <span class="math inline">\(f\)</span>
 is measurable; equality with Lebesgue integral follows.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-60" class="theorem"><strong>Theorem 4.10  (Riemann integrability theorem) </strong></span>Given <span class="math inline">\(f\)</span> bounded on <span class="math inline">\([a, b]\)</span>, then the Riemann integral <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>
+<p><span id="thm:unlabeled-div-61" class="theorem"><strong>Theorem 4.10  (Riemann integrability theorem) </strong></span>Given <span class="math inline">\(f\)</span> bounded on <span class="math inline">\([a, b]\)</span>, then the Riemann integral <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>
 exists iff <span class="math inline">\(f\)</span> is continuous a.e. on <span class="math inline">\([a, b]\)</span>.</p>
 </div>
 <p><em>Proof:</em> Extending the last proof:
