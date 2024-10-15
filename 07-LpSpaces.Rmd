@@ -2,14 +2,46 @@
 
 Key takeaways: 
 
-1. The convexity of $x\mapsto |x|^p$ implies Young's inequality 
-    (proposition \@ref(prp:youngInequality)) 
-    and the vector space structure of $L^p(\Omega)$ 
-    (proposition \@ref(prp:LpVectorSpace)). 
-2. To be precise, $L^p$ spaces are equivalence classes of 
-    functions which agree $\mu$-a.e.
+1. [Convexity](#convexAnalysis): 
+    properties of convex functions, Young's inequality, 
+    and Jensen's inequality. 
+2. [Construction of $L^p$](#LpSpace): Holder's inequality, 
+    Minkowski inequality, dual of $L^p$. 
 
-## Convexity {-}
+
+
+0. Jensen's inequality (theorem \@ref(thm:jensenInequality)): 
+    generalizalized property of convexity w.r.t. integration. 
+1. $L^p$ space is a Banach space that consists of 
+    equivalence classes of a.e. equal functions. 
+    - For $p\geq q\geq 1$ and $\mu(\Omega)<\infty$, we have 
+        $L^{p} \subset L^q$. 
+2. The convexity of $x\mapsto |x|^{p>1}$ and monotonicity in $p$ 
+    implies: 
+    - Normed vector space properties of $L^p(\Omega)$ holds for $1\leq p\leq \infty$. 
+    (proposition \@ref(prp:LpVectorSpace)). 
+    - Young's inequality (proposition \@ref(prp:youngInequality)): 
+        holds for $1<p<\infty$; it is essentially the quantitative statement of 
+        convexity, 
+    - Holder's inequality (proposition \@ref(prp:holderInequality)): 
+        holds for $1\leq p\leq \infty$, can be saturated by pointwise-saturating 
+        Young's inequality for $p\neq 1, \infty$. 
+    - Inclusion: $0<p<q<\infty$ and finite $\mu(\Omega)$ implies $L^p \supset L^q$ 
+    (proposition \@ref(prp:lPInclusion)). 
+    - Variational formula: $\|f\|_p = \sup_{\|g\|_{\bar p}\leq 1} |f\cdot g|$; 
+    holds for $1\leq p < \infty$ generally and $p=\infty$ for 
+    $\sigma$-finite $\mu$ (proposition \@ref(prp:variationalPnorm)). 
+    - Minkowski's inequality (proposition \@ref(thm:minkowskiInequality)) 
+        states the convexity of the $L_p$ norm and holds for $1\leq p\leq \infty$. 
+3. Young and Holder's inequality are the main tools for applying convexity. 
+    <span style="color:green">
+    Young's inequality does not hold for $p=1, \infty$. 
+    Holder's inequality hold for $p\in [1, \infty]$ 
+    although saturation conditions for $p=1, \infty$ does not come from pointwise 
+    saturation of Young's inequality. 
+    <span>
+
+## Convexity {#convexAnalysis -}
 
 :::{.definition name="convex set and function"}
 A convex set $K\subset \R^n$ is closed under 
@@ -91,9 +123,9 @@ a measurable function $f:\Omega\to \R$ is defined as
 \] 
 :::
 
-:::{.theorem name="Jensen's inequality"}
+:::{.theorem #jensenInequality name="Jensen's inequality"}
 Given a convex function $J:\R\to \R$ and 
-measurable $f:\Omega\to \R$ with $\mu(Omega)<\infty$, then 
+measurable $f:\Omega\to \R$ with $\mu(\Omega)<\infty$, then 
 
 1. The negative part $(J\circ f)_-$ is in $L^1(\Omega)$ 
     (recall the decomposition $f=f_+ - f_-$. 
@@ -125,9 +157,9 @@ with $J$ strictly convex, the inequality is saturated
 when $\la J\circ f\ra = J(\la f\ra)$. 
 </details>
 
-## Construction of $L^p$ {-}
+## Construction of $L^p$ {#LpSpace -}
 
-:::{.definition name="Lp space, norm"}
+:::{.definition #LpDef name="Lp space, norm"}
 Given a positive (nonnegative) measure 
 $\mu$ and $1\leq p<\infty$, the space 
 $L^p(\Omega, d\mu)$
@@ -146,28 +178,16 @@ This definition is extended to $L^\infty(\Omega, d\mu)$
 as the space of $\mu$-a.e. bounded functions, with 
 \[ 
     \|f\|_\infty = \inf \{
-        K: f \leq K \text{ for } \mu\text{-a.e.}
+        K: \mu(\{x\in \Omega: |f(x)|>k\}) = 0
     \}
 \] 
 The $\infty$-norm is also called the **essential supremum** 
 of $|f|$. 
 :::
 
-:::{.proposition #LpVectorSpace name="vector space property"}
-$L^p(\Omega, d\mu)$ is a vector space. 
-:::
-<details>
-<summary>Proof</summary>
-Closure under scalar multiplication is apparant. 
-Closure under addition follows from the convexity of $|x|^p$. 
-\[ 
-    \left\|\df{\alpha + \beta}{2}\right\|^p \leq \df{|\alpha|^p + |\beta|^p}{2}
-\] 
-which follows from the convexity of $|x|^p$. 
-</details>
-
-:::{.proposition name="norm properties"}
-The $L^p$ norm satisfies: 
+:::{.proposition #LpVectorSpace name="normed vector space"}
+$L^p(\Omega, d\mu)$ is a vector space, and the $L^p$ norm satisfies
+for $1\leq p\leq \infty$:  
 
 a. Linearity: $\|\lambda f\|_p = |\lambda| \|f\|_p$. 
 b. Nonnegativity: $\|f\|_p\geq 0$ with equality iff $f=0$ for $\mu$-a.e. 
@@ -176,44 +196,121 @@ c. Triangle inequality: $\|f+g\|_p \leq \|f_p\| + \|g\|_p$.
 
 <details>
 <summary>Proof</summary>
-Linearity follows from definition. 
-For nonnegativity, 
-$\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0$, where the second and 
-third equalities are to be understood as $\mu$-a.e. 
-Triangle inequality is proved by Minkowski's inequality \@ref(thm:Minkowski). 
+
+- Vector space properties: closure under scalar multiplication is apparant. 
+    Closure under addition follows from the convexity of $|x|^p$. 
+    \[ 
+        \left\|\df{\alpha + \beta}{2}\right\|^p \leq \df{|\alpha|^p + |\beta|^p}{2}
+    \] 
+    which follows from the convexity of $|x|^p$. 
+- Norm properties: linearity follows from definition. 
+    For nonnegativity, 
+    $\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0$, where the second and 
+    third equalities are to be understood as $\mu$-a.e. 
+    Triangle inequality is proved by Minkowski's inequality \@ref(thm:Minkowski). 
 </details>
 
-:::{.proposition name="Hölder's inequality"}
+:::{.proposition #holderInequality name="Hölder's inequality"}
 Given measurable $f, g$ on $(\Omega, \Sigma, \mu)$ and $p\in [1, \infty]$
 \[ 
     \|fg\|_1 \leq \|f\|_p \|g\|_{\bar p}
 \] 
 :::
+<span style="color:green">
+Proof idea: normalize $f, g$, then apply Young's inequality. 
+</span>
+<details>
+<summary>Proof</summary>
+The cases $p=1$ or $\infty$ is straightforward, so consider $p>1$. 
+Consider the nontrivial case where 
+$0< \|f\|_p, \|g\|_{\bar p} < \infty$. 
+First assume $\|f||_p = \|g\|_{\bar p}=1$, then 
+using Young's inequality (proposition \@ref(prp:youngInequality)): 
+\begin{align}
+    \int |fg|\, d\mu  
+    &\leq \int \df 1 p |f|^p + \df 1 {\bar p} \|g\|^{\bar p}\, d\mu 
+    = \df 1 {p} + \df 1 {\bar p} = 1
+\end{align}
+This completes the proof in the special case; for unnormalized 
+$f, g$, apply the homogeneity of the norms. 
+</details>
 
-:::{.proposition}
+:::{.proposition #lPInclusion}
 If $\mu(\Omega)<\infty$, then for $0<p<q<\infty$, we have 
 \[ 
     \|f\|_p \leq \mu(\Omega)^{(q-p)/pq} \|f\|_q
 \] 
 and $L^q \subset L^p$. 
 :::
+<details>
+<summary>Proof</summary>
+Apply Holder's inequality to $r=q/p>1$: 
+\begin{align}
+    \|f\|_p^p 
+    &= \||f|^p\|_1 
+    \leq \| |f|^p\|_{q/p} \|1\|_{\overline{q/p}}  
+    = \|f\|_q^p \mu(\Omega)^{(q-p)/q} \\ 
+    \|f\|_p 
+    &\leq \mu(\Omega)^{(q-p)/pq} \|f\|_q
+\end{align}
+</details>
 
-:::{.proposition name="variational formula for p-norm"}
+:::{.proposition #variationalPnorm name="variational formula for p-norm"}
 Given $1\leq p<\infty$ and $f\in L^p$ 
 \[ 
     \|f\|_p = \sup_{\|g\|_{\bar p} \leq 1} \|fg\|_1 
 \] 
+This holds for $p=\infty$ assuming $\sigma$-finite $\mu$. 
+:::
+<details>
+<summary>Proof</summary>
+If $\|f\|_p=0$ then both sides are zero trivially. 
+The $p=1$ case holds trivially, so first consider $1 < p < \infty$, 
+One side of Holder's inequality gives 
+\[ 
+    \left|\int fg\, d\mu \right| \leq \|fg\|_1 \leq \|f\|_p 
+\] 
+To prove the other direction, one can choose $\|g\|$ which 
+saturates the inequality above by (1) matching the sign of $f$ 
+and (2) saturate Young's inequality by $g(x)^{\bar p} = f(x)^p$. 
+<span style="color:green">
+Note how the converse breaks down for $p=\infty$, in which case
+Holder's inequality is not implied by Young's. 
+</span>
+</details>
+
+:::{.remark name="counterexample"}
+For $p=\infty$, consider the non $\sigma$-finite measure 
+on $X=\{b\}$ with $\mu(\emptyset)=0, \mu(\{b\})=\infty$. 
+Then $L^1=\{0\}$. For the constant function $f=1$, we have 
+$\|f\|_\infty = 1$ (recall definition \@ref(def:LpDef) carefully). 
 :::
 
 :::{.theorem #Minkowski name="Minkowski's inequality"}
 Given $1\leq p \leq \infty$ and 
 $f, g\in L^p$, $\|f+g\|_p \leq \|f\|_p + \|g\|_p$. 
 :::
+<details>
+<summary>Proof</summary>
+For arbitrary $h\in L^{\bar p}$ with $\|h\|_{\bar p}\leq 1$, we have 
+\[ 
+    \left|\int (f+g) h\, d\mu \right| 
+    \leq (\|f\|_p + \|g\|_p) \|h\|_{\bar p} \leq \|f\|_p + \|g\|_p
+\] 
+Take supremum over $h$ and invoke the variational formula 
+(proposition \@ref(prp:variationalPnorm)) to obtain the desired result. 
+</details>
 
-:::{.theorem name="Lp is a Banach space"}
+:::{.proposition #LpBanach name="Lp is a Banach space"}
 Every Cauchy sequence in $L^p$ converges. 
 :::
-
+First consider $1\leq p<\infty$. 
+By proposition \@ref(prp:cauchySubsequence), without loss of 
+generality drop to a subsequence $f_j$ (which can be defined 
+inductively using the Cauchy condition) and define $f_0=0$ such that 
+\[ 
+    \sum_{k=1}^\infty \|f_k - f_{k-1}\|_p < \infty
+\] 
 
 
 ## Duality {-}

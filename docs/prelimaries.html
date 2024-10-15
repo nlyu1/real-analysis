@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-14" />
+<meta name="date" content="2024-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -102,9 +102,9 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a>
 <ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a></li>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#cauchy-sequences"><i class="fa fa-check"></i>Cauchy sequences</a></li>
 </ul></li>
 </ul></li>
@@ -146,12 +146,12 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Banach spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
-<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach spaces</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity"><i class="fa fa-check"></i>Convexity</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#construction-of-lp"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -311,9 +311,8 @@ The upper and lower integrals are defined as
     \underline{\int}^b_a f\, d\alpha = \sup L(P, f, \alpha)
 \end{align}\]</span></p>
 </div>
-</div>
-<div id="semi-continuity" class="section level2 unnumbered hasAnchor">
-<h2>Semi-continuity<a href="prelimaries.html#semi-continuity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="semi-continuity" class="section level3 unnumbered hasAnchor">
+<h3>Semi-continuity<a href="prelimaries.html#semi-continuity" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
 <p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 1.3  (limit inferior) </strong></span>Given a countable sequence of reals <span class="math inline">\((a_j)\)</span>, the limit inferior is
 <span class="math display">\[
@@ -393,6 +392,7 @@ is
 functions can only jump (down, up) in limit
 on the side with open iterval.</p>
 </div>
+</div>
 <div id="cauchy-sequences" class="section level3 unnumbered hasAnchor">
 <h3>Cauchy sequences<a href="prelimaries.html#cauchy-sequences" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="definition">
@@ -406,6 +406,7 @@ there exists <span class="math inline">\(n\in \mathbb Z_+\)</span> such that
 <span class="math inline">\(f_{n_j}\to f\)</span> converges, then the whole sequence <span class="math inline">\(f_j\to f\)</span>
 converges.</p>
 </div>
+<p><em>Proof (sketch):</em> Use the triangle inequality and convergence condition.</p>
 
 </div>
 </div>

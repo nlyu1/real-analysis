@@ -57,7 +57,10 @@ deviate quite a bit from lecture materials, in particular:
     results in Banach spaces, since 
     (1) nontrivial complexities arive when we generalize linear algebra 
     constructions to infinite-dimensions, and 
-    (2) several theorems are important for convex analysis. 
+    (2) several theorems are important for convex analysis.
+4. Other miscellany:
+    - Proof of Young's inequality (proposition \@ref(prp:youngInequality)) 
+    using the Legendre transform to highlight the role of convexity. 
 
 ## Organization {-}
 
@@ -114,7 +117,16 @@ Proof techniques:
 3. Sandwich bounds 
     - Lemma \@ref(lem:caratheodoryAdditive), 
     Monotone convergence theorem. 
+4. Dropping to a subsequence when working with Cauchy sequences. 
+    - Baire's theorem \@ref(thm:baire). 
+    Completeness proof for $L^p$ (proposition \@ref(prp:LpBanach)). 
 4. Using the monotone class theorem (example theorem \@ref(thm:uniqueMeasure)): 
     rewrite nested chain as disjoint union, then pass through the limit 
     using the countable additivity of measures. 
     Next apply the reduction from finite to $\sigma$-finite measures. 
+
+
+TODO list: 
+
+1. Hahn-Banach theorem. 
+2. Proof for $\sigma$-finite case in proposition \@ref(prp:variationalPnorm). 

@@ -135,7 +135,7 @@ The upper and lower integrals are defined as
 \end{align}
 :::
 
-## Semi-continuity {-}
+### Semi-continuity {-}
 
 :::{.definition name="limit inferior"}
 Given a countable sequence of reals $(a_j)$, the limit inferior is 
@@ -234,3 +234,4 @@ Given a Cauchy sequence $(f_j)$, if some subsequence
 $f_{n_j}\to f$ converges, then the whole sequence $f_j\to f$ 
 converges. 
 :::
+_Proof (sketch):_ Use the triangle inequality and convergence condition. 

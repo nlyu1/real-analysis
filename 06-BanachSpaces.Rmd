@@ -12,7 +12,7 @@ we work with $\mbb F$ which can be either real or complex.
     existence of a basis, normed space of linear operators, 
     characterization of continuous linear functionals and operators, 
     graphs, the Hahn-Banach theorem. 
-2. [Banach spaces](#banachSpace): 
+2. [Banach theorems](#banachSpace): 
     Baire's (category) theorem, 
     open mapping theorem, inverse mapping theorem, 
     principle of uniform boundedness, bounded inverse theorem, 
@@ -183,7 +183,7 @@ there exists $\tilde \psi\in V^*$ with $\|\tilde \psi\|_V = \|\psi\|_U$
 and $\tilde \psi_{|U} = \psi$. 
 :::
 
-## Banach spaces {#banachSpace -}
+## Banach theorems {#banachSpace -}
 
 :::{.definition name="completeness, Banach space"}
 A metric space is complete if every Cauchy sequence 
@@ -191,7 +191,7 @@ in the space converges. A Banach space is
 a complete normed metric space. 
 :::
 
-:::{.proposition name="connection between complete and closed spaces"}
+:::{.proposition name="connection between complete and closed metric spaces"}
 A complete subset of a metric space is closed, and a closed 
 subset of a complete metric space is complete. 
 :::

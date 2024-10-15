@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-14" />
+<meta name="date" content="2024-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -102,9 +102,9 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="prelimaries.html"><a href="prelimaries.html"><i class="fa fa-check"></i><b>1</b> Prelimaries</a>
 <ul>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#topology"><i class="fa fa-check"></i>Topology</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a></li>
-<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#realAnalysis"><i class="fa fa-check"></i>Real analysis</a>
 <ul>
+<li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#semi-continuity"><i class="fa fa-check"></i>Semi-continuity</a></li>
 <li class="chapter" data-level="" data-path="prelimaries.html"><a href="prelimaries.html#cauchy-sequences"><i class="fa fa-check"></i>Cauchy sequences</a></li>
 </ul></li>
 </ul></li>
@@ -146,12 +146,12 @@ div.csl-indent {
 <li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Banach spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
-<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach spaces</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexity"><i class="fa fa-check"></i>Convexity</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#construction-of-lp"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -175,7 +175,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Measure Theory, Functional Analysis</h1>
 <p class="author"><em>Nicholas Lyu</em></p>
-<p class="date"><em>2024-10-14</em></p>
+<p class="date"><em>2024-10-15</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -200,6 +200,11 @@ results in Banach spaces, since
 constructions to infinite-dimensions, and</li>
 <li>several theorems are important for convex analysis.</li>
 </ol></li>
+<li>Other miscellany:
+<ul>
+<li>Proof of Young’s inequality (proposition <a href="lp-spaces.html#prp:youngInequality">7.2</a>)
+using the Legendre transform to highlight the role of convexity.</li>
+</ul></li>
 </ol>
 <div id="organization" class="section level2 unnumbered hasAnchor">
 <h2>Organization<a href="index.html#organization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -278,10 +283,20 @@ monotone convergence theorem <a href="realIntegration.html#thm:monotoneConvergen
 <li>Lemma <a href="abstractMachinery.html#lem:caratheodoryAdditive">2.2</a>,
 Monotone convergence theorem.</li>
 </ul></li>
+<li>Dropping to a subsequence when working with Cauchy sequences.
+<ul>
+<li>Baire’s theorem <a href="banachSpaces.html#thm:baire">6.4</a>.
+Completeness proof for <span class="math inline">\(L^p\)</span> (proposition <a href="lp-spaces.html#prp:LpBanach">7.7</a>).</li>
+</ul></li>
 <li>Using the monotone class theorem (example theorem <a href="abstractMachinery.html#thm:uniqueMeasure">2.2</a>):
 rewrite nested chain as disjoint union, then pass through the limit
 using the countable additivity of measures.
 Next apply the reduction from finite to <span class="math inline">\(\sigma\)</span>-finite measures.</li>
+</ol>
+<p>TODO list:</p>
+<ol style="list-style-type: decimal">
+<li>Hahn-Banach theorem.</li>
+<li>Proof for <span class="math inline">\(\sigma\)</span>-finite case in proposition <a href="lp-spaces.html#prp:variationalPnorm">7.6</a>.</li>
 </ol>
 
 </div>
