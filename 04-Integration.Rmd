@@ -47,7 +47,7 @@ Key takeaways:
     General technique: prove for characteristic functions, then generalize 
     using approximation and limit theorems. 
     </span>
-2. Sufficient conditions for measurability: 
+5. Fatou's lemma can be used to2. Sufficient conditions for measurability: 
     semicontinuous, monotonic, the pointwise limit of a 
     measurable sequence, or equals a measurable function a.e.
 3. Properties of the Lebesgue integral:
@@ -640,7 +640,7 @@ $(f_j)$; define their sum
 then $\int_E f = \sum_{n=1}^\infty \int_E f_n\, d\mu$. 
 :::
 
-:::{.lemma name="Fatou's lemma"}
+:::{.lemma #fatou name="Fatou's lemma"}
 For measurable $E$, given nonnegative measurable 
 sequence $(f_j)$ and 
 \[ 

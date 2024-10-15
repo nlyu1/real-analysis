@@ -151,7 +151,7 @@ div.csl-indent {
 <li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -235,7 +235,7 @@ exchanged with integration.</li>
 General technique: prove for characteristic functions, then generalize
 using approximation and limit theorems.
 </span></li>
-<li>Sufficient conditions for measurability:
+<li>Fatou’s lemma can be used to2. Sufficient conditions for measurability:
 semicontinuous, monotonic, the pointwise limit of a
 measurable sequence, or equals a measurable function a.e.</li>
 <li>Properties of the Lebesgue integral:
@@ -824,7 +824,7 @@ partial sums yield</p>
 then <span class="math inline">\(\int_E f = \sum_{n=1}^\infty \int_E f_n\, d\mu\)</span>.</p>
 </div>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-57" class="lemma"><strong>Lemma 4.2  (Fatou's lemma) </strong></span>For measurable <span class="math inline">\(E\)</span>, given nonnegative measurable
+<p><span id="lem:fatou" class="lemma"><strong>Lemma 4.2  (Fatou's lemma) </strong></span>For measurable <span class="math inline">\(E\)</span>, given nonnegative measurable
 sequence <span class="math inline">\((f_j)\)</span> and
 <span class="math display">\[
     f(x) = \liminf_{n\to \infty} f_n(x)
@@ -867,7 +867,7 @@ but not through the <span class="math inline">\(\inf\)</span> of the integral.
 </span>
 </details>
 <div class="example">
-<p><span id="exm:unlabeled-div-58" class="example"><strong>Example 4.2  (strict inequality in Fatou's theorem) </strong></span>Let <span class="math inline">\(g(x) = (0\leq x\leq 1/2)^?0:1\)</span> and
+<p><span id="exm:unlabeled-div-57" class="example"><strong>Example 4.2  (strict inequality in Fatou's theorem) </strong></span>Let <span class="math inline">\(g(x) = (0\leq x\leq 1/2)^?0:1\)</span> and
 <span class="math display">\[
     f_{2k}(x) = g(x), \quad f_{2k+1} = g(1-x)
 \]</span>
@@ -914,7 +914,7 @@ Combine the two results to obtain equality
 \]</span>
 </details>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-59" class="corollary"><strong>Corollary 4.4  (bounded convergence theorem) </strong></span>Given finite-measurable <span class="math inline">\(\mu(E) &lt; \infty\)</span> and uniformly bounded
+<p><span id="cor:unlabeled-div-58" class="corollary"><strong>Corollary 4.4  (bounded convergence theorem) </strong></span>Given finite-measurable <span class="math inline">\(\mu(E) &lt; \infty\)</span> and uniformly bounded
 convergent sequence <span class="math inline">\((f_n)\to f\)</span> (i.e. <span class="math inline">\(|f_n(x)|\leq M\)</span> for all <span class="math inline">\(n, x\)</span>),
 the dominated convergence theorem applies.</p>
 </div>
@@ -924,7 +924,7 @@ constant-<span class="math inline">\(M\)</span> function is integrable and domin
 <h3>Comparison with Riemann integral<a href="realIntegration.html#comparison-with-riemann-integral" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Denote the Riemann integral by <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-60" class="theorem"><strong>Theorem 4.9  (compatibility with Riemann integral) </strong></span>A function <span class="math inline">\(f\)</span> Riemann integrable on <span class="math inline">\([a, b]\)</span>
+<p><span id="thm:unlabeled-div-59" class="theorem"><strong>Theorem 4.9  (compatibility with Riemann integral) </strong></span>A function <span class="math inline">\(f\)</span> Riemann integrable on <span class="math inline">\([a, b]\)</span>
 implies <span class="math inline">\(f\in L^1([a, b])\)</span> and
 <span class="math display">\[
     \int_a^b f\, dx = \mathcal R \int_a^b f\, dx
@@ -956,7 +956,7 @@ Riemann-integrable iff <span class="math inline">\(\int L\, dx = \int U\, dx\)</
 This implies <span class="math inline">\(L=U\)</span> a.e. since <span class="math inline">\(L\leq U\)</span>, then <span class="math inline">\(L=f=U\)</span> a.e. and <span class="math inline">\(f\)</span>
 is measurable; equality with Lebesgue integral follows.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-61" class="theorem"><strong>Theorem 4.10  (Riemann integrability theorem) </strong></span>Given <span class="math inline">\(f\)</span> bounded on <span class="math inline">\([a, b]\)</span>, then the Riemann integral <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>
+<p><span id="thm:unlabeled-div-60" class="theorem"><strong>Theorem 4.10  (Riemann integrability theorem) </strong></span>Given <span class="math inline">\(f\)</span> bounded on <span class="math inline">\([a, b]\)</span>, then the Riemann integral <span class="math inline">\(\mathcal R\int_a^b f\, dx\)</span>
 exists iff <span class="math inline">\(f\)</span> is continuous a.e. on <span class="math inline">\([a, b]\)</span>.</p>
 </div>
 <p><em>Proof:</em> Extending the last proof:

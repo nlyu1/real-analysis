@@ -151,7 +151,7 @@ div.csl-indent {
 <li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i>Construction of <span class="math inline">\(L^p\)</span></a></li>
+<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -220,7 +220,7 @@ Banach space to a normed vector space is uniformly bounded.</li>
 <div id="vectorSpace" class="section level2 unnumbered hasAnchor">
 <h2>Vector space and duals<a href="banachSpaces.html#vectorSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-62" class="definition"><strong>Definition 6.1  ((Hamel) basis) </strong></span>A subset <span class="math inline">\(B\subset V\)</span> of a vector space <span class="math inline">\(V\)</span> is a (Hamel)
+<p><span id="def:unlabeled-div-61" class="definition"><strong>Definition 6.1  ((Hamel) basis) </strong></span>A subset <span class="math inline">\(B\subset V\)</span> of a vector space <span class="math inline">\(V\)</span> is a (Hamel)
 basis if it is linearly independent and every <span class="math inline">\(v\in V\)</span> can
 be written as a <span style="color:green">finite</span>
 linear combination of elements in <span class="math inline">\(V\)</span>.</p>
@@ -241,7 +241,7 @@ help you.
 </footer>
 </blockquote>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-63" class="lemma"><strong>Lemma 6.1  (Zorn's lemma) </strong></span>Given a partially ordered set <span class="math inline">\(P\)</span> in which every
+<p><span id="lem:unlabeled-div-62" class="lemma"><strong>Lemma 6.1  (Zorn's lemma) </strong></span>Given a partially ordered set <span class="math inline">\(P\)</span> in which every
 chain (subset with pairwise comparable elements) has an upper bound
 in <span class="math inline">\(P\)</span>, then <span class="math inline">\(P\)</span> contains at least one maximal element.</p>
 </div>
@@ -270,7 +270,7 @@ then <span class="math inline">\(\mathcal L(U, V)\)</span> is equipped with the 
 \]</span></p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-64" class="definition"><strong>Definition 6.3  (bounded linear functional) </strong></span>A linear functional on a vector space <span class="math inline">\(V\)</span>
+<p><span id="def:unlabeled-div-63" class="definition"><strong>Definition 6.3  (bounded linear functional) </strong></span>A linear functional on a vector space <span class="math inline">\(V\)</span>
 is a linear map of signature <span class="math inline">\(T:V\to \mathbb F\)</span>.
 It is bounded if <span class="math inline">\(\|T\|&lt;\infty\)</span> using the operator norm.</p>
 </div>
@@ -356,12 +356,12 @@ and <span class="math inline">\(\tilde \psi_{|U} = \psi\)</span>.</p>
 <div id="banachSpace" class="section level2 unnumbered hasAnchor">
 <h2>Banach theorems<a href="banachSpaces.html#banachSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-65" class="definition"><strong>Definition 6.5  (completeness, Banach space) </strong></span>A metric space is complete if every Cauchy sequence
+<p><span id="def:unlabeled-div-64" class="definition"><strong>Definition 6.5  (completeness, Banach space) </strong></span>A metric space is complete if every Cauchy sequence
 in the space converges. A Banach space is
 a complete normed metric space.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-66" class="proposition"><strong>Proposition 6.2  (connection between complete and closed metric spaces) </strong></span>A complete subset of a metric space is closed, and a closed
+<p><span id="prp:unlabeled-div-65" class="proposition"><strong>Proposition 6.2  (connection between complete and closed metric spaces) </strong></span>A complete subset of a metric space is closed, and a closed
 subset of a complete metric space is complete.</p>
 </div>
 <details>
@@ -377,7 +377,7 @@ property, so <span class="math inline">\(V\)</span> is complete.
 <p>Recall that to argue for Cauchy convergence we can
 drop to subsequences (proposition <a href="prelimaries.html#prp:cauchySubsequence">1.7</a>).</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-67" class="proposition"><strong>Proposition 6.3  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
+<p><span id="prp:unlabeled-div-66" class="proposition"><strong>Proposition 6.3  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
 iff <span class="math inline">\(\sum_{k=1}^\infty g_k\)</span> converges for every sequence
 <span class="math inline">\(g_j\in V\)</span> satisfying <span class="math inline">\(\sum_{k=1}^\infty \|g_k\|&lt;\infty\)</span>.</p>
 </div>
@@ -443,17 +443,17 @@ is open and dense; by (1) there exists
 Then <span class="math inline">\(\sup_{T\in \mathcal A} \|T\|&lt;\infty\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-68" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Placeholder.</p>
+<p><span id="thm:unlabeled-div-67" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Placeholder.</p>
 </div>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-69" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> where <span class="math inline">\(V, W\)</span> are Banach spaces,
+<p><span id="cor:unlabeled-div-68" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> where <span class="math inline">\(V, W\)</span> are Banach spaces,
 <span class="math inline">\(T^{-1}\)</span> is a bounded linear map <span class="math inline">\(W\to V\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-70" class="theorem"><strong>Theorem 6.6  (closed graph theorem) </strong></span>Placeholder.</p>
+<p><span id="thm:unlabeled-div-69" class="theorem"><strong>Theorem 6.6  (closed graph theorem) </strong></span>Placeholder.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-71" class="theorem"><strong>Theorem 6.7  (Hahn-Banach theorem) </strong></span>Placeholder.</p>
+<p><span id="thm:unlabeled-div-70" class="theorem"><strong>Theorem 6.7  (Hahn-Banach theorem) </strong></span>Placeholder.</p>
 </div>
 
 </div>

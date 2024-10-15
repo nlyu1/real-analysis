@@ -117,16 +117,25 @@ Proof techniques:
 3. Sandwich bounds 
     - Lemma \@ref(lem:caratheodoryAdditive), 
     Monotone convergence theorem. 
-4. Dropping to a subsequence when working with Cauchy sequences. 
+4. Argue the convergence of a subsequence satisfying $\sum |f_k - f_{k-1}|<\infty$ 
+    when working with Cauchy sequences. 
     - Baire's theorem \@ref(thm:baire). 
     Completeness proof for $L^p$ (proposition \@ref(prp:LpBanach)). 
+5. Prime example for the use of monotone convergence theorem, Fatou's lemma, 
+    and dominated convergence theorem: proposition \@ref(prp:LpBanach). 
 4. Using the monotone class theorem (example theorem \@ref(thm:uniqueMeasure)): 
     rewrite nested chain as disjoint union, then pass through the limit 
     using the countable additivity of measures. 
     Next apply the reduction from finite to $\sigma$-finite measures. 
 
 
-TODO list: 
+Mandatory todo list: 
 
-1. Hahn-Banach theorem. 
+1. Principle of uniform boundedness
 2. Proof for $\sigma$-finite case in proposition \@ref(prp:variationalPnorm). 
+3. Proof for the dual of $L^p$ space. 
+
+Optional: 
+
+1. Product measure and Fubini. 
+2. Complete section on Banach spaces. 
