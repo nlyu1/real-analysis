@@ -142,3 +142,4 @@ Optional:
 
 1. Product measure and Fubini. 
 2. Complete section on Banach spaces. 
+3. Arnold-Kolmorogorov theorem. 

@@ -210,7 +210,7 @@ c. Triangle inequality: $\|f+g\|_p \leq \|f_p\| + \|g\|_p$.
     For nonnegativity, 
     $\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0$, where the second and 
     third equalities are to be understood as $\mu$-a.e. 
-    Triangle inequality is proved by Minkowski's inequality \@ref(thm:Minkowski). 
+    Triangle inequality is proved by Minkowski's inequality \@ref(thm:minkowskiInequality). 
 </details>
 
 :::{.proposition #holderInequality name="Hölder's inequality"}
