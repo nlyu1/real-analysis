@@ -131,6 +131,9 @@ Proof techniques:
 
 Mandatory todo list: 
 
+0. Inductive generalization of Holder's inequality. 
+1. Put in some pset problems. 
+1. Pset problem: separately continuous implies measurable. 
 1. Principle of uniform boundedness
 2. Proof for $\sigma$-finite case in proposition \@ref(prp:variationalPnorm). 
 3. Proof for the dual of $L^p$ space. 
