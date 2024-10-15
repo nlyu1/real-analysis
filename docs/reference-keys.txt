@@ -135,7 +135,7 @@ prp:LpVectorSpace
 prp:holderInequality
 prp:lPInclusion
 prp:variationalPnorm
-thm:Minkowski
+thm:minkowskiInequality
 prp:LpBanach
 def:unlabeled-div-77
 def:unlabeled-div-78

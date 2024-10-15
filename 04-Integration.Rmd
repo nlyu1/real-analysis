@@ -39,7 +39,7 @@ Key takeaways:
 3. Convergence theorems:
     - Monotone convergence theorem: pointwise monotone limit 
         of nonnegative measurable functions can be exchanged with integration. 
-    - Fatou's lemma: $\liminf$ of integral $\leq$ integral of $\liminf$ 
+    - Fatou's lemma: $\lim$ of integral $\leq$ integral of $\liminf$ 
     for nonnegative measurable sequences. 
     - Dominated convergence theorem: pointwise dominated limit can be 
         exchanged with integration. 
@@ -284,7 +284,7 @@ To be precise, the third principle is formulated as follows:
 Consider a measurable sequence $f_k\to f$ a.e. on a finite-measurable set 
 $E$ with $\mu(E)<\infty$. For every $\epsilon>0$, 
 there exists a closed set $A_\epsilon \subset E$ such that $f_k\to f$
-and $\mu(E-A_\epsilon)<\epsilon$ uniformly 
+uniformly and $\mu(E-A_\epsilon)<\epsilon$ 
 on $A_\epsilon$. 
 :::
 

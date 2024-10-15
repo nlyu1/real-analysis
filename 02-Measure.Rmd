@@ -36,7 +36,7 @@ Key takeaways:
     (definition \@ref(def:caratheodoryCriteria)) are closed under 
     $\sigma$-algebra operations. 
 
-We will see that all these effort for constructing a rigorous measure is needed: 
+To motivate the careful construction of a rigorous measure:  
 
 - We need more than finite additivity in order to exchange integrals and limits. 
 - Uncountable additivity is too strong: points have measure zero, 

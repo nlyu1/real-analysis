@@ -209,7 +209,7 @@ Young’s inequality for <span class="math inline">\(p\neq 1, \infty\)</span>.</
 <li>Variational formula: <span class="math inline">\(\|f\|_p = \sup_{\|g\|_{\bar p}\leq 1} |f\cdot g|\)</span>;
 holds for <span class="math inline">\(1\leq p &lt; \infty\)</span> generally and <span class="math inline">\(p=\infty\)</span> for
 <span class="math inline">\(\sigma\)</span>-finite <span class="math inline">\(\mu\)</span> (proposition <a href="lp-spaces.html#prp:variationalPnorm">7.6</a>).</li>
-<li>Minkowski’s inequality (proposition <a href="#prp:minkowskiInequality"><strong>??</strong></a>)
+<li>Minkowski’s inequality (theorem <a href="lp-spaces.html#thm:minkowskiInequality">7.2</a>)
 states the convexity of the <span class="math inline">\(L_p\)</span> norm and holds for <span class="math inline">\(1\leq p\leq \infty\)</span>.</li>
 </ul></li>
 <li>Young and Holder’s inequality are the main tools for applying convexity.
@@ -388,7 +388,7 @@ which follows from the convexity of <span class="math inline">\(|x|^p\)</span>.<
 For nonnegativity,
 <span class="math inline">\(\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0\)</span>, where the second and
 third equalities are to be understood as <span class="math inline">\(\mu\)</span>-a.e.
-Triangle inequality is proved by Minkowski’s inequality <a href="lp-spaces.html#thm:Minkowski">7.2</a>.</li>
+Triangle inequality is proved by Minkowski’s inequality <a href="#thm:Minkowski"><strong>??</strong></a>.</li>
 </ul>
 </details>
 <div class="proposition">
@@ -470,7 +470,7 @@ Then <span class="math inline">\(L^1=\{0\}\)</span>. For the constant function <
 <span class="math inline">\(\|f\|_\infty = 1\)</span> (recall definition <a href="lp-spaces.html#def:LpDef">7.5</a> carefully).</p>
 </div>
 <div class="theorem">
-<p><span id="thm:Minkowski" class="theorem"><strong>Theorem 7.2  (Minkowski's inequality) </strong></span>Given <span class="math inline">\(1\leq p \leq \infty\)</span> and
+<p><span id="thm:minkowskiInequality" class="theorem"><strong>Theorem 7.2  (Minkowski's inequality) </strong></span>Given <span class="math inline">\(1\leq p \leq \infty\)</span> and
 <span class="math inline">\(f, g\in L^p\)</span>, <span class="math inline">\(\|f+g\|_p \leq \|f\|_p + \|g\|_p\)</span>.</p>
 </div>
 <details>
@@ -511,7 +511,7 @@ we aim to show the integrability of
      g_m = \sum_{k=1}^m |f_k - f_{k-1}| \to g \in L^p
 \]</span>
 note that <span class="math inline">\(g_m &lt; g\)</span>. This follows by Minkowski’s inequality
-(theorem <a href="#thm:minkowskiInequality"><strong>??</strong></a>) and the definition
+(theorem <a href="lp-spaces.html#thm:minkowskiInequality">7.2</a>) and the definition
 of our subsequence we have
 <span class="math display">\[
      \|g\|_p^p = \int |g|^p\, d\mu

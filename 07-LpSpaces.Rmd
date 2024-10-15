@@ -32,7 +32,7 @@ Main results:
     - Variational formula: $\|f\|_p = \sup_{\|g\|_{\bar p}\leq 1} |f\cdot g|$; 
     holds for $1\leq p < \infty$ generally and $p=\infty$ for 
     $\sigma$-finite $\mu$ (proposition \@ref(prp:variationalPnorm)). 
-    - Minkowski's inequality (proposition \@ref(prp:minkowskiInequality)) 
+    - Minkowski's inequality (theorem \@ref(thm:minkowskiInequality)) 
         states the convexity of the $L_p$ norm and holds for $1\leq p\leq \infty$. 
 3. Young and Holder's inequality are the main tools for applying convexity. 
     <span style="color:green">
@@ -289,7 +289,7 @@ Then $L^1=\{0\}$. For the constant function $f=1$, we have
 $\|f\|_\infty = 1$ (recall definition \@ref(def:LpDef) carefully). 
 :::
 
-:::{.theorem #Minkowski name="Minkowski's inequality"}
+:::{.theorem #minkowskiInequality name="Minkowski's inequality"}
 Given $1\leq p \leq \infty$ and 
 $f, g\in L^p$, $\|f+g\|_p \leq \|f\|_p + \|g\|_p$. 
 :::
