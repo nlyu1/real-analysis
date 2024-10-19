@@ -74,7 +74,8 @@ deviate quite a bit from lecture materials, in particular:
 4. [Iterated integrals](#iteratedIntegrals}): uniqueness of product measure 
     and Fubini's theorem. 
     - Lieb and Loss, chapter 1. 
-5. [Banach spaces](#banachSpaces): Baire's theorem, bounded linear 
+5. [Banach spaces](#banachSpaces): Infinite-dimensional normed vector spaces 
+    and Hahn-Banach theorem; Baire's theorem and other Banach theorems. 
     functionals, Hahn-Banach theorem. 
     - Axler, Chapter 6. 
 6. [$L^p$ spaces](#Lpspaces). 
@@ -101,7 +102,7 @@ References for these notes
 3. <u>Dominated convergence theorem</u> \@ref(thm:dominatedConvergence): 
     dominated pointwise limit of measurable functions can be exchanged with integral.  
 4. <u>Hahn-Banach, hyperplane separation</u> theorems:
-    bounded linear functionals on a Banach vector space 
+    bounded linear functionals on a normed vector space 
     can be extended without increasing its norm. 
 4. <u>Fubini's theorem</u>
 5. <u>Baire's theorem</u>
