@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Banach spaces | Measure Theory, Functional Analysis</title>
-  <meta name="description" content="6 Banach spaces | Measure Theory, Functional Analysis" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <title>6 Infinite-dimensional vector spaces | Measure Theory, Functional Analysis</title>
+  <meta name="description" content="6 Infinite-dimensional vector spaces | Measure Theory, Functional Analysis" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Banach spaces | Measure Theory, Functional Analysis" />
+  <meta property="og:title" content="6 Infinite-dimensional vector spaces | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Banach spaces | Measure Theory, Functional Analysis" />
+  <meta name="twitter:title" content="6 Infinite-dimensional vector spaces | Measure Theory, Functional Analysis" />
   
   
   
@@ -64,7 +64,6 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -144,25 +143,16 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#product-measure"><i class="fa fa-check"></i>Product measure</a></li>
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Banach spaces</a>
+<li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Infinite-dimensional vector spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Normed spaces, Hahn-Banach</a></li>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Lpspaces.html"><a href="Lpspaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
-<ul>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(L^p\)</span> Spaces</a>
-<ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -183,7 +173,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="banachSpaces" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Banach spaces<a href="banachSpaces.html#banachSpaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">6</span> Infinite-dimensional vector spaces<a href="banachSpaces.html#banachSpaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Nontrivialities arise when we generalize from finite-dimensional
 to infinite-dimensional vector spaces.
 Banach spaces capture the <span class="math inline">\(L^p\)</span> spaces of integrable
@@ -191,7 +181,7 @@ functions we will later be working with. We take care
 to develop some of its properties. In this section,
 we work with <span class="math inline">\(\mathbb F\)</span> which can be either real or complex.</p>
 <ol style="list-style-type: decimal">
-<li><a href="banachSpaces.html#vectorSpace">Vector space and duals</a>:
+<li><a href="banachSpaces.html#vectorSpace">Normed vector spaces, Hahn-Banach</a>:
 existence of a basis, normed space of linear operators,
 characterization of continuous linear functionals and operators,
 graphs, the Hahn-Banach theorem.</li>
@@ -208,7 +198,8 @@ closed graph theorem.</li>
 (definition <a href="banachSpaces.html#def:dualSpace">6.4</a>)
 consists of the set of <strong>bounded</strong> or, equivalently, continuous
 linear functionals under the operator norm
-(definition <a href="banachSpaces.html#def:operatorNorm">6.2</a>).</li>
+(definition <a href="banachSpaces.html#def:operatorNorm">6.2</a>); <span class="math inline">\(\mathcal B(V, W)\)</span>
+is Banach if <span class="math inline">\(W\)</span> is Banach <a href="banachSpaces.html#prp:banachDualInheritance">6.4</a>.</li>
 <li>The existence of a basis for infinite-dimensional vector space is
 is nontrivial and nonconstructive (theorem <a href="banachSpaces.html#thm:vectorBasisExistence">6.1</a>).</li>
 <li>Continuity of linear maps cannot be taken for granted in
@@ -217,7 +208,10 @@ iff bounded (theorem <a href="banachSpaces.html#thm:continuousLinear">6.2</a>).
 Every infinite-dimensional normed vector space has a
 discontinuous linear functional
 (proposition <a href="banachSpaces.html#prp:disctLinearFunctional">6.1</a>).</li>
-<li>Hahn-Banach theorem <a href="banachSpaces.html#thm:hahnBanach">6.3</a>:</li>
+<li>The Hahn-Banach theorem <a href="banachSpaces.html#thm:hahnBanach">6.3</a> can be viewed
+as an existence result of a minimization problem: what is
+the minimum norm of the extension of a bounded linear functional
+to the whole space?</li>
 <li>Baire’s theorem <a href="banachSpaces.html#thm:baire">6.4</a>:
 every closed cover of a Banach space contains an element which has
 nonempty interior.</li>
@@ -228,7 +222,7 @@ Banach space to a normed vector space is uniformly bounded.</li>
 </ol>
 <p><span style="color:green">TODO: Hahn-Banach theorem</span></p>
 <div id="vectorSpace" class="section level2 unnumbered hasAnchor">
-<h2>Vector space and duals<a href="banachSpaces.html#vectorSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2>Normed spaces, Hahn-Banach<a href="banachSpaces.html#vectorSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
 <p><span id="def:unlabeled-div-61" class="definition"><strong>Definition 6.1  ((Hamel) basis) </strong></span>A subset <span class="math inline">\(B\subset V\)</span> of a vector space <span class="math inline">\(V\)</span> is a (Hamel)
 basis if it is linearly independent and every <span class="math inline">\(v\in V\)</span> can
@@ -251,7 +245,7 @@ help you.
 </footer>
 </blockquote>
 <div class="lemma">
-<p><span id="lem:unlabeled-div-62" class="lemma"><strong>Lemma 6.1  (Zorn's lemma) </strong></span>Given a partially ordered set <span class="math inline">\(P\)</span> in which every
+<p><span id="lem:zorn" class="lemma"><strong>Lemma 6.1  (Zorn's lemma) </strong></span>Given a partially ordered set <span class="math inline">\(P\)</span> in which every
 chain (subset with pairwise comparable elements) has an upper bound
 in <span class="math inline">\(P\)</span>, then <span class="math inline">\(P\)</span> contains at least one maximal element.</p>
 </div>
@@ -271,16 +265,17 @@ the vector not in the finite linear span could be added to
 extend the basis.
 </details>
 <div class="definition">
-<p><span id="def:operatorNorm" class="definition"><strong>Definition 6.2  ((normed) space of linear operators) </strong></span>Given two vector spaces <span class="math inline">\(U, V\)</span>, the set of linear
+<p><span id="def:operatorNorm" class="definition"><strong>Definition 6.2  ((normed) space of (bounded) linear operators) </strong></span>Given two vector spaces <span class="math inline">\(U, V\)</span>, the set of linear
 operators from <span class="math inline">\(U\)</span> to <span class="math inline">\(V\)</span> is also a vector space,
 which we denote <span class="math inline">\(\mathcal L(U, V)\)</span>. If <span class="math inline">\(U, V\)</span> are normed,
 then <span class="math inline">\(\mathcal L(U, V)\)</span> is equipped with the <strong>operator norm</strong>
 <span class="math display">\[
     \|T\| = \sup_{\|f\in U\|\leq 1} \|Tf\|
-\]</span></p>
+\]</span>
+The set of bounded linear operators is denoted <span class="math inline">\(\mathcal B(U, V)\)</span>.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-63" class="definition"><strong>Definition 6.3  (bounded linear functional) </strong></span>A linear functional on a vector space <span class="math inline">\(V\)</span>
+<p><span id="def:unlabeled-div-62" class="definition"><strong>Definition 6.3  (bounded linear functional) </strong></span>A linear functional on a vector space <span class="math inline">\(V\)</span>
 is a linear map of signature <span class="math inline">\(T:V\to \mathbb F\)</span>.
 It is bounded if <span class="math inline">\(\|T\|&lt;\infty\)</span> using the operator norm.</p>
 </div>
@@ -356,22 +351,109 @@ The linear functional which maps <span class="math inline">\(e_j\)</span> to <sp
 consists of the vector space of bounded linear operators
 under the operator norm (definition <a href="banachSpaces.html#def:operatorNorm">6.2</a>).</p>
 </div>
+<div class="lemma">
+<p><span id="lem:extLemma" class="lemma"><strong>Lemma 6.2  (extension lemma) </strong></span>Given a real normed vector space <span class="math inline">\(V\)</span>,
+a subspace <span class="math inline">\(U\subset V\)</span>, and a bounded linear functional
+<span class="math inline">\(\psi:U\to \mathbb R\)</span>. For every <span class="math inline">\(h\in V-U\)</span>, there exists
+a linear functional <span class="math inline">\(\varphi:U\oplus \mathbb Rh\to \mathbb R\)</span> such that
+<span class="math inline">\(\varphi_{|U} = \psi\)</span> and <span class="math inline">\(\|\varphi\| = \|\psi\|\)</span>.</p>
+</div>
+<span style="color:green">
+Proof idea: write an inequality for the
+value of <span class="math inline">\(\psi(h)\)</span>. Prove that a valid value exists
+by triangle inequality and boundedness of <span class="math inline">\(\psi\)</span>.
+</span>
+<details>
+<summary>
+Proof
+</summary>
+We only need to define <span class="math inline">\(\varphi(h) = c\in \mathbb R\)</span> and figure
+out a value for <span class="math inline">\(c\)</span> such that <span class="math inline">\(\varphi(f+\alpha h) = \psi(f) + \alpha c\)</span>
+satisfies the norm condition. On one hand,
+<span class="math inline">\(\varphi_{|U} = \psi\implies \|\varphi\| \geq \|\psi\|\)</span>. On
+the other hand, <span class="math inline">\(\|\varphi\| \leq \|\psi\|\)</span> requires <span class="math inline">\(c\)</span> to satisfy
+<span class="math display">\[
+    |\psi(f) + \alpha c| = \varphi(f) \leq
+    \|\varphi\| \|f + \alpha h\| \leq \|\psi\| \|f + \alpha h\|, \quad
+    \forall f\in U, \alpha \in \mathbb R.
+\]</span>
+Without loss of generality we can set <span class="math inline">\(\alpha=1\)</span> since <span class="math inline">\(f\)</span> is
+rescalable, requiring
+<span class="math display">\[
+    |\psi(f) + c| \leq \|\psi\| \|f + h\|, \quad
+    \forall f\in U, \alpha \in \mathbb R.
+\]</span>
+Expanding the absolute value
+<span class="math display">\[
+    -\|\psi\|\|f+h\| - \psi(f) \leq c\leq \|\psi\|\|f+h\| - \psi(f),
+    \quad \forall f\in U
+\]</span>
+The equation will be implied by (in fact, about as strong as,
+since <span class="math inline">\(c\)</span> must be uniform
+<span class="math display">\[
+    \sup_f \left[
+        -\|\psi\|\|f+h\| - \psi(f)
+    \right] \leq \inf_g \left[
+        \|\psi\|\|g+h\| - \psi(g)
+    \right]
+\]</span>
+To prove this, first note the triangle inequality
+<span class="math inline">\(-\|f+h\| \leq \|g+h\| - \|g-f\|\)</span>, then
+<span class="math display">\[\begin{align}
+    -\|\psi\|\|f+h\| - \psi(f)
+    &amp;\leq \|\psi\|(\|g+h\| - \|g-f\|) - \psi(f) \\
+    &amp;\leq \|\psi\|(\|g+h\| - \|g-f\|) + \psi(g-f) - \psi(g)\\
+    &amp;=\|\psi\|\|g+h\| - \psi(g) + \left[\psi(g-f) - \|\psi\|\|g-f\|\right]_{\leq 0} \\
+    &amp;\leq \|\psi\| \|g+h\| - \psi(g)
+\end{align}\]</span>
+</details>
+<div class="definition">
+<p><span id="def:functionGraph" class="definition"><strong>Definition 6.5  (graph of a function) </strong></span>Given a function <span class="math inline">\(T:V\to W\)</span>, the graph <span class="math inline">\(\mathrm{graph}(T)\)</span> of <span class="math inline">\(T\)</span> IS
+<span class="math display">\[
+    \mathrm{graph}(T) = \{(f, T(f):f\in V\}\subset V\times W
+\]</span></p>
+</div>
+<p>Properties of functions can be read from the graph:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(T\)</span> is a linear map iff <span class="math inline">\(\mathrm{graph}(T)\)</span> is a subspace of <span class="math inline">\(V\times W\)</span>.</li>
+<li><span class="math inline">\(T:V\to W\)</span> is an extension of <span class="math inline">\(S:U\to W\)</span> iff <span class="math inline">\(\mathrm{graph}(S)\subset \mathrm{graph}(T)\)</span>.</li>
+<li>Given a linear map <span class="math inline">\(T:V\to W\)</span>, then <span class="math inline">\(\|T\|\leq c\)</span> iff
+<span class="math inline">\(\|g\| \leq c\|f\|\)</span> for all <span class="math inline">\((f, g) \in \mathrm{graph}(T)\)</span>.</li>
+</ol>
 <div class="theorem">
 <p><span id="thm:hahnBanach" class="theorem"><strong>Theorem 6.3  (Hahn-Banach theorem) </strong></span>Given a normed vector space <span class="math inline">\(V\)</span> with subspace <span class="math inline">\(U\)</span>
 a bounded linear functional <span class="math inline">\(\psi\in U^*\)</span>, then
 there exists <span class="math inline">\(\tilde \psi\in V^*\)</span> with <span class="math inline">\(\|\tilde \psi\|_V = \|\psi\|_U\)</span>
 and <span class="math inline">\(\tilde \psi_{|U} = \psi\)</span>.</p>
 </div>
+<details>
+<summary>
+Proof
+</summary>
+<p>We prove the theorem for the real case.
+Let <span class="math inline">\(\mathcal A\)</span> be the collection of subsets <span class="math inline">\(E\subset V\times \mathbb R\)</span> satisfying:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(E=\mathrm{graph}(\varphi)\)</span> for some linear functional <span class="math inline">\(\varphi\)</span>
+on some subspace of <span class="math inline">\(V\)</span>.</li>
+<li><span class="math inline">\(\mathrm{graph}(\psi)\subset E\iff \varphi\)</span> is an extension of <span class="math inline">\(\psi\)</span>.</li>
+<li><span class="math inline">\(\psi\)</span> generating <span class="math inline">\(E\)</span> has norm at most <span class="math inline">\(\|\psi\|\)</span>.</li>
+</ol>
+Then <span class="math inline">\(\mathcal A\)</span> satisfies the hypothesis of Zorn’s lemma <a href="banachSpaces.html#lem:zorn">6.1</a>:
+for every chain of subsets, their union is also in <span class="math inline">\(\mathcal A\)</span>.
+The extension lemma <a href="banachSpaces.html#lem:extLemma">6.2</a>
+guarantees that the maximal element is the graph
+of a linear functional defined on all of <span class="math inline">\(V\)</span>.
+</details>
 </div>
 <div id="banachSpace" class="section level2 unnumbered hasAnchor">
 <h2>Banach theorems<a href="banachSpaces.html#banachSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-64" class="definition"><strong>Definition 6.5  (completeness, Banach space) </strong></span>A metric space is complete if every Cauchy sequence
+<p><span id="def:unlabeled-div-63" class="definition"><strong>Definition 6.6  (completeness, Banach space) </strong></span>A metric space is complete if every Cauchy sequence
 in the space converges. A Banach space is
 a complete normed metric space.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-65" class="proposition"><strong>Proposition 6.2  (connection between complete and closed metric spaces) </strong></span>A complete subset of a metric space is closed, and a closed
+<p><span id="prp:unlabeled-div-64" class="proposition"><strong>Proposition 6.2  (connection between complete and closed metric spaces) </strong></span>A complete subset of a metric space is closed, and a closed
 subset of a complete metric space is complete.</p>
 </div>
 <details>
@@ -387,7 +469,7 @@ property, so <span class="math inline">\(V\)</span> is complete.
 <p>Recall that to argue for Cauchy convergence we can
 drop to subsequences (proposition <a href="prelimaries.html#prp:cauchySubsequence">1.7</a>).</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-66" class="proposition"><strong>Proposition 6.3  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
+<p><span id="prp:unlabeled-div-65" class="proposition"><strong>Proposition 6.3  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
 iff <span class="math inline">\(\sum_{k=1}^\infty g_k\)</span> converges for every sequence
 <span class="math inline">\(g_j\in V\)</span> satisfying <span class="math inline">\(\sum_{k=1}^\infty \|g_k\|&lt;\infty\)</span>.</p>
 </div>
@@ -405,6 +487,23 @@ and set <span class="math inline">\(f_0=0\)</span> so that<br />
 then by assumption
 <span class="math inline">\(\sum_{k=1}^\infty (f_k - f_{k-1})=\lim_{n\to \infty} f_n\)</span>
 exists.
+</details>
+<div class="proposition">
+<p><span id="prp:banachDualInheritance" class="proposition"><strong>Proposition 6.4  (Banach dual space) </strong></span><span class="math inline">\(\mathcal B(V, W)\)</span> is a Banach space (under the operator norm)
+if <span class="math inline">\(W\)</span> is a Banach space.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Given a Cauchy sequence <span class="math inline">\(T_j\in \mathcal B(V, W)\)</span>, for every function
+<span class="math inline">\(f\in V\)</span>, the sequence <span class="math inline">\(T_j f\in W\)</span> is a Cauchy sequence; define
+<span class="math inline">\(T\, f = T_{j\to \infty}\, f\)</span>. It is linear and bounded,
+so it remains to show that <span class="math inline">\(\lim_{k\to \infty} \|T_k - T\| = 0\)</span>.
+This follows from
+<span class="math display">\[
+    \|(T_j - T)\, f\| = \lim_{k\to \infty} \|T_j f - T_k f\|
+\]</span>
 </details>
 <div class="theorem">
 <p><span id="thm:baire" class="theorem"><strong>Theorem 6.4  (Baire's theorem) </strong></span>Given a Banach space:</p>
@@ -453,17 +552,14 @@ is open and dense; by (1) there exists
 Then <span class="math inline">\(\sup_{T\in \mathcal A} \|T\|&lt;\infty\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-67" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Placeholder.</p>
+<p><span id="thm:unlabeled-div-66" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Placeholder.</p>
 </div>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-68" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> where <span class="math inline">\(V, W\)</span> are Banach spaces,
+<p><span id="cor:unlabeled-div-67" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> where <span class="math inline">\(V, W\)</span> are Banach spaces,
 <span class="math inline">\(T^{-1}\)</span> is a bounded linear map <span class="math inline">\(W\to V\)</span>.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-69" class="theorem"><strong>Theorem 6.6  (closed graph theorem) </strong></span>Placeholder.</p>
-</div>
-<div class="theorem">
-<p><span id="thm:unlabeled-div-70" class="theorem"><strong>Theorem 6.7  (Hahn-Banach theorem) </strong></span>Placeholder.</p>
+<p><span id="thm:unlabeled-div-68" class="theorem"><strong>Theorem 6.6  (closed graph theorem) </strong></span>Placeholder.</p>
 </div>
 
 </div>

@@ -1,4 +1,4 @@
-# $L^p$ Spaces 
+# $L^p$ Spaces {#Lpspaces}
 
 Key takeaways: 
 
@@ -311,7 +311,7 @@ Every Cauchy sequence in $L^p$ converges.
 Drop to a subsequence, use Minkowski's inequality 
 to argue absolute convergence, next use Fatou's lemma 
 to establish convergence in $p$-norm from a.e pointwise convergence. 
-<span>
+</span>
 <details>
 <summary>Proof</summary>
 First consider $1\leq p<\infty$. 

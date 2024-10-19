@@ -1,5 +1,5 @@
 
-# Banach spaces {#banachSpaces}
+# Infinite-dimensional vector spaces {#banachSpaces}
 
 Nontrivialities arise when we generalize from finite-dimensional 
 to infinite-dimensional vector spaces. 
@@ -8,7 +8,7 @@ functions we will later be working with. We take care
 to develop some of its properties. In this section, 
 we work with $\mbb F$ which can be either real or complex. 
 
-1. [Vector space and duals](#vectorSpace): 
+1. [Normed vector spaces, Hahn-Banach](#vectorSpace): 
     existence of a basis, normed space of linear operators, 
     characterization of continuous linear functionals and operators, 
     graphs, the Hahn-Banach theorem. 
@@ -25,7 +25,8 @@ Key takeaways:
     (definition \@ref(def:dualSpace))
     consists of the set of **bounded** or, equivalently, continuous 
     linear functionals under the operator norm
-     (definition \@ref(def:operatorNorm)). 
+    (definition \@ref(def:operatorNorm)); $\mca B(V, W)$ 
+    is Banach if $W$ is Banach \@ref(prp:banachDualInheritance). 
 1. The existence of a basis for infinite-dimensional vector space is 
     is nontrivial and nonconstructive (theorem \@ref(thm:vectorBasisExistence)). 
 2. Continuity of linear maps cannot be taken for granted in 
@@ -34,7 +35,10 @@ Key takeaways:
     Every infinite-dimensional normed vector space has a 
     discontinuous linear functional 
     (proposition \@ref(prp:disctLinearFunctional)). 
-3. Hahn-Banach theorem \@ref(thm:hahnBanach): 
+3. The Hahn-Banach theorem \@ref(thm:hahnBanach) can be viewed 
+    as an existence result of a minimization problem: what is 
+    the minimum norm of the extension of a bounded linear functional 
+    to the whole space? 
 4. Baire's theorem \@ref(thm:baire): 
     every closed cover of a Banach space contains an element which has 
     nonempty interior. 
@@ -46,7 +50,7 @@ Key takeaways:
 <span style="color:green">TODO: Hahn-Banach theorem</span> 
 
 
-## Vector space and duals {#vectorSpace -}
+## Normed spaces, Hahn-Banach {#vectorSpace -}
 
 :::{.definition name="(Hamel) basis"}
 A subset $B\subset V$ of a vector space $V$ is a (Hamel) 
@@ -68,7 +72,7 @@ Fun quote from Wikipedia:
 > help you. 
 > `r tufte::quote_footer('--- William Timothy Gowers')`
 
-:::{.lemma name="Zorn's lemma"}
+:::{.lemma #zorn name="Zorn's lemma"}
 Given a partially ordered set $P$ in which every 
 chain (subset with pairwise comparable elements) has an upper bound 
 in $P$, then $P$ contains at least one maximal element. 
@@ -88,7 +92,7 @@ the vector not in the finite linear span could be added to
 extend the basis. 
 </details>
 
-:::{.definition #operatorNorm name="(normed) space of linear operators"}
+:::{.definition #operatorNorm name="(normed) space of (bounded) linear operators"}
 Given two vector spaces $U, V$, the set of linear 
 operators from $U$ to $V$ is also a vector space, 
 which we denote $\mca L(U, V)$. If $U, V$ are normed, 
@@ -96,6 +100,7 @@ then $\mca L(U, V)$ is equipped with the **operator norm**
 \[ 
     \|T\| = \sup_{\|f\in U\|\leq 1} \|Tf\|
 \] 
+The set of bounded linear operators is denoted $\mca B(U, V)$. 
 :::
 
 :::{.definition name="bounded linear functional"}
@@ -175,6 +180,74 @@ consists of the vector space of bounded linear operators
 under the operator norm (definition \@ref(def:operatorNorm)). 
 :::
 
+:::{.lemma #extLemma name="extension lemma"}
+Given a real normed vector space $V$, 
+a subspace $U\subset V$, and a bounded linear functional 
+$\psi:U\to \R$. For every $h\in V-U$, there exists 
+a linear functional $\varphi:U\oplus \R h\to \R$ such that 
+$\varphi_{|U} = \psi$ and $\|\varphi\| = \|\psi\|$. 
+:::
+<span style="color:green">
+Proof idea: write an inequality for the 
+value of $\psi(h)$. Prove that a valid value exists 
+by triangle inequality and boundedness of $\psi$. 
+</span>
+<details>
+<summary>Proof</summary>
+We only need to define $\varphi(h) = c\in \R$ and figure 
+out a value for $c$ such that $\varphi(f+\alpha h) = \psi(f) + \alpha c$ 
+satisfies the norm condition. On one hand, 
+$\varphi_{|U} = \psi\implies \|\varphi\| \geq \|\psi\|$. On 
+the other hand, $\|\varphi\| \leq \|\psi\|$ requires  $c$ to satisfy
+\[ 
+    |\psi(f) + \alpha c| = \varphi(f) \leq 
+    \|\varphi\| \|f + \alpha h\| \leq \|\psi\| \|f + \alpha h\|, \quad 
+    \forall f\in U, \alpha \in \mbb R. 
+\] 
+Without loss of generality we can set $\alpha=1$ since $f$ is 
+rescalable, requiring 
+\[ 
+    |\psi(f) + c| \leq \|\psi\| \|f + h\|, \quad 
+    \forall f\in U, \alpha \in \mbb R. 
+\] 
+Expanding the absolute value 
+\[ 
+    -\|\psi\|\|f+h\| - \psi(f) \leq c\leq \|\psi\|\|f+h\| - \psi(f), 
+    \quad \forall f\in U
+\] 
+The equation will be implied by (in fact, about as strong as, 
+since $c$ must be uniform 
+\[ 
+    \sup_f \left[
+        -\|\psi\|\|f+h\| - \psi(f)
+    \right] \leq \inf_g \left[
+        \|\psi\|\|g+h\| - \psi(g)
+    \right]
+\] 
+To prove this, first note the triangle inequality 
+$-\|f+h\| \leq \|g+h\| - \|g-f\|$, then 
+\begin{align}
+    -\|\psi\|\|f+h\| - \psi(f) 
+    &\leq \|\psi\|(\|g+h\| - \|g-f\|) - \psi(f) \\ 
+    &\leq \|\psi\|(\|g+h\| - \|g-f\|) + \psi(g-f) - \psi(g)\\
+    &=\|\psi\|\|g+h\| - \psi(g) + \left[\psi(g-f) - \|\psi\|\|g-f\|\right]_{\leq 0} \\ 
+    &\leq \|\psi\| \|g+h\| - \psi(g)
+\end{align}
+</details>
+
+:::{.definition #functionGraph name="graph of a function"}
+Given a function $T:V\to W$, the graph $\mrm{graph}(T)$ of $T$ IS 
+\[ 
+    \mrm{graph}(T) = \{(f, T(f):f\in V\}\subset V\times W
+\] 
+:::
+
+Properties of functions can be read from the graph: 
+
+1. $T$ is a linear map iff $\mrm{graph}(T)$ is a subspace of $V\times W$. 
+2. $T:V\to W$ is an extension of $S:U\to W$ iff $\mrm{graph}(S)\subset \mrm{graph}(T)$. 
+3. Given a linear map $T:V\to W$, then $\|T\|\leq c$ iff 
+    $\|g\| \leq c\|f\|$ for all $(f, g) \in \mrm{graph}(T)$. 
 
 :::{.theorem #hahnBanach name="Hahn-Banach theorem"}
 Given a normed vector space $V$ with subspace $U$ 
@@ -182,6 +255,22 @@ a bounded linear functional $\psi\in U^*$, then
 there exists $\tilde \psi\in V^*$ with $\|\tilde \psi\|_V = \|\psi\|_U$ 
 and $\tilde \psi_{|U} = \psi$. 
 :::
+<details>
+<summary>Proof</summary>
+We prove the theorem for the real case. 
+Let $\mca A$ be the collection of subsets $E\subset V\times \R$ satisfying: 
+
+1. $E=\mrm{graph}(\varphi)$ for some linear functional $\varphi$ 
+    on some subspace of $V$. 
+2. $\mrm{graph}(\psi)\subset E\iff \varphi$ is an extension of $\psi$. 
+3. $\psi$ generating $E$ has norm at most $\|\psi\|$. 
+
+Then $\mca A$ satisfies the hypothesis of Zorn's lemma \@ref(lem:zorn): 
+for every chain of subsets, their union is also in $\mca A$. 
+The extension lemma \@ref(lem:extLemma) 
+guarantees that the maximal element is the graph 
+of a linear functional defined on all of $V$. 
+</details>
 
 ## Banach theorems {#banachSpace -}
 
@@ -224,6 +313,22 @@ and set $f_0=0$ so that
 then by assumption 
 $\sum_{k=1}^\infty (f_k - f_{k-1})=\lim_{n\to \infty} f_n$ 
 exists. 
+</details>
+
+:::{.proposition #banachDualInheritance name="Banach dual space"}
+$\mca B(V, W)$ is a Banach space (under the operator norm) 
+if $W$ is a Banach space. 
+:::
+<details>
+<summary>Proof</summary>
+Given a Cauchy sequence $T_j\in \mca B(V, W)$, for every function 
+$f\in V$, the sequence $T_j f\in W$ is a Cauchy sequence; define 
+$T\, f = T_{j\to \infty}\, f$. It is linear and bounded, 
+so it remains to show that $\lim_{k\to \infty} \|T_k - T\| = 0$. 
+This follows from 
+\[ 
+    \|(T_j - T)\, f\| = \lim_{k\to \infty} \|T_j f - T_k f\|
+\]  
 </details>
 
 :::{.theorem #baire name="Baire's theorem"}
@@ -281,9 +386,5 @@ $T^{-1}$ is a bounded linear map $W\to V$.
 :::
 
 :::{.theorem name="closed graph theorem"}
-Placeholder. 
-:::
-
-:::{.theorem name="Hahn-Banach theorem"}
 Placeholder. 
 :::

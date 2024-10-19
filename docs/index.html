@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Measure Theory, Functional Analysis</title>
   <meta name="description" content="Measure Theory, Functional Analysis" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
@@ -64,7 +64,6 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -144,25 +143,16 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#product-measure"><i class="fa fa-check"></i>Product measure</a></li>
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Banach spaces</a>
+<li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Infinite-dimensional vector spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Normed spaces, Hahn-Banach</a></li>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Lpspaces.html"><a href="Lpspaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
-<ul>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
-<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(L^p\)</span> Spaces</a>
-<ul>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
-<li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -237,7 +227,8 @@ and Fubini’s theorem.
 <ul>
 <li>Lieb and Loss, chapter 1.</li>
 </ul></li>
-<li><a href="banachSpaces.html#banachSpaces">Banach spaces</a>: Baire’s theorem, bounded linear
+<li><a href="banachSpaces.html#banachSpaces">Banach spaces</a>: Infinite-dimensional normed vector spaces
+and Hahn-Banach theorem; Baire’s theorem and other Banach theorems.
 functionals, Hahn-Banach theorem.
 <ul>
 <li>Axler, Chapter 6.</li>
@@ -270,8 +261,8 @@ and obey countable additivity.</li>
 dominated pointwise limit of measurable functions can be exchanged with integral.<br />
 </li>
 <li><u>Hahn-Banach, hyperplane separation</u> theorems:
-bounded linear functionals on a Banach vector space
-can be extended without increasing its norm.</li>
+bounded linear functionals on a normed vector space
+can be extended in a norm-preserving wy.</li>
 <li><u>Fubini’s theorem</u></li>
 <li><u>Baire’s theorem</u></li>
 </ol>
@@ -300,10 +291,10 @@ Monotone convergence theorem.</li>
 when working with Cauchy sequences.
 <ul>
 <li>Baire’s theorem <a href="banachSpaces.html#thm:baire">6.4</a>.
-Completeness proof for <span class="math inline">\(L^p\)</span> (proposition <a href="lp-spaces.html#prp:LpBanach">8.5</a>).</li>
+Completeness proof for <span class="math inline">\(L^p\)</span> (proposition <a href="Lpspaces.html#prp:LpBanach">7.7</a>).</li>
 </ul></li>
 <li>Prime example for the use of monotone convergence theorem, Fatou’s lemma,
-and dominated convergence theorem: proposition <a href="lp-spaces.html#prp:LpBanach">8.5</a>.</li>
+and dominated convergence theorem: proposition <a href="Lpspaces.html#prp:LpBanach">7.7</a>.</li>
 <li>Using the monotone class theorem (example theorem <a href="abstractMachinery.html#thm:uniqueMeasure">2.2</a>):
 rewrite nested chain as disjoint union, then pass through the limit
 using the countable additivity of measures.
@@ -315,7 +306,7 @@ Next apply the reduction from finite to <span class="math inline">\(\sigma\)</sp
 <li>Put in some pset problems.</li>
 <li>Pset problem: separately continuous implies measurable.</li>
 <li>Principle of uniform boundedness</li>
-<li>Proof for <span class="math inline">\(\sigma\)</span>-finite case in proposition <a href="lp-spaces.html#prp:variationalPnorm">8.4</a>.</li>
+<li>Proof for <span class="math inline">\(\sigma\)</span>-finite case in proposition <a href="Lpspaces.html#prp:variationalPnorm">7.6</a>.</li>
 <li>Proof for the dual of <span class="math inline">\(L^p\)</span> space.</li>
 </ol>
 <p>Optional:</p>
@@ -328,7 +319,7 @@ Next apply the reduction from finite to <span class="math inline">\(\sigma\)</sp
 </div>
 </div>
 <h3>Bibliography<a href="bibliography.html#bibliography" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-axler2020measure" class="csl-entry">
 Axler, Sheldon. 2020. <em>Measure, Integration &amp; Real Analysis</em>. Springer Nature.
 </div>
