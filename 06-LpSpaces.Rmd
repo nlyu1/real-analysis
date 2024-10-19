@@ -1,0 +1,186 @@
+# $L^p$ Spaces {#Lpspaces}
+
+Key takeaways: 
+
+1. The convexity of $x\mapsto |x|^p$ implies Young's inequality 
+    (proposition \@ref(prp:youngInequality)) 
+    and the vector space structure of $L^p(\Omega)$ 
+    (proposition \@ref(prp:LpVectorSpace)). 
+2. To be precise, $L^p$ spaces are equivalence classes of 
+    functions which agree $\mu$-a.e.
+
+## Definitions {-}
+### Convexity, Young's inequality {-}
+
+:::{.definition name="convex set and function"}
+A convex set $K\subset \R^n$ is closed under 
+$(x, y)\mapsto \lambda x + \bar y$ 
+for all $\lambda \in [0, 1]$. A **convex function** 
+on a convex set $K$ is a real-valued function satisfying 
+\[ 
+    f(\lambda x + \bar \lambda y) 
+    \leq \lambda f(x) + \bar \lambda f(y)
+\] 
+the function $f$ is **strictly convex** at $x$ if the 
+inequality is strict for all $y$. 
+:::
+
+:::{.proposition}
+If $K$ is an open set, then a convex function on $K$ is continuous. 
+:::
+
+:::{.definition name="support plane"}
+The support plane to a graph of $f:K\to \R$ at 
+$x\in K\subset \R^n$ is a plane in $\R^{n+1}$ that 
+touches $(x, f(x))$ and that nowhere lies above the graph; 
+if the support plane at $x$ is unique, then it is the tangent plane. 
+:::
+For example, there is no unique support plane at $x=0$ for $|x|$. 
+For convex $f$, the existence of a tangent plane is equivalent 
+to differentiability. In particular, the tangent plane 
+for $y=f(x)$ at $x_0$ has expression 
+\[ 
+    y - f(x_0) = \nabla f(x_0) \cdot (y - x)
+\] 
+Thus for general convex functions, for each $x$ there exists 
+a vector $V\in \R^n$ such that 
+\[ 
+    f(y) \geq f(x) + V\cdot (y - x)
+\] 
+
+:::{.definition name="Hölder conjugate"}
+The Hölder conjugate of $p>1$ is given by the equation 
+\[ 
+    p^{-1} + q^{-1} = 1
+\] 
+It is oftentimes more convenient to note that 
+\[ 
+    p = \df q {q - 1} \iff q = \df p {p - 1}
+\] 
+:::
+
+:::{.proposition #youngInequality name="Young's inequality"}
+Given Hölder conjugates $p, q>1$, 
+\[ 
+    ab \leq \df {a^p}{p} + \df{b^q}{q}, \quad \forall a, b\geq 0
+\] 
+Equality is saturated when $a^p = b^q$. 
+:::
+<details>
+<summary>Proof</summary>
+Consider the convex function $f(a) = \df{a^p}{p}$. 
+Its Legendre transform is 
+\begin{align}
+    g(b) 
+    &= \sup_a \left(ab - \df {a^p}{p}\right) 
+    = a_*b - \df{a_*^p}{p},\quad a_* = b^{1/(p-1)} \\ 
+    &= b^{1 + 1/(p-1)} - \df 1 p b^{p/(p-1)} = b^q - \df 1 p b^q 
+    = \df{b^q}{q}
+\end{align}
+Young's inequality follows from the variational characterization 
+of the Legendre transform. 
+Equality is saturated when $a=b^{1/(p-1)} \iff a^p = b^q$. 
+</details>
+
+## Space and norm {-}
+
+:::{.definition name="Lp space, norm"}
+Given a positive (nonnegative) measure 
+$\mu$ and $1\leq p<\infty$, the space 
+$L^p(\Omega, d\mu)$
+is the space of complex-valued functions $f:\Omega\to \mbb C$ 
+such that: 
+
+1. $f$ is $\mu$-measurable. 
+2. $|f|^p$ is $\mu$-integrable. 
+
+The measure $d\mu$ is usually omitted if understood. 
+Given $f\in L^p(\Omega)$, its norm is 
+\[ 
+    \|f\|_p = \left[\int_\Omega |f(x)|^p \mu(dx)\right]^{1/p}
+\] 
+This definition is extended to $L^\infty(\Omega, d\mu)$ 
+as the space of $\mu$-a.e. bounded functions, with 
+\[ 
+    \|f\|_\infty = \inf \{
+        K: f \leq K \text{ for } \mu\text{-a.e.}
+    \}
+\] 
+The $\infty$-norm is also called the **essential supremum** 
+of $|f|$. 
+:::
+
+:::{.proposition #LpVectorSpace name="vector space property"}
+$L^p(\Omega, d\mu)$ is a vector space. 
+:::
+<details>
+<summary>Proof</summary>
+Closure under scalar multiplication is apparant. 
+Closure under addition follows from the convexity of $|x|^p$. 
+\[ 
+    \left\|\df{\alpha + \beta}{2}\right\|^p \leq \df{|\alpha|^p + |\beta|^p}{2}
+\] 
+which follows from the convexity of $|x|^p$. 
+</details>
+
+:::{.proposition name="norm properties"}
+The $L^p$ norm satisfies: 
+
+a. Linearity: $\|\lambda f\|_p = |\lambda| \|f\|_p$. 
+b. Nonnegativity: $\|f\|_p\geq 0$ with equality iff $f=0$ for $\mu$-a.e. 
+c. Triangle inequality: $\|f+g\|_p \leq \|f_p\| + \|g\|_p$. 
+:::
+
+<details>
+<summary>Proof</summary>
+Linearity is apparant, for the second part, 
+$\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0$, the second and 
+third $=0$ are to be understood as $\mu$-a.e. 
+</details>
+
+
+## Major inequalities {-}
+
+From now on we work in a measure space denoted 
+$(\Omega, \Sigma, \mu)$. 
+
+Assuming $\mu(\Omega)$ is finite, the average of 
+a measurable function $f:\Omega\to \R$ is defined as 
+\[ 
+    \la f\ra = \df 1 {\mu(\Omega)} \int_\Omega f\, d\mu 
+\] 
+
+:::{.theorem name="Jensen's inequality"}
+Given a convex function $J:\R\to \R$ and 
+measurable $f:\Omega\to \R$, then 
+
+1. The negative part $(J\circ f)_-$ is in $L^1(\Omega)$ 
+    (recall the decomposition $f=f_+ - f_-$. 
+2. $\la J\circ f\ra \geq J(\la f\ra)$; when $J$ is strictly 
+convex at $\la f\ra$, there is equality iff $f$ is constant. 
+:::
+_Proof:_ Fixing $\la f\ra$, there exists a constant $V\in \R$ 
+such that 
+\[ 
+    J(\forall t)\geq J(\la f\ra) + V(t - \la f\ra)
+    (\#eq:convexity) 
+\] 
+This bounds the negative component (but not the positive one!) 
+\[ 
+    [J\circ f]_-(x) \leq |J(\la f\ra)| + |V||\la f\ra| + |V| |f(x)| 
+\] 
+using $\mu(\Omega)<\infty$, this bounded function is integrable. 
+To obtain (2), integrate \@ref(eq:convexity) for all $t=f(x)$ 
+\[ 
+    \la J \circ f\ra \geq J(\la f\ra) - V \la f\ra + V\la f\ra 
+\] 
+with $J$ strictly convex, the inequality is saturated 
+when $\la J\circ f\ra = J(\la f\ra)$. 
+
+:::{.theorem name="Hölder's inequality"}
+Given dual $p, q$ with $p\geq 1$. Let $f\in L^p(\Omega), g\in L^q(\Omega)$. 
+The pointwise product $fg\in L^1(\Omega)$ and 
+\[ 
+    \|fg\|_1 \leq \int_\Omega |f||g| \, d\mu \leq \|f\|_p \|g\|_q 
+\] 
+:::

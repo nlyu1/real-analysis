@@ -100,6 +100,9 @@ References for these notes
     and obey countable additivity. 
 3. <u>Dominated convergence theorem</u> \@ref(thm:dominatedConvergence): 
     dominated pointwise limit of measurable functions can be exchanged with integral.  
+4. <u>Hahn-Banach, hyperplane separation</u> theorems:
+    bounded linear functionals on a Banach vector space 
+    can be extended without increasing its norm. 
 4. <u>Fubini's theorem</u>
 5. <u>Baire's theorem</u>
 

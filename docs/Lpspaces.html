@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Iterated integrals | Measure Theory, Functional Analysis</title>
-  <meta name="description" content="5 Iterated integrals | Measure Theory, Functional Analysis" />
+  <title>7 \(L^p\) Spaces | Measure Theory, Functional Analysis</title>
+  <meta name="description" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Iterated integrals | Measure Theory, Functional Analysis" />
+  <meta property="og:title" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Iterated integrals | Measure Theory, Functional Analysis" />
+  <meta name="twitter:title" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="realIntegration.html"/>
-<link rel="next" href="banachSpaces.html"/>
+<link rel="prev" href="banachSpaces.html"/>
+<link rel="next" href="lp-spaces.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -182,55 +182,191 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="iteratedIntegrals" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">5</span> Iterated integrals<a href="iteratedIntegrals.html#iteratedIntegrals" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this section, we consider</p>
-<ul>
-<li>Two <span class="math inline">\(\sigma\)</span>-finite measure spaces <span class="math inline">\((\Omega_1, \Sigma_1, \mu_1)\)</span>
-and <span class="math inline">\((\Omega_2, \Sigma_2, \mu_2)\)</span>.</li>
-<li><span class="math inline">\(\Omega = \Omega_1\times \Omega_2, \Sigma=\Sigma_1\times \Sigma_2\)</span>
-in the <span class="math inline">\(\sigma\)</span>-algebra product <a href="abstractMachinery.html#def:productSigmaAlg">2.8</a>.</li>
-</ul>
+<div id="Lpspaces" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> <span class="math inline">\(L^p\)</span> Spaces<a href="Lpspaces.html#Lpspaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Key takeaways:</p>
 <ol style="list-style-type: decimal">
-<li>The product <span class="math inline">\(\sigma\)</span>-algebra is characterized by the
-section property (proposition <a href="abstractMachinery.html#prp:productSection">2.4</a>).</li>
-<li><span class="math inline">\(\sigma\)</span>-finiteness is extremely important.</li>
+<li>The convexity of <span class="math inline">\(x\mapsto |x|^p\)</span> implies Young’s inequality
+(proposition <a href="Lpspaces.html#prp:youngInequality">7.2</a>)
+and the vector space structure of <span class="math inline">\(L^p(\Omega)\)</span>
+(proposition <a href="Lpspaces.html#prp:LpVectorSpace">7.3</a>).</li>
+<li>To be precise, <span class="math inline">\(L^p\)</span> spaces are equivalence classes of
+functions which agree <span class="math inline">\(\mu\)</span>-a.e.</li>
 </ol>
-<div id="product-measure" class="section level2 unnumbered hasAnchor">
-<h2>Product measure<a href="iteratedIntegrals.html#product-measure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Recall that, given <span class="math inline">\(A\in \Sigma\)</span>, we defined the functions
+<div id="definitions" class="section level2 unnumbered hasAnchor">
+<h2>Definitions<a href="Lpspaces.html#definitions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="convexity-youngs-inequality" class="section level3 unnumbered hasAnchor">
+<h3>Convexity, Young’s inequality<a href="Lpspaces.html#convexity-youngs-inequality" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-71" class="definition"><strong>Definition 7.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
+<span class="math inline">\((x, y)\mapsto \lambda x + \bar y\)</span>
+for all <span class="math inline">\(\lambda \in [0, 1]\)</span>. A <strong>convex function</strong>
+on a convex set <span class="math inline">\(K\)</span> is a real-valued function satisfying
 <span class="math display">\[
-    A_1(y) = \{x\in \Omega_1: (x, y)\in A\}, \quad
-    A_2(x) = \{y\in \Omega_2: (x, y)\in A\}
+    f(\lambda x + \bar \lambda y)
+    \leq \lambda f(x) + \bar \lambda f(y)
+\]</span>
+the function <span class="math inline">\(f\)</span> is <strong>strictly convex</strong> at <span class="math inline">\(x\)</span> if the
+inequality is strict for all <span class="math inline">\(y\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-72" class="proposition"><strong>Proposition 7.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-73" class="definition"><strong>Definition 7.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
+<span class="math inline">\(x\in K\subset \mathbb R^n\)</span> is a plane in <span class="math inline">\(\mathbb R^{n+1}\)</span> that
+touches <span class="math inline">\((x, f(x))\)</span> and that nowhere lies above the graph;
+if the support plane at <span class="math inline">\(x\)</span> is unique, then it is the tangent plane.</p>
+</div>
+<p>For example, there is no unique support plane at <span class="math inline">\(x=0\)</span> for <span class="math inline">\(|x|\)</span>.
+For convex <span class="math inline">\(f\)</span>, the existence of a tangent plane is equivalent
+to differentiability. In particular, the tangent plane
+for <span class="math inline">\(y=f(x)\)</span> at <span class="math inline">\(x_0\)</span> has expression
+<span class="math display">\[
+    y - f(x_0) = \nabla f(x_0) \cdot (y - x)
+\]</span>
+Thus for general convex functions, for each <span class="math inline">\(x\)</span> there exists
+a vector <span class="math inline">\(V\in \mathbb R^n\)</span> such that
+<span class="math display">\[
+    f(y) \geq f(x) + V\cdot (y - x)
+\]</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-74" class="definition"><strong>Definition 7.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
+<span class="math display">\[
+    p^{-1} + q^{-1} = 1
+\]</span>
+It is oftentimes more convenient to note that
+<span class="math display">\[
+    p = \dfrac q {q - 1} \iff q = \dfrac p {p - 1}
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:youngInequality" class="proposition"><strong>Proposition 7.2  (Young's inequality) </strong></span>Given Hölder conjugates <span class="math inline">\(p, q&gt;1\)</span>,
+<span class="math display">\[
+    ab \leq \dfrac{a^p}{p} + \dfrac{b^q}{q}, \quad \forall a, b\geq 0
+\]</span>
+Equality is saturated when <span class="math inline">\(a^p = b^q\)</span>.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Consider the convex function <span class="math inline">\(f(a) = \dfrac{a^p}{p}\)</span>.
+Its Legendre transform is
+<span class="math display">\[\begin{align}
+    g(b)
+    &amp;= \sup_a \left(ab - \dfrac{a^p}{p}\right)
+    = a_*b - \dfrac{a_*^p}{p},\quad a_* = b^{1/(p-1)} \\
+    &amp;= b^{1 + 1/(p-1)} - \dfrac 1 p b^{p/(p-1)} = b^q - \dfrac 1 p b^q
+    = \dfrac{b^q}{q}
+\end{align}\]</span>
+Young’s inequality follows from the variational characterization
+of the Legendre transform.
+Equality is saturated when <span class="math inline">\(a=b^{1/(p-1)} \iff a^p = b^q\)</span>.
+</details>
+</div>
+</div>
+<div id="space-and-norm" class="section level2 unnumbered hasAnchor">
+<h2>Space and norm<a href="Lpspaces.html#space-and-norm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-75" class="definition"><strong>Definition 7.4  (Lp space, norm) </strong></span>Given a positive (nonnegative) measure
+<span class="math inline">\(\mu\)</span> and <span class="math inline">\(1\leq p&lt;\infty\)</span>, the space
+<span class="math inline">\(L^p(\Omega, d\mu)\)</span>
+is the space of complex-valued functions <span class="math inline">\(f:\Omega\to \mathbb C\)</span>
+such that:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(f\)</span> is <span class="math inline">\(\mu\)</span>-measurable.</li>
+<li><span class="math inline">\(|f|^p\)</span> is <span class="math inline">\(\mu\)</span>-integrable.</li>
+</ol>
+<p>The measure <span class="math inline">\(d\mu\)</span> is usually omitted if understood.
+Given <span class="math inline">\(f\in L^p(\Omega)\)</span>, its norm is
+<span class="math display">\[
+    \|f\|_p = \left[\int_\Omega |f(x)|^p \mu(dx)\right]^{1/p}
+\]</span>
+This definition is extended to <span class="math inline">\(L^\infty(\Omega, d\mu)\)</span>
+as the space of <span class="math inline">\(\mu\)</span>-a.e. bounded functions, with
+<span class="math display">\[
+    \|f\|_\infty = \inf \{
+        K: f \leq K \text{ for } \mu\text{-a.e.}
+    \}
+\]</span>
+The <span class="math inline">\(\infty\)</span>-norm is also called the <strong>essential supremum</strong>
+of <span class="math inline">\(|f|\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:LpVectorSpace" class="proposition"><strong>Proposition 7.3  (vector space property) </strong></span><span class="math inline">\(L^p(\Omega, d\mu)\)</span> is a vector space.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Closure under scalar multiplication is apparant.
+Closure under addition follows from the convexity of <span class="math inline">\(|x|^p\)</span>.
+<span class="math display">\[
+    \left\|\dfrac{\alpha + \beta}{2}\right\|^p \leq \dfrac{|\alpha|^p + |\beta|^p}{2}
+\]</span>
+which follows from the convexity of <span class="math inline">\(|x|^p\)</span>.
+</details>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-76" class="proposition"><strong>Proposition 7.4  (norm properties) </strong></span>The <span class="math inline">\(L^p\)</span> norm satisfies:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Linearity: <span class="math inline">\(\|\lambda f\|_p = |\lambda| \|f\|_p\)</span>.</li>
+<li>Nonnegativity: <span class="math inline">\(\|f\|_p\geq 0\)</span> with equality iff <span class="math inline">\(f=0\)</span> for <span class="math inline">\(\mu\)</span>-a.e.</li>
+<li>Triangle inequality: <span class="math inline">\(\|f+g\|_p \leq \|f_p\| + \|g\|_p\)</span>.</li>
+</ol>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Linearity is apparant, for the second part,
+<span class="math inline">\(\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0\)</span>, the second and
+third <span class="math inline">\(=0\)</span> are to be understood as <span class="math inline">\(\mu\)</span>-a.e.
+</details>
+</div>
+<div id="major-inequalities" class="section level2 unnumbered hasAnchor">
+<h2>Major inequalities<a href="Lpspaces.html#major-inequalities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>From now on we work in a measure space denoted
+<span class="math inline">\((\Omega, \Sigma, \mu)\)</span>.</p>
+<p>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the average of
+a measurable function <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is defined as
+<span class="math display">\[
+    \langle f\rangle= \dfrac 1 {\mu(\Omega)} \int_\Omega f\, d\mu
 \]</span></p>
 <div class="theorem">
-<p><span id="thm:productMeasure" class="theorem"><strong>Theorem 5.1  (characterization of product measure) </strong></span></p>
-Fixing <span class="math inline">\(A\in \Sigma\)</span>, define
-<span class="math inline">\(f: \Omega_2\to \mathbb R\)</span> and <span class="math inline">\(g: \Omega_1\to \mathbb R\)</span> by
-<span class="math inline">\(g = \mu_1 \circ A_1, m_2 = \mu_2 \circ A_2\)</span>, then
-<span class="math display">\[
-    (\mu_1\times \mu_2)(A)
-    = \int_{\Omega_2} f(y)\, d\mu_2
-    = \int_{\Omega_1} g(x)\, d\mu_1
-\]</span>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="images/fubini.jpg" alt="demonstration of product measure." width="80%" />
-<p class="caption">
-Figure 5.1: demonstration of product measure.
-</p>
-</div>
-</div>
-<p>Proof outline:</p>
+<p><span id="thm:unlabeled-div-77" class="theorem"><strong>Theorem 7.1  (Jensen's inequality) </strong></span>Given a convex function <span class="math inline">\(J:\mathbb R\to \mathbb R\)</span> and
+measurable <span class="math inline">\(f:\Omega\to \mathbb R\)</span>, then</p>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(f, g\)</span> are measurable (by monotone class theorem).</li>
-<li></li>
+<li>The negative part <span class="math inline">\((J\circ f)_-\)</span> is in <span class="math inline">\(L^1(\Omega)\)</span>
+(recall the decomposition <span class="math inline">\(f=f_+ - f_-\)</span>.</li>
+<li><span class="math inline">\(\langle J\circ f\rangle\geq J(\langle f\rangle)\)</span>; when <span class="math inline">\(J\)</span> is strictly
+convex at <span class="math inline">\(\langle f\rangle\)</span>, there is equality iff <span class="math inline">\(f\)</span> is constant.</li>
 </ol>
-<p>Consider the set <span class="math inline">\(\mathcal M\subset \Sigma\)</span> of all
-sets for which <span class="math inline">\(f, g\)</span> defined as above are measurable.</p>
 </div>
-<div id="fubinis-theorem" class="section level2 unnumbered hasAnchor">
-<h2>Fubini’s theorem<a href="iteratedIntegrals.html#fubinis-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>Proof:</em> Fixing <span class="math inline">\(\langle f\rangle\)</span>, there exists a constant <span class="math inline">\(V\in \mathbb R\)</span>
+such that
+<span class="math display" id="eq:convexity">\[
+    J(\forall t)\geq J(\langle f\rangle) + V(t - \langle f\rangle)
+    \tag{7.1}
+\]</span>
+This bounds the negative component (but not the positive one!)
+<span class="math display">\[
+    [J\circ f]_-(x) \leq |J(\langle f\rangle)| + |V||\langle f\rangle| + |V| |f(x)|
+\]</span>
+using <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, this bounded function is integrable.
+To obtain (2), integrate <a href="Lpspaces.html#eq:convexity">(7.1)</a> for all <span class="math inline">\(t=f(x)\)</span>
+<span class="math display">\[
+    \langle J \circ f\rangle\geq J(\langle f\rangle) - V \langle f\rangle+ V\langle f\rangle
+\]</span>
+with <span class="math inline">\(J\)</span> strictly convex, the inequality is saturated
+when <span class="math inline">\(\langle J\circ f\rangle= J(\langle f\rangle)\)</span>.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-78" class="theorem"><strong>Theorem 7.2  (Hölder's inequality) </strong></span>Given dual <span class="math inline">\(p, q\)</span> with <span class="math inline">\(p\geq 1\)</span>. Let <span class="math inline">\(f\in L^p(\Omega), g\in L^q(\Omega)\)</span>.
+The pointwise product <span class="math inline">\(fg\in L^1(\Omega)\)</span> and
+<span class="math display">\[
+    \|fg\|_1 \leq \int_\Omega |f||g| \, d\mu \leq \|f\|_p \|g\|_q
+\]</span></p>
+</div>
 
 </div>
 </div>
@@ -239,8 +375,8 @@ sets for which <span class="math inline">\(f, g\)</span> defined as above are me
           </div>
         </div>
       </div>
-<a href="realIntegration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="banachSpaces.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="banachSpaces.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lp-spaces.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

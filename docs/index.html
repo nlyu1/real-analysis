@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-15" />
+<meta name="date" content="2024-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,16 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<li class="chapter" data-level="7" data-path="Lpspaces.html"><a href="Lpspaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
+<ul>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
@@ -176,7 +185,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Measure Theory, Functional Analysis</h1>
 <p class="author"><em>Nicholas Lyu</em></p>
-<p class="date"><em>2024-10-15</em></p>
+<p class="date"><em>2024-10-19</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -203,7 +212,7 @@ constructions to infinite-dimensions, and</li>
 </ol></li>
 <li>Other miscellany:
 <ul>
-<li>Proof of Young’s inequality (proposition <a href="lp-spaces.html#prp:youngInequality">7.2</a>)
+<li>Proof of Young’s inequality (proposition <a href="Lpspaces.html#prp:youngInequality">7.2</a>)
 using the Legendre transform to highlight the role of convexity.</li>
 </ul></li>
 </ol>
@@ -233,7 +242,7 @@ functionals, Hahn-Banach theorem.
 <ul>
 <li>Axler, Chapter 6.</li>
 </ul></li>
-<li><a href="#Lpspaces"><span class="math inline">\(L^p\)</span> spaces</a>.
+<li><a href="Lpspaces.html#Lpspaces"><span class="math inline">\(L^p\)</span> spaces</a>.
 <ul>
 <li>Lieb and Loss, chapter 2; Axler, chapter 7.</li>
 </ul></li>
@@ -260,6 +269,9 @@ and obey countable additivity.</li>
 <li><u>Dominated convergence theorem</u> <a href="realIntegration.html#thm:dominatedConvergence">4.8</a>:
 dominated pointwise limit of measurable functions can be exchanged with integral.<br />
 </li>
+<li><u>Hahn-Banach, hyperplane separation</u> theorems:
+bounded linear functionals on a Banach vector space
+can be extended without increasing its norm.</li>
 <li><u>Fubini’s theorem</u></li>
 <li><u>Baire’s theorem</u></li>
 </ol>
@@ -288,10 +300,10 @@ Monotone convergence theorem.</li>
 when working with Cauchy sequences.
 <ul>
 <li>Baire’s theorem <a href="banachSpaces.html#thm:baire">6.4</a>.
-Completeness proof for <span class="math inline">\(L^p\)</span> (proposition <a href="lp-spaces.html#prp:LpBanach">7.7</a>).</li>
+Completeness proof for <span class="math inline">\(L^p\)</span> (proposition <a href="lp-spaces.html#prp:LpBanach">8.5</a>).</li>
 </ul></li>
 <li>Prime example for the use of monotone convergence theorem, Fatou’s lemma,
-and dominated convergence theorem: proposition <a href="lp-spaces.html#prp:LpBanach">7.7</a>.</li>
+and dominated convergence theorem: proposition <a href="lp-spaces.html#prp:LpBanach">8.5</a>.</li>
 <li>Using the monotone class theorem (example theorem <a href="abstractMachinery.html#thm:uniqueMeasure">2.2</a>):
 rewrite nested chain as disjoint union, then pass through the limit
 using the countable additivity of measures.
@@ -303,7 +315,7 @@ Next apply the reduction from finite to <span class="math inline">\(\sigma\)</sp
 <li>Put in some pset problems.</li>
 <li>Pset problem: separately continuous implies measurable.</li>
 <li>Principle of uniform boundedness</li>
-<li>Proof for <span class="math inline">\(\sigma\)</span>-finite case in proposition <a href="lp-spaces.html#prp:variationalPnorm">7.6</a>.</li>
+<li>Proof for <span class="math inline">\(\sigma\)</span>-finite case in proposition <a href="lp-spaces.html#prp:variationalPnorm">8.4</a>.</li>
 <li>Proof for the dual of <span class="math inline">\(L^p\)</span> space.</li>
 </ol>
 <p>Optional:</p>

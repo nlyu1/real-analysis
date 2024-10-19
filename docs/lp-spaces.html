@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 \(L^p\) Spaces | Measure Theory, Functional Analysis</title>
-  <meta name="description" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
+  <title>8 \(L^p\) Spaces | Measure Theory, Functional Analysis</title>
+  <meta name="description" content="8 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
+  <meta property="og:title" content="8 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
+  <meta name="twitter:title" content="8 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
   
   
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-15" />
+<meta name="date" content="2024-10-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="banachSpaces.html"/>
+<link rel="prev" href="Lpspaces.html"/>
 <link rel="next" href="bibliography.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -149,7 +149,16 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Vector space and duals</a></li>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<li class="chapter" data-level="7" data-path="Lpspaces.html"><a href="Lpspaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
+<ul>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#definitions"><i class="fa fa-check"></i>Definitions</a>
+<ul>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#convexity-youngs-inequality"><i class="fa fa-check"></i>Convexity, Young’s inequality</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#space-and-norm"><i class="fa fa-check"></i>Space and norm</a></li>
+<li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#major-inequalities"><i class="fa fa-check"></i>Major inequalities</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lp-spaces.html"><a href="lp-spaces.html"><i class="fa fa-check"></i><b>8</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#convexAnalysis"><i class="fa fa-check"></i>Convexity</a></li>
 <li class="chapter" data-level="" data-path="lp-spaces.html"><a href="lp-spaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
@@ -173,8 +182,8 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lp-spaces" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">7</span> <span class="math inline">\(L^p\)</span> Spaces<a href="lp-spaces.html#lp-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lp-spaces" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> <span class="math inline">\(L^p\)</span> Spaces<a href="lp-spaces.html#lp-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Key takeaways:</p>
 <ol style="list-style-type: decimal">
 <li><a href="lp-spaces.html#convexAnalysis">Convexity</a>:
@@ -186,7 +195,7 @@ establish the Banach property; dual of <span class="math inline">\(L^p\)</span>.
 </ol>
 <p>Main results:</p>
 <ol start="0" style="list-style-type: decimal">
-<li>Jensen’s inequality (theorem <a href="lp-spaces.html#thm:jensenInequality">7.1</a>):
+<li>Jensen’s inequality (theorem <a href="lp-spaces.html#thm:jensenInequality">8.1</a>):
 generalizalized property of convexity w.r.t. integration.</li>
 <li><span class="math inline">\(L^p\)</span> space is a Banach space that consists of
 equivalence classes of a.e. equal functions.
@@ -198,19 +207,19 @@ equivalence classes of a.e. equal functions.
 implies:
 <ul>
 <li>Normed vector space properties of <span class="math inline">\(L^p(\Omega)\)</span> holds for <span class="math inline">\(1\leq p\leq \infty\)</span>.
-(proposition <a href="lp-spaces.html#prp:LpVectorSpace">7.3</a>).</li>
-<li>Young’s inequality (proposition <a href="lp-spaces.html#prp:youngInequality">7.2</a>):
+(proposition <a href="Lpspaces.html#prp:LpVectorSpace">7.3</a>).</li>
+<li>Young’s inequality (proposition <a href="Lpspaces.html#prp:youngInequality">7.2</a>):
 holds for <span class="math inline">\(1&lt;p&lt;\infty\)</span>; it is essentially the quantitative statement of
 convexity,</li>
-<li>Holder’s inequality (proposition <a href="lp-spaces.html#prp:holderInequality">7.4</a>):
+<li>Holder’s inequality (proposition <a href="lp-spaces.html#prp:holderInequality">8.2</a>):
 holds for <span class="math inline">\(1\leq p\leq \infty\)</span>, can be saturated by pointwise-saturating
 Young’s inequality for <span class="math inline">\(p\neq 1, \infty\)</span>.</li>
 <li>Inclusion: <span class="math inline">\(0&lt;p&lt;q&lt;\infty\)</span> and finite <span class="math inline">\(\mu(\Omega)\)</span> implies <span class="math inline">\(L^p \supset L^q\)</span>
-(proposition <a href="lp-spaces.html#prp:lPInclusion">7.5</a>).</li>
+(proposition <a href="lp-spaces.html#prp:lPInclusion">8.3</a>).</li>
 <li>Variational formula: <span class="math inline">\(\|f\|_p = \sup_{\|g\|_{\bar p}\leq 1} |f\cdot g|\)</span>;
 holds for <span class="math inline">\(1\leq p &lt; \infty\)</span> generally and <span class="math inline">\(p=\infty\)</span> for
-<span class="math inline">\(\sigma\)</span>-finite <span class="math inline">\(\mu\)</span> (proposition <a href="lp-spaces.html#prp:variationalPnorm">7.6</a>).</li>
-<li>Minkowski’s inequality (theorem <a href="lp-spaces.html#thm:minkowskiInequality">7.2</a>)
+<span class="math inline">\(\sigma\)</span>-finite <span class="math inline">\(\mu\)</span> (proposition <a href="lp-spaces.html#prp:variationalPnorm">8.4</a>).</li>
+<li>Minkowski’s inequality (theorem <a href="lp-spaces.html#thm:minkowskiInequality">8.2</a>)
 states the convexity of the <span class="math inline">\(L_p\)</span> norm and holds for <span class="math inline">\(1\leq p\leq \infty\)</span>.</li>
 </ul></li>
 <li>Young and Holder’s inequality are the main tools for applying convexity.
@@ -226,7 +235,7 @@ saturation of Young’s inequality.
 <div id="convexAnalysis" class="section level2 unnumbered hasAnchor">
 <h2>Convexity<a href="lp-spaces.html#convexAnalysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-71" class="definition"><strong>Definition 7.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
+<p><span id="def:unlabeled-div-79" class="definition"><strong>Definition 8.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
 <span class="math inline">\((x, y)\mapsto \lambda x + \bar y\)</span>
 for all <span class="math inline">\(\lambda \in [0, 1]\)</span>. A <strong>convex function</strong>
 on a convex set <span class="math inline">\(K\)</span> is a real-valued function satisfying
@@ -238,10 +247,10 @@ the function <span class="math inline">\(f\)</span> is <strong>strictly convex</
 inequality is strict for all <span class="math inline">\(y\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-72" class="proposition"><strong>Proposition 7.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
+<p><span id="prp:unlabeled-div-80" class="proposition"><strong>Proposition 8.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-73" class="definition"><strong>Definition 7.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
+<p><span id="def:unlabeled-div-81" class="definition"><strong>Definition 8.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
 <span class="math inline">\(x\in K\subset \mathbb R^n\)</span> is a plane in <span class="math inline">\(\mathbb R^{n+1}\)</span> that
 touches <span class="math inline">\((x, f(x))\)</span> and that nowhere lies above the graph;
 if the support plane at <span class="math inline">\(x\)</span> is unique, then it is the tangent plane.</p>
@@ -257,10 +266,10 @@ Thus for general convex functions, for each <span class="math inline">\(x\)</spa
 a vector <span class="math inline">\(V\in \mathbb R^n\)</span> such that
 <span class="math display" id="eq:supportingVector">\[
     f(y) \geq f(x) + V\cdot (y - x)
-    \tag{7.1}
+    \tag{8.1}
 \]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-74" class="definition"><strong>Definition 7.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
+<p><span id="def:unlabeled-div-82" class="definition"><strong>Definition 8.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
 <span class="math display">\[
     p^{-1} + q^{-1} = 1
 \]</span>
@@ -295,14 +304,14 @@ of the Legendre transform.
 Equality is saturated when <span class="math inline">\(a=b^{1/(p-1)} \iff a^p = b^q\)</span>.
 </details>
 <div class="definition">
-<p><span id="def:unlabeled-div-75" class="definition"><strong>Definition 7.4  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
+<p><span id="def:unlabeled-div-83" class="definition"><strong>Definition 8.4  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
 a measurable function <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is defined as
 <span class="math display">\[
     \langle f\rangle= \dfrac 1 {\mu(\Omega)} \int_\Omega f\, d\mu
 \]</span></p>
 </div>
 <div class="theorem">
-<p><span id="thm:jensenInequality" class="theorem"><strong>Theorem 7.1  (Jensen's inequality) </strong></span>Given a convex function <span class="math inline">\(J:\mathbb R\to \mathbb R\)</span> and
+<p><span id="thm:jensenInequality" class="theorem"><strong>Theorem 8.1  (Jensen's inequality) </strong></span>Given a convex function <span class="math inline">\(J:\mathbb R\to \mathbb R\)</span> and
 measurable <span class="math inline">\(f:\Omega\to \mathbb R\)</span> with <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, then</p>
 <ol style="list-style-type: decimal">
 <li>The negative part <span class="math inline">\((J\circ f)_-\)</span> is in <span class="math inline">\(L^1(\Omega)\)</span>
@@ -313,7 +322,7 @@ convex at <span class="math inline">\(\langle f\rangle\)</span>, there is equali
 </div>
 <span style="color:green">
 Proof idea: integrate the supporting
-vector equation <a href="lp-spaces.html#eq:supportingVector">(7.1)</a>.
+vector equation <a href="lp-spaces.html#eq:supportingVector">(8.1)</a>.
 </span>
 <details>
 <summary>
@@ -323,14 +332,14 @@ Fixing <span class="math inline">\(\langle f\rangle\)</span>, there exists a con
 such that
 <span class="math display" id="eq:convexity">\[
     J(\forall t)\geq J(\langle f\rangle) + V(t - \langle f\rangle)
-    \tag{7.2}
+    \tag{7.1}
 \]</span>
 This bounds the negative component (but not the positive one!)
 <span class="math display">\[
     [J\circ f]_-(x) \leq |J(\langle f\rangle)| + |V||\langle f\rangle| + |V| |f(x)|
 \]</span>
 using <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, this bounded function is integrable.
-To obtain (2), integrate <a href="lp-spaces.html#eq:convexity">(7.2)</a> for all <span class="math inline">\(t=f(x)\)</span>
+To obtain (2), integrate <a href="Lpspaces.html#eq:convexity">(7.1)</a> for all <span class="math inline">\(t=f(x)\)</span>
 <span class="math display">\[
     \langle J \circ f\rangle\geq J(\langle f\rangle) - V \langle f\rangle+ V\langle f\rangle
 \]</span>
@@ -341,7 +350,7 @@ when <span class="math inline">\(\langle J\circ f\rangle= J(\langle f\rangle)\)<
 <div id="LpSpace" class="section level2 unnumbered hasAnchor">
 <h2><span class="math inline">\(L^p\)</span> as a Banach space<a href="lp-spaces.html#LpSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:LpDef" class="definition"><strong>Definition 7.5  (Lp space, norm) </strong></span>Given a positive (nonnegative) measure
+<p><span id="def:LpDef" class="definition"><strong>Definition 8.5  (Lp space, norm) </strong></span>Given a positive (nonnegative) measure
 <span class="math inline">\(\mu\)</span> and <span class="math inline">\(1\leq p&lt;\infty\)</span>, the space
 <span class="math inline">\(L^p(\Omega, d\mu)\)</span>
 is the space of complex-valued functions <span class="math inline">\(f:\Omega\to \mathbb C\)</span>
@@ -389,11 +398,11 @@ which follows from the convexity of <span class="math inline">\(|x|^p\)</span>.<
 For nonnegativity,
 <span class="math inline">\(\|f\|_p = 0 \iff \|f^p\|_1 = 0 \iff f=0\)</span>, where the second and
 third equalities are to be understood as <span class="math inline">\(\mu\)</span>-a.e.
-Triangle inequality is proved by Minkowski’s inequality <a href="lp-spaces.html#thm:minkowskiInequality">7.2</a>.</li>
+Triangle inequality is proved by Minkowski’s inequality <a href="lp-spaces.html#thm:minkowskiInequality">8.2</a>.</li>
 </ul>
 </details>
 <div class="proposition">
-<p><span id="prp:holderInequality" class="proposition"><strong>Proposition 7.4  (Hölder's inequality) </strong></span>Given measurable <span class="math inline">\(f, g\)</span> on <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(p\in [1, \infty]\)</span>
+<p><span id="prp:holderInequality" class="proposition"><strong>Proposition 8.2  (Hölder's inequality) </strong></span>Given measurable <span class="math inline">\(f, g\)</span> on <span class="math inline">\((\Omega, \Sigma, \mu)\)</span> and <span class="math inline">\(p\in [1, \infty]\)</span>
 <span class="math display">\[
     \|fg\|_1 \leq \|f\|_p \|g\|_{\bar p}
 \]</span></p>
@@ -409,7 +418,7 @@ The cases <span class="math inline">\(p=1\)</span> or <span class="math inline">
 Consider the nontrivial case where
 <span class="math inline">\(0&lt; \|f\|_p, \|g\|_{\bar p} &lt; \infty\)</span>.
 First assume <span class="math inline">\(\|f||_p = \|g\|_{\bar p}=1\)</span>, then
-using Young’s inequality (proposition <a href="lp-spaces.html#prp:youngInequality">7.2</a>):
+using Young’s inequality (proposition <a href="Lpspaces.html#prp:youngInequality">7.2</a>):
 <span class="math display">\[\begin{align}
     \int |fg|\, d\mu  
     &amp;\leq \int \dfrac 1 p |f|^p + \dfrac 1 {\bar p} \|g\|^{\bar p}\, d\mu
@@ -419,7 +428,7 @@ This completes the proof in the special case; for unnormalized
 <span class="math inline">\(f, g\)</span>, apply the homogeneity of the norms.
 </details>
 <div class="proposition">
-<p><span id="prp:lPInclusion" class="proposition"><strong>Proposition 7.5  </strong></span>If <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, then for <span class="math inline">\(0&lt;p&lt;q&lt;\infty\)</span>, we have
+<p><span id="prp:lPInclusion" class="proposition"><strong>Proposition 8.3  </strong></span>If <span class="math inline">\(\mu(\Omega)&lt;\infty\)</span>, then for <span class="math inline">\(0&lt;p&lt;q&lt;\infty\)</span>, we have
 <span class="math display">\[
     \|f\|_p \leq \mu(\Omega)^{(q-p)/pq} \|f\|_q
 \]</span>
@@ -440,7 +449,7 @@ Apply Holder’s inequality to <span class="math inline">\(r=q/p&gt;1\)</span>:
 \end{align}\]</span>
 </details>
 <div class="proposition">
-<p><span id="prp:variationalPnorm" class="proposition"><strong>Proposition 7.6  (variational formula for p-norm) </strong></span>Given <span class="math inline">\(1\leq p&lt;\infty\)</span> and <span class="math inline">\(f\in L^p\)</span>
+<p><span id="prp:variationalPnorm" class="proposition"><strong>Proposition 8.4  (variational formula for p-norm) </strong></span>Given <span class="math inline">\(1\leq p&lt;\infty\)</span> and <span class="math inline">\(f\in L^p\)</span>
 <span class="math display">\[
     \|f\|_p = \sup_{\|g\|_{\bar p} \leq 1} \|fg\|_1
 \]</span>
@@ -465,13 +474,13 @@ Holder’s inequality is not implied by Young’s.
 </span>
 </details>
 <div class="remark">
-<p><span id="unlabeled-div-76" class="remark"><em>Remark</em> (counterexample). </span>For <span class="math inline">\(p=\infty\)</span>, consider the non <span class="math inline">\(\sigma\)</span>-finite measure
+<p><span id="unlabeled-div-84" class="remark"><em>Remark</em> (counterexample). </span>For <span class="math inline">\(p=\infty\)</span>, consider the non <span class="math inline">\(\sigma\)</span>-finite measure
 on <span class="math inline">\(X=\{b\}\)</span> with <span class="math inline">\(\mu(\emptyset)=0, \mu(\{b\})=\infty\)</span>.
 Then <span class="math inline">\(L^1=\{0\}\)</span>. For the constant function <span class="math inline">\(f=1\)</span>, we have
-<span class="math inline">\(\|f\|_\infty = 1\)</span> (recall definition <a href="lp-spaces.html#def:LpDef">7.5</a> carefully).</p>
+<span class="math inline">\(\|f\|_\infty = 1\)</span> (recall definition <a href="lp-spaces.html#def:LpDef">8.5</a> carefully).</p>
 </div>
 <div class="theorem">
-<p><span id="thm:minkowskiInequality" class="theorem"><strong>Theorem 7.2  (Minkowski's inequality) </strong></span>Given <span class="math inline">\(1\leq p \leq \infty\)</span> and
+<p><span id="thm:minkowskiInequality" class="theorem"><strong>Theorem 8.2  (Minkowski's inequality) </strong></span>Given <span class="math inline">\(1\leq p \leq \infty\)</span> and
 <span class="math inline">\(f, g\in L^p\)</span>, <span class="math inline">\(\|f+g\|_p \leq \|f\|_p + \|g\|_p\)</span>.</p>
 </div>
 <details>
@@ -484,10 +493,10 @@ For arbitrary <span class="math inline">\(h\in L^{\bar p}\)</span> with <span cl
     \leq (\|f\|_p + \|g\|_p) \|h\|_{\bar p} \leq \|f\|_p + \|g\|_p
 \]</span>
 Take supremum over <span class="math inline">\(h\)</span> and invoke the variational formula
-(proposition <a href="lp-spaces.html#prp:variationalPnorm">7.6</a>) to obtain the desired result.
+(proposition <a href="lp-spaces.html#prp:variationalPnorm">8.4</a>) to obtain the desired result.
 </details>
 <div class="proposition">
-<p><span id="prp:LpBanach" class="proposition"><strong>Proposition 7.7  (Lp is a Banach space) </strong></span>Every Cauchy sequence in <span class="math inline">\(L^p\)</span> converges.</p>
+<p><span id="prp:LpBanach" class="proposition"><strong>Proposition 8.5  (Lp is a Banach space) </strong></span>Every Cauchy sequence in <span class="math inline">\(L^p\)</span> converges.</p>
 </div>
 <span style="color:green">
 Drop to a subsequence, use Minkowski’s inequality
@@ -512,7 +521,7 @@ we aim to show the integrability of
      g_m = \sum_{k=1}^m |f_k - f_{k-1}| \to g \in L^p
 \]</span>
 note that <span class="math inline">\(g_m &lt; g\)</span>. This follows by Minkowski’s inequality
-(theorem <a href="lp-spaces.html#thm:minkowskiInequality">7.2</a>) and the definition
+(theorem <a href="lp-spaces.html#thm:minkowskiInequality">8.2</a>) and the definition
 of our subsequence we have
 <span class="math display">\[
      \|g\|_p^p = \int |g|^p\, d\mu
@@ -544,13 +553,13 @@ to demonstrate convergence in <span class="math inline">\(p\)</span>-norm:
 <div id="duality" class="section level2 unnumbered hasAnchor">
 <h2>Duality<a href="lp-spaces.html#duality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-77" class="definition"><strong>Definition 7.6  (norm of linear functional) </strong></span>placeholder.</p>
+<p><span id="def:unlabeled-div-85" class="definition"><strong>Definition 8.6  (norm of linear functional) </strong></span>placeholder.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-78" class="definition"><strong>Definition 7.7  (continuity and boundedness) </strong></span>placeholder.</p>
+<p><span id="def:unlabeled-div-86" class="definition"><strong>Definition 8.7  (continuity and boundedness) </strong></span>placeholder.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:LpDual" class="theorem"><strong>Theorem 7.3  (Riesz representation theorem) </strong></span>The dual space of <span class="math inline">\((L^p)\)</span> for <span class="math inline">\(1&lt; p &lt; \infty\)</span>
+<p><span id="thm:LpDual" class="theorem"><strong>Theorem 8.3  (Riesz representation theorem) </strong></span>The dual space of <span class="math inline">\((L^p)\)</span> for <span class="math inline">\(1&lt; p &lt; \infty\)</span>
 is <span class="math inline">\(L^{\bar p}\)</span>; every linear functional <span class="math inline">\(L\in L^p(\Omega)^*\)</span>
 has the form, for some unique <span class="math inline">\(v\in L^{\bar p}\)</span>,
 <span class="math display">\[
@@ -570,7 +579,7 @@ The identification <span class="math inline">\((L^p)^* \cong L^{\bar p}\)</span>
           </div>
         </div>
       </div>
-<a href="banachSpaces.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Lpspaces.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
