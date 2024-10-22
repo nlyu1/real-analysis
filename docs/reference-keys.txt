@@ -111,6 +111,7 @@ def:unlabeled-div-62
 thm:continuousLinear
 prp:disctLinearFunctional
 def:dualSpace
+def:weakTopology
 lem:extLemma
 def:functionGraph
 thm:hahnBanach
@@ -139,8 +140,6 @@ prp:lPInclusion
 prp:variationalPnorm
 thm:minkowskiInequality
 prp:LpBanach
-def:unlabeled-div-75
-def:unlabeled-div-76
 thm:LpDual
 prelimaries
 abstractMachinery
@@ -149,3 +148,4 @@ realIntegration
 iteratedIntegrals
 banachSpaces
 Lpspaces
+Fourier

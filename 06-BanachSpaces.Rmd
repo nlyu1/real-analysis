@@ -1,17 +1,19 @@
 
-# Infinite-dimensional vector spaces {#banachSpaces}
+# Spaces of functions {#banachSpaces}
 
 Nontrivialities arise when we generalize from finite-dimensional 
 to infinite-dimensional vector spaces. 
-Banach spaces capture the $L^p$ spaces of integrable 
-functions we will later be working with. We take care 
-to develop some of its properties. In this section, 
-we work with $\mbb F$ which can be either real or complex. 
+The theory of normed vector spaces provide the foundation 
+of dual spaces, weak topology, and convex theory;  
+Banach spaces include $L^p$ spaces of integrable 
+functions we will later be working with, so we take time  
+to develop some of their properties. This section, 
+works with $\mbb F$ which can be either real or complex. 
 
 1. [Normed vector spaces, Hahn-Banach](#vectorSpace): 
     existence of a basis, normed space of linear operators, 
     characterization of continuous linear functionals and operators, 
-    graphs, the Hahn-Banach theorem. 
+    graphs, the Hahn-Banach theorem; weak topology and convergence. 
 2. [Banach theorems](#banachSpace): 
     Baire's (category) theorem, 
     open mapping theorem, inverse mapping theorem, 
@@ -21,7 +23,7 @@ we work with $\mbb F$ which can be either real or complex.
 Key takeaways: 
 
 1. A basis in infinite-dimensional vector spaces spans by 
-    **finite** linear combinations, and dual space 
+    **finite** linear combinations, and the dual space 
     (definition \@ref(def:dualSpace))
     consists of the set of **bounded** or, equivalently, continuous 
     linear functionals under the operator norm
@@ -35,6 +37,7 @@ Key takeaways:
     Every infinite-dimensional normed vector space has a 
     discontinuous linear functional 
     (proposition \@ref(prp:disctLinearFunctional)). 
+3. Universal property of the weak topology \@ref(def:weakTopology). 
 3. The Hahn-Banach theorem \@ref(thm:hahnBanach) can be viewed 
     as an existence result of a minimization problem: what is 
     the minimum norm of the extension of a bounded linear functional 
@@ -46,8 +49,8 @@ Key takeaways:
     uniform boundedness (corollary \@ref(cor:uniformBounded)): 
     every family of pointwise bounded linear operators from a 
     Banach space to a normed vector space is uniformly bounded. 
-
-<span style="color:green">TODO: Hahn-Banach theorem</span> 
+    Completeness (for continuous / bounded linear maps) 
+    plays a role similar to compactness (for continuous maps).  
 
 
 ## Normed spaces, Hahn-Banach {#vectorSpace -}
@@ -179,6 +182,17 @@ Given a normed vector space $V$, its dual space $V^*$
 consists of the vector space of bounded linear operators 
 under the operator norm (definition \@ref(def:operatorNorm)). 
 :::
+
+:::{.definition #weakTopology name="weak topology, convergence"}
+The weak topology on a normed vector space 
+$V$ is the coarsest topology in which all continuous 
+linear functionals on the space remain continuous. 
+A sequence $f_j$ in a normed vector space $V$ converges 
+weakly to $f\in V$ if $\alpha\, x_n\to \alpha\, x$ for all 
+$\alpha \in V^*$. 
+:::
+
+We next proceed to prove the Hahn-Banach theorem. 
 
 :::{.lemma #extLemma name="extension lemma"}
 Given a real normed vector space $V$, 
@@ -317,7 +331,8 @@ exists.
 
 :::{.proposition #banachDualInheritance name="Banach dual space"}
 $\mca B(V, W)$ is a Banach space (under the operator norm) 
-if $W$ is a Banach space. 
+if $W$ is a Banach space. In particular, the dual space 
+of a Banach space is a Banach space. 
 :::
 <details>
 <summary>Proof</summary>
@@ -369,12 +384,30 @@ $f\in \bigcap (G_j^c) = (\bigcup G_j)^c$, contradicting $\bigcup G_j=X$.
 
 :::{.corollary #uniformBounded name="principle of uniform boundedness"}
 Given $\mca A\subset \mca B(V, W)$ with 
-$V$ Banach and $W$ normed satisfiny pointwise boundedness: 
+$V$ Banach and $W$ normed satisfying pointwise boundedness 
+(below), then $\sup_{T\in \mca A} \|T\|<\infty$. 
 \[ 
     \sup_{T\in \mca A} \|Tf\| < \infty, \quad \text{ for every } f\in V 
 \] 
-Then $\sup_{T\in \mca A} \|T\|<\infty$. 
 :::
+<details>
+<summary>Proof</summary> 
+Given our hypothesis, $V_n\nearrow V$ with 
+\[ 
+    V_n = \{f\in V: \|T\, f\|\leq n, \quad \forall T\in \mca A\}
+\] 
+Moreover, $V_n$ is closed since each $T$ is continuous. 
+By Baire's theorem there exists $n, h\in V, r>0$ 
+with $B_r(h)\subset V_n$. For any $g\in V$ with $\|g\|<1$, 
+we have $rg+h\in B_r(h)\subset V_n\implies \|T(rg+h)\|\leq n$. 
+\[ 
+    \|Tg\| = \left\| 
+        \df{T(rg + h)}{r} - \df{Th}{r}
+    \right\| \leq \df{\|T(rg+h)\|}{r} + \df{\|Th\|}{r} 
+    \leq \df{n+\|Th\|}{r}, \quad \forall g\in V
+\] 
+Taking $\sup$ over all $T$ completes the proof. 
+</details> 
 
 :::{.theorem name="open mapping theorem"}
 Placeholder. 

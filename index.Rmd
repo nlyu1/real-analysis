@@ -74,10 +74,10 @@ deviate quite a bit from lecture materials, in particular:
 4. [Iterated integrals](#iteratedIntegrals}): uniqueness of product measure 
     and Fubini's theorem. 
     - Lieb and Loss, chapter 1. 
-5. [Banach spaces](#banachSpaces): Infinite-dimensional normed vector spaces 
-    and Hahn-Banach theorem; Baire's theorem and other Banach theorems. 
-    functionals, Hahn-Banach theorem. 
-    - Axler, Chapter 6. 
+5. [Spaces of functions](#banachSpaces): 
+    normed vector spaces, dual space of bounded linear functionals,  
+    and the Hahn-Banach theorem; Baire's theorem and other Banach theorems. 
+    - Axler, Chapter 6; Luenberger, Chapter 5. 
 6. [$L^p$ spaces](#Lpspaces). 
     - Lieb and Loss, chapter 2; Axler, chapter 7. 
 
@@ -88,7 +88,7 @@ References for these notes
 3. John K. Hunter, [online notes](https://www.math.ucdavis.edu/~hunter/measure_theory/measure_notes_ch2.pdf)
     on the Lebesgue measure. 
 4. Rudin, _Principles of Mathematical Analysis_ [@rudin1964principles]. 
-
+5. Luenberger, _Optimization by Vector Space Methods_ [@luenberger1997optimization]. 
 
 ## Main deliverables {-}
 
@@ -102,10 +102,12 @@ References for these notes
 3. <u>Dominated convergence theorem</u> \@ref(thm:dominatedConvergence): 
     dominated pointwise limit of measurable functions can be exchanged with integral.  
 4. <u>Hahn-Banach, hyperplane separation</u> theorems:
-    bounded linear functionals on a normed vector space 
-    can be extended in a norm-preserving wy. 
+    for every extension of a bounded linear functional, there exists a 
+    norm-minimizing one which preserves the original norm. 
 4. <u>Fubini's theorem</u>
-5. <u>Baire's theorem</u>
+5. <u>Baire's theorem</u> \@ref(thm:baire): for 
+    every cover of a complete metric space 
+    by closed sets, there exists an element with nonempty interior. 
 
 Proof techniques:
 
@@ -138,12 +140,13 @@ Mandatory todo list:
 0. Inductive generalization of Holder's inequality. 
 1. Put in some pset problems. 
 1. Pset problem: separately continuous implies measurable. 
-1. Principle of uniform boundedness
 2. Proof for $\sigma$-finite case in proposition \@ref(prp:variationalPnorm). 
-3. Proof for the dual of $L^p$ space. 
+3. Dual of $L^p$ space. 
 
 Optional: 
 
-1. Product measure and Fubini. 
-2. Complete section on Banach spaces. 
+2. Complete the Banach theorems. 
+2. Lieb and Loss 2.9 to 2.18: compactness under weak convergence. 
+1. Product measures and Fubini. 
+3. Geometric formulation of the Hahn-Banach theorem. 
 3. Arnold-Kolmorogorov theorem. 

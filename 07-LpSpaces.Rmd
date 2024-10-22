@@ -358,13 +358,12 @@ inductively using the Cauchy condition) and define $f_0=0$ such that
 
 ## Duality {-}
 
-:::{.definition name="norm of linear functional"}
-placeholder. 
-:::
-
-:::{.definition name="continuity and boundedness"}
-placeholder. 
-:::
+Recall that the dual space $(L^p)^*$ consists of bounded 
+linear operators on $L^p$ and is a Banach space. 
+We will show that $(L^p)^*$ under the operator norm 
+is equivalent to $L^{\bar p}$ under the $\bar p$-norm. 
+Also recall the weak topology and 
+convergence \@ref(def:weakTopology). 
 
 :::{.theorem #LpDual name="Riesz representation theorem"}
 The dual space of $(L^p)$ for $1< p < \infty$ 
