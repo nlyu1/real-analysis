@@ -1,1 +1,190 @@
 # Fourier Transform {#Fourier}
+
+Organization: 
+
+- [Fourier transform on a compact domain](#disc): the Poisson kernel. 
+
+Key takeaways:
+
+1. Even on a compact domain, the Fourier series of a continuous function 
+    may fail to converge, but strong convergence is 
+    guaranteed for twice continuously differentiable functions.
+    - Pointwise convergence a.e. holds for $L^2(\partial D)$ (difficult, 
+    not included in the textbook).  
+2. The Fourier basis is an orthonormal basis of $L^2(\partial D)$; 
+
+
+## Compact domain: $\partial D$ {#disc -}
+
+Outline: 
+
+1. We first define the Fourier series (definition \@ref(def:discFourierSeries)) 
+    on the boundary $\partial D$ 
+    of the unit disk, on which $e^{int}\leftrightarrow z^n$ 
+    admits nice algebraic properties. 
+2. There exists continuous functions in $L^1(\partial D)$
+    whose Fourier series fail to converge. However, a Abel-sum like 
+    correction $\mca P_{0\leq r<1} f$ (definition \@ref(def:discConvFourier)) 
+    converges uniformly to any continuous function 
+    (proposition \@ref(prp:discLimit)). 
+    leading naturally to the definition of the 
+    Poisson kernel (definition \@ref(def:poissonKernel), 
+    a disc version of the Dirac delta). 
+
+Let $D=\{z\in \C: |z|<1\}$ denote the open unit disk in the complex 
+plane and $\partial D$ its boundary consisting of 
+unit-norm complex numbers. 
+
+:::{.definition name="measurable subsets"}
+Let $\sigma$ be the measure on $\partial E$ 
+induced by the Lebesgue measure on $(-\pi, \pi]$ 
+normalized so that $\sigma(\partial D)=1$. 
+
+- $E\subset \partial D$ is measurable if 
+$\{t\in (-\pi, \pi]: e^{it}\in E\}$ is a Borel subset. 
+- $\sigma(E) = \mu(\{t\in (-\pi, \pi]: e^{it}\in E\})/2\pi$. 
+
+With this definition, we obtain 
+\[ 
+    \int_{\partial D} F\, d\sigma = 
+    \df 1 {2\pi} \int_{-\pi}^\pi f(e^{it})\, dt 
+\] 
+:::
+
+For $1\leq p\leq \infty$, the set $L^p(\partial D)$ 
+is defined w.r.t. the $\sigma$ measure. 
+
+:::{.proposition name="orthonormal family"}
+$\{z^n\}_{n\in \mbb Z}$ is an orthonormal family 
+in $L^2(\partial D)$. 
+:::
+Note that, for $z\in \partial D$, we have 
+$\bar z = 1/z$. Then for $m\neq n$ 
+\begin{align}
+    \la z^n, z^n\ra 
+    &= \int_{\partial D} |z^n|^2\, d\sigma = 1 \\ 
+    \la z^n, z^m\ra 
+    &= \df 1 {2\pi} 
+    \int_{-\pi}^\pi e^{imt} e^{-int}\, dt = 
+    \df 1 {i(m-n)2\pi} e^{i(m-n)t} \big|_{t=-\pi}^\pi = 0 
+\end{align}
+
+:::{.definition #discFourierSeries name="fourier series"}
+The Fourier series of $f\in L^1(\partial D)$ is the formal sum 
+\[ 
+    \sum_{n=-\infty}^\infty \hat f(n) z^n, \quad 
+    \hat f(n) = \int_{\partial D} f(z) \overline{z^n} 
+    = \df 1 {2\pi} \int_{-\pi}^\pi f(e^{it}) e^{-int}\, dt 
+\] 
+:::
+
+Note that we do need $f\in L^1$ for the integral in $\hat f(n)$ 
+to make sense. 
+
+:::{.lemma #riemannLebesgue name="Riemann-Lebesgue lemma"}
+For every $f\in L^1(\partial D)$, 
+we have $\lim_{n\to \pm \infty} \hat f(n)=0$. 
+:::
+<details>
+<summary>Proof</summary>
+Since $(z^n)$ is an orthonormal family, we have 
+\[ 
+    \sum_{n=-\infty}^\infty |\hat g(n)|^2 \leq \|g\|_2^2 < \infty 
+\] 
+</details>
+
+### The Poisson kernel {-}
+
+Note that <span style="color:green">
+there are function in $L^1(\partial D)$ 
+whose Fourier series diverge.</span> 
+The next definition introduces a geometric "correction" 
+of the Fourier series that converges; it also leads naturally 
+to the definition of the Poisson kernel. 
+
+:::{.definition #discConvFourier name="convergent Fourier series"}
+Given $f\in L^1(\partial D)$ and $0\leq r<1$, 
+define $\mca P_r(f):\partial D\to \C$ as the 
+extended Abel sum of the Fourier series 
+\[ 
+    (\mca P_r f)(z) = \sum_{n=-\infty}^\infty r^{|n|} \hat f(n)z^n 
+\] 
+:::
+
+:::{.definition #poissonKernel name="Poisson kernel"}
+Given $0\leq r<1$, the Poisson kernel $P_r: \partial D\to \R_{>0}$ is 
+\[ 
+    P_r(\xi) = \df{1-r^2}{|1-r\xi|^2} = \sum_{n=-\infty}^\infty r^{|n|}\xi^n 
+\] 
+:::
+<details>
+<summary>Equality between the two representations</summary>
+\begin{align}
+    P_r(\xi) 
+    &= \sum_{n=-\infty}^\infty r^{|n|} \xi^n 
+    = \sum_{n=0}^\infty (r\xi)^n + \sum_{n=1}^\infty (r\bar \xi)^n \\ 
+    &= \df 1 {1-r\xi} + \df{r\bar \xi}{1 - r\bar \xi} = \df{1-r^2}{|1-r\xi|^2}
+\end{align}
+</details>
+
+:::{.proposition name="Poisson kernel and Poisson-approximate Fourier series"}
+Given $f\in L^1(\partial D)$ and $0\leq r<1$, we have 
+\[ 
+    (\mca P_r f)(z) = \int_{\partial D} f(w) P_r(z\bar w)\, d\sigma(w)
+\] 
+:::
+<details>
+<summary>Proof</summary>
+The partial sums converge uniformly on $\partial D$, thus $\mca P_r f$ 
+is a continuous function. Unrolling definitions yield 
+\begin{align}
+    (\mca P_r f)(z) 
+    &= \sum_{n=-\infty}^\infty 
+        r^{|n|} \int_{\partial D} f(w) \overline{w^n} z^n \, d\sigma(w) \\ 
+    &= \int_{\partial d} f(w) \left(\sum_{n=-\infty}^\infty 
+        r^{|n|} (z \bar w)^n 
+    \right)\, d\sigma(w)
+\end{align}
+Swapping the sum and integral is justified by uniform convergence. 
+</details>
+
+:::{.proposition name="properties of the Poisson kernel"}
+The Poisson kernel can be viewed as approximations to the Dirac 
+delta function on $\partial D$ (approximate identity) since it 
+satisfies the following properties: for all $0\leq r<1$: 
+
+1. $P_r(\forall \xi\in \partial D) > 0$. 
+2. $\int_{\partial D} P_r(\xi)\, d\sigma(\xi) = 1$. 
+3. For all $\delta>0$, 
+    $\lim_{r\to 1^-} \int_{|1-\xi|<\delta} P_r(\xi)\, d\sigma(\xi) = 1$. 
+:::
+<details>
+<summary>Proof</summary>
+Property (1) follows from definition; property (2) follows from 
+integrating the integral representation and noting that $\forall n\in \mbb Z - \{0\}$, 
+we have $\int_{\partial D} \xi^{n}\, d\sigma(\xi)=0$.
+To show (3), by properties (1), (2) it suffices to show that 
+\[ 
+    \lim_{r\to 1^-} \int_{|1-\xi|\geq \delta} P_r(\xi)\, d\sigma(\xi) = 0
+\] 
+Consider the denominator $|1-r\xi|^2$ in the Poisson kernel: for 
+$|1-\xi|\geq \delta$ and $1-r<\delta/2$, we have 
+\begin{align}
+    |1-r\xi| 
+    &= |1-\xi - (r-1)\xi| \\ 
+    &\geq |1-\xi| - |r-1| |\xi| \\ 
+    &\geq \delta - \delta/2  = \delta/2 
+\end{align}
+Thus the denominator is uniformly (w.r.t. $r$) bounded away from $0$
+while the numerator approaches $0$. 
+</details>
+
+:::{.proposition #discLimit name="continuous limit of the Poisson-approximate Fourier series"}
+If $f$ is continuous, then $\lim_{r\to 1^-} \|f - \mca P_r f\|_\infty = 0$. 
+In other words, $\mca P_r f$ converges uniformly to $f$. 
+:::
+<details>
+<summary>Proof</summary>
+$f$ is uniformly continuous in $\partial D$, and apply the 
+approximate identity properties of $P_r$ above. 
+</details>

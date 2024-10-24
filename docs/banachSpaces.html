@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-19" />
+<meta name="date" content="2024-10-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -154,7 +154,13 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
 <li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="Fourier.html"><a href="Fourier.html"><i class="fa fa-check"></i><b>8</b> Fourier Transform</a></li>
+<li class="chapter" data-level="8" data-path="Fourier.html"><a href="Fourier.html"><i class="fa fa-check"></i><b>8</b> Fourier Transform</a>
+<ul>
+<li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#disc"><i class="fa fa-check"></i>Compact domain: <span class="math inline">\(\partial D\)</span></a>
+<ul>
+<li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#the-poisson-kernel"><i class="fa fa-check"></i>The Poisson kernel</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
 
@@ -187,7 +193,8 @@ works with <span class="math inline">\(\mathbb F\)</span> which can be either re
 <li><a href="banachSpaces.html#vectorSpace">Normed vector spaces, Hahn-Banach</a>:
 existence of a basis, normed space of linear operators,
 characterization of continuous linear functionals and operators,
-graphs, the Hahn-Banach theorem; weak topology and convergence.</li>
+graphs, the Hahn-Banach theorem, variational formula of the norm,
+weak topology and convergence.</li>
 <li><a href="banachSpaces.html#banachSpace">Banach theorems</a>:
 Baire’s (category) theorem,
 open mapping theorem, inverse mapping theorem,
@@ -202,7 +209,7 @@ closed graph theorem.</li>
 consists of the set of <strong>bounded</strong> or, equivalently, continuous
 linear functionals under the operator norm
 (definition <a href="banachSpaces.html#def:operatorNorm">6.2</a>); <span class="math inline">\(\mathcal B(V, W)\)</span>
-is Banach if <span class="math inline">\(W\)</span> is Banach <a href="banachSpaces.html#prp:banachDualInheritance">6.4</a>.</li>
+is Banach if <span class="math inline">\(W\)</span> is Banach <a href="banachSpaces.html#prp:banachDualInheritance">6.5</a>.</li>
 <li>The existence of a basis for infinite-dimensional vector space is
 is nontrivial and nonconstructive (theorem <a href="banachSpaces.html#thm:vectorBasisExistence">6.1</a>).</li>
 <li>Continuity of linear maps cannot be taken for granted in
@@ -224,7 +231,12 @@ uniform boundedness (corollary <a href="banachSpaces.html#cor:uniformBounded">6.
 every family of pointwise bounded linear operators from a
 Banach space to a normed vector space is uniformly bounded.
 Completeness (for continuous / bounded linear maps)
-plays a role similar to compactness (for continuous maps).</li>
+plays a role similar to compactness (for continuous maps).<br />
+</li>
+<li>The closed graph theorem <a href="banachSpaces.html#thm:closedGraph">6.6</a>
+is nontrivial since demonstrating continuity needs to show that (1)
+the limit exists, and (2) the limits are equal; but CGT
+reduces this to checking the closure of the graph.</li>
 </ol>
 <div id="vectorSpace" class="section level2 unnumbered hasAnchor">
 <h2>Normed spaces, Hahn-Banach<a href="banachSpaces.html#vectorSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -458,6 +470,26 @@ The extension lemma <a href="banachSpaces.html#lem:extLemma">6.2</a>
 guarantees that the maximal element is the graph
 of a linear functional defined on all of <span class="math inline">\(V\)</span>.
 </details>
+<p>The next proposition anticipates
+the variational formula of the <span class="math inline">\(p\)</span>-norm
+(proposition <a href="Lpspaces.html#prp:variationalPnorm">7.6</a>.</p>
+<div class="proposition">
+<p><span id="prp:normVariation" class="proposition"><strong>Proposition 6.2  (variational formula of the norm) </strong></span>Given a normed vector space <span class="math inline">\(V\)</span> and <span class="math inline">\(0\neq f\in V\)</span>,
+<span class="math display">\[
+    \|f\| = \sup_{\|\varphi\|_{V^*} = 1} |\varphi(f)|
+\]</span>
+In other words, there exists <span class="math inline">\(\varphi\in V&#39;\)</span>
+with <span class="math inline">\(\|\varphi\|=1\)</span> such that <span class="math inline">\(\|f\| = \varphi(f)\)</span>.</p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Consider the <span class="math inline">\(1\)</span>-dimensional subspace spanned by <span class="math inline">\(f\)</span>,
+and define <span class="math inline">\(\psi(\alpha f) = \alpha \|f\|\)</span>,
+which on this subspace satisfies <span class="math inline">\(\|\psi\|=1\)</span> and <span class="math inline">\(\psi(f)=\|f\|\)</span>.
+Apply the Hahn-Banach extension.
+</details>
 </div>
 <div id="banachSpace" class="section level2 unnumbered hasAnchor">
 <h2>Banach theorems<a href="banachSpaces.html#banachSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -467,7 +499,7 @@ in the space converges. A Banach space is
 a complete normed metric space.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-64" class="proposition"><strong>Proposition 6.2  (connection between complete and closed metric spaces) </strong></span>A complete subset of a metric space is closed, and a closed
+<p><span id="prp:completeInheritance" class="proposition"><strong>Proposition 6.3  (connection between complete and closed metric spaces) </strong></span>A complete subset of a metric space is closed, and a closed
 subset of a complete metric space is complete.</p>
 </div>
 <details>
@@ -483,7 +515,7 @@ property, so <span class="math inline">\(V\)</span> is complete.
 <p>Recall that to argue for Cauchy convergence we can
 drop to subsequences (proposition <a href="prelimaries.html#prp:cauchySubsequence">1.7</a>).</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-65" class="proposition"><strong>Proposition 6.3  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
+<p><span id="prp:unlabeled-div-64" class="proposition"><strong>Proposition 6.4  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
 iff <span class="math inline">\(\sum_{k=1}^\infty g_k\)</span> converges for every sequence
 <span class="math inline">\(g_j\in V\)</span> satisfying <span class="math inline">\(\sum_{k=1}^\infty \|g_k\|&lt;\infty\)</span>.</p>
 </div>
@@ -503,7 +535,7 @@ then by assumption
 exists.
 </details>
 <div class="proposition">
-<p><span id="prp:banachDualInheritance" class="proposition"><strong>Proposition 6.4  (Banach dual space) </strong></span><span class="math inline">\(\mathcal B(V, W)\)</span> is a Banach space (under the operator norm)
+<p><span id="prp:banachDualInheritance" class="proposition"><strong>Proposition 6.5  (Banach dual space) </strong></span><span class="math inline">\(\mathcal B(V, W)\)</span> is a Banach space (under the operator norm)
 if <span class="math inline">\(W\)</span> is a Banach space. In particular, the dual space
 of a Banach space is a Banach space.</p>
 </div>
@@ -587,15 +619,133 @@ we have <span class="math inline">\(rg+h\in B_r(h)\subset V_n\implies \|T(rg+h)\
 Taking <span class="math inline">\(\sup\)</span> over all <span class="math inline">\(T\)</span> completes the proof.
 </details>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-66" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Placeholder.</p>
+<p><span id="thm:unlabeled-div-65" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Given Banach spaces <span class="math inline">\(V, W\)</span>, a surjective
+bounded linear map <span class="math inline">\(T:V\to W\)</span> is open (i.e. 
+sends open sets to open sets);
+note that this does not require <span class="math inline">\(T\)</span> injective,
+so <span class="math inline">\(T\)</span> is not guaranteed to be a homeomorphism.</p>
 </div>
+<span style="color:green">
+Proof idea: Show that <span class="math inline">\(0\in \mathrm{int}\, T(B(0, 1))\)</span>.
+Do this by constructing, for each <span class="math inline">\(g\in B(0, 1)\subset W\)</span>,
+a bounded <span class="math inline">\(f\in V\)</span>
+(which is the limit of a Cauchy sequence)
+s.t. <span class="math inline">\(g=T\, f\)</span>.
+Next use linearity to extend to all open balls.
+</span>
+<details>
+<summary>
+Proof
+</summary>
+Given open <span class="math inline">\(U\subset V\)</span>, we need to show that
+<span class="math inline">\(\forall f\in U\)</span> such that <span class="math inline">\(B(f, a)\subset U\)</span>,
+there exists <span class="math inline">\(b&lt;a\)</span> such that, by linearity
+<span class="math display">\[
+    T\, B(f, b) = T\, f + bT(B) \subset T\, U
+\]</span>
+<span style="color:green">
+It thus suffices to show that
+<span class="math inline">\(\exists r: B(0, r)\subset T(B)\)</span>
+</span>
+(i.e. <span class="math inline">\(0\)</span> is an interior point of <span class="math inline">\(T(B)\)</span>).
+Surjectivity and linearity of <span class="math inline">\(T\)</span> implies that
+<span class="math display">\[
+    W = \bigcup_{k=1}^\infty T(kB)
+    = \bigcup_{k=1}^\infty k T\, B
+\]</span>
+Apply Baire’s theorem to <span class="math inline">\(k \overline{T\, B}\)</span>
+and use linearity (which respects closure)
+shows that <span class="math inline">\(\overline{T\, B}\)</span> has a nonempty interior;
+this is where we use the Banach condition on <span class="math inline">\(W\)</span>.<br />
+We need to be especially careful when working with
+closure and interiors of infinite-dimensional spaces.
+Given <span class="math inline">\(T\, g_{\in B}\in \mathrm{int}\, {\overline{T\, B}}\)</span>,
+<span class="math display">\[
+    0 \in \mathrm{int}\, \overline{T\, (B - g)}
+    \subset \mathrm{int} \, 2\, \overline{T\, B}
+    \implies \overline{B(0, \exists r)}
+    \subset \overline{T\, B}
+\]</span>
+<span style="color:green">
+We proceed to show that
+this implies <span class="math inline">\(0\in \mathrm{int}(T\, B)\)</span>;
+</span>
+again, this is not a trivial argument.
+By definition of closure, <span class="math inline">\(\forall h\in W\)</span>
+with <span class="math inline">\(\|h\|\leq r\)</span> we have
+<span class="math display">\[
+    \forall \epsilon&gt;0, \exists f\in B:
+    \|h - T\, f\| &lt; \epsilon
+\]</span>
+Substitute <span class="math inline">\(h\mapsto rh/\|h\|\)</span> yields,
+<span class="math inline">\(\forall h\in W-\{0\}, \epsilon&gt;0\)</span>
+<span class="math display" id="eq:openMappingIter">\[
+    \exists f\in \dfrac{\|h\|}{r}B:
+    \|h - T\, f\|&lt;\epsilon
+    \tag{6.1}
+\]</span>
+Now pick arbitrary <span class="math inline">\(g\in B\subset W\)</span>.
+Apply equation <a href="banachSpaces.html#eq:openMappingIter">(6.1)</a>
+with <span class="math inline">\((h, \epsilon)\mapsto (g, 1/2)\)</span> to obtain
+<span class="math display">\[
+    \exists f_1\in B/r: \|g - T\, f_1\|&lt;1/2
+\]</span>
+Apply equation <a href="banachSpaces.html#eq:openMappingIter">(6.1)</a> again
+with <span class="math inline">\(h\mapsto g - T\, f_1\in B/2, \epsilon = 1/4\)</span> to
+obtain
+<span class="math display">\[
+    \exists f_2\in B/2r: \|g - T\, f_1 - T\, f_2\| &lt; 1/4
+\]</span>
+Repeat this construction inductively to obtain
+<span class="math inline">\(f_1, f_2, \cdots \in V\)</span> and let
+<span class="math display">\[
+    f = \sum_{k=1}^\infty f_k, \quad
+    \|f\|\leq \sum_{k=1}^\infty \|f_k\|
+    \leq \sum_{k=1}^\infty \dfrac 1 {2^{k-1}r} = \dfrac 2 r
+\]</span>
+Here we used the Banach condition on <span class="math inline">\(V\)</span>.
+By construction, <span class="math inline">\(\|g-T\, f\| &lt; 2^{-n}\)</span> for every <span class="math inline">\(n\)</span>,
+then by continuity of <span class="math inline">\(T\)</span> we have <span class="math inline">\(g=T\, f\)</span>.
+Thus <span class="math inline">\(T\, B(0, 2 / r)\subset B(0, 1)\implies B(0, r / 2)\subset T\, B\)</span>.
+</details>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-67" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> where <span class="math inline">\(V, W\)</span> are Banach spaces,
+<p><span id="cor:unlabeled-div-66" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> injective (so that <span class="math inline">\(T^{-1}\)</span> exists)
+and surjective,
 <span class="math inline">\(T^{-1}\)</span> is a bounded linear map <span class="math inline">\(W\to V\)</span>.</p>
 </div>
+<p>Given two Banach spaces <span class="math inline">\(V, W\)</span> their vector space product
+<span class="math inline">\(V\oplus W\)</span> is a Banach space when equipped with the norm
+<span class="math inline">\(\|(f, g)\| = \max(\|f\|, \|g\|)\)</span>. This induces
+the product topology: a product sequence
+converges iff each component converges.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-68" class="theorem"><strong>Theorem 6.6  (closed graph theorem) </strong></span>Placeholder.</p>
+<p><span id="thm:closedGraph" class="theorem"><strong>Theorem 6.6  (closed graph theorem) </strong></span>Given Banach spaces <span class="math inline">\(V, W\)</span> and <span class="math inline">\(T:V\to W\)</span>, then <span class="math inline">\(T\)</span>
+is a bounded linear map iff <span class="math inline">\(\mathrm{graph}(T)\subset V\times W\)</span>
+is closed.</p>
 </div>
+<details>
+<summary>
+Proof
+</summary>
+Given <span class="math inline">\(T\)</span> continuous, given <span class="math inline">\((f_j, T\, f_j)\in \mathrm{graph}(V\times W)\)</span>
+converging to <span class="math inline">\((f, g)\in V\times W\)</span>, by the product topology
+this implies <span class="math inline">\((f, T\, f)\in \mathrm{graph}(T)\)</span>,
+which establishes closure of the grpah. Conversely,
+given the graph a closed subspace, it is a Banach space
+(proposition <a href="banachSpaces.html#prp:completeInheritance">6.3</a>) with the inherited norm.
+Consider the bijective projection map <span class="math inline">\(\pi:\mathrm{graph}(T)\to V\)</span>
+with <span class="math inline">\(\pi(f, T\, f) = f\)</span>, then
+<span class="math inline">\(\|\pi(f, T\, f)\|\leq \|(f, T\, f)\|\)</span>
+thus is bounded. Apply the bounded inverse theorem
+to obtain that <span class="math inline">\(\pi^{-1}(f) = (f, T\, f)\)</span> is bounded,
+implying
+<span class="math display">\[
+    \|T\, f\| \leq \|(f, T\, f)\| = \|\pi^{-1}(f)\|
+    \leq \|\pi^{-1}\|\|f\|
+\]</span>
+Thus <span class="math inline">\(\|T\| \leq \|\pi\|^{-1}\)</span>, establishing
+the boundedness of <span class="math inline">\(T\)</span>.
+</details>
 
 </div>
 </div>

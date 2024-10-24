@@ -32,6 +32,7 @@ link-citations: true
 \newcommand{\Pf}{\mrm{Pf}}
 \newcommand{\Pa}{\mca P}
 \newcommand{\R}{\mbb R}
+\newcommand{\C}{\mbb C}
 \newcommand{\N}{\mbb N}
 \newcommand{\F}{\mbb F}
 \newcommand{\supp}{\mrm{supp}}
@@ -80,6 +81,8 @@ deviate quite a bit from lecture materials, in particular:
     - Axler, Chapter 6; Luenberger, Chapter 5. 
 6. [$L^p$ spaces](#Lpspaces). 
     - Lieb and Loss, chapter 2; Axler, chapter 7. 
+5. [Fourier analysis](#Fourier). 
+    - Axler, Chapter 11. 
 
 References for these notes
 
@@ -140,13 +143,10 @@ Mandatory todo list:
 0. Inductive generalization of Holder's inequality. 
 1. Put in some pset problems. 
 1. Pset problem: separately continuous implies measurable. 
-2. Proof for $\sigma$-finite case in proposition \@ref(prp:variationalPnorm). 
 3. Dual of $L^p$ space. 
 
 Optional: 
 
-2. Complete the Banach theorems. 
 2. Lieb and Loss 2.9 to 2.18: compactness under weak convergence. 
 1. Product measures and Fubini. 
-3. Geometric formulation of the Hahn-Banach theorem. 
 3. Arnold-Kolmorogorov theorem. 

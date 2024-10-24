@@ -13,7 +13,8 @@ works with $\mbb F$ which can be either real or complex.
 1. [Normed vector spaces, Hahn-Banach](#vectorSpace): 
     existence of a basis, normed space of linear operators, 
     characterization of continuous linear functionals and operators, 
-    graphs, the Hahn-Banach theorem; weak topology and convergence. 
+    graphs, the Hahn-Banach theorem, variational formula of the norm, 
+    weak topology and convergence. 
 2. [Banach theorems](#banachSpace): 
     Baire's (category) theorem, 
     open mapping theorem, inverse mapping theorem, 
@@ -51,6 +52,10 @@ Key takeaways:
     Banach space to a normed vector space is uniformly bounded. 
     Completeness (for continuous / bounded linear maps) 
     plays a role similar to compactness (for continuous maps).  
+6. The closed graph theorem \@ref(thm:closedGraph) 
+    is nontrivial since demonstrating continuity needs to show that (1) 
+    the limit exists, and (2) the limits are equal; but CGT 
+    reduces this to checking the closure of the graph. 
 
 
 ## Normed spaces, Hahn-Banach {#vectorSpace -}
@@ -286,6 +291,26 @@ guarantees that the maximal element is the graph
 of a linear functional defined on all of $V$. 
 </details>
 
+The next proposition anticipates 
+the variational formula of the $p$-norm 
+(proposition \@ref(prp:variationalPnorm). 
+
+:::{.proposition #normVariation name="variational formula of the norm"}
+Given a normed vector space $V$ and $0\neq f\in V$, 
+\[ 
+    \|f\| = \sup_{\|\varphi\|_{V^*} = 1} |\varphi(f)|
+\] 
+In other words, there exists $\varphi\in V'$ 
+with $\|\varphi\|=1$ such that $\|f\| = \varphi(f)$. 
+:::
+<details>
+<summary>Proof</summary>
+Consider the $1$-dimensional subspace spanned by $f$, 
+and define $\psi(\alpha f) = \alpha \|f\|$, 
+which on this subspace satisfies $\|\psi\|=1$ and $\psi(f)=\|f\|$. 
+Apply the Hahn-Banach extension. 
+</details>
+
 ## Banach theorems {#banachSpace -}
 
 :::{.definition name="completeness, Banach space"}
@@ -294,7 +319,7 @@ in the space converges. A Banach space is
 a complete normed metric space. 
 :::
 
-:::{.proposition name="connection between complete and closed metric spaces"}
+:::{.proposition #completeInheritance name="connection between complete and closed metric spaces"}
 A complete subset of a metric space is closed, and a closed 
 subset of a complete metric space is complete. 
 :::
@@ -410,14 +435,129 @@ Taking $\sup$ over all $T$ completes the proof.
 </details> 
 
 :::{.theorem name="open mapping theorem"}
-Placeholder. 
+Given Banach spaces $V, W$, a surjective 
+bounded linear map $T:V\to W$ is open (i.e. 
+sends open sets to open sets); 
+note that this does not require $T$ injective, 
+so $T$ is not guaranteed to be a homeomorphism. 
 :::
+<span style="color:green">
+Proof idea: Show that $0\in \mrm{int}\, T(B(0, 1))$. 
+Do this by constructing, for each $g\in B(0, 1)\subset W$, 
+a bounded $f\in V$ 
+(which is the limit of a Cauchy sequence) 
+s.t. $g=T\, f$. 
+Next use linearity to extend to all open balls. 
+</span>
+<details>
+<summary>Proof</summary>
+Given open $U\subset V$, we need to show that 
+$\forall f\in U$ such that $B(f, a)\subset U$, 
+there exists $b<a$ such that, by linearity 
+\[ 
+    T\, B(f, b) = T\, f + bT(B) \subset T\, U 
+\] 
+<span style="color:green">
+It thus suffices to show that 
+$\exists r: B(0, r)\subset T(B)$ 
+</span>
+(i.e. $0$ is an interior point of $T(B)$). 
+Surjectivity and linearity of $T$ implies that 
+\[ 
+    W = \bigcup_{k=1}^\infty T(kB) 
+    = \bigcup_{k=1}^\infty k T\, B 
+\] 
+Apply Baire's theorem to $k \overline{T\, B}$ 
+and use linearity (which respects closure) 
+shows that $\overline{T\, B}$ has a nonempty interior; 
+this is where we use the Banach condition on $W$.  
+We need to be especially careful when working with 
+closure and interiors of infinite-dimensional spaces. 
+Given $T\, g_{\in B}\in \mrm{int}\, {\overline{T\, B}}$, 
+\[ 
+    0 \in \mrm{int}\, \overline{T\, (B - g)} 
+    \subset \mrm{int} \, 2\, \overline{T\, B}
+    \implies \overline{B(0, \exists r)}
+    \subset \overline{T\, B}
+\] 
+<span style="color:green">
+We proceed to show that 
+this implies $0\in \mrm{int}(T\, B)$; 
+</span>
+again, this is not a trivial argument. 
+By definition of closure, $\forall h\in W$ 
+with $\|h\|\leq r$ we have 
+\[ 
+    \forall \epsilon>0, \exists f\in B: 
+    \|h - T\, f\| < \epsilon 
+\] 
+Substitute $h\mapsto rh/\|h\|$ yields, 
+$\forall h\in W-\{0\}, \epsilon>0$ 
+\[ 
+    \exists f\in \df{\|h\|}{r}B: 
+    \|h - T\, f\|<\epsilon 
+    (\#eq:openMappingIter)
+\] 
+Now pick arbitrary $g\in B\subset W$. 
+Apply equation \@ref(eq:openMappingIter) 
+with $(h, \epsilon)\mapsto (g, 1/2)$ to obtain 
+\[ 
+    \exists f_1\in B/r: \|g - T\, f_1\|<1/2 
+\] 
+Apply equation \@ref(eq:openMappingIter) again 
+with $h\mapsto g - T\, f_1\in B/2, \epsilon = 1/4$ to 
+obtain 
+\[ 
+    \exists f_2\in B/2r: \|g - T\, f_1 - T\, f_2\| < 1/4 
+\] 
+Repeat this construction inductively to obtain 
+$f_1, f_2, \cdots \in V$ and let 
+\[ 
+    f = \sum_{k=1}^\infty f_k, \quad 
+    \|f\|\leq \sum_{k=1}^\infty \|f_k\| 
+    \leq \sum_{k=1}^\infty \df 1 {2^{k-1}r} = \df 2 r 
+\] 
+Here we used the Banach condition on $V$. 
+By construction, $\|g-T\, f\| < 2^{-n}$ for every $n$, 
+then by continuity of $T$ we have $g=T\, f$. 
+Thus $T\, B(0, 2 / r)\subset B(0, 1)\implies B(0, r / 2)\subset T\, B$.
+</details>
 
 :::{.corollary name="bounded inverse theorem"}
-Given $T\in \mca B(V, W)$ where $V, W$ are Banach spaces, 
+Given $T\in \mca B(V, W)$ injective (so that $T^{-1}$ exists) 
+and surjective, 
 $T^{-1}$ is a bounded linear map $W\to V$. 
 :::
 
-:::{.theorem name="closed graph theorem"}
-Placeholder. 
+Given two Banach spaces $V, W$ their vector space product 
+$V\oplus W$ is a Banach space when equipped with the norm 
+$\|(f, g)\| = \max(\|f\|, \|g\|)$. This induces 
+the product topology: a product sequence 
+converges iff each component converges. 
+
+:::{.theorem #closedGraph name="closed graph theorem"}
+Given Banach spaces $V, W$ and $T:V\to W$, then $T$ 
+is a bounded linear map iff $\mrm{graph}(T)\subset V\times W$ 
+is closed. 
 :::
+<details>
+<summary>Proof</summary>
+Given $T$ continuous, given $(f_j, T\, f_j)\in \mrm{graph}(V\times W)$ 
+converging to $(f, g)\in V\times W$, by the product topology 
+this implies $(f, T\, f)\in \mrm{graph}(T)$, 
+which establishes closure of the grpah. Conversely, 
+given the graph a closed subspace, it is a Banach space 
+(proposition \@ref(prp:completeInheritance)) with the inherited norm. 
+Consider the bijective projection map $\pi:\mrm{graph}(T)\to V$ 
+with $\pi(f, T\, f) = f$, then 
+$\|\pi(f, T\, f)\|\leq \|(f, T\, f)\|$ 
+thus is bounded. Apply the bounded inverse theorem 
+to obtain that $\pi^{-1}(f) = (f, T\, f)$ is bounded, 
+implying 
+\[ 
+    \|T\, f\| \leq \|(f, T\, f)\| = \|\pi^{-1}(f)\| 
+    \leq \|\pi^{-1}\|\|f\|
+\] 
+Thus $\|T\| \leq \|\pi\|^{-1}$, establishing 
+the boundedness of $T$. 
+</details>
