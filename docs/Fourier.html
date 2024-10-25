@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Fourier Transform | Measure Theory, Functional Analysis</title>
   <meta name="description" content="8 Fourier Transform | Measure Theory, Functional Analysis" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Fourier Transform | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
@@ -64,6 +64,7 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -140,7 +141,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html"><i class="fa fa-check"></i><b>5</b> Iterated integrals</a>
 <ul>
-<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#product-measure"><i class="fa fa-check"></i>Product measure</a></li>
+<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#properties-of-products"><i class="fa fa-check"></i>Properties of products</a></li>
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Spaces of functions</a>
@@ -218,7 +219,7 @@ a disc version of the Dirac delta).</li>
 plane and <span class="math inline">\(\partial D\)</span> its boundary consisting of
 unit-norm complex numbers.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-73" class="definition"><strong>Definition 8.1  (measurable subsets) </strong></span>Let <span class="math inline">\(\sigma\)</span> be the measure on <span class="math inline">\(\partial E\)</span>
+<p><span id="def:unlabeled-div-74" class="definition"><strong>Definition 8.1  (measurable subsets) </strong></span>Let <span class="math inline">\(\sigma\)</span> be the measure on <span class="math inline">\(\partial E\)</span>
 induced by the Lebesgue measure on <span class="math inline">\((-\pi, \pi]\)</span>
 normalized so that <span class="math inline">\(\sigma(\partial D)=1\)</span>.</p>
 <ul>
@@ -235,7 +236,7 @@ normalized so that <span class="math inline">\(\sigma(\partial D)=1\)</span>.</p
 <p>For <span class="math inline">\(1\leq p\leq \infty\)</span>, the set <span class="math inline">\(L^p(\partial D)\)</span>
 is defined w.r.t. the <span class="math inline">\(\sigma\)</span> measure.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-74" class="proposition"><strong>Proposition 8.1  (orthonormal family) </strong></span><span class="math inline">\(\{z^n\}_{n\in \mathbb Z}\)</span> is an orthonormal family
+<p><span id="prp:unlabeled-div-75" class="proposition"><strong>Proposition 8.1  (orthonormal family) </strong></span><span class="math inline">\(\{z^n\}_{n\in \mathbb Z}\)</span> is an orthonormal family
 in <span class="math inline">\(L^2(\partial D)\)</span>.</p>
 </div>
 <p>Note that, for <span class="math inline">\(z\in \partial D\)</span>, we have
@@ -305,7 +306,7 @@ Equality between the two representations
 \end{align}\]</span>
 </details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-75" class="proposition"><strong>Proposition 8.2  (Poisson kernel and Poisson-approximate Fourier series) </strong></span>Given <span class="math inline">\(f\in L^1(\partial D)\)</span> and <span class="math inline">\(0\leq r&lt;1\)</span>, we have
+<p><span id="prp:unlabeled-div-76" class="proposition"><strong>Proposition 8.2  (Poisson kernel and Poisson-approximate Fourier series) </strong></span>Given <span class="math inline">\(f\in L^1(\partial D)\)</span> and <span class="math inline">\(0\leq r&lt;1\)</span>, we have
 <span class="math display">\[
     (\mathcal P_r f)(z) = \int_{\partial D} f(w) P_r(z\bar w)\, d\sigma(w)
 \]</span></p>
@@ -327,7 +328,7 @@ is a continuous function. Unrolling definitions yield
 Swapping the sum and integral is justified by uniform convergence.
 </details>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-76" class="proposition"><strong>Proposition 8.3  (properties of the Poisson kernel) </strong></span>The Poisson kernel can be viewed as approximations to the Dirac
+<p><span id="prp:unlabeled-div-77" class="proposition"><strong>Proposition 8.3  (properties of the Poisson kernel) </strong></span>The Poisson kernel can be viewed as approximations to the Dirac
 delta function on <span class="math inline">\(\partial D\)</span> (approximate identity) since it
 satisfies the following properties: for all <span class="math inline">\(0\leq r&lt;1\)</span>:</p>
 <ol style="list-style-type: decimal">

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Spaces of functions | Measure Theory, Functional Analysis</title>
   <meta name="description" content="6 Spaces of functions | Measure Theory, Functional Analysis" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Spaces of functions | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
@@ -64,6 +64,7 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -140,7 +141,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html"><i class="fa fa-check"></i><b>5</b> Iterated integrals</a>
 <ul>
-<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#product-measure"><i class="fa fa-check"></i>Product measure</a></li>
+<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#properties-of-products"><i class="fa fa-check"></i>Properties of products</a></li>
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Spaces of functions</a>
@@ -241,7 +242,7 @@ reduces this to checking the closure of the graph.</li>
 <div id="vectorSpace" class="section level2 unnumbered hasAnchor">
 <h2>Normed spaces, Hahn-Banach<a href="banachSpaces.html#vectorSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-61" class="definition"><strong>Definition 6.1  ((Hamel) basis) </strong></span>A subset <span class="math inline">\(B\subset V\)</span> of a vector space <span class="math inline">\(V\)</span> is a (Hamel)
+<p><span id="def:unlabeled-div-62" class="definition"><strong>Definition 6.1  ((Hamel) basis) </strong></span>A subset <span class="math inline">\(B\subset V\)</span> of a vector space <span class="math inline">\(V\)</span> is a (Hamel)
 basis if it is linearly independent and every <span class="math inline">\(v\in V\)</span> can
 be written as a <span style="color:green">finite</span>
 linear combination of elements in <span class="math inline">\(V\)</span>.</p>
@@ -292,7 +293,7 @@ then <span class="math inline">\(\mathcal L(U, V)\)</span> is equipped with the 
 The set of bounded linear operators is denoted <span class="math inline">\(\mathcal B(U, V)\)</span>.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-62" class="definition"><strong>Definition 6.3  (bounded linear functional) </strong></span>A linear functional on a vector space <span class="math inline">\(V\)</span>
+<p><span id="def:unlabeled-div-63" class="definition"><strong>Definition 6.3  (bounded linear functional) </strong></span>A linear functional on a vector space <span class="math inline">\(V\)</span>
 is a linear map of signature <span class="math inline">\(T:V\to \mathbb F\)</span>.
 It is bounded if <span class="math inline">\(\|T\|&lt;\infty\)</span> using the operator norm.</p>
 </div>
@@ -494,7 +495,7 @@ Apply the Hahn-Banach extension.
 <div id="banachSpace" class="section level2 unnumbered hasAnchor">
 <h2>Banach theorems<a href="banachSpaces.html#banachSpace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-63" class="definition"><strong>Definition 6.7  (completeness, Banach space) </strong></span>A metric space is complete if every Cauchy sequence
+<p><span id="def:unlabeled-div-64" class="definition"><strong>Definition 6.7  (completeness, Banach space) </strong></span>A metric space is complete if every Cauchy sequence
 in the space converges. A Banach space is
 a complete normed metric space.</p>
 </div>
@@ -515,7 +516,7 @@ property, so <span class="math inline">\(V\)</span> is complete.
 <p>Recall that to argue for Cauchy convergence we can
 drop to subsequences (proposition <a href="prelimaries.html#prp:cauchySubsequence">1.7</a>).</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-64" class="proposition"><strong>Proposition 6.4  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
+<p><span id="prp:unlabeled-div-65" class="proposition"><strong>Proposition 6.4  (characterization of Banach space) </strong></span>A normed vector space <span class="math inline">\(V\)</span> is complete (i.e. a Banach space)
 iff <span class="math inline">\(\sum_{k=1}^\infty g_k\)</span> converges for every sequence
 <span class="math inline">\(g_j\in V\)</span> satisfying <span class="math inline">\(\sum_{k=1}^\infty \|g_k\|&lt;\infty\)</span>.</p>
 </div>
@@ -619,7 +620,7 @@ we have <span class="math inline">\(rg+h\in B_r(h)\subset V_n\implies \|T(rg+h)\
 Taking <span class="math inline">\(\sup\)</span> over all <span class="math inline">\(T\)</span> completes the proof.
 </details>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-65" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Given Banach spaces <span class="math inline">\(V, W\)</span>, a surjective
+<p><span id="thm:unlabeled-div-66" class="theorem"><strong>Theorem 6.5  (open mapping theorem) </strong></span>Given Banach spaces <span class="math inline">\(V, W\)</span>, a surjective
 bounded linear map <span class="math inline">\(T:V\to W\)</span> is open (i.e. 
 sends open sets to open sets);
 note that this does not require <span class="math inline">\(T\)</span> injective,
@@ -709,7 +710,7 @@ then by continuity of <span class="math inline">\(T\)</span> we have <span class
 Thus <span class="math inline">\(T\, B(0, 2 / r)\subset B(0, 1)\implies B(0, r / 2)\subset T\, B\)</span>.
 </details>
 <div class="corollary">
-<p><span id="cor:unlabeled-div-66" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> injective (so that <span class="math inline">\(T^{-1}\)</span> exists)
+<p><span id="cor:unlabeled-div-67" class="corollary"><strong>Corollary 6.2  (bounded inverse theorem) </strong></span>Given <span class="math inline">\(T\in \mathcal B(V, W)\)</span> injective (so that <span class="math inline">\(T^{-1}\)</span> exists)
 and surjective,
 <span class="math inline">\(T^{-1}\)</span> is a bounded linear map <span class="math inline">\(W\to V\)</span>.</p>
 </div>

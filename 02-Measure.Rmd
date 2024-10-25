@@ -2,12 +2,12 @@
 
 This section develops the abstract machinery of measures and $\sigma$-algebras: 
 
-1. [Definitions](#sigmaDefinition) of $\sigma$-algebra and monotone class theorem. 
+1. [Definitions](#sigmaDefinition) of $\sigma$-algebra, 
+    product $\sigma$-algebra, and monotone class theorem. 
 2. [Measure spaces](#measurableSpace): 
     $\sigma$-finite measures, measures of nested intersections or unions; 
     sufficient conditions for measurable functions; uniqueness of $\sigma$-finite 
-    measures (a prime demonstration of the monotone class theorem); 
-    product $\sigma$-algebras and measures. 
+    measures (a prime demonstration of the monotone class theorem). 
 2. [Measurable functions](#measurableFunction): 
     composition establishing measurability 
     using the generators of the $\sigma$-algebra. 
@@ -158,6 +158,19 @@ closed under complement and finite union,
 hence is a $\Sigma$-algebra. 
 </details>
 
+:::{.definition #productSigmaAlg name="product σ-algebra"}
+The product $\sigma$-algebra is the smallest 
+$\sigma$-algebra containing all rectangles. 
+\[ 
+    \Sigma = \sigma_{\mrm{Alg}}(\Sigma_1\times \Sigma_2) 
+    = \sigma_{\mrm{Alg}}\left(\{
+        A_1\times A_2 | A_1\in \Sigma_1, A_2\in \Sigma_2
+    \}\right)
+\] 
+where here $\Sigma_1\times \Sigma_2$ denotes the Cartesian 
+product of sets. The product measure $\mu = \mu_1\times \mu_2$ is 
+:::
+
 :::{.corollary} 
 Given an algebra of sets, its freely generated monotone class 
 (smallest monotone class containing it) is also its freely generated 
@@ -259,57 +272,6 @@ By $\sigma$-finite assumption choose $\Omega = \bigsqcup A_j$ each with finite m
     = \sum_{j=1}^\infty \mu_2(A_j\cap B) = \mu_2(B)
 \] 
 </details>
-
-:::{.definition #productSigmaAlg name="product σ-algebra"}
-The product $\sigma$-algebra is the smallest 
-$\sigma$-algebra containing all rectangles. 
-\[ 
-    \Sigma = \sigma_{\mrm{Alg}}(\Sigma_1\times \Sigma_2) 
-    = \sigma_{\mrm{Alg}}\left(\{
-        A_1\times A_2 | A_1\in \Sigma_1, A_2\in \Sigma_2
-    \}\right)
-\] 
-where here $\Sigma_1\times \Sigma_2$ denotes the Cartesian 
-product of sets. The product measure $\mu = \mu_1\times \mu_2$ is 
-:::
-
-
-:::{.proposition #productSection name="section property of product algebra"}
-The product $\sigma$-algebra $\Sigma = \Sigma_1\times \Sigma_2$ 
-has the <u>section property</u>: $\forall A\in \Sigma$, define 
-\[ 
-    A_1(x_2)\in \Omega_1 = \{x_1\in \Omega_1: (x_1, x_2)\in A\}
-\] 
-then $A_1(x_2)\in \Sigma_1$ for every choice of $x_2$. 
-:::
-<details>
-<summary>Proof</summary>
-The set $\Sigma'$ of all subsets of $\Omega_1\times \Omega_2$ 
-(regarded as Cartesian product of sets) 
-satisfying the section property is a $\sigma$-algebra containing 
-$\Sigma_1\times \Sigma_2$; the proof concludes by the universal 
-property of $\Sigma_1\times \Sigma_2$. 
-</details>
-
-
-:::{.definition name="product measures"}
-The product of two measure spaces is 
-\[ 
-    (\Omega_1\times \Omega_2, \Sigma_1\times \Sigma_2, \mu_1\times \mu_2) 
-    = (\Omega_1, \Sigma_1, \mu_1)\times (\Omega_2, \Sigma_2, \mu_2)
-\] 
-where $\Omega_1\times \Omega_2$ is the Cartesian product of sets, 
-$\Sigma_1\times \Sigma_2$ is the $\sigma$-algebra product 
-\@ref(def:productSigmaAlg), 
-and $\mu_1\times \mu_2$ is uniquely 
-defined by the requirement 
-\[ 
-    \mu(A_1\times A_2) = \mu_1(A_1) \mu_2(A_2)
-\] 
-The exact definition and uniqueness of the 
-product measure is postponed to 
-theorem \@ref(thm:productMeasure). 
-:::
 
 ## Measurable function {#measurableFunction -}
 

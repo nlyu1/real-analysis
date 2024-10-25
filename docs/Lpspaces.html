@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 \(L^p\) Spaces | Measure Theory, Functional Analysis</title>
   <meta name="description" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 \(L^p\) Spaces | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
@@ -64,6 +64,7 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -140,7 +141,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html"><i class="fa fa-check"></i><b>5</b> Iterated integrals</a>
 <ul>
-<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#product-measure"><i class="fa fa-check"></i>Product measure</a></li>
+<li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#properties-of-products"><i class="fa fa-check"></i>Properties of products</a></li>
 <li class="chapter" data-level="" data-path="iteratedIntegrals.html"><a href="iteratedIntegrals.html#fubinis-theorem"><i class="fa fa-check"></i>Fubini’s theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="banachSpaces.html"><a href="banachSpaces.html"><i class="fa fa-check"></i><b>6</b> Spaces of functions</a>
@@ -232,7 +233,7 @@ saturation of Young’s inequality.
 <div id="convexAnalysis" class="section level2 unnumbered hasAnchor">
 <h2>Convexity<a href="Lpspaces.html#convexAnalysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-67" class="definition"><strong>Definition 7.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
+<p><span id="def:unlabeled-div-68" class="definition"><strong>Definition 7.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
 <span class="math inline">\((x, y)\mapsto \lambda x + \bar y\)</span>
 for all <span class="math inline">\(\lambda \in [0, 1]\)</span>. A <strong>convex function</strong>
 on a convex set <span class="math inline">\(K\)</span> is a real-valued function satisfying
@@ -244,10 +245,10 @@ the function <span class="math inline">\(f\)</span> is <strong>strictly convex</
 inequality is strict for all <span class="math inline">\(y\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-68" class="proposition"><strong>Proposition 7.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
+<p><span id="prp:unlabeled-div-69" class="proposition"><strong>Proposition 7.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-69" class="definition"><strong>Definition 7.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
+<p><span id="def:unlabeled-div-70" class="definition"><strong>Definition 7.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
 <span class="math inline">\(x\in K\subset \mathbb R^n\)</span> is a plane in <span class="math inline">\(\mathbb R^{n+1}\)</span> that
 touches <span class="math inline">\((x, f(x))\)</span> and that nowhere lies above the graph;
 if the support plane at <span class="math inline">\(x\)</span> is unique, then it is the tangent plane.</p>
@@ -266,7 +267,7 @@ a vector <span class="math inline">\(V\in \mathbb R^n\)</span> such that
     \tag{7.1}
 \]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-70" class="definition"><strong>Definition 7.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
+<p><span id="def:unlabeled-div-71" class="definition"><strong>Definition 7.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
 <span class="math display">\[
     p^{-1} + q^{-1} = 1
 \]</span>
@@ -301,7 +302,7 @@ of the Legendre transform.
 Equality is saturated when <span class="math inline">\(a=b^{1/(p-1)} \iff a^p = b^q\)</span>.
 </details>
 <div class="definition">
-<p><span id="def:unlabeled-div-71" class="definition"><strong>Definition 7.4  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
+<p><span id="def:unlabeled-div-72" class="definition"><strong>Definition 7.4  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
 a measurable function <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is defined as
 <span class="math display">\[
     \langle f\rangle= \dfrac 1 {\mu(\Omega)} \int_\Omega f\, d\mu
@@ -471,7 +472,7 @@ Holder’s inequality is not implied by Young’s.
 </span>
 </details>
 <div class="remark">
-<p><span id="unlabeled-div-72" class="remark"><em>Remark</em> (counterexample). </span>For <span class="math inline">\(p=\infty\)</span>, consider the non <span class="math inline">\(\sigma\)</span>-finite measure
+<p><span id="unlabeled-div-73" class="remark"><em>Remark</em> (counterexample). </span>For <span class="math inline">\(p=\infty\)</span>, consider the non <span class="math inline">\(\sigma\)</span>-finite measure
 on <span class="math inline">\(X=\{b\}\)</span> with <span class="math inline">\(\mu(\emptyset)=0, \mu(\{b\})=\infty\)</span>.
 Then <span class="math inline">\(L^1=\{0\}\)</span>. For the constant function <span class="math inline">\(f=1\)</span>, we have
 <span class="math inline">\(\|f\|_\infty = 1\)</span> (recall definition <a href="Lpspaces.html#def:LpDef">7.5</a> carefully).</p>
