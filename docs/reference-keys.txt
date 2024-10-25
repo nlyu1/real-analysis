@@ -163,6 +163,7 @@ cor:unlabeled-div-79
 def:unlabeled-div-80
 prp:convNorm
 prp:discConvMultDuality
+prp:LpPoissonLimit
 prelimaries
 abstractMachinery
 realMeasures

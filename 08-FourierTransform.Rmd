@@ -1,8 +1,13 @@
-# Fourier Transform {#Fourier}
+# Fourier Analysis {#Fourier}
 
 Organization: 
 
-- [Fourier transform on a compact domain](#disc): the Poisson kernel. 
+- [Fourier transform on a compact domain](#disc): the Poisson kernel, 
+    the continuous limit of the Poisson integral, orthonormal 
+    basis of $L^2$, convergence conditions of the Fourier series, 
+    convolution and its norm properties. 
+- [Haar measure](#haar): locally compact abelian groups and the 
+    construction of the Haar measure. 
 
 Key takeaways:
 
@@ -15,19 +20,23 @@ Key takeaways:
         series using the derivative relation of Fourier coefficients. 
     - An Abel-sum like 
         correction $\mca P_{0\leq r<1} f$ (definition \@ref(def:discConvFourier)) 
-        converges uniformly to any continuous function 
+        corresponds to the Poisson integral, leading 
+        leading naturally to the definition \@ref(def:poissonKernel) of the 
+        Poisson kernel, a disc version of the Dirac delta. 
+        - The Poisson integral converges uniformly 
+        in the $L^\infty$ norm to any continuous function 
         (proposition \@ref(prp:discLimit)). 
-        leading naturally to the definition of the 
-        Poisson kernel (definition \@ref(def:poissonKernel), 
-        a disc version of the Dirac delta). 
+        - It converges in the $L^{1\leq p<\infty}$ 
+        norm to any $L^p$ function 
+        (proposition \@ref(prp:LpPoissonLimit)). 
     - The Fourier basis is an orthonormal basis of 
     $L^2(\partial D)$ (proposition \@ref(prp:discBasis)), so 
     every $L^2$ function is the $L^2$-limit of its Fourier series. 
         - This holds by the special Hilbert space structure of $L^2$. 
 2. The definition of sums and a basis becomes nuanced in possibly uncountable-dimensional 
     vector spaces (definition \@ref(def:orthonormalBasis)). 
-3. Convolution is initially defined in $L^1$. 
-    - Norm property (proposition \@ref(prp:convNorm)). 
+3. Convolution is initially defined in $L^1$ 
+    and satisfies a crucial norm property (proposition \@ref(prp:convNorm)). 
 4. The central convolution-multiplication duality \@ref(prp:discConvMultDuality) 
     relies on a translation-invariant measure and the ability to 
     exchange integrals. 
@@ -189,7 +198,7 @@ while the numerator approaches $0$.
 
 ### Convergence results {-}
 
-:::{.proposition #discLimit name="continuous limit of the Poisson-approximate Fourier series"}
+:::{.proposition #discLimit name="continuous limit of the Poisson integral"}
 If $f$ is continuous, then $\lim_{r\to 1^-} \|f - \mca P_r f\|_\infty = 0$. 
 In other words, $\mca P_r f$ converges uniformly to $f$. 
 :::
@@ -390,3 +399,28 @@ integral to obtain
     = \hat f(n)\hat g(n)
 \end{align}
 </details>
+
+:::{.proposition #LpPoissonLimit name="convergence of the Poisson integral"}
+Given $f\in L^p(\partial D)$ for $1\leq p<\infty$ 
+\[ 
+    \lim_{r\to 1^-} \|f - \mca P_r f\|_p = 0 
+\] 
+:::
+<details>
+<summary>Proof</summary>
+Let $g:\mca D\to \C$ be a continuous function with $\|f-g\|_p < \epsilon$. 
+By proposition \@ref(prp:discLimit), there exists $R\in [0, 1)$ such that 
+\|g - \mca P_{\forall r\in (R, 1)} g\|_\infty < \epsilon$. 
+Noting that $\mca P_r f = P_r \ast f$, $\|P_r\|_1\leq 1$, and 
+proposition \@ref(prp:convNorm): 
+\begin{align}
+    \|f - \mca P_r f\|_p 
+    &\leq \|f-g\|_p + \|g - \mca P_r g\|_p + \|\mca P_r g - \mca P_r f\|_p \\ 
+    &< \epsilon + \|g - \mca P_r g\|_\infty + \|P_r\ast (g-f)\|_p \\ 
+    &<2\epsilon + \|P_r\|_1 \|g-f\|_p < 3\epsilon 
+\end{align}
+</details>
+
+## The Haar measure {#haar -}
+
+## The dual group, Fourier transform {#fourierTransform -}

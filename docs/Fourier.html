@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Fourier Transform | Measure Theory, Functional Analysis</title>
-  <meta name="description" content="8 Fourier Transform | Measure Theory, Functional Analysis" />
+  <title>8 Fourier Analysis | Measure Theory, Functional Analysis</title>
+  <meta name="description" content="8 Fourier Analysis | Measure Theory, Functional Analysis" />
   <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Fourier Transform | Measure Theory, Functional Analysis" />
+  <meta property="og:title" content="8 Fourier Analysis | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Fourier Transform | Measure Theory, Functional Analysis" />
+  <meta name="twitter:title" content="8 Fourier Analysis | Measure Theory, Functional Analysis" />
   
   
   
@@ -154,7 +154,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#LpSpace"><i class="fa fa-check"></i><span class="math inline">\(L^p\)</span> as a Banach space</a></li>
 <li class="chapter" data-level="" data-path="Lpspaces.html"><a href="Lpspaces.html#duality"><i class="fa fa-check"></i>Duality</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="Fourier.html"><a href="Fourier.html"><i class="fa fa-check"></i><b>8</b> Fourier Transform</a>
+<li class="chapter" data-level="8" data-path="Fourier.html"><a href="Fourier.html"><i class="fa fa-check"></i><b>8</b> Fourier Analysis</a>
 <ul>
 <li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#disc"><i class="fa fa-check"></i>Compact domain: <span class="math inline">\(\partial D\)</span></a>
 <ul>
@@ -162,6 +162,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#convergence-results"><i class="fa fa-check"></i>Convergence results</a></li>
 <li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#convolution-and-lp"><i class="fa fa-check"></i>Convolution and <span class="math inline">\(L^p\)</span></a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#haar"><i class="fa fa-check"></i>The Haar measure</a></li>
+<li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#fourierTransform"><i class="fa fa-check"></i>The dual group, Fourier transform</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -182,10 +184,15 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="Fourier" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">8</span> Fourier Transform<a href="Fourier.html#Fourier" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">8</span> Fourier Analysis<a href="Fourier.html#Fourier" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Organization:</p>
 <ul>
-<li><a href="Fourier.html#disc">Fourier transform on a compact domain</a>: the Poisson kernel.</li>
+<li><a href="Fourier.html#disc">Fourier transform on a compact domain</a>: the Poisson kernel,
+the continuous limit of the Poisson integral, orthonormal
+basis of <span class="math inline">\(L^2\)</span>, convergence conditions of the Fourier series,
+convolution and its norm properties.</li>
+<li><a href="Fourier.html#haar">Haar measure</a>: locally compact abelian groups and the
+construction of the Haar measure.</li>
 </ul>
 <p>Key takeaways:</p>
 <ol style="list-style-type: decimal">
@@ -199,11 +206,17 @@ the main idea here is to bound each term in the
 series using the derivative relation of Fourier coefficients.</li>
 <li>An Abel-sum like
 correction <span class="math inline">\(\mathcal P_{0\leq r&lt;1} f\)</span> (definition <a href="Fourier.html#def:discConvFourier">8.3</a>)
-converges uniformly to any continuous function
-(proposition <a href="Fourier.html#prp:discLimit">8.4</a>).
-leading naturally to the definition of the
-Poisson kernel (definition <a href="Fourier.html#def:poissonKernel">8.4</a>,
-a disc version of the Dirac delta).</li>
+corresponds to the Poisson integral, leading
+leading naturally to the definition <a href="Fourier.html#def:poissonKernel">8.4</a> of the
+Poisson kernel, a disc version of the Dirac delta.
+<ul>
+<li>The Poisson integral converges uniformly
+in the <span class="math inline">\(L^\infty\)</span> norm to any continuous function
+(proposition <a href="Fourier.html#prp:discLimit">8.4</a>).</li>
+<li>It converges in the <span class="math inline">\(L^{1\leq p&lt;\infty}\)</span>
+norm to any <span class="math inline">\(L^p\)</span> function
+(proposition <a href="Fourier.html#prp:LpPoissonLimit">8.10</a>).</li>
+</ul></li>
 <li>The Fourier basis is an orthonormal basis of
 <span class="math inline">\(L^2(\partial D)\)</span> (proposition <a href="Fourier.html#prp:discBasis">8.7</a>), so
 every <span class="math inline">\(L^2\)</span> function is the <span class="math inline">\(L^2\)</span>-limit of its Fourier series.
@@ -213,10 +226,8 @@ every <span class="math inline">\(L^2\)</span> function is the <span class="math
 </ul></li>
 <li>The definition of sums and a basis becomes nuanced in possibly uncountable-dimensional
 vector spaces (definition <a href="Fourier.html#def:orthonormalBasis">8.7</a>).</li>
-<li>Convolution is initially defined in <span class="math inline">\(L^1\)</span>.
-<ul>
-<li>Norm property (proposition <a href="Fourier.html#prp:convNorm">8.8</a>).</li>
-</ul></li>
+<li>Convolution is initially defined in <span class="math inline">\(L^1\)</span>
+and satisfies a crucial norm property (proposition <a href="Fourier.html#prp:convNorm">8.8</a>).</li>
 <li>The central convolution-multiplication duality <a href="Fourier.html#prp:discConvMultDuality">8.9</a>
 relies on a translation-invariant measure and the ability to
 exchange integrals.</li>
@@ -376,7 +387,7 @@ while the numerator approaches <span class="math inline">\(0\)</span>.
 <div id="convergence-results" class="section level3 unnumbered hasAnchor">
 <h3>Convergence results<a href="Fourier.html#convergence-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="proposition">
-<p><span id="prp:discLimit" class="proposition"><strong>Proposition 8.4  (continuous limit of the Poisson-approximate Fourier series) </strong></span>If <span class="math inline">\(f\)</span> is continuous, then <span class="math inline">\(\lim_{r\to 1^-} \|f - \mathcal P_r f\|_\infty = 0\)</span>.
+<p><span id="prp:discLimit" class="proposition"><strong>Proposition 8.4  (continuous limit of the Poisson integral) </strong></span>If <span class="math inline">\(f\)</span> is continuous, then <span class="math inline">\(\lim_{r\to 1^-} \|f - \mathcal P_r f\|_\infty = 0\)</span>.
 In other words, <span class="math inline">\(\mathcal P_r f\)</span> converges uniformly to <span class="math inline">\(f\)</span>.</p>
 </div>
 <details>
@@ -575,8 +586,36 @@ integral to obtain
     = \hat f(n)\hat g(n)
 \end{align}\]</span>
 </details>
-
+<div class="proposition">
+<p><span id="prp:LpPoissonLimit" class="proposition"><strong>Proposition 8.10  (convergence of the Poisson integral) </strong></span>Given <span class="math inline">\(f\in L^p(\partial D)\)</span> for <span class="math inline">\(1\leq p&lt;\infty\)</span>
+<span class="math display">\[
+    \lim_{r\to 1^-} \|f - \mathcal P_r f\|_p = 0
+\]</span></p>
 </div>
+<details>
+<summary>
+Proof
+</summary>
+Let <span class="math inline">\(g:\mathcal D\to \mathbb C\)</span> be a continuous function with <span class="math inline">\(\|f-g\|_p &lt; \epsilon\)</span>.
+By proposition <a href="Fourier.html#prp:discLimit">8.4</a>, there exists <span class="math inline">\(R\in [0, 1)\)</span> such that
+|g - P_{r(R, 1)} g|_&lt; $.
+Noting that <span class="math inline">\(\mathcal P_r f = P_r \ast f\)</span>, <span class="math inline">\(\|P_r\|_1\leq 1\)</span>, and
+proposition <a href="Fourier.html#prp:convNorm">8.8</a>:
+<span class="math display">\[\begin{align}
+    \|f - \mathcal P_r f\|_p
+    &amp;\leq \|f-g\|_p + \|g - \mathcal P_r g\|_p + \|\mathcal P_r g - \mathcal P_r f\|_p \\
+    &amp;&lt; \epsilon + \|g - \mathcal P_r g\|_\infty + \|P_r\ast (g-f)\|_p \\
+    &amp;&lt;2\epsilon + \|P_r\|_1 \|g-f\|_p &lt; 3\epsilon
+\end{align}\]</span>
+</details>
+</div>
+</div>
+<div id="haar" class="section level2 unnumbered hasAnchor">
+<h2>The Haar measure<a href="Fourier.html#haar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="fourierTransform" class="section level2 unnumbered hasAnchor">
+<h2>The dual group, Fourier transform<a href="Fourier.html#fourierTransform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
 </div>
 </div>
             </section>

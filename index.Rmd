@@ -57,8 +57,11 @@ deviate quite a bit from lecture materials, in particular:
 3. Some time is spent on infinite-dimensional vector spaces and 
     results in Banach spaces, since 
     (1) nontrivial complexities arive when we generalize linear algebra 
-    constructions to infinite-dimensions, and 
+    constructions to infinite-dimensions (e.g. Hammel basis, span, and orthonormal basis). 
     (2) several theorems are important for convex analysis.
+4. Much more time is spent on the Fourier transform, with intuitions developed 
+    on the compact domain $\partial D\cong S^1$ and later generalized to locally compact 
+    abelian groups. 
 4. Other miscellany:
     - Proof of Young's inequality (proposition \@ref(prp:youngInequality)) 
     using the Legendre transform to highlight the role of convexity. 
@@ -78,11 +81,12 @@ deviate quite a bit from lecture materials, in particular:
 5. [Spaces of functions](#banachSpaces): 
     normed vector spaces, dual space of bounded linear functionals,  
     and the Hahn-Banach theorem; Baire's theorem and other Banach theorems. 
-    - Axler, Chapter 6; Luenberger, Chapter 5. 
+    - Axler, Chapter 6. 
 6. [$L^p$ spaces](#Lpspaces). 
     - Lieb and Loss, chapter 2; Axler, chapter 7. 
-5. [Fourier analysis](#Fourier). 
-    - Axler, Chapter 11. 
+5. [Fourier analysis](#Fourier): Example of the Fourier series 
+    on a compact domain, the Haar measure, locally compact groups and their duals. 
+    - Axler, Chapter 11, Rudin (Fourier analysis), Chapter 1, Su. 
 
 References for these notes
 
@@ -91,7 +95,9 @@ References for these notes
 3. John K. Hunter, [online notes](https://www.math.ucdavis.edu/~hunter/measure_theory/measure_notes_ch2.pdf)
     on the Lebesgue measure. 
 4. Rudin, _Principles of Mathematical Analysis_ [@rudin1964principles]. 
-5. Luenberger, _Optimization by Vector Space Methods_ [@luenberger1997optimization]. 
+5. Rudin, _Fourier analysis on groups_ [@rudin2017fourier]. 
+6. Dan Su, _The Fourier Transform for Locally Compact Abelian Groups_, 
+    [online notes](https://math.uchicago.edu/~may/REU2016/REUPapers/Su.pdf). 
 
 ## Main deliverables {-}
 
