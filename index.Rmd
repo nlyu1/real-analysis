@@ -132,10 +132,14 @@ Proof techniques:
     Completeness proof for $L^p$ (proposition \@ref(prp:LpBanach)). 
 5. Prime example for the use of monotone convergence theorem, Fatou's lemma, 
     and dominated convergence theorem: proposition \@ref(prp:LpBanach). 
-4. Using the monotone class theorem (example theorem \@ref(thm:uniqueMeasure)): 
+6. Using the monotone class theorem (example theorem \@ref(thm:uniqueMeasure)): 
     rewrite nested chain as disjoint union, then pass through the limit 
     using the countable additivity of measures. 
     Next apply the reduction from finite to $\sigma$-finite measures. 
+7. Demonstrating a certain property (e.g. triviality): approximate by 
+    a tractable dense subset. 
+    - Orthonormality of the Fourier basis on $L^2(\partial D)$
+    (proposition \@ref(prp:discBasis)). 
 
 
 Mandatory todo list: 

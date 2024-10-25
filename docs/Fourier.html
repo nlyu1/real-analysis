@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8 Fourier Transform | Measure Theory, Functional Analysis</title>
   <meta name="description" content="8 Fourier Transform | Measure Theory, Functional Analysis" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Fourier Transform | Measure Theory, Functional Analysis" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-24" />
+<meta name="date" content="2024-10-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -64,7 +64,6 @@
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -160,6 +159,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#disc"><i class="fa fa-check"></i>Compact domain: <span class="math inline">\(\partial D\)</span></a>
 <ul>
 <li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#the-poisson-kernel"><i class="fa fa-check"></i>The Poisson kernel</a></li>
+<li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#convergence-results"><i class="fa fa-check"></i>Convergence results</a></li>
+<li class="chapter" data-level="" data-path="Fourier.html"><a href="Fourier.html#convolution-and-lp"><i class="fa fa-check"></i>Convolution and <span class="math inline">\(L^p\)</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -188,33 +189,44 @@ div.csl-indent {
 </ul>
 <p>Key takeaways:</p>
 <ol style="list-style-type: decimal">
-<li>Even on a compact domain, the Fourier series of a continuous function
-may fail to converge, but strong convergence is
-guaranteed for twice continuously differentiable functions.
+<li>The Fourier series of a continuous function
+may fail to converge even on a compact domain,
+but the following results hold:
 <ul>
-<li>Pointwise convergence a.e. holds for <span class="math inline">\(L^2(\partial D)\)</span> (difficult,
-not included in the textbook).<br />
-</li>
-</ul></li>
-<li>The Fourier basis is an orthonormal basis of <span class="math inline">\(L^2(\partial D)\)</span>;</li>
-</ol>
-<div id="disc" class="section level2 unnumbered hasAnchor">
-<h2>Compact domain: <span class="math inline">\(\partial D\)</span><a href="Fourier.html#disc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Outline:</p>
-<ol style="list-style-type: decimal">
-<li>We first define the Fourier series (definition <a href="Fourier.html#def:discFourierSeries">8.2</a>)
-on the boundary <span class="math inline">\(\partial D\)</span>
-of the unit disk, on which <span class="math inline">\(e^{int}\leftrightarrow z^n\)</span>
-admits nice algebraic properties.</li>
-<li>There exists continuous functions in <span class="math inline">\(L^1(\partial D)\)</span>
-whose Fourier series fail to converge. However, a Abel-sum like
+<li>Strong convergence is guaranteed for twice
+continuously differentiable functions (proposition <a href="Fourier.html#prp:twiceDiffConv">8.6</a>);
+the main idea here is to bound each term in the
+series using the derivative relation of Fourier coefficients.</li>
+<li>An Abel-sum like
 correction <span class="math inline">\(\mathcal P_{0\leq r&lt;1} f\)</span> (definition <a href="Fourier.html#def:discConvFourier">8.3</a>)
 converges uniformly to any continuous function
 (proposition <a href="Fourier.html#prp:discLimit">8.4</a>).
 leading naturally to the definition of the
 Poisson kernel (definition <a href="Fourier.html#def:poissonKernel">8.4</a>,
 a disc version of the Dirac delta).</li>
+<li>The Fourier basis is an orthonormal basis of
+<span class="math inline">\(L^2(\partial D)\)</span> (proposition <a href="Fourier.html#prp:discBasis">8.7</a>), so
+every <span class="math inline">\(L^2\)</span> function is the <span class="math inline">\(L^2\)</span>-limit of its Fourier series.
+<ul>
+<li>This holds by the special Hilbert space structure of <span class="math inline">\(L^2\)</span>.</li>
+</ul></li>
+</ul></li>
+<li>The definition of sums and a basis becomes nuanced in possibly uncountable-dimensional
+vector spaces (definition <a href="Fourier.html#def:orthonormalBasis">8.7</a>).</li>
+<li>Convolution is initially defined in <span class="math inline">\(L^1\)</span>.
+<ul>
+<li>Norm property (proposition <a href="Fourier.html#prp:convNorm">8.8</a>).</li>
+</ul></li>
+<li>The central convolution-multiplication duality <a href="Fourier.html#prp:discConvMultDuality">8.9</a>
+relies on a translation-invariant measure and the ability to
+exchange integrals.</li>
 </ol>
+<p><span style="color:green">
+Strengths of the topologies: convergence in <span class="math inline">\(L_p\)</span>
+norm, pointwise convergence a.e, etc.
+</span></p>
+<div id="disc" class="section level2 unnumbered hasAnchor">
+<h2>Compact domain: <span class="math inline">\(\partial D\)</span><a href="Fourier.html#disc" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let <span class="math inline">\(D=\{z\in \mathbb C: |z|&lt;1\}\)</span> denote the open unit disk in the complex
 plane and <span class="math inline">\(\partial D\)</span> its boundary consisting of
 unit-norm complex numbers.</p>
@@ -275,7 +287,7 @@ Since <span class="math inline">\((z^n)\)</span> is an orthonormal family, we ha
 <div id="the-poisson-kernel" class="section level3 unnumbered hasAnchor">
 <h3>The Poisson kernel<a href="Fourier.html#the-poisson-kernel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Note that <span style="color:green">
-there are function in <span class="math inline">\(L^1(\partial D)\)</span>
+there are continuous function in <span class="math inline">\(L^1(\partial D)\)</span>
 whose Fourier series diverge.</span>
 The next definition introduces a geometric “correction”
 of the Fourier series that converges; it also leads naturally
@@ -360,6 +372,9 @@ Consider the denominator <span class="math inline">\(|1-r\xi|^2\)</span> in the 
 Thus the denominator is uniformly (w.r.t. <span class="math inline">\(r\)</span>) bounded away from <span class="math inline">\(0\)</span>
 while the numerator approaches <span class="math inline">\(0\)</span>.
 </details>
+</div>
+<div id="convergence-results" class="section level3 unnumbered hasAnchor">
+<h3>Convergence results<a href="Fourier.html#convergence-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="proposition">
 <p><span id="prp:discLimit" class="proposition"><strong>Proposition 8.4  (continuous limit of the Poisson-approximate Fourier series) </strong></span>If <span class="math inline">\(f\)</span> is continuous, then <span class="math inline">\(\lim_{r\to 1^-} \|f - \mathcal P_r f\|_\infty = 0\)</span>.
 In other words, <span class="math inline">\(\mathcal P_r f\)</span> converges uniformly to <span class="math inline">\(f\)</span>.</p>
@@ -370,6 +385,195 @@ Proof
 </summary>
 <span class="math inline">\(f\)</span> is uniformly continuous in <span class="math inline">\(\partial D\)</span>, and apply the
 approximate identity properties of <span class="math inline">\(P_r\)</span> above.
+</details>
+<p><span style="color:green">
+This does not contradict the fact that the Fourier series
+of some continuous functions in <span class="math inline">\(L^1(\partial D)\)</span> diverge:
+in these cases, the <span class="math inline">\(\lim_{r\to 1^-}\)</span> cannot be exchanged
+with the series sum.
+</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-78" class="definition"><strong>Definition 8.5  (differentiation) </strong></span>Given <span class="math inline">\(f:\partial D\to \mathbb C\)</span>, we define <span class="math inline">\(f^{[k]}\)</span>
+to be the <span class="math inline">\(k\)</span>-th derivative <span class="math inline">\(\tilde f^{(k)}\)</span> of <span class="math inline">\(f\)</span> in the chart
+<span class="math inline">\([-\pi, \pi)\)</span> with periodic boundary conditions,
+then expressed back in the <span class="math inline">\(\partial D\subset \mathbb C\)</span> chart.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:fourierDerivative" class="proposition"><strong>Proposition 8.5  (Fourier coefficients of derivatives) </strong></span>Given <span class="math inline">\(k\in \mathbb N\)</span> and <span class="math inline">\(f:\partial D\to \mathbb C\)</span> being <span class="math inline">\(k\)</span>-times
+continuously differentiable, then
+<span class="math display">\[
+    \widehat{f^{[k]}}(n) = (in)^k \hat f(n)
+\]</span></p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+For <span class="math inline">\(n=0\)</span>, the integral vanishes due to periodic boundary conditions:
+<span class="math display">\[
+    \widehat{f^{[k]}}(0)
+    = \dfrac 1 {2\pi} \int_{-\pi}^\pi \tilde f^{(k)}(t) \, dt
+    = \tilde f^{(k-1})(t) \big|_{-\pi}^\pi
+\]</span>
+Next choose <span class="math inline">\(n\neq 0\)</span> and apply integration by parts
+<span class="math display">\[\begin{align}
+    \widehat{f^{[k]}}(n)
+    &amp;= \dfrac 1 {2\pi}
+    \int_{-\pi}^\pi \tilde f^{(k)}(t)e^{-int} \, dt \\
+    &amp;= \dfrac 1 {2\pi} f^{(k-1)}(t) e^{-int} \big|_{-\pi}^\pi
+    + \dfrac{in} {2\pi} \int_{-\pi}^\pi \tilde f^{(k-1)}(t) e^{-int}\, dt \\
+    &amp;= in \widehat{f^{[k-1]}}(n)
+\end{align}\]</span>
+</details>
+<div class="proposition">
+<p><span id="prp:twiceDiffConv" class="proposition"><strong>Proposition 8.6  (convergence of twice continuously differentiable functions) </strong></span>Given <span class="math inline">\(f:\partial \mathbb C\)</span> twice continuously differentiable,
+then the following sum converges uniformly<br />
+<span class="math display">\[
+    f(\forall z\in \partial D) = \sum_{n=-\infty}^\infty \hat f(n) z^n
+\]</span></p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+Proposition <a href="Fourier.html#prp:fourierDerivative">8.5</a> implies that
+<span class="math display">\[
+    |\hat f(n\neq 0)| = \dfrac{|\hat f(n)|}{n^2} \leq \dfrac{\|f^{[2]}\|_1}{n^2}
+\]</span>
+The inequality follows from <span class="math inline">\(|z^n|\leq 1\)</span> on <span class="math inline">\(\partial D|\)</span> and Cauchy-Schwarz.
+Applying the dominated convergence theorem to the sum proves
+that the partial sums converge continuously (thus uniformly continuously)
+on <span class="math inline">\(\partial D\)</span>.
+</details>
+</div>
+<div id="convolution-and-lp" class="section level3 unnumbered hasAnchor">
+<h3>Convolution and <span class="math inline">\(L^p\)</span><a href="Fourier.html#convolution-and-lp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An orthonormal family <span class="math inline">\(\{e_k\in V\}_{k\in \Gamma}\)</span>
+in a Hilbert space (complete inner product space) satisfies
+<span class="math inline">\(\langle e_j, e_k\rangle= \delta_{jk}\)</span>; note that <span class="math inline">\(\Gamma\)</span> may be uncountable!
+Also recall the following:</p>
+<div class="definition">
+<p><span id="def:unorderedSum" class="definition"><strong>Definition 8.6  (unordered sum) </strong></span>Given an unordered index set <span class="math inline">\(\Gamma\)</span> and <span class="math inline">\(\{f_k\in V\}_{k\in \Gamma}\)</span>,
+where <span class="math inline">\(V\)</span> is a normed vector space, the sum <span class="math inline">\(\sum_{k\in \Gamma}f_k\)</span>
+is said to converge if there exists <span class="math inline">\(g\in V\)</span> such that
+<span class="math inline">\(\forall \epsilon&gt;0\)</span>, there exists a finite subset <span class="math inline">\(\Omega\subset \Gamma\)</span>
+such that
+<span class="math display">\[
+    \left\|g - \sum_{j\in \Omega&#39;} f_j \right\| &lt; \epsilon
+\]</span>
+<em>for all finite</em> <span class="math inline">\(\Omega&#39;\)</span> such that <span class="math inline">\(\Omega\subset \Omega&#39; \subset \Gamma\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:orthonormalBasis" class="definition"><strong>Definition 8.7  (orthonormal basis) </strong></span>An orthonormal family <span class="math inline">\(\{e_k\}_{k\in \Gamma}\)</span> is an orthonormal
+basis of <span class="math inline">\(V\)</span> if every element in <span class="math inline">\(V\)</span> has a decomposition
+<span class="math display">\[
+    f = \sum_{k\in \Gamma} \langle f, e_k\rangle e_k, \quad
+    \sum_{k\in \Gamma} |\langle f, e_k\rangle|^2 &lt; \infty
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:discBasis" class="proposition"><strong>Proposition 8.7  (orthonormal Fourier basis) </strong></span>The Fourier basis <span class="math inline">\(\{z^n\}_{n\in \mathbb Z}\)</span> is an orthonormal
+basis of <span class="math inline">\(L^2(\partial D)\)</span>.</p>
+</div>
+<span style="color:green">
+Using an approximation by twice continuously-differentiable
+functions, show that <span class="math inline">\(f\)</span> not in the span satisfies <span class="math inline">\(\|f\|_2=0\)</span>,
+which implies <span class="math inline">\(f=0\)</span>. Then the span is maximal by the orthogonal
+decomposition.
+</span>
+<details>
+<summary>
+Proof
+</summary>
+Consider <span class="math inline">\(f\)</span> not in the span of <span class="math inline">\(\{z^n\}\)</span>, we have <span class="math inline">\(\langle f, z^n\rangle= 0\)</span>.
+Next fix <span class="math inline">\(\epsilon&gt;0\)</span> and choose a twice continuously differentiable
+function (dense in <span class="math inline">\(L^2\)</span> by approximating step functions) <span class="math inline">\(g\)</span> such that
+<span class="math inline">\(\|f - g\|_2 &lt; \epsilon\)</span>; note that
+<span class="math display">\[\begin{align}
+    \|g\|_2^2
+    &amp;= \sum_{n\in \mathbb Z} |\hat g(n)|^2
+    = \sum_{n\in \mathbb Z} |\widehat{(g-f)}(n)|^2
+    \leq \|g-f\|_2^2
+\end{align}\]</span>
+The second equation holds by <span class="math inline">\(\hat f(n)=0\)</span>.
+Then <span class="math inline">\(\|f\|_2 \leq \|f-g\|_2 + \|g_2\| \leq 2\|f-g\|_2 = 2\epsilon\)</span>.
+</details>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-79" class="corollary"><strong>Corollary 8.1  (convergence in L2) </strong></span>Given <span class="math inline">\(f\in L^2(\partial D)\)</span>, the Fourier series converges to <span class="math inline">\(f\)</span>
+in the norm of <span class="math inline">\(L^2(\partial D)\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-80" class="definition"><strong>Definition 8.8  (convolution on the disc) </strong></span>Given <span class="math inline">\(f, g\in L^1(\partial D)\)</span>, their convolution <span class="math inline">\(f\ast g\)</span> is
+<span class="math display">\[
+    (f\ast g)(z) = \int_{\partial D} f(w) g(z\bar w)\, d\sigma(w)
+\]</span>
+for those <span class="math inline">\(z\)</span> for which the integral makes sense.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:convNorm" class="proposition"><strong>Proposition 8.8  (norm property of convolution) </strong></span>Given <span class="math inline">\(f\in L^1(\partial D)\)</span> and <span class="math inline">\(g\in L^{1\leq p\leq \infty}(\partial D)\)</span>,
+we have
+<span class="math display">\[
+    \|f\ast g\|_p \leq \|f\|_1 \|g\|_p
+\]</span></p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+First derive the following inequality: distribute
+<span class="math inline">\(|\cdot|\)</span>, apply Tonelli, then apply Holder’s inequality.
+<span class="math display">\[\begin{align}
+    \|(f\ast g)h\|_1
+    &amp;= \int_{\partial D} \left|\int_{\partial D}
+        f(w) g(z\bar w)\, d\sigma(w)\,
+    h(z)\right|\, d\sigma(z)  \\
+    &amp;\leq \int_{\partial D} |f(w)| \int_{\partial D}
+        |h(z) g(z\bar w)|\, d\sigma(z)
+    \, d\sigma(w)  \\
+    &amp;\leq \|h\|_{\bar p} \|g\|_p
+    \int_{\partial D} \int_{\partial D}
+        |f(w)|\, d\sigma(w)
+    \leq \|g\|_p \|f\|_1  
+\end{align}\]</span>
+Next recall the variational <span class="math inline">\(p\)</span>-norm formula
+(proposition <a href="Lpspaces.html#prp:variationalPnorm">7.6</a>)
+with suitable generalizations to edge cases to obtain
+<span class="math display">\[
+    \|f\ast g\|_p = \sup_{\|h\in L^{\bar p}(\partial D)\|_{\bar p} = 1}
+    \int_{\partial D} |(f\ast g) h|\, d\sigma
+\]</span>
+Take <span class="math inline">\(\sup_h\)</span> to obtain the desired bound.
+</details>
+<p>As corollaries of the following proposition, we obtain the commutativity
+and associativity of convolution.</p>
+<div class="proposition">
+<p><span id="prp:discConvMultDuality" class="proposition"><strong>Proposition 8.9  (convolution-multiplication duality) </strong></span>Given <span class="math inline">\(f, g\in L^1(\partial D)\)</span> we have
+<span class="math display">\[
+    \widehat{(f\ast g)}(n) = \hat f(n)\hat g(n)
+\]</span></p>
+</div>
+<details>
+<summary>
+Proof
+</summary>
+First note that, by rotation invariance of the measure
+(generalized by the Haar measure), substitute <span class="math inline">\(z\bar w=\xi\iff z=\xi w\)</span>
+to obtain
+<span class="math display">\[\begin{align}
+    \int_{\partial D} g(z\bar w) \overline{z^n}\, d\sigma(z)
+    = \int_{\partial D} g(\xi) \overline{\xi^n w^n}\, d\sigma(\xi)
+    = \bar w^n \hat g(n)
+\end{align}\]</span>
+Next expand the definitions, apply Fubini, then recombine the
+integral to obtain
+<span class="math display">\[\begin{align}
+    \widehat{(f\ast g)}(n)
+    &amp;= \int_{\partial D} (f\ast g)(z)\overline{z^n}\, d\sigma(z) \\
+    &amp;= \int_{\partial D} \bar z^n \int_{\partial D} f(w)g(z\bar w)\, d\sigma(w)\, d\sigma(z) \\
+    &amp;= \int_{\partial D} f(w) \int_{\partial D} g(z\bar w)\bar z^n\, d\sigma(z)\, d\sigma(w) \\
+    &amp;= \hat g(n) \int_{\partial D} f(w) \bar w^n \, d\sigma(w)  
+    = \hat f(n)\hat g(n)
+\end{align}\]</span>
 </details>
 
 </div>

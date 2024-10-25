@@ -6,30 +6,38 @@ Organization:
 
 Key takeaways:
 
-1. Even on a compact domain, the Fourier series of a continuous function 
-    may fail to converge, but strong convergence is 
-    guaranteed for twice continuously differentiable functions.
-    - Pointwise convergence a.e. holds for $L^2(\partial D)$ (difficult, 
-    not included in the textbook).  
-2. The Fourier basis is an orthonormal basis of $L^2(\partial D)$; 
+1. The Fourier series of a continuous function 
+    may fail to converge even on a compact domain, 
+    but the following results hold: 
+    - Strong convergence is guaranteed for twice 
+        continuously differentiable functions (proposition \@ref(prp:twiceDiffConv)); 
+        the main idea here is to bound each term in the 
+        series using the derivative relation of Fourier coefficients. 
+    - An Abel-sum like 
+        correction $\mca P_{0\leq r<1} f$ (definition \@ref(def:discConvFourier)) 
+        converges uniformly to any continuous function 
+        (proposition \@ref(prp:discLimit)). 
+        leading naturally to the definition of the 
+        Poisson kernel (definition \@ref(def:poissonKernel), 
+        a disc version of the Dirac delta). 
+    - The Fourier basis is an orthonormal basis of 
+    $L^2(\partial D)$ (proposition \@ref(prp:discBasis)), so 
+    every $L^2$ function is the $L^2$-limit of its Fourier series. 
+        - This holds by the special Hilbert space structure of $L^2$. 
+2. The definition of sums and a basis becomes nuanced in possibly uncountable-dimensional 
+    vector spaces (definition \@ref(def:orthonormalBasis)). 
+3. Convolution is initially defined in $L^1$. 
+    - Norm property (proposition \@ref(prp:convNorm)). 
+4. The central convolution-multiplication duality \@ref(prp:discConvMultDuality) 
+    relies on a translation-invariant measure and the ability to 
+    exchange integrals. 
 
+<span style="color:green">
+Strengths of the topologies: convergence in $L_p$ 
+norm, pointwise convergence a.e, etc. 
+</span>
 
 ## Compact domain: $\partial D$ {#disc -}
-
-Outline: 
-
-1. We first define the Fourier series (definition \@ref(def:discFourierSeries)) 
-    on the boundary $\partial D$ 
-    of the unit disk, on which $e^{int}\leftrightarrow z^n$ 
-    admits nice algebraic properties. 
-2. There exists continuous functions in $L^1(\partial D)$
-    whose Fourier series fail to converge. However, a Abel-sum like 
-    correction $\mca P_{0\leq r<1} f$ (definition \@ref(def:discConvFourier)) 
-    converges uniformly to any continuous function 
-    (proposition \@ref(prp:discLimit)). 
-    leading naturally to the definition of the 
-    Poisson kernel (definition \@ref(def:poissonKernel), 
-    a disc version of the Dirac delta). 
 
 Let $D=\{z\in \C: |z|<1\}$ denote the open unit disk in the complex 
 plane and $\partial D$ its boundary consisting of 
@@ -96,7 +104,7 @@ Since $(z^n)$ is an orthonormal family, we have
 ### The Poisson kernel {-}
 
 Note that <span style="color:green">
-there are function in $L^1(\partial D)$ 
+there are continuous function in $L^1(\partial D)$ 
 whose Fourier series diverge.</span> 
 The next definition introduces a geometric "correction" 
 of the Fourier series that converges; it also leads naturally 
@@ -179,6 +187,8 @@ Thus the denominator is uniformly (w.r.t. $r$) bounded away from $0$
 while the numerator approaches $0$. 
 </details>
 
+### Convergence results {-}
+
 :::{.proposition #discLimit name="continuous limit of the Poisson-approximate Fourier series"}
 If $f$ is continuous, then $\lim_{r\to 1^-} \|f - \mca P_r f\|_\infty = 0$. 
 In other words, $\mca P_r f$ converges uniformly to $f$. 
@@ -187,4 +197,196 @@ In other words, $\mca P_r f$ converges uniformly to $f$.
 <summary>Proof</summary>
 $f$ is uniformly continuous in $\partial D$, and apply the 
 approximate identity properties of $P_r$ above. 
+</details>
+
+<span style="color:green">
+This does not contradict the fact that the Fourier series 
+of some continuous functions in $L^1(\partial D)$ diverge: 
+in these cases, the $\lim_{r\to 1^-}$ cannot be exchanged 
+with the series sum. 
+</span>
+
+
+:::{.definition name="differentiation"}
+Given $f:\partial D\to \C$, we define $f^{[k]}$ 
+to be the $k$-th derivative $\tilde f^{(k)}$ of $f$ in the chart 
+$[-\pi, \pi)$ with periodic boundary conditions, 
+then expressed back in the $\partial D\subset \C$ chart. 
+:::
+
+:::{.proposition #fourierDerivative name="Fourier coefficients of derivatives"}
+Given $k\in \mbb N$ and $f:\partial D\to \C$ being $k$-times 
+continuously differentiable, then 
+\[ 
+    \widehat{f^{[k]}}(n) = (in)^k \hat f(n)
+\] 
+:::
+<details>
+<summary>Proof</summary>
+For $n=0$, the integral vanishes due to periodic boundary conditions: 
+\[ 
+    \widehat{f^{[k]}}(0) 
+    = \df 1 {2\pi} \int_{-\pi}^\pi \tilde f^{(k)}(t) \, dt 
+    = \tilde f^{(k-1})(t) \big|_{-\pi}^\pi 
+\] 
+Next choose $n\neq 0$ and apply integration by parts 
+\begin{align}
+    \widehat{f^{[k]}}(n)
+    &= \df 1 {2\pi} 
+    \int_{-\pi}^\pi \tilde f^{(k)}(t)e^{-int} \, dt \\ 
+    &= \df 1 {2\pi} f^{(k-1)}(t) e^{-int} \big|_{-\pi}^\pi 
+    + \df {in} {2\pi} \int_{-\pi}^\pi \tilde f^{(k-1)}(t) e^{-int}\, dt \\ 
+    &= in \widehat{f^{[k-1]}}(n)
+\end{align}
+</details>
+
+:::{.proposition #twiceDiffConv name="convergence of twice continuously differentiable functions"}
+Given $f:\partial \C$ twice continuously differentiable, 
+then the following sum converges uniformly  
+\[ 
+    f(\forall z\in \partial D) = \sum_{n=-\infty}^\infty \hat f(n) z^n 
+\] 
+:::
+<details>
+<summary>Proof</summary>
+Proposition \@ref(prp:fourierDerivative) implies that 
+\[ 
+    |\hat f(n\neq 0)| = \df{|\hat f(n)|}{n^2} \leq \df{\|f^{[2]}\|_1}{n^2}
+\] 
+The inequality follows from $|z^n|\leq 1$ on $\partial D|$ and Cauchy-Schwarz. 
+Applying the dominated convergence theorem to the sum proves 
+that the partial sums converge continuously (thus uniformly continuously) 
+on $\partial D$. 
+</details>
+
+### Convolution and $L^p$ {-}
+
+An orthonormal family $\{e_k\in V\}_{k\in \Gamma}$
+in a Hilbert space (complete inner product space) satisfies 
+$\la e_j, e_k\ra = \delta_{jk}$; note that $\Gamma$ may be uncountable!
+Also recall the following: 
+
+:::{.definition #unorderedSum name="unordered sum"}
+Given an unordered index set $\Gamma$ and $\{f_k\in V\}_{k\in \Gamma}$, 
+where $V$ is a normed vector space, the sum $\sum_{k\in \Gamma}f_k$ 
+is said to converge if there exists $g\in V$ such that 
+$\forall \epsilon>0$, there exists a finite subset $\Omega\subset \Gamma$ 
+such that 
+\[ 
+    \left\|g - \sum_{j\in \Omega'} f_j \right\| < \epsilon 
+\] 
+_for all finite_ $\Omega'$ such that $\Omega\subset \Omega' \subset \Gamma$. 
+:::
+
+:::{.definition #orthonormalBasis name="orthonormal basis"}
+An orthonormal family $\{e_k\}_{k\in \Gamma}$ is an orthonormal 
+basis of $V$ if every element in $V$ has a decomposition 
+\[ 
+    f = \sum_{k\in \Gamma} \la f, e_k\ra e_k, \quad 
+    \sum_{k\in \Gamma} |\la f, e_k\ra|^2 < \infty
+\] 
+:::
+
+:::{.proposition #discBasis name="orthonormal Fourier basis"}
+The Fourier basis $\{z^n\}_{n\in \mbb Z}$ is an orthonormal 
+basis of $L^2(\partial D)$. 
+:::
+<span style="color:green">
+Using an approximation by twice continuously-differentiable 
+functions, show that $f$ not in the span satisfies $\|f\|_2=0$, 
+which implies $f=0$. Then the span is maximal by the orthogonal 
+decomposition. 
+</span>
+<details>
+<summary>Proof</summary>
+Consider $f$ not in the span of $\{z^n\}$, we have $\la f, z^n\ra = 0$. 
+Next fix $\epsilon>0$ and choose a twice continuously differentiable 
+function (dense in $L^2$ by approximating step functions) $g$ such that 
+$\|f - g\|_2 < \epsilon$; note that 
+\begin{align}
+    \|g\|_2^2 
+    &= \sum_{n\in \mbb Z} |\hat g(n)|^2 
+    = \sum_{n\in \mbb Z} |\widehat{(g-f)}(n)|^2 
+    \leq \|g-f\|_2^2 
+\end{align}
+The second equation holds by $\hat f(n)=0$. 
+Then $\|f\|_2 \leq \|f-g\|_2 + \|g_2\| \leq 2\|f-g\|_2 = 2\epsilon$. 
+</details>
+
+:::{.corollary name="convergence in L2"}
+Given $f\in L^2(\partial D)$, the Fourier series converges to $f$ 
+in the norm of $L^2(\partial D)$. 
+:::
+
+:::{.definition name="convolution on the disc"}
+Given $f, g\in L^1(\partial D)$, their convolution $f\ast g$ is 
+\[ 
+    (f\ast g)(z) = \int_{\partial D} f(w) g(z\bar w)\, d\sigma(w)
+\] 
+for those $z$ for which the integral makes sense. 
+:::
+
+:::{.proposition #convNorm name="norm property of convolution"}
+Given $f\in L^1(\partial D)$ and $g\in L^{1\leq p\leq \infty}(\partial D)$, 
+we have 
+\[ 
+    \|f\ast g\|_p \leq \|f\|_1 \|g\|_p 
+\] 
+:::
+<details>
+<summary>Proof</summary>
+First derive the following inequality: distribute 
+$|\cdot|$, apply Tonelli, then apply Holder's inequality. 
+\begin{align}
+    \|(f\ast g)h\|_1
+    &= \int_{\partial D} \left|\int_{\partial D}
+        f(w) g(z\bar w)\, d\sigma(w)\, 
+    h(z)\right|\, d\sigma(z)  \\ 
+    &\leq \int_{\partial D} |f(w)| \int_{\partial D}
+        |h(z) g(z\bar w)|\, d\sigma(z) 
+    \, d\sigma(w)  \\ 
+    &\leq \|h\|_{\bar p} \|g\|_p 
+    \int_{\partial D} \int_{\partial D} 
+        |f(w)|\, d\sigma(w)
+    \leq \|g\|_p \|f\|_1  
+\end{align}
+Next recall the variational $p$-norm formula 
+(proposition \@ref(prp:variationalPnorm))
+with suitable generalizations to edge cases to obtain 
+\[ 
+    \|f\ast g\|_p = \sup_{\|h\in L^{\bar p}(\partial D)\|_{\bar p} = 1} 
+    \int_{\partial D} |(f\ast g) h|\, d\sigma
+\] 
+Take $\sup_h$ to obtain the desired bound. 
+</details>
+
+As corollaries of the following proposition, we obtain the commutativity
+and associativity of convolution. 
+
+:::{.proposition #discConvMultDuality name="convolution-multiplication duality"}
+Given $f, g\in L^1(\partial D)$ we have 
+\[ 
+    \widehat{(f\ast g)}(n) = \hat f(n)\hat g(n)
+\] 
+:::
+<details>
+<summary>Proof</summary>
+First note that, by rotation invariance of the measure 
+(generalized by the Haar measure), substitute $z\bar w=\xi\iff z=\xi w$ 
+to obtain 
+\begin{align}
+    \int_{\partial D} g(z\bar w) \overline{z^n}\, d\sigma(z) 
+    = \int_{\partial D} g(\xi) \overline{\xi^n w^n}\, d\sigma(\xi) 
+    = \bar w^n \hat g(n) 
+\end{align}
+Next expand the definitions, apply Fubini, then recombine the 
+integral to obtain 
+\begin{align}
+    \widehat{(f\ast g)}(n) 
+    &= \int_{\partial D} (f\ast g)(z)\overline{z^n}\, d\sigma(z) \\ 
+    &= \int_{\partial D} \bar z^n \int_{\partial D} f(w)g(z\bar w)\, d\sigma(w)\, d\sigma(z) \\ 
+    &= \int_{\partial D} f(w) \int_{\partial D} g(z\bar w)\bar z^n\, d\sigma(z)\, d\sigma(w) \\ 
+    &= \hat g(n) \int_{\partial D} f(w) \bar w^n \, d\sigma(w)  
+    = \hat f(n)\hat g(n)
+\end{align}
 </details>

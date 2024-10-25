@@ -153,6 +153,16 @@ def:poissonKernel
 prp:unlabeled-div-76
 prp:unlabeled-div-77
 prp:discLimit
+def:unlabeled-div-78
+prp:fourierDerivative
+prp:twiceDiffConv
+def:unorderedSum
+def:orthonormalBasis
+prp:discBasis
+cor:unlabeled-div-79
+def:unlabeled-div-80
+prp:convNorm
+prp:discConvMultDuality
 prelimaries
 abstractMachinery
 realMeasures
