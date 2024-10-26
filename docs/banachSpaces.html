@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-25" />
+<meta name="date" content="2024-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,6 +147,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Normed spaces, Hahn-Banach</a></li>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#kolmorogorov-arnold-theorem"><i class="fa fa-check"></i>Kolmorogorov-Arnold theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Lpspaces.html"><a href="Lpspaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
@@ -750,6 +751,122 @@ implying
 Thus <span class="math inline">\(\|T\| \leq \|\pi\|^{-1}\)</span>, establishing
 the boundedness of <span class="math inline">\(T\)</span>.
 </details>
+</div>
+<div id="kolmorogorov-arnold-theorem" class="section level2 unnumbered hasAnchor">
+<h2>Kolmorogorov-Arnold theorem<a href="banachSpaces.html#kolmorogorov-arnold-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let <span class="math inline">\(\mathbb I\)</span> denote the compact interval <span class="math inline">\([0, 1]\)</span>
+and <span class="math inline">\(C(\mathbb I)\)</span> the Banach space of continuous
+functions <span class="math inline">\(\mathbb I\to \mathbb R\)</span> equipped with the supremum norm
+<span class="math display">\[
+    \|f\| = \sup_{x\in [0, 1]} |f(x)|
+\]</span>
+Completeness follows from the completeness of <span class="math inline">\(\mathbb R\)</span>
+and uniform continuity on a compact interval.
+We also equip <span class="math inline">\(C(I)^n\)</span> with the following norm
+<span class="math display" id="eq:productIntNorm">\[
+    \|f\in C(I)^n\| = \max_{j\in [n]} \|f_j\|
+    \tag{6.2}
+\]</span></p>
+<div class="lemma">
+<p><span id="lem:qCoeffs" class="lemma"><strong>Lemma 6.3  (rational-distinguishing coefficients) </strong></span>For each <span class="math inline">\(n\in \mathbb N\)</span> there exist real numbers
+<span class="math inline">\(\lambda_1, \cdots, \lambda_n\in \mathbb R\)</span> such that
+for all <span class="math inline">\(x_1, \cdots, x_n, y_1, \cdots, y_n\in \mathbb Q\)</span>,
+<span class="math display">\[
+    \sum_j \lambda_j x_j = \sum_j \lambda_j y_j \implies
+    x_{\forall j} = y_j
+\]</span></p>
+</div>
+<p><em>Proof:</em> Choose <span class="math inline">\(\lambda_j\)</span> to be linearly independent
+over <span class="math inline">\(\mathbb Q\)</span>.</p>
+<p>To reduce clutter, given a choice of coefficients
+<span class="math inline">\(\lambda\in \mathbb R^n\)</span> and embeddings <span class="math inline">\(\phi\in C(\mathbb I)^n\)</span>,
+define the separately-continuous
+embedding functions <span class="math inline">\(\Phi_j: \mathbb I^n\to \mathbb R\)</span> by
+<span class="math display" id="eq:embeddingShorthand">\[
+    \Phi_j(x_1, \cdots, x_n)
+    = \sum_{j=1}^n \lambda_j \phi_j(x_j)
+    \tag{6.3}
+\]</span></p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-68" class="lemma"><strong>Lemma 6.4  (approximate embeddings are dense open subset) </strong></span>Fixing <span class="math inline">\(\lambda\)</span> satisfying lemma <a href="banachSpaces.html#lem:qCoeffs">6.3</a>
+and <span class="math inline">\(f\in C(\mathbb I^2)\)</span> with <span class="math inline">\(\|f\|=1\)</span>, let
+<span class="math inline">\(U_f\subset C(\mathbb I)^5\)</span> consist of tuples
+<span class="math inline">\((\phi_1, \cdots, \phi_5)\in C(I)^5\)</span> satisfying</p>
+<ul>
+<li><span class="math inline">\(\exists g\in C(\mathbb R) \text{ such that } \|g\|\leq \dfrac 1 7\)</span>, and</li>
+<li><span class="math inline">\(\displaystyle \forall x, y\in I^2: \left|  f(x, y) - \sum_{j=1}^5 (g\circ \Phi_j)(x, y)  \right| &lt; \dfrac 7 8\)</span>, with <span class="math inline">\(\Phi_j\)</span> defined
+as in equation <a href="banachSpaces.html#eq:embeddingShorthand">(6.3)</a>.</li>
+</ul>
+<p>Then <span class="math inline">\(\forall f\in C(\mathbb I^2)\)</span>, the set <span class="math inline">\(U_f\)</span> of embeddings
+which allow <span class="math inline">\(g\)</span>-approximations of <span class="math inline">\(f\)</span>
+is a <em>dense open</em> subset of <span class="math inline">\(C(\mathbb I)^5\)</span>.</p>
+</div>
+<p>Proof idea:
+Openness is easy to argue, to open density, fix
+<span class="math inline">\(\phi^0\in C(\mathbb I)^n\)</span> and</p>
+<ol style="list-style-type: decimal">
+<li>Create a atrous redundant tiling <span class="math inline">\(R_1, \cdots, R_{2n+1}\)</span>
+of <span class="math inline">\(\mathbb I\)</span>, each covering <span class="math inline">\(1/(2n+1)\)</span> of <span class="math inline">\(\mathbb I\)</span>
+with a fine enough resolution.</li>
+<li>Choose <span class="math inline">\(\epsilon\)</span>-approximation
+<span class="math inline">\(\phi_j\sim \phi_j^0\)</span> that is constant rational on
+each tile <span class="math inline">\(R_j\)</span>, distinct on the disconnected pieces of
+<span class="math inline">\(R_j\)</span>, and distinct from any <span class="math inline">\(\phi_{k\neq j}\)</span> everywhere
+on their designated intervals <span class="math inline">\(R_j, R_k\)</span>.</li>
+</ol>
+<p>Fixing <span class="math inline">\(f, \lambda\)</span>, the set <span class="math inline">\(U_f\)</span> is apparantly
+open since the same <span class="math inline">\(g\)</span> which works for <span class="math inline">\((\phi_j)\)</span> will also
+work for a neighborhood of <span class="math inline">\((\phi_j)\)</span> by continuity.
+To prove <span class="math inline">\(U_f\)</span> dense, we need to demonstrate:</p>
+<ul>
+<li>For every <span class="math inline">\(\phi^0_1, \cdots, \phi^0_5\in C(\mathbb I)^5\)</span>
+and <span class="math inline">\(\epsilon&gt;0\)</span>, there exists <span class="math inline">\(\phi_1, \cdots, \phi_5\in U_f\)</span>
+such that <span class="math inline">\(\|\phi - \phi^0\|&lt;\epsilon\)</span> as in equation <a href="banachSpaces.html#eq:productIntNorm">(6.2)</a>.</li>
+</ul>
+<p>Fixing a positive integer <span class="math inline">\(N\)</span> (we’ll specify it later),
+for each <span class="math inline">\(j\in \{1, \cdots, 5\}\)</span> we can consider
+the set of all intervals
+<span class="math display">\[
+    R_j = \bigcup_{s=0}^{N-1} \left[\dfrac s N, \dfrac{s+1}{N}\right]
+    1_{s\neq j-1\mod 5}, \quad j\in \{1, \cdots, 5\}
+\]</span>
+Let <span class="math inline">\(R_{jk}\)</span> denote the almost-disjoint subintervals
+in the union, we call each <span class="math inline">\(R_{jk}\)</span> the <span class="math inline">\(k\)</span>-th red
+interval of rank <span class="math inline">\(j\)</span>. The following properties are satisfied:</p>
+<ul>
+<li>Each <span class="math inline">\(R_j\)</span> covers at most <span class="math inline">\(4/5\)</span>,
+and each <span class="math inline">\(R_{jk}\)</span> covers <span class="math inline">\(4/N\)</span> of <span class="math inline">\(\mathbb I\)</span>.</li>
+<li>Almost every <span class="math inline">\(x\in \mathbb I\)</span> is contained in at most <span class="math inline">\(3\)</span>
+of the subintervals <span class="math inline">\(R_{jk}\)</span> for distinct <span class="math inline">\(j\)</span>’s.</li>
+</ul>
+<p>Fixing <span class="math inline">\(\phi^0\in C(\mathbb I)^5\)</span> and <span class="math inline">\(\epsilon&gt;0\)</span>,
+there clearly exists <span class="math inline">\(N\)</span> large enough such that
+there exists <span class="math inline">\(\phi \in C(\mathbb I)^5\)</span> satisfying:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\|\phi - \phi^0\| &lt; \epsilon\)</span>.</li>
+<li>each <span class="math inline">\(\phi_j\)</span> constant and equal to a rational number
+on each <span class="math inline">\(R_{jk}\)</span>.
+<ul>
+<li>Follows from the arbitrariness of <span class="math inline">\(N\)</span>, uniform continuity
+of <span class="math inline">\(\phi_j^0\)</span>, and the density of <span class="math inline">\(\mathbb Q\subset \mathbb R\)</span>.</li>
+</ul></li>
+<li><span class="math inline">\(\phi_j(R_{jk})\neq \phi_j(R_{jl})\)</span> for <span class="math inline">\(k\neq l\)</span>.</li>
+<li><span class="math inline">\(\phi_j(x) \neq \phi_k(z)\)</span> for all <span class="math inline">\(x\in R_j, z\in R_k\)</span>.</li>
+</ol>
+<p>In spirit, each <span class="math inline">\(\phi_j\)</span> is responsible for approximating
+<span class="math inline">\(\phi_j^0\)</span> on <span class="math inline">\(R_j\)</span> and is unconstrained elsewhere.
+Next define the red rectangles <span class="math inline">\(r_{jk}\)</span> of rank <span class="math inline">\(j\)</span>
+to be the disconnected components of <span class="math inline">\(R_j\times R_j\subset \mathbb I^2\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>The distance between any two points in one <span class="math inline">\(R_{jk}\)</span> is
+<span class="math inline">\(\leq \sqrt{2\cdot (4/N)^2} = \sqrt{32}/N\)</span>.</li>
+<li>By construction of <span class="math inline">\(\lambda\)</span> satisfying lemma <a href="banachSpaces.html#lem:qCoeffs">6.3</a>,
+the contant value
+<span class="math display">\[
+     \Phi_j(R_{jr}) = \Phi_k(R_{ks})
+     \implies (j, r) = (k, s)
+\]</span></li>
+</ol>
 
 </div>
 </div>

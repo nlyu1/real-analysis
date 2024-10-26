@@ -344,8 +344,8 @@ we have
 :::
 <details>
 <summary>Proof</summary>
-First derive the following inequality: distribute 
-$|\cdot|$, apply Tonelli, then apply Holder's inequality. 
+First derive the following inequality for $\|h\|_{\bar p}\leq 1$: 
+distribute $|\cdot|$, apply Tonelli, then apply Holder's inequality. 
 \begin{align}
     \|(f\ast g)h\|_1
     &= \int_{\partial D} \left|\int_{\partial D}
@@ -355,7 +355,7 @@ $|\cdot|$, apply Tonelli, then apply Holder's inequality.
         |h(z) g(z\bar w)|\, d\sigma(z) 
     \, d\sigma(w)  \\ 
     &\leq \|h\|_{\bar p} \|g\|_p 
-    \int_{\partial D} \int_{\partial D} 
+    \int_{\partial D} 
         |f(w)|\, d\sigma(w)
     \leq \|g\|_p \|f\|_1  
 \end{align}
@@ -410,7 +410,7 @@ Given $f\in L^p(\partial D)$ for $1\leq p<\infty$
 <summary>Proof</summary>
 Let $g:\mca D\to \C$ be a continuous function with $\|f-g\|_p < \epsilon$. 
 By proposition \@ref(prp:discLimit), there exists $R\in [0, 1)$ such that 
-\|g - \mca P_{\forall r\in (R, 1)} g\|_\infty < \epsilon$. 
+$\|g - \mca P_{\forall r\in (R, 1)} g\|_\infty < \epsilon$. 
 Noting that $\mca P_r f = P_r \ast f$, $\|P_r\|_1\leq 1$, and 
 proposition \@ref(prp:convNorm): 
 \begin{align}

@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu" />
 
 
-<meta name="date" content="2024-10-25" />
+<meta name="date" content="2024-10-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -147,6 +147,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#vectorSpace"><i class="fa fa-check"></i>Normed spaces, Hahn-Banach</a></li>
 <li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#banachSpace"><i class="fa fa-check"></i>Banach theorems</a></li>
+<li class="chapter" data-level="" data-path="banachSpaces.html"><a href="banachSpaces.html#kolmorogorov-arnold-theorem"><i class="fa fa-check"></i>Kolmorogorov-Arnold theorem</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="Lpspaces.html"><a href="Lpspaces.html"><i class="fa fa-check"></i><b>7</b> <span class="math inline">\(L^p\)</span> Spaces</a>
 <ul>
@@ -236,7 +237,7 @@ saturation of Young’s inequality.
 <div id="convexAnalysis" class="section level2 unnumbered hasAnchor">
 <h2>Convexity<a href="Lpspaces.html#convexAnalysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="definition">
-<p><span id="def:unlabeled-div-68" class="definition"><strong>Definition 7.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
+<p><span id="def:unlabeled-div-69" class="definition"><strong>Definition 7.1  (convex set and function) </strong></span>A convex set <span class="math inline">\(K\subset \mathbb R^n\)</span> is closed under
 <span class="math inline">\((x, y)\mapsto \lambda x + \bar y\)</span>
 for all <span class="math inline">\(\lambda \in [0, 1]\)</span>. A <strong>convex function</strong>
 on a convex set <span class="math inline">\(K\)</span> is a real-valued function satisfying
@@ -248,10 +249,10 @@ the function <span class="math inline">\(f\)</span> is <strong>strictly convex</
 inequality is strict for all <span class="math inline">\(y\)</span>.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-69" class="proposition"><strong>Proposition 7.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
+<p><span id="prp:unlabeled-div-70" class="proposition"><strong>Proposition 7.1  </strong></span>If <span class="math inline">\(K\)</span> is an open set, then a convex function on <span class="math inline">\(K\)</span> is continuous.</p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-70" class="definition"><strong>Definition 7.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
+<p><span id="def:unlabeled-div-71" class="definition"><strong>Definition 7.2  (support plane) </strong></span>The support plane to a graph of <span class="math inline">\(f:K\to \mathbb R\)</span> at
 <span class="math inline">\(x\in K\subset \mathbb R^n\)</span> is a plane in <span class="math inline">\(\mathbb R^{n+1}\)</span> that
 touches <span class="math inline">\((x, f(x))\)</span> and that nowhere lies above the graph;
 if the support plane at <span class="math inline">\(x\)</span> is unique, then it is the tangent plane.</p>
@@ -270,7 +271,7 @@ a vector <span class="math inline">\(V\in \mathbb R^n\)</span> such that
     \tag{7.1}
 \]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-71" class="definition"><strong>Definition 7.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
+<p><span id="def:unlabeled-div-72" class="definition"><strong>Definition 7.3  (Hölder conjugate) </strong></span>The Hölder conjugate of <span class="math inline">\(p&gt;1\)</span> is given by the equation
 <span class="math display">\[
     p^{-1} + q^{-1} = 1
 \]</span>
@@ -305,7 +306,7 @@ of the Legendre transform.
 Equality is saturated when <span class="math inline">\(a=b^{1/(p-1)} \iff a^p = b^q\)</span>.
 </details>
 <div class="definition">
-<p><span id="def:unlabeled-div-72" class="definition"><strong>Definition 7.4  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
+<p><span id="def:unlabeled-div-73" class="definition"><strong>Definition 7.4  (average of a measurable function) </strong></span>Assuming <span class="math inline">\(\mu(\Omega)\)</span> is finite, the expectation (average) of
 a measurable function <span class="math inline">\(f:\Omega\to \mathbb R\)</span> is defined as
 <span class="math display">\[
     \langle f\rangle= \dfrac 1 {\mu(\Omega)} \int_\Omega f\, d\mu
@@ -475,7 +476,7 @@ Holder’s inequality is not implied by Young’s.
 </span>
 </details>
 <div class="remark">
-<p><span id="unlabeled-div-73" class="remark"><em>Remark</em> (counterexample). </span>For <span class="math inline">\(p=\infty\)</span>, consider the non <span class="math inline">\(\sigma\)</span>-finite measure
+<p><span id="unlabeled-div-74" class="remark"><em>Remark</em> (counterexample). </span>For <span class="math inline">\(p=\infty\)</span>, consider the non <span class="math inline">\(\sigma\)</span>-finite measure
 on <span class="math inline">\(X=\{b\}\)</span> with <span class="math inline">\(\mu(\emptyset)=0, \mu(\{b\})=\infty\)</span>.
 Then <span class="math inline">\(L^1=\{0\}\)</span>. For the constant function <span class="math inline">\(f=1\)</span>, we have
 <span class="math inline">\(\|f\|_\infty = 1\)</span> (recall definition <a href="Lpspaces.html#def:LpDef">7.5</a> carefully).</p>
