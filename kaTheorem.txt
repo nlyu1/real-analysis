@@ -1,0 +1,120 @@
+## Kolmorogorov-Arnold theorem {-}
+
+Let $\mbb I$ denote the compact interval $[0, 1]$ 
+and $C(\mbb I)$ the Banach space of continuous 
+functions $\mbb I\to \R$ equipped with the supremum norm 
+\[
+    \|f\| = \sup_{x\in [0, 1]} |f(x)|
+\]
+Completeness follows from the completeness of $\R$ 
+and uniform continuity on a compact interval. 
+We also equip $C(I)^n$ with the following norm 
+\[
+    \|f\in C(I)^n\| = \max_{j\in [n]} \|f_j\|
+    (\#eq:productIntNorm)
+\]
+
+:::{.lemma #qCoeffs name="rational-distinguishing coefficients"}
+For each $n\in \mbb N$ there exist real numbers 
+$\lambda_1, \cdots, \lambda_n\in \R$ such that 
+for all $x_1, \cdots, x_n, y_1, \cdots, y_n\in \mbb Q$,
+\[
+    \sum_j \lambda_j x_j = \sum_j \lambda_j y_j \implies 
+    x_{\forall j} = y_j 
+\]
+:::
+_Proof:_ Choose $\lambda_j$ to be linearly independent 
+over $\mbb Q$. 
+
+To reduce clutter, given a choice of coefficients 
+$\lambda\in \R^n$ and embeddings $\phi\in C(\mbb I)^n$, 
+define the separately-continuous 
+embedding functions $\Phi_j: \mbb I^n\to \R$ by 
+\[
+    \Phi_j(x_1, \cdots, x_n) 
+    = \sum_{j=1}^n \lambda_j \phi_j(x_j)
+    (\#eq:embeddingShorthand)
+\]
+
+
+:::{.lemma name="approximate embeddings are dense open subset"}
+Fixing $\lambda$ satisfying lemma \@ref(lem:qCoeffs) 
+and $f\in C(\mbb I^2)$ with $\|f\|=1$, let 
+$U_f\subset C(\mbb I)^5$ consist of tuples 
+$(\phi_1, \cdots, \phi_5)\in C(I)^5$ satisfying 
+
+- $\exists g\in C(\R) \text{ such that } \|g\|\leq \df 1 7$, and 
+- $\displaystyle \forall x, y\in I^2: \left|
+            f(x, y) - \sum_{j=1}^5 (g\circ \Phi_j)(x, y)
+        \right| < \df 7 8$, with $\Phi_j$ defined 
+    as in equation \@ref(eq:embeddingShorthand). 
+    
+Then $\forall f\in C(\mbb I^2)$, the set $U_f$ of embeddings 
+which allow $g$-approximations of $f$ 
+is a _dense open_ subset of $C(\mbb I)^5$. 
+:::
+
+Proof idea: 
+Openness is easy to argue, to open density, fix 
+$\phi^0\in C(\mbb I)^n$ and 
+
+1. Create a atrous redundant tiling $R_1, \cdots, R_{2n+1}$ 
+    of $\mbb I$, each covering $1/(2n+1)$ of $\mbb I$ 
+    with a fine enough resolution. 
+2. Choose $\epsilon$-approximation 
+    $\phi_j\sim \phi_j^0$ that is constant rational on 
+    each tile $R_j$, distinct on the disconnected pieces of 
+    $R_j$, and distinct from any $\phi_{k\neq j}$ everywhere 
+    on their designated intervals $R_j, R_k$.
+
+
+Fixing $f, \lambda$, the set $U_f$ is apparantly 
+open since the same $g$ which works for $(\phi_j)$ will also 
+work for a neighborhood of $(\phi_j)$ by continuity. 
+To prove $U_f$ dense, we need to demonstrate: 
+
+- For every $\phi^0_1, \cdots, \phi^0_5\in C(\mbb I)^5$ 
+and $\epsilon>0$, there exists $\phi_1, \cdots, \phi_5\in U_f$ 
+such that $\|\phi - \phi^0\|<\epsilon$ as in equation \@ref(eq:productIntNorm).
+
+Fixing a positive integer $N$ (we'll specify it later), 
+for each $j\in \{1, \cdots, 5\}$ we can consider 
+the set of all intervals 
+\[
+    R_j = \bigcup_{s=0}^{N-1} \left[\df s N, \df{s+1}{N}\right] 
+    1_{s\neq j-1\mod 5}, \quad j\in \{1, \cdots, 5\}
+\]
+Let $R_{jk}$ denote the almost-disjoint subintervals 
+in the union, we call each $R_{jk}$ the $k$-th red 
+interval of rank $j$. The following properties are satisfied: 
+
+- Each $R_j$ covers at most $4/5$, 
+and each $R_{jk}$ covers $4/N$ of $\mbb I$. 
+- Almost every $x\in \mbb I$ is contained in at most $3$ 
+of the subintervals $R_{jk}$ for distinct $j$'s. 
+
+Fixing $\phi^0\in C(\mbb I)^5$ and $\epsilon>0$, 
+there clearly exists $N$ large enough such that 
+there exists $\phi \in C(\mbb I)^5$ satisfying: 
+
+1. $\|\phi - \phi^0\| < \epsilon$. 
+2. each $\phi_j$ constant and equal to a rational number 
+    on each $R_{jk}$.
+    - Follows from the arbitrariness of $N$, uniform continuity 
+    of $\phi_j^0$, and the density of $\mbb Q\subset \mbb R$. 
+3. $\phi_j(R_{jk})\neq \phi_j(R_{jl})$ for $k\neq l$. 
+4. $\phi_j(x) \neq \phi_k(z)$ for all $x\in R_j, z\in R_k$. 
+
+In spirit, each $\phi_j$ is responsible for approximating 
+$\phi_j^0$ on $R_j$ and is unconstrained elsewhere. 
+Next define the red rectangles $r_{jk}$ of rank $j$ 
+to be the disconnected components of $R_j\times R_j\subset \mbb I^2$. 
+
+1. The distance between any two points in one $R_{jk}$ is 
+    $\leq \sqrt{2\cdot (4/N)^2} = \sqrt{32}/N$. 
+2. By construction of $\lambda$ satisfying lemma \@ref(lem:qCoeffs), 
+    the contant value 
+    \[ 
+        \Phi_j(R_{jr}) = \Phi_k(R_{ks}) 
+        \implies (j, r) = (k, s)
+    \] 
