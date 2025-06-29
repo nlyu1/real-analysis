@@ -420,7 +420,3 @@ proposition \@ref(prp:convNorm):
     &<2\epsilon + \|P_r\|_1 \|g-f\|_p < 3\epsilon 
 \end{align}
 </details>
-
-## The Haar measure {#haar -}
-
-## The dual group, Fourier transform {#fourierTransform -}

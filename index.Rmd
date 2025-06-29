@@ -74,10 +74,7 @@ deviate quite a bit from lecture materials, in particular:
     - Hunter. 
 3. [Lebesgue integral](#integration), 
     Littlewood's three principles, and integral convergence theorems. 
-    - Rudin, , chapter 11; Axler, chapter 2; Lieb and Loss, chapter 1. 
-4. [Iterated integrals](#iteratedIntegrals}): uniqueness of product measure 
-    and Fubini's theorem. 
-    - Lieb and Loss, chapter 1. 
+    - Rudin, chapter 11; Axler, chapter 2; Lieb and Loss, chapter 1. 
 5. [Spaces of functions](#banachSpaces): 
     normed vector spaces, dual space of bounded linear functionals,  
     and the Hahn-Banach theorem; Baire's theorem and other Banach theorems. 
@@ -113,7 +110,6 @@ References for these notes
 4. <u>Hahn-Banach, hyperplane separation</u> theorems:
     for every extension of a bounded linear functional, there exists a 
     norm-minimizing one which preserves the original norm. 
-4. <u>Fubini's theorem</u>
 5. <u>Baire's theorem</u> \@ref(thm:baire): for 
     every cover of a complete metric space 
     by closed sets, there exists an element with nonempty interior. 
